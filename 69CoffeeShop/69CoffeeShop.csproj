@@ -202,16 +202,16 @@
     <Compile Include="Employees\FormPayroll.Designer.cs">
       <DependentUpon>FormPayroll.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormAdmin.cs">
+    <Compile Include="Admins\FormAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormAdmin.Designer.cs">
+    <Compile Include="Admins\FormAdmin.Designer.cs">
       <DependentUpon>FormAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormAdminLogin.cs">
+    <Compile Include="Admins\FormAdminLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormAdminLogin.Designer.cs">
+    <Compile Include="Admins\FormAdminLogin.Designer.cs">
       <DependentUpon>FormAdminLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormBackupNRestore.cs">
@@ -393,10 +393,10 @@
     <EmbeddedResource Include="Employees\FormPayroll.resx">
       <DependentUpon>FormPayroll.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormAdmin.resx">
+    <EmbeddedResource Include="Admins\FormAdmin.resx">
       <DependentUpon>FormAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormAdminLogin.resx">
+    <EmbeddedResource Include="Admins\FormAdminLogin.resx">
       <DependentUpon>FormAdminLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormBackupNRestore.resx">

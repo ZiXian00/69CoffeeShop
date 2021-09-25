@@ -30,9 +30,9 @@ namespace _69CoffeeShop.Forms
         private void InitializeComponent()
         {
             this.groupBoxEmployeeDetails = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxID = new System.Windows.Forms.TextBox();
             this.labelID = new System.Windows.Forms.Label();
             this.lblFrgtPw = new System.Windows.Forms.Label();
             this.buttonLogin = new System.Windows.Forms.Button();
@@ -41,57 +41,51 @@ namespace _69CoffeeShop.Forms
             // 
             // groupBoxEmployeeDetails
             // 
-            this.groupBoxEmployeeDetails.Controls.Add(this.textBox1);
+            this.groupBoxEmployeeDetails.Controls.Add(this.textBoxPassword);
             this.groupBoxEmployeeDetails.Controls.Add(this.label1);
-            this.groupBoxEmployeeDetails.Controls.Add(this.textBox2);
+            this.groupBoxEmployeeDetails.Controls.Add(this.textBoxID);
             this.groupBoxEmployeeDetails.Controls.Add(this.labelID);
             this.groupBoxEmployeeDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxEmployeeDetails.Location = new System.Drawing.Point(198, 71);
-            this.groupBoxEmployeeDetails.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBoxEmployeeDetails.Location = new System.Drawing.Point(148, 58);
             this.groupBoxEmployeeDetails.Name = "groupBoxEmployeeDetails";
-            this.groupBoxEmployeeDetails.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBoxEmployeeDetails.Size = new System.Drawing.Size(408, 260);
+            this.groupBoxEmployeeDetails.Size = new System.Drawing.Size(306, 211);
             this.groupBoxEmployeeDetails.TabIndex = 5;
             this.groupBoxEmployeeDetails.TabStop = false;
             this.groupBoxEmployeeDetails.Text = "Login";
             // 
-            // textBox1
+            // textBoxPassword
             // 
-            this.textBox1.Location = new System.Drawing.Point(200, 137);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(180, 30);
-            this.textBox1.TabIndex = 5;
-            this.textBox1.UseSystemPasswordChar = true;
+            this.textBoxPassword.Location = new System.Drawing.Point(150, 111);
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.Size = new System.Drawing.Size(136, 26);
+            this.textBoxPassword.TabIndex = 5;
+            this.textBoxPassword.UseSystemPasswordChar = true;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(56, 140);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(42, 114);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 25);
+            this.label1.Size = new System.Drawing.Size(90, 20);
             this.label1.TabIndex = 4;
             this.label1.Text = "Password : ";
             // 
-            // textBox2
+            // textBoxID
             // 
-            this.textBox2.Location = new System.Drawing.Point(200, 78);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(132, 30);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.Text = "1002";
+            this.textBoxID.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBoxID.Location = new System.Drawing.Point(150, 63);
+            this.textBoxID.Name = "textBoxID";
+            this.textBoxID.Size = new System.Drawing.Size(136, 26);
+            this.textBoxID.TabIndex = 3;
             // 
             // labelID
             // 
             this.labelID.AutoSize = true;
             this.labelID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelID.Location = new System.Drawing.Point(27, 81);
-            this.labelID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelID.Location = new System.Drawing.Point(20, 66);
             this.labelID.Name = "labelID";
-            this.labelID.Size = new System.Drawing.Size(139, 25);
+            this.labelID.Size = new System.Drawing.Size(112, 20);
             this.labelID.TabIndex = 0;
             this.labelID.Text = "Employee ID : ";
             // 
@@ -100,10 +94,9 @@ namespace _69CoffeeShop.Forms
             this.lblFrgtPw.AutoSize = true;
             this.lblFrgtPw.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFrgtPw.ForeColor = System.Drawing.Color.Blue;
-            this.lblFrgtPw.Location = new System.Drawing.Point(194, 338);
-            this.lblFrgtPw.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFrgtPw.Location = new System.Drawing.Point(146, 275);
             this.lblFrgtPw.Name = "lblFrgtPw";
-            this.lblFrgtPw.Size = new System.Drawing.Size(148, 20);
+            this.lblFrgtPw.Size = new System.Drawing.Size(119, 16);
             this.lblFrgtPw.TabIndex = 7;
             this.lblFrgtPw.Text = "Forgot password ?";
             this.lblFrgtPw.Click += new System.EventHandler(this.lblFrgtPw_Click);
@@ -111,24 +104,26 @@ namespace _69CoffeeShop.Forms
             // buttonLogin
             // 
             this.buttonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLogin.Location = new System.Drawing.Point(463, 338);
-            this.buttonLogin.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonLogin.Location = new System.Drawing.Point(347, 275);
             this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(143, 41);
+            this.buttonLogin.Size = new System.Drawing.Size(107, 33);
             this.buttonLogin.TabIndex = 6;
             this.buttonLogin.Text = "Login";
             this.buttonLogin.UseVisualStyleBackColor = true;
+            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
             // FormAdminLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.groupBoxEmployeeDetails);
             this.Controls.Add(this.lblFrgtPw);
             this.Controls.Add(this.buttonLogin);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormAdminLogin";
-            this.Text = "FormAdminLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Admin Login";
             this.groupBoxEmployeeDetails.ResumeLayout(false);
             this.groupBoxEmployeeDetails.PerformLayout();
             this.ResumeLayout(false);
@@ -139,9 +134,9 @@ namespace _69CoffeeShop.Forms
         #endregion
 
         private System.Windows.Forms.GroupBox groupBoxEmployeeDetails;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxID;
         private System.Windows.Forms.Label labelID;
         private System.Windows.Forms.Label lblFrgtPw;
         private System.Windows.Forms.Button buttonLogin;

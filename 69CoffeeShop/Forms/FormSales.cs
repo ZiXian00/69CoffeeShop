@@ -12,6 +12,7 @@ using System.Configuration;
 using System.Windows;
 using NuGet.Protocol.Plugins;
 using MessageBox = System.Windows.MessageBox;
+using System.IO;
 
 namespace _69CoffeeShop.Forms
 {
@@ -31,7 +32,6 @@ namespace _69CoffeeShop.Forms
             panelMenu.AutoScroll = false;
             panelMenu.VerticalScroll.Visible = false;
             panelMenu.AutoScroll = true;
-            string imgPath;
             string prodName;
             double prodPrice;            
 
@@ -41,10 +41,11 @@ namespace _69CoffeeShop.Forms
             MySqlDataReader loadReader = loadComm.ExecuteReader();
             while (loadReader.Read())
             {
-                imgPath = loadReader["imageURL"].ToString();
+                byte[] img = (byte[])loadReader["productImage"];
+                MemoryStream ms = new MemoryStream(img);
                 prodName = loadReader["productName"].ToString();
                 prodPrice = double.Parse(loadReader["unitPrice"].ToString());
-                btn = new Button { BackgroundImage = Image.FromFile(imgPath), Text = prodName, TextImageRelation = TextImageRelation.ImageAboveText, Height = 180, Width = 180, BackgroundImageLayout = ImageLayout.Stretch, TextAlign = ContentAlignment.BottomCenter};
+                btn = new Button { BackgroundImage = Image.FromStream(ms), Text = prodName, TextImageRelation = TextImageRelation.ImageAboveText, Height = 180, Width = 180, BackgroundImageLayout = ImageLayout.Stretch, TextAlign = ContentAlignment.BottomCenter};
                 //btn.Font = new Font(btn.Font.FontFamily, 10);
                 btn.Font = new Font("Comic Sans MS", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
                 tableLayoutPanelMenu.Controls.Add(btn, 0, 1);

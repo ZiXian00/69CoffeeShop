@@ -16,5 +16,11 @@ namespace _69CoffeeShop.Products
         {
             InitializeComponent();
         }
+
+        private void buttonAddProd_Click(object sender, EventArgs e)
+        {
+            FormAddProducts frmAdd = new FormAddProducts();
+            frmAdd.ShowDialog();
+        }
     }
 }

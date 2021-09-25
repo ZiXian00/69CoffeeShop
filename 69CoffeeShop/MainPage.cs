@@ -134,13 +134,16 @@ namespace _69CoffeeShop
 
         private void btnAdmin_Click(object sender, EventArgs e)
         {
-            //new Forms.FormAdmin.show();
-            //Response.Redirect("FormAdmin.cs");
 
             Form admLogin = new Forms.FormAdminLogin();
-            admLogin.Show();
-            ActivateButton(sender, RGBColors.color1);
-            OpenChildForm(new Forms.FormAdmin());
+            var results = admLogin.ShowDialog();
+
+            if(results == DialogResult.OK)
+            {
+                ActivateButton(sender, RGBColors.color1);
+                OpenChildForm(new Forms.FormAdmin());
+            }
+
         }
         private void btnHome_Click(object sender, EventArgs e)
         {
