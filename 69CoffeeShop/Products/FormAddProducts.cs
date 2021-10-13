@@ -15,10 +15,11 @@ namespace _69CoffeeShop.Products
     public partial class FormAddProducts : Form
     {
         Class.Connection connection = new Class.Connection();
-
-        public FormAddProducts()
+        private FormProducts Products;
+        public FormAddProducts(FormProducts formProducts)
         {
             InitializeComponent();
+            this.Products = formProducts;
         }
 
         private void buttonBrowse_Click(object sender, EventArgs e)
@@ -51,24 +52,88 @@ namespace _69CoffeeShop.Products
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (!(priceValidation()))
+                {
+                    DialogResult ds = MessageBox.Show("Input cost is greater than price, proceed to continue? ", "Price Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                    if (ds == DialogResult.OK)
+                    {
+                        updateTable();
+                    }
+                }
+                else
+                {
+                    updateTable();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Products.refreshProductList();
+            }
+
+        }
+
+        private void updateTable() 
+        {
             string productID = createProductID();
             MemoryStream ms = new MemoryStream();
             pictureBoxProdImg.Image.Save(ms, pictureBoxProdImg.Image.RawFormat);
             byte[] img = ms.ToArray();
 
-            string newProdQry = "insert into products values (@productID, @productName, @unitPrice, @unitCost, @img)";
-            MySqlCommand newProdCmd = new MySqlCommand(newProdQry, connection.conn);
-            connection.conn.Open();
+            try
+            {
+                string newProdQry = "insert into products values (@productID, @productName, @unitPrice, @unitCost, @img)";
+                MySqlCommand newProdCmd = new MySqlCommand(newProdQry, connection.conn);
+                connection.conn.Open();
 
-            newProdCmd.Parameters.AddWithValue("@productID", productID);
-            newProdCmd.Parameters.AddWithValue("@productName", textBoxProdName.Text.ToString());
-            newProdCmd.Parameters.AddWithValue("@unitPrice", textBoxProdPrice.Text.ToString());
-            newProdCmd.Parameters.AddWithValue("@unitCost", textBoxProdCost.Text.ToString());
-            newProdCmd.Parameters.AddWithValue("@img", img);
+                newProdCmd.Parameters.AddWithValue("@productID", productID);
+                newProdCmd.Parameters.AddWithValue("@productName", textBoxProdName.Text.ToString());
+                newProdCmd.Parameters.AddWithValue("@unitPrice", textBoxProdPrice.Text.ToString());
+                newProdCmd.Parameters.AddWithValue("@unitCost", textBoxProdCost.Text.ToString());
+                newProdCmd.Parameters.AddWithValue("@img", img);
 
-            newProdCmd.ExecuteNonQuery();
+                newProdCmd.ExecuteNonQuery();
 
-            connection.conn.Close();
+                connection.conn.Close();
+
+                MessageBox.Show(textBoxProdName.Text.ToString() + " has added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                pictureBoxProdImg.Image = null;
+                textBoxProdCost.Text = "";
+                textBoxProdName.Text = "";
+                textBoxProdPrice.Text = "";
+
+                connection.conn.Close();
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                connection.conn.Close();
+            }
+           
+        }
+
+        private bool priceValidation()
+        {
+            double price = Double.Parse(textBoxProdPrice.Text.ToString());
+            double cost = Double.Parse(textBoxProdCost.Text.ToString());
+
+            if (price - cost > 0) 
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private string createProductID()

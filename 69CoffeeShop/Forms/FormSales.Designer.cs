@@ -32,62 +32,18 @@ namespace _69CoffeeShop.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.panelMenu = new System.Windows.Forms.Panel();
-            this.tableLayoutPanelMenu = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridViewOrder = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.labelSPrice = new System.Windows.Forms.Label();
+            this.iconButtonCheckout = new FontAwesome.Sharp.IconButton();
+            this.tableLayoutPanelMenu = new System.Windows.Forms.TableLayoutPanel();
             this.product = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAdd = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnMinus = new System.Windows.Forms.DataGridViewButtonColumn();
             this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.labelSPrice = new System.Windows.Forms.Label();
-            this.iconButtonCheckout = new FontAwesome.Sharp.IconButton();
-            this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrder)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panelMenu
-            // 
-            this.panelMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelMenu.AutoScroll = true;
-            this.panelMenu.Controls.Add(this.tableLayoutPanelMenu);
-            this.panelMenu.Location = new System.Drawing.Point(29, 23);
-            this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(742, 557);
-            this.panelMenu.TabIndex = 32;
-            // 
-            // tableLayoutPanelMenu
-            // 
-            this.tableLayoutPanelMenu.AutoScroll = true;
-            this.tableLayoutPanelMenu.AutoScrollMinSize = new System.Drawing.Size(700, 200);
-            this.tableLayoutPanelMenu.AutoSize = true;
-            this.tableLayoutPanelMenu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanelMenu.ColumnCount = 8;
-            this.tableLayoutPanelMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanelMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanelMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanelMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanelMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanelMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanelMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanelMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanelMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanelMenu.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanelMenu.Name = "tableLayoutPanelMenu";
-            this.tableLayoutPanelMenu.RowCount = 1;
-            this.tableLayoutPanelMenu.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 200F));
-            this.tableLayoutPanelMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 200F));
-            this.tableLayoutPanelMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 200F));
-            this.tableLayoutPanelMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 200F));
-            this.tableLayoutPanelMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 200F));
-            this.tableLayoutPanelMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 200F));
-            this.tableLayoutPanelMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 200F));
-            this.tableLayoutPanelMenu.Size = new System.Drawing.Size(742, 0);
-            this.tableLayoutPanelMenu.TabIndex = 43;
             // 
             // dataGridViewOrder
             // 
@@ -124,7 +80,7 @@ namespace _69CoffeeShop.Forms
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewOrder.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewOrder.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridViewOrder.Location = new System.Drawing.Point(777, 0);
+            this.dataGridViewOrder.Location = new System.Drawing.Point(739, 0);
             this.dataGridViewOrder.MultiSelect = false;
             this.dataGridViewOrder.Name = "dataGridViewOrder";
             this.dataGridViewOrder.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -140,53 +96,12 @@ namespace _69CoffeeShop.Forms
             this.dataGridViewOrder.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridViewOrder.RowTemplate.Height = 30;
             this.dataGridViewOrder.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridViewOrder.Size = new System.Drawing.Size(420, 750);
+            this.dataGridViewOrder.Size = new System.Drawing.Size(458, 750);
             this.dataGridViewOrder.TabIndex = 33;
             this.dataGridViewOrder.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewOrder_CellClick);
             this.dataGridViewOrder.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewOrder_CellValueChanged);
             this.dataGridViewOrder.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridViewOrder_RowsAdded);
             this.dataGridViewOrder.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dataGridViewOrder_RowsRemoved);
-            // 
-            // product
-            // 
-            this.product.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.product.HeaderText = "Product";
-            this.product.Name = "product";
-            this.product.ReadOnly = true;
-            this.product.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.product.Width = 200;
-            // 
-            // qty
-            // 
-            this.qty.HeaderText = "Qty";
-            this.qty.Name = "qty";
-            this.qty.ReadOnly = true;
-            this.qty.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.qty.Width = 80;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.HeaderText = "";
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.btnAdd.Text = "+";
-            this.btnAdd.Width = 20;
-            // 
-            // btnMinus
-            // 
-            this.btnMinus.HeaderText = "";
-            this.btnMinus.Name = "btnMinus";
-            this.btnMinus.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.btnMinus.Text = "-";
-            this.btnMinus.Width = 20;
-            // 
-            // price
-            // 
-            this.price.DividerWidth = 3;
-            this.price.HeaderText = "Price";
-            this.price.Name = "price";
-            this.price.ReadOnly = true;
-            this.price.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // label1
             // 
@@ -228,21 +143,78 @@ namespace _69CoffeeShop.Forms
             this.iconButtonCheckout.UseVisualStyleBackColor = true;
             this.iconButtonCheckout.Click += new System.EventHandler(this.buttonCheckout_Click);
             // 
+            // tableLayoutPanelMenu
+            // 
+            this.tableLayoutPanelMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanelMenu.ColumnCount = 4;
+            this.tableLayoutPanelMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanelMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanelMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanelMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanelMenu.Location = new System.Drawing.Point(82, 31);
+            this.tableLayoutPanelMenu.Name = "tableLayoutPanelMenu";
+            this.tableLayoutPanelMenu.RowCount = 2;
+            this.tableLayoutPanelMenu.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelMenu.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelMenu.Size = new System.Drawing.Size(651, 719);
+            this.tableLayoutPanelMenu.TabIndex = 36;
+            // 
+            // product
+            // 
+            this.product.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.product.HeaderText = "Product";
+            this.product.Name = "product";
+            this.product.ReadOnly = true;
+            this.product.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.product.Width = 240;
+            // 
+            // qty
+            // 
+            this.qty.HeaderText = "Qty";
+            this.qty.Name = "qty";
+            this.qty.ReadOnly = true;
+            this.qty.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.qty.Width = 80;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.HeaderText = "";
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.btnAdd.Text = "+";
+            this.btnAdd.Width = 20;
+            // 
+            // btnMinus
+            // 
+            this.btnMinus.HeaderText = "";
+            this.btnMinus.Name = "btnMinus";
+            this.btnMinus.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.btnMinus.Text = "-";
+            this.btnMinus.Width = 20;
+            // 
+            // price
+            // 
+            this.price.DividerWidth = 3;
+            this.price.HeaderText = "Price";
+            this.price.Name = "price";
+            this.price.ReadOnly = true;
+            this.price.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
             // FormSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1197, 753);
+            this.Controls.Add(this.tableLayoutPanelMenu);
             this.Controls.Add(this.labelSPrice);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridViewOrder);
-            this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.iconButtonCheckout);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormSales";
             this.Text = "Sales";
-            this.panelMenu.ResumeLayout(false);
-            this.panelMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrder)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -250,16 +222,15 @@ namespace _69CoffeeShop.Forms
         }
 
         #endregion
-        private System.Windows.Forms.Panel panelMenu;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelMenu;
         private System.Windows.Forms.DataGridView dataGridViewOrder;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelSPrice;
+        private FontAwesome.Sharp.IconButton iconButtonCheckout;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelMenu;
         private System.Windows.Forms.DataGridViewTextBoxColumn product;
         private System.Windows.Forms.DataGridViewTextBoxColumn qty;
         private System.Windows.Forms.DataGridViewButtonColumn btnAdd;
         private System.Windows.Forms.DataGridViewButtonColumn btnMinus;
         private System.Windows.Forms.DataGridViewTextBoxColumn price;
-        private FontAwesome.Sharp.IconButton iconButtonCheckout;
     }
 }

@@ -28,10 +28,18 @@ namespace _69CoffeeShop.Forms
         {
             conn = new MySqlConnection(connStr);
             InitializeComponent();
-            panelMenu.HorizontalScroll.Maximum = 0;
-            panelMenu.AutoScroll = false;
-            panelMenu.VerticalScroll.Visible = false;
-            panelMenu.AutoScroll = true;
+            //panelMenu.HorizontalScroll.Maximum = 0;
+            //panelMenu.AutoScroll = false;
+            //panelMenu.VerticalScroll.Visible = false;
+            //panelMenu.HorizontalScroll.Visible = false;
+            //panelMenu.HorizontalScroll.Enabled = false;
+            //panelMenu.AutoScroll = true;    
+
+            //tableLayoutPanelMenu.HorizontalScroll.Maximum = 0;
+            //tableLayoutPanelMenu.HorizontalScroll.Enabled = false;
+            //tableLayoutPanelMenu.HorizontalScroll.Visible = false;
+
+           
             string prodName;
             double prodPrice;            
 
@@ -43,13 +51,13 @@ namespace _69CoffeeShop.Forms
             {
                 byte[] img = (byte[])loadReader["productImage"];
                 MemoryStream ms = new MemoryStream(img);
+
                 prodName = loadReader["productName"].ToString();
                 prodPrice = double.Parse(loadReader["unitPrice"].ToString());
-                btn = new Button { BackgroundImage = Image.FromStream(ms), Text = prodName, TextImageRelation = TextImageRelation.ImageAboveText, Height = 180, Width = 180, BackgroundImageLayout = ImageLayout.Stretch, TextAlign = ContentAlignment.BottomCenter};
-                //btn.Font = new Font(btn.Font.FontFamily, 10);
+                btn = new Button { BackgroundImage = Image.FromStream(ms), Text = prodName, TextImageRelation = TextImageRelation.ImageAboveText, Height = 180, Width = 180, BackgroundImageLayout = ImageLayout.Stretch, TextAlign = ContentAlignment.BottomCenter, Margin = new Padding(12)};
                 btn.Font = new Font("Comic Sans MS", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-                tableLayoutPanelMenu.Controls.Add(btn, 0, 1);
-               // btn.Click += delegate (object sender, EventArgs e) { btn_Click(sender, e, prodPrice); };
+               
+                tableLayoutPanelMenu.Controls.Add(btn);
                 btn.Click += new EventHandler(btn_Click);
             }
             loadReader.Close();

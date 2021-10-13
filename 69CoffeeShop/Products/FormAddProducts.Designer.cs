@@ -40,7 +40,6 @@ namespace _69CoffeeShop.Products
             this.textBoxProdName = new System.Windows.Forms.TextBox();
             this.textBoxProdCost = new System.Windows.Forms.TextBox();
             this.textBoxProdPrice = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProdImg)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,26 +47,26 @@ namespace _69CoffeeShop.Products
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(241, 367);
+            this.label3.Location = new System.Drawing.Point(47, 367);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(118, 18);
+            this.label3.Size = new System.Drawing.Size(148, 18);
             this.label3.TabIndex = 9;
-            this.label3.Text = "Product Price   : ";
+            this.label3.Text = "Product Price (RM) : ";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(241, 316);
+            this.label2.Location = new System.Drawing.Point(49, 316);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 18);
+            this.label2.Size = new System.Drawing.Size(146, 18);
             this.label2.TabIndex = 8;
-            this.label2.Text = "Product Cost    : ";
+            this.label2.Text = "Product Cost (RM) : ";
             // 
             // buttonBrowse
             // 
             this.buttonBrowse.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBrowse.Location = new System.Drawing.Point(418, 225);
+            this.buttonBrowse.Location = new System.Drawing.Point(252, 225);
             this.buttonBrowse.Name = "buttonBrowse";
             this.buttonBrowse.Size = new System.Drawing.Size(75, 23);
             this.buttonBrowse.TabIndex = 7;
@@ -77,7 +76,7 @@ namespace _69CoffeeShop.Products
             // 
             // pictureBoxProdImg
             // 
-            this.pictureBoxProdImg.Location = new System.Drawing.Point(367, 68);
+            this.pictureBoxProdImg.Location = new System.Drawing.Point(201, 68);
             this.pictureBoxProdImg.Name = "pictureBoxProdImg";
             this.pictureBoxProdImg.Size = new System.Drawing.Size(168, 151);
             this.pictureBoxProdImg.TabIndex = 6;
@@ -87,7 +86,7 @@ namespace _69CoffeeShop.Products
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(245, 116);
+            this.label1.Location = new System.Drawing.Point(79, 116);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(116, 18);
             this.label1.TabIndex = 5;
@@ -101,7 +100,7 @@ namespace _69CoffeeShop.Products
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(241, 263);
+            this.label4.Location = new System.Drawing.Point(75, 263);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(120, 18);
             this.label4.TabIndex = 10;
@@ -109,7 +108,7 @@ namespace _69CoffeeShop.Products
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(604, 422);
+            this.buttonSave.Location = new System.Drawing.Point(438, 422);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 23);
             this.buttonSave.TabIndex = 11;
@@ -119,38 +118,30 @@ namespace _69CoffeeShop.Products
             // 
             // textBoxProdName
             // 
-            this.textBoxProdName.Location = new System.Drawing.Point(367, 264);
+            this.textBoxProdName.Location = new System.Drawing.Point(201, 264);
             this.textBoxProdName.Name = "textBoxProdName";
             this.textBoxProdName.Size = new System.Drawing.Size(168, 20);
             this.textBoxProdName.TabIndex = 12;
             // 
             // textBoxProdCost
             // 
-            this.textBoxProdCost.Location = new System.Drawing.Point(367, 317);
+            this.textBoxProdCost.Location = new System.Drawing.Point(201, 317);
             this.textBoxProdCost.Name = "textBoxProdCost";
             this.textBoxProdCost.Size = new System.Drawing.Size(168, 20);
             this.textBoxProdCost.TabIndex = 13;
             // 
             // textBoxProdPrice
             // 
-            this.textBoxProdPrice.Location = new System.Drawing.Point(367, 368);
+            this.textBoxProdPrice.Location = new System.Drawing.Point(201, 368);
             this.textBoxProdPrice.Name = "textBoxProdPrice";
             this.textBoxProdPrice.Size = new System.Drawing.Size(168, 20);
             this.textBoxProdPrice.TabIndex = 14;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(78, 198);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 15;
             // 
             // FormAddProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(809, 460);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(567, 460);
             this.Controls.Add(this.textBoxProdPrice);
             this.Controls.Add(this.textBoxProdCost);
             this.Controls.Add(this.textBoxProdName);
@@ -184,6 +175,5 @@ namespace _69CoffeeShop.Products
         private System.Windows.Forms.TextBox textBoxProdName;
         private System.Windows.Forms.TextBox textBoxProdCost;
         private System.Windows.Forms.TextBox textBoxProdPrice;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }
