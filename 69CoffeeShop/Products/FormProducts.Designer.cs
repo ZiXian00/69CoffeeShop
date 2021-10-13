@@ -46,7 +46,7 @@ namespace _69CoffeeShop.Products
             // 
             this.buttonAddProd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonAddProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAddProd.Location = new System.Drawing.Point(771, 788);
+            this.buttonAddProd.Location = new System.Drawing.Point(777, 788);
             this.buttonAddProd.Name = "buttonAddProd";
             this.buttonAddProd.Size = new System.Drawing.Size(110, 57);
             this.buttonAddProd.TabIndex = 34;
@@ -58,7 +58,7 @@ namespace _69CoffeeShop.Products
             // 
             this.buttonDelProd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonDelProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDelProd.Location = new System.Drawing.Point(887, 788);
+            this.buttonDelProd.Location = new System.Drawing.Point(893, 788);
             this.buttonDelProd.Name = "buttonDelProd";
             this.buttonDelProd.Size = new System.Drawing.Size(110, 57);
             this.buttonDelProd.TabIndex = 35;
@@ -104,7 +104,7 @@ namespace _69CoffeeShop.Products
             this.dataGridViewProduct.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridViewProduct.RowTemplate.Height = 80;
             this.dataGridViewProduct.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewProduct.Size = new System.Drawing.Size(984, 728);
+            this.dataGridViewProduct.Size = new System.Drawing.Size(1006, 728);
             this.dataGridViewProduct.TabIndex = 38;
             // 
             // prodImage
@@ -126,14 +126,14 @@ namespace _69CoffeeShop.Products
             this.prodCost.HeaderText = "Cost per unit (RM)";
             this.prodCost.Name = "prodCost";
             this.prodCost.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.prodCost.Width = 175;
+            this.prodCost.Width = 190;
             // 
             // prodPrice
             // 
             this.prodPrice.HeaderText = "Price per unit (RM)";
             this.prodPrice.Name = "prodPrice";
             this.prodPrice.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.prodPrice.Width = 175;
+            this.prodPrice.Width = 190;
             // 
             // buttonCol
             // 
@@ -147,7 +147,7 @@ namespace _69CoffeeShop.Products
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1025, 857);
+            this.ClientSize = new System.Drawing.Size(1031, 857);
             this.Controls.Add(this.dataGridViewProduct);
             this.Controls.Add(this.buttonDelProd);
             this.Controls.Add(this.buttonAddProd);
