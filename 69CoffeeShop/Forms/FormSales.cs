@@ -247,7 +247,8 @@ namespace _69CoffeeShop.Forms
 
                 while (getProdDetRdr.Read())
                 {
-                    prod = new Class.Product(getProdDetRdr.GetString(0), prodName, getProdDetRdr.GetString(2), getProdDetRdr.GetString(3), getProdDetRdr.GetString(4));
+                    byte[] prodImg = (byte[])getProdDetRdr["productImage"];
+                    prod = new Class.Product(getProdDetRdr.GetString(0), prodName, getProdDetRdr.GetString(2), getProdDetRdr.GetString(3), prodImg);
                     orderList.Add(prod);
                 }
                 conn.Close();

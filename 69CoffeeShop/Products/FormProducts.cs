@@ -15,7 +15,9 @@ namespace _69CoffeeShop.Products
     public partial class FormProducts : Form
     {
         Class.Connection connection = new Class.Connection();
-
+        Class.Product product;
+        public List<Class.Product> productList { get; set; } = new List<Class.Product>();
+    
         public FormProducts()
         {
             InitializeComponent();
@@ -23,7 +25,7 @@ namespace _69CoffeeShop.Products
 
         private void buttonAddProd_Click(object sender, EventArgs e)
         {
-            FormAddProducts frmAdd = new FormAddProducts(this);
+            FormAddProducts frmAdd = new FormAddProducts(this, -1);
             frmAdd.ShowDialog();
         }
 
@@ -35,6 +37,7 @@ namespace _69CoffeeShop.Products
         public void refreshProductList()
         {
             this.dataGridViewProduct.Rows.Clear();
+            productList.Clear();
 
             string displayProdQry = "select * from products";
             MySqlCommand displayProdCmd = new MySqlCommand(displayProdQry, connection.conn);
@@ -44,7 +47,9 @@ namespace _69CoffeeShop.Products
             while (displayProdRdr.Read())
             {
                 byte[] prodImg = (byte[])displayProdRdr["productImage"];
-                //MemoryStream ms = new MemoryStream(prodImg);
+
+                product = new Class.Product(displayProdRdr.GetString(0), displayProdRdr.GetString(1), displayProdRdr.GetString(2), displayProdRdr.GetString(3), prodImg);
+                productList.Add(product);
 
                 using (MemoryStream ms = new MemoryStream(prodImg, 0, prodImg.Length))
                 {
@@ -73,6 +78,57 @@ namespace _69CoffeeShop.Products
             }
             displayProdRdr.Close();
             connection.conn.Close();
+            dataGridViewProduct.Rows[0].Cells[0].Selected = false;
+        }
+
+        private void dataGridViewProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 4) {
+                FormAddProducts formAddProducts = new FormAddProducts(this, e.RowIndex);
+                formAddProducts.ShowDialog();
+            }
+        }
+
+        public DataGridView GetDataGridView()
+        {
+            return dataGridViewProduct;
+        }
+
+        private void buttonDelProd_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewProduct.SelectedRows.Count == 0 && dataGridViewProduct.SelectedCells.Count == 0)
+            {
+                dataGridViewProduct.Rows[0].Selected = true;
+            }
+
+            int rowIndex = dataGridViewProduct.SelectedCells[0].RowIndex;
+            DialogResult ds = MessageBox.Show("Delete " + dataGridViewProduct.Rows[rowIndex].Cells[1].Value, "Delete Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+            if (ds == DialogResult.OK)
+            {
+                try
+                {
+                    string deleteProdQry = "delete from products where productID = @id";
+
+                    MySqlCommand deleteProdCmd = new MySqlCommand(deleteProdQry, connection.conn);
+
+                    deleteProdCmd.Parameters.AddWithValue("@id", productList[rowIndex].productID);
+
+                    connection.conn.Open();
+
+                    deleteProdCmd.ExecuteNonQuery();
+                    productList.RemoveAt(rowIndex);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    connection.conn.Close();
+                    refreshProductList();
+                }
+            }
         }
     }
 }

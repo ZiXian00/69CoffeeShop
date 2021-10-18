@@ -64,6 +64,7 @@ namespace _69CoffeeShop.Products
             this.buttonDelProd.TabIndex = 35;
             this.buttonDelProd.Text = "Delete";
             this.buttonDelProd.UseVisualStyleBackColor = true;
+            this.buttonDelProd.Click += new System.EventHandler(this.buttonDelProd_Click);
             // 
             // dataGridViewProduct
             // 
@@ -106,6 +107,7 @@ namespace _69CoffeeShop.Products
             this.dataGridViewProduct.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewProduct.Size = new System.Drawing.Size(1006, 728);
             this.dataGridViewProduct.TabIndex = 38;
+            this.dataGridViewProduct.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProduct_CellContentClick);
             // 
             // prodImage
             // 

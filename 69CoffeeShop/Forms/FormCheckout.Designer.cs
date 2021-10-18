@@ -273,7 +273,7 @@
             // 
             this.labelEmpName.AutoSize = true;
             this.labelEmpName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEmpName.Location = new System.Drawing.Point(158, 134);
+            this.labelEmpName.Location = new System.Drawing.Point(160, 134);
             this.labelEmpName.Name = "labelEmpName";
             this.labelEmpName.Size = new System.Drawing.Size(46, 18);
             this.labelEmpName.TabIndex = 3;

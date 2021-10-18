@@ -12,9 +12,9 @@ namespace _69CoffeeShop.Class
         public string productName { get; set; }
         public string unitPrice { get; set; }
         public string unitCost { get; set; }
-        public string imageURL { get; set; }
+        public byte[] imageURL { get; set; }
 
-        public Product(string productID, string productName, string unitPrice, string unitCost, string imageURL)
+        public Product(string productID, string productName, string unitPrice, string unitCost, byte[] imageURL)
         {
             this.productID = productID;
             this.productName = productName;
@@ -22,5 +22,6 @@ namespace _69CoffeeShop.Class
             this.unitCost = unitCost;
             this.imageURL = imageURL;
         }
+
     }
 }

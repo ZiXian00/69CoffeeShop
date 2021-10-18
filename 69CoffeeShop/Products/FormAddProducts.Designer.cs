@@ -108,9 +108,10 @@ namespace _69CoffeeShop.Products
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(438, 422);
+            this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSave.Location = new System.Drawing.Point(419, 417);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(75, 23);
+            this.buttonSave.Size = new System.Drawing.Size(87, 31);
             this.buttonSave.TabIndex = 11;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -139,9 +140,10 @@ namespace _69CoffeeShop.Products
             // 
             // FormAddProducts
             // 
+            this.AcceptButton = this.buttonSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(567, 460);
+            this.ClientSize = new System.Drawing.Size(530, 460);
             this.Controls.Add(this.textBoxProdPrice);
             this.Controls.Add(this.textBoxProdCost);
             this.Controls.Add(this.textBoxProdName);
@@ -153,9 +155,12 @@ namespace _69CoffeeShop.Products
             this.Controls.Add(this.pictureBoxProdImg);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(546, 499);
+            this.MinimumSize = new System.Drawing.Size(546, 499);
             this.Name = "FormAddProducts";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "New Product";
+            this.Text = "Product Details";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProdImg)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
