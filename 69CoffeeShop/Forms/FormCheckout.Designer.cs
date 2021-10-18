@@ -445,6 +445,7 @@
             // 
             // buttonComplete
             // 
+            this.buttonComplete.Enabled = false;
             this.buttonComplete.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonComplete.Location = new System.Drawing.Point(212, 191);
             this.buttonComplete.Name = "buttonComplete";

@@ -29,7 +29,6 @@ namespace _69CoffeeShop.Employees
         /// </summary>
         private void InitializeComponent()
         {
-            this.label9 = new System.Windows.Forms.Label();
             this.textBoxBank = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.dropdownBank = new System.Windows.Forms.ComboBox();
@@ -41,8 +40,6 @@ namespace _69CoffeeShop.Employees
             this.lblDOB = new System.Windows.Forms.Label();
             this.txtEmergency = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.dropDownMarriage = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.RichTextBox();
@@ -68,28 +65,18 @@ namespace _69CoffeeShop.Employees
             this.iconButtonEdit = new FontAwesome.Sharp.IconButton();
             this.txtEmployeeID = new System.Windows.Forms.TextBox();
             this.lblEmployeeID = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.gBoxPersonal.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(228, 175);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(74, 18);
-            this.label9.TabIndex = 26;
-            this.label9.Text = "30-2-2000";
-            // 
             // textBoxBank
             // 
             this.textBoxBank.Enabled = false;
-            this.textBoxBank.Location = new System.Drawing.Point(793, 256);
-            this.textBoxBank.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxBank.Location = new System.Drawing.Point(625, 176);
             this.textBoxBank.Name = "textBoxBank";
             this.textBoxBank.ReadOnly = true;
-            this.textBoxBank.Size = new System.Drawing.Size(363, 24);
+            this.textBoxBank.Size = new System.Drawing.Size(273, 21);
             this.textBoxBank.TabIndex = 25;
             this.textBoxBank.Text = "1111222233";
             // 
@@ -97,10 +84,9 @@ namespace _69CoffeeShop.Employees
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(653, 260);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(520, 179);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(128, 20);
+            this.label8.Size = new System.Drawing.Size(99, 16);
             this.label8.TabIndex = 24;
             this.label8.Text = "Bank Account : ";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -114,20 +100,18 @@ namespace _69CoffeeShop.Employees
             "Maybank Berhad",
             "CIMB Bank ",
             "Hong Leong Bank"});
-            this.dropdownBank.Location = new System.Drawing.Point(793, 213);
-            this.dropdownBank.Margin = new System.Windows.Forms.Padding(4);
+            this.dropdownBank.Location = new System.Drawing.Point(625, 136);
             this.dropdownBank.Name = "dropdownBank";
-            this.dropdownBank.Size = new System.Drawing.Size(344, 26);
+            this.dropdownBank.Size = new System.Drawing.Size(259, 23);
             this.dropdownBank.TabIndex = 23;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(721, 217);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(571, 139);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(62, 20);
+            this.label7.Size = new System.Drawing.Size(48, 16);
             this.label7.TabIndex = 22;
             this.label7.Text = "Bank : ";
             // 
@@ -135,21 +119,19 @@ namespace _69CoffeeShop.Employees
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(224, 217);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(168, 176);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(27, 20);
+            this.label6.Size = new System.Drawing.Size(22, 16);
             this.label6.TabIndex = 21;
             this.label6.Text = "20";
             // 
             // txtIC
             // 
             this.txtIC.Enabled = false;
-            this.txtIC.Location = new System.Drawing.Point(793, 41);
-            this.txtIC.Margin = new System.Windows.Forms.Padding(4);
+            this.txtIC.Location = new System.Drawing.Point(625, 31);
             this.txtIC.Name = "txtIC";
             this.txtIC.ReadOnly = true;
-            this.txtIC.Size = new System.Drawing.Size(363, 24);
+            this.txtIC.Size = new System.Drawing.Size(273, 21);
             this.txtIC.TabIndex = 20;
             this.txtIC.Text = "000230-06-1234";
             // 
@@ -157,10 +139,9 @@ namespace _69CoffeeShop.Employees
             // 
             this.lblIC.AutoSize = true;
             this.lblIC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIC.Location = new System.Drawing.Point(629, 41);
-            this.lblIC.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblIC.Location = new System.Drawing.Point(502, 34);
             this.lblIC.Name = "lblIC";
-            this.lblIC.Size = new System.Drawing.Size(152, 20);
+            this.lblIC.Size = new System.Drawing.Size(117, 16);
             this.lblIC.TabIndex = 19;
             this.lblIC.Text = "IC / Passport No. : ";
             this.lblIC.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -169,10 +150,9 @@ namespace _69CoffeeShop.Employees
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(164, 217);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(124, 176);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 20);
+            this.label4.Size = new System.Drawing.Size(42, 16);
             this.label4.TabIndex = 18;
             this.label4.Text = "Age : ";
             // 
@@ -180,21 +160,19 @@ namespace _69CoffeeShop.Employees
             // 
             this.lblDOB.AutoSize = true;
             this.lblDOB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDOB.Location = new System.Drawing.Point(101, 174);
-            this.lblDOB.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDOB.Location = new System.Drawing.Point(75, 142);
             this.lblDOB.Name = "lblDOB";
-            this.lblDOB.Size = new System.Drawing.Size(120, 20);
+            this.lblDOB.Size = new System.Drawing.Size(89, 16);
             this.lblDOB.TabIndex = 16;
             this.lblDOB.Text = "Date of Birth : ";
             // 
             // txtEmergency
             // 
             this.txtEmergency.Enabled = false;
-            this.txtEmergency.Location = new System.Drawing.Point(228, 128);
-            this.txtEmergency.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEmergency.Location = new System.Drawing.Point(171, 104);
             this.txtEmergency.Name = "txtEmergency";
             this.txtEmergency.ReadOnly = true;
-            this.txtEmergency.Size = new System.Drawing.Size(363, 24);
+            this.txtEmergency.Size = new System.Drawing.Size(273, 21);
             this.txtEmergency.TabIndex = 15;
             this.txtEmergency.Text = "013-2456789";
             // 
@@ -202,48 +180,19 @@ namespace _69CoffeeShop.Employees
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(9, 128);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(7, 107);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(201, 20);
+            this.label3.Size = new System.Drawing.Size(158, 16);
             this.label3.TabIndex = 14;
             this.label3.Text = "Emergency Contact No. : ";
-            // 
-            // dropDownMarriage
-            // 
-            this.dropDownMarriage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.dropDownMarriage.FormattingEnabled = true;
-            this.dropDownMarriage.Items.AddRange(new object[] {
-            "Single",
-            "Married",
-            "Divorced",
-            "Seperated",
-            "Widowed"});
-            this.dropDownMarriage.Location = new System.Drawing.Point(793, 171);
-            this.dropDownMarriage.Margin = new System.Windows.Forms.Padding(4);
-            this.dropDownMarriage.Name = "dropDownMarriage";
-            this.dropDownMarriage.Size = new System.Drawing.Size(205, 26);
-            this.dropDownMarriage.TabIndex = 13;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(656, 172);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(128, 20);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Marital Status : ";
             // 
             // txtEmail
             // 
             this.txtEmail.Enabled = false;
-            this.txtEmail.Location = new System.Drawing.Point(793, 84);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEmail.Location = new System.Drawing.Point(625, 66);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.ReadOnly = true;
-            this.txtEmail.Size = new System.Drawing.Size(363, 24);
+            this.txtEmail.Size = new System.Drawing.Size(273, 21);
             this.txtEmail.TabIndex = 11;
             this.txtEmail.Text = "qwe@tarc.edu.my";
             // 
@@ -251,10 +200,9 @@ namespace _69CoffeeShop.Employees
             // 
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(645, 84);
-            this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEmail.Location = new System.Drawing.Point(514, 69);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(133, 20);
+            this.lblEmail.Size = new System.Drawing.Size(105, 16);
             this.lblEmail.TabIndex = 10;
             this.lblEmail.Text = "Email Address : ";
             this.lblEmail.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -262,11 +210,10 @@ namespace _69CoffeeShop.Employees
             // txtAddress
             // 
             this.txtAddress.Enabled = false;
-            this.txtAddress.Location = new System.Drawing.Point(228, 260);
-            this.txtAddress.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAddress.Location = new System.Drawing.Point(171, 211);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.ReadOnly = true;
-            this.txtAddress.Size = new System.Drawing.Size(364, 138);
+            this.txtAddress.Size = new System.Drawing.Size(274, 113);
             this.txtAddress.TabIndex = 9;
             this.txtAddress.Text = "10, Jalan Aman,\nTaman Aman,\n11111, IDK WHERE IS IT,\nMalaysia";
             // 
@@ -274,10 +221,9 @@ namespace _69CoffeeShop.Employees
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(131, 260);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(98, 211);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 20);
+            this.label1.Size = new System.Drawing.Size(68, 16);
             this.label1.TabIndex = 8;
             this.label1.Text = "Address : ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -287,10 +233,9 @@ namespace _69CoffeeShop.Employees
             this.radOther.AutoSize = true;
             this.radOther.Enabled = false;
             this.radOther.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radOther.Location = new System.Drawing.Point(969, 128);
-            this.radOther.Margin = new System.Windows.Forms.Padding(4);
+            this.radOther.Location = new System.Drawing.Point(757, 105);
             this.radOther.Name = "radOther";
-            this.radOther.Size = new System.Drawing.Size(159, 24);
+            this.radOther.Size = new System.Drawing.Size(127, 20);
             this.radOther.TabIndex = 7;
             this.radOther.Text = "Prefer Not to Say";
             this.radOther.UseVisualStyleBackColor = true;
@@ -300,10 +245,9 @@ namespace _69CoffeeShop.Employees
             this.radFemale.AutoSize = true;
             this.radFemale.Enabled = false;
             this.radFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radFemale.Location = new System.Drawing.Point(865, 128);
-            this.radFemale.Margin = new System.Windows.Forms.Padding(4);
+            this.radFemale.Location = new System.Drawing.Point(679, 105);
             this.radFemale.Name = "radFemale";
-            this.radFemale.Size = new System.Drawing.Size(85, 24);
+            this.radFemale.Size = new System.Drawing.Size(72, 20);
             this.radFemale.TabIndex = 6;
             this.radFemale.Text = "Female";
             this.radFemale.UseVisualStyleBackColor = true;
@@ -314,10 +258,9 @@ namespace _69CoffeeShop.Employees
             this.radMale.Checked = true;
             this.radMale.Enabled = false;
             this.radMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radMale.Location = new System.Drawing.Point(793, 128);
-            this.radMale.Margin = new System.Windows.Forms.Padding(4);
+            this.radMale.Location = new System.Drawing.Point(625, 105);
             this.radMale.Name = "radMale";
-            this.radMale.Size = new System.Drawing.Size(66, 24);
+            this.radMale.Size = new System.Drawing.Size(56, 20);
             this.radMale.TabIndex = 5;
             this.radMale.TabStop = true;
             this.radMale.Text = "Male";
@@ -327,21 +270,19 @@ namespace _69CoffeeShop.Employees
             // 
             this.lblGender.AutoSize = true;
             this.lblGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGender.Location = new System.Drawing.Point(703, 128);
-            this.lblGender.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblGender.Location = new System.Drawing.Point(557, 105);
             this.lblGender.Name = "lblGender";
-            this.lblGender.Size = new System.Drawing.Size(79, 20);
+            this.lblGender.Size = new System.Drawing.Size(62, 16);
             this.lblGender.TabIndex = 4;
             this.lblGender.Text = "Gender : ";
             // 
             // txtContact
             // 
             this.txtContact.Enabled = false;
-            this.txtContact.Location = new System.Drawing.Point(228, 84);
-            this.txtContact.Margin = new System.Windows.Forms.Padding(4);
+            this.txtContact.Location = new System.Drawing.Point(171, 68);
             this.txtContact.Name = "txtContact";
             this.txtContact.ReadOnly = true;
-            this.txtContact.Size = new System.Drawing.Size(363, 24);
+            this.txtContact.Size = new System.Drawing.Size(273, 21);
             this.txtContact.TabIndex = 3;
             this.txtContact.Text = "012-3456789";
             // 
@@ -349,21 +290,19 @@ namespace _69CoffeeShop.Employees
             // 
             this.lblContact.AutoSize = true;
             this.lblContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContact.Location = new System.Drawing.Point(105, 85);
-            this.lblContact.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblContact.Location = new System.Drawing.Point(79, 71);
             this.lblContact.Name = "lblContact";
-            this.lblContact.Size = new System.Drawing.Size(112, 20);
+            this.lblContact.Size = new System.Drawing.Size(86, 16);
             this.lblContact.TabIndex = 2;
             this.lblContact.Text = "Contact No. : ";
             // 
             // txtName
             // 
             this.txtName.Enabled = false;
-            this.txtName.Location = new System.Drawing.Point(228, 41);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtName.Location = new System.Drawing.Point(171, 33);
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(363, 24);
+            this.txtName.Size = new System.Drawing.Size(273, 21);
             this.txtName.TabIndex = 1;
             this.txtName.Text = "Sam Chun Hang";
             // 
@@ -371,10 +310,9 @@ namespace _69CoffeeShop.Employees
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(147, 41);
-            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblName.Location = new System.Drawing.Point(110, 36);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(68, 20);
+            this.lblName.Size = new System.Drawing.Size(54, 16);
             this.lblName.TabIndex = 0;
             this.lblName.Text = "Name : ";
             this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -384,20 +322,18 @@ namespace _69CoffeeShop.Employees
             this.dateTimePicker1.CustomFormat = "dd-MMM-yyyy";
             this.dateTimePicker1.Enabled = false;
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(793, 36);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePicker1.Location = new System.Drawing.Point(595, 29);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(153, 24);
+            this.dateTimePicker1.Size = new System.Drawing.Size(116, 21);
             this.dateTimePicker1.TabIndex = 23;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(676, 42);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(507, 34);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(106, 20);
+            this.label5.Size = new System.Drawing.Size(82, 16);
             this.label5.TabIndex = 22;
             this.label5.Text = "Date Hired : ";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -408,10 +344,9 @@ namespace _69CoffeeShop.Employees
             this.radFullTime.Checked = true;
             this.radFullTime.Enabled = false;
             this.radFullTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radFullTime.Location = new System.Drawing.Point(352, 89);
-            this.radFullTime.Margin = new System.Windows.Forms.Padding(4);
+            this.radFullTime.Location = new System.Drawing.Point(264, 72);
             this.radFullTime.Name = "radFullTime";
-            this.radFullTime.Size = new System.Drawing.Size(95, 24);
+            this.radFullTime.Size = new System.Drawing.Size(76, 20);
             this.radFullTime.TabIndex = 20;
             this.radFullTime.TabStop = true;
             this.radFullTime.Text = "Full-time";
@@ -422,10 +357,9 @@ namespace _69CoffeeShop.Employees
             this.radioPartTime.AutoSize = true;
             this.radioPartTime.Enabled = false;
             this.radioPartTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioPartTime.Location = new System.Drawing.Point(239, 89);
-            this.radioPartTime.Margin = new System.Windows.Forms.Padding(4);
+            this.radioPartTime.Location = new System.Drawing.Point(179, 72);
             this.radioPartTime.Name = "radioPartTime";
-            this.radioPartTime.Size = new System.Drawing.Size(99, 24);
+            this.radioPartTime.Size = new System.Drawing.Size(79, 20);
             this.radioPartTime.TabIndex = 19;
             this.radioPartTime.Text = "Part-time";
             this.radioPartTime.UseVisualStyleBackColor = true;
@@ -434,10 +368,9 @@ namespace _69CoffeeShop.Employees
             // 
             this.lblEmploymentStatus.AutoSize = true;
             this.lblEmploymentStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmploymentStatus.Location = new System.Drawing.Point(33, 91);
-            this.lblEmploymentStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEmploymentStatus.Location = new System.Drawing.Point(25, 74);
             this.lblEmploymentStatus.Name = "lblEmploymentStatus";
-            this.lblEmploymentStatus.Size = new System.Drawing.Size(178, 20);
+            this.lblEmploymentStatus.Size = new System.Drawing.Size(140, 16);
             this.lblEmploymentStatus.TabIndex = 21;
             this.lblEmploymentStatus.Text = "Employement Status : ";
             this.lblEmploymentStatus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -450,20 +383,18 @@ namespace _69CoffeeShop.Employees
             "Manager",
             "Cashier",
             "Waiter"});
-            this.dropdownPosition.Location = new System.Drawing.Point(227, 38);
-            this.dropdownPosition.Margin = new System.Windows.Forms.Padding(4);
+            this.dropdownPosition.Location = new System.Drawing.Point(170, 31);
             this.dropdownPosition.Name = "dropdownPosition";
-            this.dropdownPosition.Size = new System.Drawing.Size(237, 26);
+            this.dropdownPosition.Size = new System.Drawing.Size(179, 23);
             this.dropdownPosition.TabIndex = 19;
             // 
             // lblJobPosition
             // 
             this.lblJobPosition.AutoSize = true;
             this.lblJobPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblJobPosition.Location = new System.Drawing.Point(97, 38);
-            this.lblJobPosition.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblJobPosition.Location = new System.Drawing.Point(73, 31);
             this.lblJobPosition.Name = "lblJobPosition";
-            this.lblJobPosition.Size = new System.Drawing.Size(116, 20);
+            this.lblJobPosition.Size = new System.Drawing.Size(91, 16);
             this.lblJobPosition.TabIndex = 19;
             this.lblJobPosition.Text = "Job Position : ";
             this.lblJobPosition.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -481,11 +412,9 @@ namespace _69CoffeeShop.Employees
             this.groupBox1.Controls.Add(this.dropdownPosition);
             this.groupBox1.Controls.Add(this.lblJobPosition);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(43, 538);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Location = new System.Drawing.Point(32, 437);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(1267, 171);
+            this.groupBox1.Size = new System.Drawing.Size(950, 139);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Work Information";
@@ -495,7 +424,7 @@ namespace _69CoffeeShop.Employees
             this.gBoxPersonal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gBoxPersonal.Controls.Add(this.label9);
+            this.gBoxPersonal.Controls.Add(this.dateTimePicker2);
             this.gBoxPersonal.Controls.Add(this.textBoxBank);
             this.gBoxPersonal.Controls.Add(this.label8);
             this.gBoxPersonal.Controls.Add(this.dropdownBank);
@@ -507,8 +436,6 @@ namespace _69CoffeeShop.Employees
             this.gBoxPersonal.Controls.Add(this.lblDOB);
             this.gBoxPersonal.Controls.Add(this.txtEmergency);
             this.gBoxPersonal.Controls.Add(this.label3);
-            this.gBoxPersonal.Controls.Add(this.dropDownMarriage);
-            this.gBoxPersonal.Controls.Add(this.label2);
             this.gBoxPersonal.Controls.Add(this.txtEmail);
             this.gBoxPersonal.Controls.Add(this.lblEmail);
             this.gBoxPersonal.Controls.Add(this.txtAddress);
@@ -522,13 +449,11 @@ namespace _69CoffeeShop.Employees
             this.gBoxPersonal.Controls.Add(this.txtName);
             this.gBoxPersonal.Controls.Add(this.lblName);
             this.gBoxPersonal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gBoxPersonal.Location = new System.Drawing.Point(43, 85);
-            this.gBoxPersonal.Margin = new System.Windows.Forms.Padding(4);
-            this.gBoxPersonal.MaximumSize = new System.Drawing.Size(1267, 425);
-            this.gBoxPersonal.MinimumSize = new System.Drawing.Size(1267, 425);
+            this.gBoxPersonal.Location = new System.Drawing.Point(32, 69);
+            this.gBoxPersonal.MaximumSize = new System.Drawing.Size(950, 345);
+            this.gBoxPersonal.MinimumSize = new System.Drawing.Size(950, 345);
             this.gBoxPersonal.Name = "gBoxPersonal";
-            this.gBoxPersonal.Padding = new System.Windows.Forms.Padding(4);
-            this.gBoxPersonal.Size = new System.Drawing.Size(1267, 425);
+            this.gBoxPersonal.Size = new System.Drawing.Size(950, 345);
             this.gBoxPersonal.TabIndex = 16;
             this.gBoxPersonal.TabStop = false;
             this.gBoxPersonal.Text = "Personal Information";
@@ -542,10 +467,9 @@ namespace _69CoffeeShop.Employees
             this.iconButtonDelete.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.iconButtonDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButtonDelete.IconSize = 30;
-            this.iconButtonDelete.Location = new System.Drawing.Point(1169, 15);
-            this.iconButtonDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.iconButtonDelete.Location = new System.Drawing.Point(877, 12);
             this.iconButtonDelete.Name = "iconButtonDelete";
-            this.iconButtonDelete.Size = new System.Drawing.Size(141, 48);
+            this.iconButtonDelete.Size = new System.Drawing.Size(106, 39);
             this.iconButtonDelete.TabIndex = 15;
             this.iconButtonDelete.Text = "Delete";
             this.iconButtonDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -560,10 +484,9 @@ namespace _69CoffeeShop.Employees
             this.iconButtonEdit.IconColor = System.Drawing.Color.DarkOliveGreen;
             this.iconButtonEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButtonEdit.IconSize = 30;
-            this.iconButtonEdit.Location = new System.Drawing.Point(1013, 15);
-            this.iconButtonEdit.Margin = new System.Windows.Forms.Padding(4);
+            this.iconButtonEdit.Location = new System.Drawing.Point(760, 12);
             this.iconButtonEdit.Name = "iconButtonEdit";
-            this.iconButtonEdit.Size = new System.Drawing.Size(141, 48);
+            this.iconButtonEdit.Size = new System.Drawing.Size(106, 39);
             this.iconButtonEdit.TabIndex = 14;
             this.iconButtonEdit.Text = "Edit";
             this.iconButtonEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -574,11 +497,10 @@ namespace _69CoffeeShop.Employees
             this.txtEmployeeID.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEmployeeID.Location = new System.Drawing.Point(174, 15);
-            this.txtEmployeeID.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEmployeeID.Location = new System.Drawing.Point(130, 12);
             this.txtEmployeeID.Name = "txtEmployeeID";
             this.txtEmployeeID.ReadOnly = true;
-            this.txtEmployeeID.Size = new System.Drawing.Size(112, 22);
+            this.txtEmployeeID.Size = new System.Drawing.Size(85, 20);
             this.txtEmployeeID.TabIndex = 13;
             this.txtEmployeeID.Text = "1015";
             this.txtEmployeeID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -590,24 +512,33 @@ namespace _69CoffeeShop.Employees
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblEmployeeID.AutoSize = true;
             this.lblEmployeeID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmployeeID.Location = new System.Drawing.Point(39, 15);
-            this.lblEmployeeID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEmployeeID.Location = new System.Drawing.Point(29, 12);
             this.lblEmployeeID.Name = "lblEmployeeID";
-            this.lblEmployeeID.Size = new System.Drawing.Size(119, 20);
+            this.lblEmployeeID.Size = new System.Drawing.Size(95, 16);
             this.lblEmployeeID.TabIndex = 12;
             this.lblEmployeeID.Text = "Employee ID : ";
             // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.CustomFormat = "dd-MMM-yyyy";
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker2.Location = new System.Drawing.Point(170, 139);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(113, 21);
+            this.dateTimePicker2.TabIndex = 26;
+            // 
             // FormEmployeeProfile
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1349, 725);
+            this.ClientSize = new System.Drawing.Size(1012, 589);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gBoxPersonal);
             this.Controls.Add(this.iconButtonDelete);
             this.Controls.Add(this.iconButtonEdit);
             this.Controls.Add(this.txtEmployeeID);
             this.Controls.Add(this.lblEmployeeID);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormEmployeeProfile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormEmployeeProfile";
@@ -621,8 +552,6 @@ namespace _69CoffeeShop.Employees
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBoxBank;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox dropdownBank;
@@ -634,8 +563,6 @@ namespace _69CoffeeShop.Employees
         private System.Windows.Forms.Label lblDOB;
         private System.Windows.Forms.TextBox txtEmergency;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox dropDownMarriage;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.RichTextBox txtAddress;
@@ -661,5 +588,6 @@ namespace _69CoffeeShop.Employees
         private FontAwesome.Sharp.IconButton iconButtonEdit;
         private System.Windows.Forms.TextBox txtEmployeeID;
         private System.Windows.Forms.Label lblEmployeeID;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
     }
 }

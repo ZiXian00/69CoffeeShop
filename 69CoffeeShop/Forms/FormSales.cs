@@ -28,18 +28,7 @@ namespace _69CoffeeShop.Forms
         {
             conn = new MySqlConnection(connStr);
             InitializeComponent();
-            //panelMenu.HorizontalScroll.Maximum = 0;
-            //panelMenu.AutoScroll = false;
-            //panelMenu.VerticalScroll.Visible = false;
-            //panelMenu.HorizontalScroll.Visible = false;
-            //panelMenu.HorizontalScroll.Enabled = false;
-            //panelMenu.AutoScroll = true;    
 
-            //tableLayoutPanelMenu.HorizontalScroll.Maximum = 0;
-            //tableLayoutPanelMenu.HorizontalScroll.Enabled = false;
-            //tableLayoutPanelMenu.HorizontalScroll.Visible = false;
-
-           
             string prodName;
             double prodPrice;            
 
@@ -99,35 +88,6 @@ namespace _69CoffeeShop.Forms
                     }
                 }
             }
-
-            //BACKUP CODE
-            //string price = getUnitPrice(prodName);
-
-            //if (price != null)
-            //{
-            //    if (dataGridViewOrder.RowCount > 0)
-            //    {
-            //        int checkOrderGVreturn = checkOrderGV(prodName);
-            //        if (checkOrderGVreturn >= 0)
-            //        {
-            //           // MessageBox.Show("yes");
-            //            int qty = int.Parse(dataGridViewOrder.Rows[checkOrderGVreturn].Cells["Qty"].Value.ToString());
-            //            qty++;
-            //            dataGridViewOrder.Rows[checkOrderGVreturn].Cells["Qty"].Value = qty.ToString();
-            //        }
-            //        else
-            //        {
-            //            // MessageBox.Show("no");
-            //            this.dataGridViewOrder.Rows.Add(prodName, "1", "+", "-", price);
-            //        }
-            //    }
-            //    else
-            //    {
-            //      // MessageBox.Show("no");
-            //        this.dataGridViewOrder.Rows.Add(prodName, "1", "+", "-", price);
-            //    }
-            //}
-            //conn.Close();
         }
 
         private int checkOrderGV(string prodName)

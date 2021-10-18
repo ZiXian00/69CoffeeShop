@@ -208,6 +208,7 @@ namespace _69CoffeeShop.Forms
             else
             {
                 textBoxChanges.Text = changes.ToString("0.00");
+                buttonComplete.Enabled = true;
             }
         }
 
@@ -285,38 +286,61 @@ namespace _69CoffeeShop.Forms
                 custPaid = custPaid.Substring(3);
             }
 
-
             Class.Employee emp = new Class.Employee();
             emp.employeeID = "E1001";
-            string insertOrderQry = "insert into orders value (@id, @mID, @eID)";
-            MySqlCommand insertOrderCmd = new MySqlCommand(insertOrderQry, connection.conn);
-            connection.conn.Open();
-            insertOrderCmd.Parameters.AddWithValue("@id", orderID);
-            insertOrderCmd.Parameters.AddWithValue("@mID", "M0001");
-            insertOrderCmd.Parameters.AddWithValue("@eID", emp.employeeID);
-            insertOrderCmd.ExecuteNonQuery();
 
-            for (int i = 0; i < orderList.Count; i++)
+            try
             {
-                string orderProdQry = "insert into product_order value (@oID, @pID, @qty)";
-                MySqlCommand orderProdCmd = new MySqlCommand(orderProdQry, connection.conn);
-                orderProdCmd.Parameters.AddWithValue("@oid", orderID);
-                orderProdCmd.Parameters.AddWithValue("@pid", orderList[i].productID);
-                orderProdCmd.Parameters.AddWithValue("@qty", dataGridViewOrder.Rows[i].Cells["Qty"].Value);
-                orderProdCmd.ExecuteNonQuery();
+                string insertOrderQry = "insert into orders value (@id, @mID, @eID)";
+                MySqlCommand insertOrderCmd = new MySqlCommand(insertOrderQry, connection.conn);
+                connection.conn.Open();
+                insertOrderCmd.Parameters.AddWithValue("@id", orderID);
+                insertOrderCmd.Parameters.AddWithValue("@mID", "M0001");
+                insertOrderCmd.Parameters.AddWithValue("@eID", emp.employeeID);
+                insertOrderCmd.ExecuteNonQuery();
+
+                for (int i = 0; i < orderList.Count; i++)
+                {
+                    string orderProdQry = "insert into product_order value (@oID, @pID, @qty)";
+                    MySqlCommand orderProdCmd = new MySqlCommand(orderProdQry, connection.conn);
+                    orderProdCmd.Parameters.AddWithValue("@oid", orderID);
+                    orderProdCmd.Parameters.AddWithValue("@pid", orderList[i].productID);
+                    orderProdCmd.Parameters.AddWithValue("@qty", dataGridViewOrder.Rows[i].Cells["Qty"].Value);
+                    orderProdCmd.ExecuteNonQuery();
+                }
+
+                string salesTableQry = "insert into sales values(@sID, @amount, @method, @orderID, @date, @custPaid)";
+                MySqlCommand salesTableCmd = new MySqlCommand(salesTableQry, connection.conn);
+                salesTableCmd.Parameters.AddWithValue("@sID", salesID);
+                salesTableCmd.Parameters.AddWithValue("@amount", labelGrandTotal.Text.ToString().Substring(3));
+                salesTableCmd.Parameters.AddWithValue("@method", method);
+                salesTableCmd.Parameters.AddWithValue("@orderID", orderID);
+                salesTableCmd.Parameters.AddWithValue("@date", DateTime.Now.ToString("yyyy-MM-dd"));
+                salesTableCmd.Parameters.AddWithValue("@custPaid", custPaid);
+                salesTableCmd.ExecuteNonQuery();
+
+                DialogResult ds = MessageBox.Show("Payment success. Proceed to product menu", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                if(ds == DialogResult.OK)
+                {
+                    FormSales sales = new FormSales();
+                    sales.TopLevel = false;
+                    sales.Parent = this.Parent;
+                    sales.FormBorderStyle = FormBorderStyle.None;
+                    sales.Dock = DockStyle.Fill;
+                    sales.BringToFront();
+                    sales.Show();
+                    this.Close();
+                }
             }
-
-            string salesTableQry = "insert into sales values(@sID, @amount, @method, @orderID, @date, @custPaid)";
-            MySqlCommand salesTableCmd = new MySqlCommand(salesTableQry, connection.conn);
-            salesTableCmd.Parameters.AddWithValue("@sID", salesID);
-            salesTableCmd.Parameters.AddWithValue("@amount", labelGrandTotal.Text.ToString().Substring(3));
-            salesTableCmd.Parameters.AddWithValue("@method", method);
-            salesTableCmd.Parameters.AddWithValue("@orderID", orderID);
-            salesTableCmd.Parameters.AddWithValue("@date", DateTime.Now.ToString("yyyy-MM-dd"));
-            salesTableCmd.Parameters.AddWithValue("@custPaid", custPaid);
-            salesTableCmd.ExecuteNonQuery();
-
-            connection.conn.Close();
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                connection.conn.Close();
+            }
         }
 
         FilterInfoCollection filterIC;
