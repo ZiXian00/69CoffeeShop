@@ -33,7 +33,7 @@ namespace _69CoffeeShop.Forms
             double prodPrice;            
 
             conn.Open();
-            string loadQuery = "select * from products";
+            string loadQuery = "select * from products ORDER BY productCount";
             MySqlCommand loadComm = new MySqlCommand(loadQuery, conn);
             MySqlDataReader loadReader = loadComm.ExecuteReader();
             while (loadReader.Read())
@@ -41,8 +41,8 @@ namespace _69CoffeeShop.Forms
                 byte[] img = (byte[])loadReader["productImage"];
                 MemoryStream ms = new MemoryStream(img);
 
-                prodName = loadReader["productName"].ToString();
-                prodPrice = double.Parse(loadReader["unitPrice"].ToString());
+                prodName = Class.Utilities.decryption(loadReader["productName"].ToString());
+                prodPrice = double.Parse(Class.Utilities.decryption(loadReader["unitPrice"].ToString()));
                 btn = new Button { BackgroundImage = Image.FromStream(ms), Text = prodName, TextImageRelation = TextImageRelation.ImageAboveText, Height = 180, Width = 180, BackgroundImageLayout = ImageLayout.Stretch, TextAlign = ContentAlignment.BottomCenter, Margin = new Padding(12)};
                 btn.Font = new Font("Comic Sans MS", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
                
@@ -202,20 +202,18 @@ namespace _69CoffeeShop.Forms
                 string getProdDetQry = "select * from products where productName = @prodName";
                 conn.Open();
                 MySqlCommand getProdDetCmd = new MySqlCommand(getProdDetQry, conn);
-                getProdDetCmd.Parameters.AddWithValue("@prodName", prodName);
+                getProdDetCmd.Parameters.AddWithValue("@prodName", Class.Utilities.encryption(prodName));
                 MySqlDataReader getProdDetRdr = getProdDetCmd.ExecuteReader();
 
                 while (getProdDetRdr.Read())
                 {
                     byte[] prodImg = (byte[])getProdDetRdr["productImage"];
-                    prod = new Class.Product(getProdDetRdr.GetString(0), prodName, getProdDetRdr.GetString(2), getProdDetRdr.GetString(3), prodImg);
+                    prod = new Class.Product(Class.Utilities.decryption(getProdDetRdr.GetString(0)), prodName, Class.Utilities.decryption(getProdDetRdr.GetString(2)), Class.Utilities.decryption(getProdDetRdr.GetString(3)), prodImg);
                     orderList.Add(prod);
                 }
                 conn.Close();
             }
         }
-
-
 
         private void dataGridViewOrder_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {

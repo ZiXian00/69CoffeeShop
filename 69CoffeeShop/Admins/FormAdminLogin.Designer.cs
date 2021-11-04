@@ -36,6 +36,7 @@ namespace _69CoffeeShop.Forms
             this.labelID = new System.Windows.Forms.Label();
             this.lblFrgtPw = new System.Windows.Forms.Label();
             this.buttonLogin = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBoxEmployeeDetails.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,8 +46,8 @@ namespace _69CoffeeShop.Forms
             this.groupBoxEmployeeDetails.Controls.Add(this.label1);
             this.groupBoxEmployeeDetails.Controls.Add(this.textBoxID);
             this.groupBoxEmployeeDetails.Controls.Add(this.labelID);
-            this.groupBoxEmployeeDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxEmployeeDetails.Location = new System.Drawing.Point(148, 58);
+            this.groupBoxEmployeeDetails.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxEmployeeDetails.Location = new System.Drawing.Point(71, 65);
             this.groupBoxEmployeeDetails.Name = "groupBoxEmployeeDetails";
             this.groupBoxEmployeeDetails.Size = new System.Drawing.Size(306, 211);
             this.groupBoxEmployeeDetails.TabIndex = 5;
@@ -92,19 +93,19 @@ namespace _69CoffeeShop.Forms
             // lblFrgtPw
             // 
             this.lblFrgtPw.AutoSize = true;
-            this.lblFrgtPw.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFrgtPw.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFrgtPw.ForeColor = System.Drawing.Color.Blue;
-            this.lblFrgtPw.Location = new System.Drawing.Point(146, 275);
+            this.lblFrgtPw.Location = new System.Drawing.Point(69, 282);
             this.lblFrgtPw.Name = "lblFrgtPw";
-            this.lblFrgtPw.Size = new System.Drawing.Size(119, 16);
+            this.lblFrgtPw.Size = new System.Drawing.Size(130, 16);
             this.lblFrgtPw.TabIndex = 7;
             this.lblFrgtPw.Text = "Forgot password ?";
             this.lblFrgtPw.Click += new System.EventHandler(this.lblFrgtPw_Click);
             // 
             // buttonLogin
             // 
-            this.buttonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLogin.Location = new System.Drawing.Point(347, 275);
+            this.buttonLogin.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLogin.Location = new System.Drawing.Point(270, 282);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(107, 33);
             this.buttonLogin.TabIndex = 6;
@@ -112,18 +113,31 @@ namespace _69CoffeeShop.Forms
             this.buttonLogin.UseVisualStyleBackColor = true;
             this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(48, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FormAdminLogin
             // 
             this.AcceptButton = this.buttonLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(585, 366);
+            this.ClientSize = new System.Drawing.Size(456, 366);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBoxEmployeeDetails);
             this.Controls.Add(this.lblFrgtPw);
             this.Controls.Add(this.buttonLogin);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(472, 405);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(472, 405);
             this.Name = "FormAdminLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin Login";
@@ -143,5 +157,6 @@ namespace _69CoffeeShop.Forms
         private System.Windows.Forms.Label labelID;
         private System.Windows.Forms.Label lblFrgtPw;
         private System.Windows.Forms.Button buttonLogin;
+        private System.Windows.Forms.Button button1;
     }
 }

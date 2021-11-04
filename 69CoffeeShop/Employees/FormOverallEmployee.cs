@@ -7,27 +7,67 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace _69CoffeeShop.Employees
 {
     public partial class FormOverallEmployee : Form
     {
+        Class.Connection connection = new Class.Connection();
+        Class.Product product;
+        public List<Class.Employee> employeeList { get; set; } = new List<Class.Employee>();
+
         public FormOverallEmployee()
         {
             InitializeComponent();
         }
 
-
-        private void buttonAdd_Click(object sender, EventArgs e)
+        private void FormOverallEmployee_Load(object sender, EventArgs e)
         {
-            Form addEmp= new FormAddEmployee();
+            refreshGridView();
+        }
+
+        public void refreshGridView()
+        {
+            dataGridViewEmployeeList.Rows.Clear();
+
+            string loadEmployeeQry = "select * from employees";
+
+            MySqlCommand loadEmployeeCmd = new MySqlCommand(loadEmployeeQry, connection.conn);
+            connection.conn.Open();
+            MySqlDataReader loadEmployeeReader = loadEmployeeCmd.ExecuteReader();
+
+            while (loadEmployeeReader.Read())
+            {
+                dataGridViewEmployeeList.Rows.Add(Class.Utilities.decryption(loadEmployeeReader["employeeName"].ToString()), loadEmployeeReader["employeeID"], Class.Utilities.decryption(loadEmployeeReader["position"].ToString()), Class.Utilities.decryption(loadEmployeeReader["lastCheckedIn"].ToString()), Class.Utilities.decryption(loadEmployeeReader["lastCheckedOut"].ToString()));
+            }
+
+            loadEmployeeReader.Close();
+            connection.conn.Close();
+        }
+
+        private void iconButtonAdd_Click(object sender, EventArgs e)
+        {
+            Form addEmp = new FormEmployeeProfile("add", null, this);
             addEmp.ShowDialog();
         }
 
-        private void buttonView_Click(object sender, EventArgs e)
+        private void iconButtonProfile_Click(object sender, EventArgs e)
         {
-            Form viewEmp = new FormEmployeeProfile();
+            if (dataGridViewEmployeeList.SelectedRows.Count == 0 && dataGridViewEmployeeList.SelectedCells.Count == 0)
+            {
+                dataGridViewEmployeeList.Rows[0].Selected = true;
+            }
+
+            int rowIndex = dataGridViewEmployeeList.SelectedCells[0].RowIndex;
+
+            Form viewEmp = new FormEmployeeProfile("view", dataGridViewEmployeeList.Rows[rowIndex].Cells["employeeID"].Value.ToString(), this);
             viewEmp.ShowDialog();
         }
+
+        //string loadEmployeeQry = "select * from employee_duty_record r1 " +
+        //                   "JOIN (select MAX(checkIn) AS checkIn, employeeID from employee_duty_record GROUP BY employeeID) r2 " +
+        //                   "ON r1.employeeID = r2.employeeID AND r1.checkIn = r2.checkIn ";
+
     }
 }

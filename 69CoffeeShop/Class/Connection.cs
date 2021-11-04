@@ -12,6 +12,5 @@ namespace _69CoffeeShop.Class
     {
         public static string connStr { get; set; } = ConfigurationManager.ConnectionStrings["connStr"].ConnectionString;
         public MySqlConnection conn { get; set; } = new MySqlConnection(connStr);
-
     }
 }

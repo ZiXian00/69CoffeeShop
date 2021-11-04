@@ -153,7 +153,7 @@ namespace _69CoffeeShop.Forms
         private void iconButtonUser_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
-            OpenChildForm(new Admins.FormOverallAdmin());
+            OpenChildForm(new Admins.FormOverallAdmin(this));
         }
     }
 }

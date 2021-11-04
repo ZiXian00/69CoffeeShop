@@ -110,7 +110,7 @@
             this.dataGridViewOrder.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -125,7 +125,7 @@
             this.price});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -136,6 +136,7 @@
             this.dataGridViewOrder.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewOrder.MultiSelect = false;
             this.dataGridViewOrder.Name = "dataGridViewOrder";
+            this.dataGridViewOrder.ReadOnly = true;
             this.dataGridViewOrder.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -177,6 +178,7 @@
             // 
             this.btnAdd.HeaderText = "";
             this.btnAdd.Name = "btnAdd";
+            this.btnAdd.ReadOnly = true;
             this.btnAdd.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.btnAdd.Text = "+";
             this.btnAdd.Width = 30;
@@ -185,6 +187,7 @@
             // 
             this.btnMinus.HeaderText = "";
             this.btnMinus.Name = "btnMinus";
+            this.btnMinus.ReadOnly = true;
             this.btnMinus.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.btnMinus.Text = "-";
             this.btnMinus.Width = 30;
@@ -221,7 +224,7 @@
             this.groupBoxInfo.Controls.Add(this.label1);
             this.groupBoxInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBoxInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBoxInfo.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxInfo.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxInfo.Location = new System.Drawing.Point(0, 98);
             this.groupBoxInfo.Name = "groupBoxInfo";
             this.groupBoxInfo.Size = new System.Drawing.Size(705, 165);
@@ -232,80 +235,80 @@
             // labelTime
             // 
             this.labelTime.AutoSize = true;
-            this.labelTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTime.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTime.Location = new System.Drawing.Point(160, 72);
             this.labelTime.Name = "labelTime";
-            this.labelTime.Size = new System.Drawing.Size(46, 18);
+            this.labelTime.Size = new System.Drawing.Size(51, 18);
             this.labelTime.TabIndex = 7;
             this.labelTime.Text = "label2";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(57, 72);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 18);
+            this.label4.Size = new System.Drawing.Size(66, 18);
             this.label4.TabIndex = 6;
             this.label4.Text = "Time :  ";
             // 
             // labelDate
             // 
             this.labelDate.AutoSize = true;
-            this.labelDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDate.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDate.Location = new System.Drawing.Point(158, 41);
             this.labelDate.Name = "labelDate";
-            this.labelDate.Size = new System.Drawing.Size(46, 18);
+            this.labelDate.Size = new System.Drawing.Size(51, 18);
             this.labelDate.TabIndex = 5;
             this.labelDate.Text = "label2";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(57, 41);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(51, 18);
+            this.label6.Size = new System.Drawing.Size(60, 18);
             this.label6.TabIndex = 4;
             this.label6.Text = "Date : ";
             // 
             // labelEmpName
             // 
             this.labelEmpName.AutoSize = true;
-            this.labelEmpName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEmpName.Location = new System.Drawing.Point(160, 134);
+            this.labelEmpName.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEmpName.Location = new System.Drawing.Point(161, 134);
             this.labelEmpName.Name = "labelEmpName";
-            this.labelEmpName.Size = new System.Drawing.Size(46, 18);
+            this.labelEmpName.Size = new System.Drawing.Size(51, 18);
             this.labelEmpName.TabIndex = 3;
             this.labelEmpName.Text = "label2";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(57, 134);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 18);
+            this.label3.Size = new System.Drawing.Size(107, 18);
             this.label3.TabIndex = 2;
             this.label3.Text = "Staff name : ";
             // 
             // labelEmpID
             // 
             this.labelEmpID.AutoSize = true;
-            this.labelEmpID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEmpID.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEmpID.Location = new System.Drawing.Point(160, 103);
             this.labelEmpID.Name = "labelEmpID";
-            this.labelEmpID.Size = new System.Drawing.Size(46, 18);
+            this.labelEmpID.Size = new System.Drawing.Size(51, 18);
             this.labelEmpID.TabIndex = 1;
             this.labelEmpID.Text = "label2";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(57, 103);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 18);
+            this.label1.Size = new System.Drawing.Size(81, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Staff ID : ";
             // 
@@ -318,7 +321,7 @@
             this.groupBoxPayment.Controls.Add(this.labelSubTotal);
             this.groupBoxPayment.Controls.Add(this.label7);
             this.groupBoxPayment.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBoxPayment.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxPayment.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxPayment.Location = new System.Drawing.Point(0, 263);
             this.groupBoxPayment.Name = "groupBoxPayment";
             this.groupBoxPayment.Size = new System.Drawing.Size(705, 133);
@@ -329,66 +332,66 @@
             // labelGrandTotal
             // 
             this.labelGrandTotal.AutoSize = true;
-            this.labelGrandTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGrandTotal.Location = new System.Drawing.Point(160, 96);
+            this.labelGrandTotal.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGrandTotal.Location = new System.Drawing.Point(167, 96);
             this.labelGrandTotal.Name = "labelGrandTotal";
-            this.labelGrandTotal.Size = new System.Drawing.Size(52, 18);
+            this.labelGrandTotal.Size = new System.Drawing.Size(52, 16);
             this.labelGrandTotal.TabIndex = 13;
             this.labelGrandTotal.Text = "label2";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(54, 96);
+            this.label5.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(60, 96);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(99, 18);
+            this.label5.Size = new System.Drawing.Size(101, 16);
             this.label5.TabIndex = 12;
             this.label5.Text = "Grand-Total : ";
             // 
             // labelTax
             // 
             this.labelTax.AutoSize = true;
-            this.labelTax.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTax.Location = new System.Drawing.Point(158, 68);
+            this.labelTax.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTax.Location = new System.Drawing.Point(167, 68);
             this.labelTax.Name = "labelTax";
-            this.labelTax.Size = new System.Drawing.Size(70, 18);
+            this.labelTax.Size = new System.Drawing.Size(69, 16);
             this.labelTax.TabIndex = 11;
             this.labelTax.Text = "labelTax";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(57, 68);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(95, 18);
+            this.label9.Size = new System.Drawing.Size(104, 16);
             this.label9.TabIndex = 10;
             this.label9.Text = "Tax (6%)     : ";
             // 
             // labelSubTotal
             // 
             this.labelSubTotal.AutoSize = true;
-            this.labelSubTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSubTotal.Location = new System.Drawing.Point(158, 39);
+            this.labelSubTotal.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSubTotal.Location = new System.Drawing.Point(167, 39);
             this.labelSubTotal.Name = "labelSubTotal";
-            this.labelSubTotal.Size = new System.Drawing.Size(52, 18);
+            this.labelSubTotal.Size = new System.Drawing.Size(52, 16);
             this.labelSubTotal.TabIndex = 9;
             this.labelSubTotal.Text = "label2";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(57, 39);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(96, 18);
+            this.label7.Size = new System.Drawing.Size(103, 16);
             this.label7.TabIndex = 8;
             this.label7.Text = "Sub-Total    : ";
             // 
             // iconButtonBack
             // 
-            this.iconButtonBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButtonBack.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconButtonBack.IconChar = FontAwesome.Sharp.IconChar.AngleLeft;
             this.iconButtonBack.IconColor = System.Drawing.Color.Black;
             this.iconButtonBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -446,7 +449,7 @@
             // buttonComplete
             // 
             this.buttonComplete.Enabled = false;
-            this.buttonComplete.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonComplete.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonComplete.Location = new System.Drawing.Point(212, 191);
             this.buttonComplete.Name = "buttonComplete";
             this.buttonComplete.Size = new System.Drawing.Size(126, 44);
@@ -458,7 +461,7 @@
             // 
             // buttonCheck
             // 
-            this.buttonCheck.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCheck.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCheck.Location = new System.Drawing.Point(68, 191);
             this.buttonCheck.Name = "buttonCheck";
             this.buttonCheck.Size = new System.Drawing.Size(126, 44);
@@ -471,38 +474,38 @@
             // textBoxChanges
             // 
             this.textBoxChanges.Enabled = false;
-            this.textBoxChanges.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxChanges.Location = new System.Drawing.Point(227, 141);
+            this.textBoxChanges.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxChanges.Location = new System.Drawing.Point(198, 138);
             this.textBoxChanges.Name = "textBoxChanges";
             this.textBoxChanges.ReadOnly = true;
-            this.textBoxChanges.Size = new System.Drawing.Size(146, 32);
+            this.textBoxChanges.Size = new System.Drawing.Size(146, 23);
             this.textBoxChanges.TabIndex = 52;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(66, 141);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(147, 24);
+            this.label2.Size = new System.Drawing.Size(123, 16);
             this.label2.TabIndex = 51;
             this.label2.Text = "Changes (RM) : ";
             // 
             // textBoxCustPaid
             // 
-            this.textBoxCustPaid.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCustPaid.Location = new System.Drawing.Point(227, 91);
+            this.textBoxCustPaid.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCustPaid.Location = new System.Drawing.Point(198, 88);
             this.textBoxCustPaid.Name = "textBoxCustPaid";
-            this.textBoxCustPaid.Size = new System.Drawing.Size(146, 32);
+            this.textBoxCustPaid.Size = new System.Drawing.Size(146, 23);
             this.textBoxCustPaid.TabIndex = 50;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(22, 91);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(199, 24);
+            this.label8.Size = new System.Drawing.Size(170, 16);
             this.label8.TabIndex = 49;
             this.label8.Text = "Customer Paid (RM ) : ";
             // 
@@ -680,6 +683,7 @@
             // textBox1
             // 
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.textBox1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(528, 3);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
@@ -688,6 +692,7 @@
             // 
             // buttonOK
             // 
+            this.buttonOK.Font = new System.Drawing.Font("Verdana", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonOK.Location = new System.Drawing.Point(430, 43);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(92, 29);
@@ -717,10 +722,10 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(55, 43);
+            this.label10.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(46, 44);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(91, 24);
+            this.label10.Size = new System.Drawing.Size(105, 23);
             this.label10.TabIndex = 50;
             this.label10.Text = "Camera : ";
             // 
@@ -811,7 +816,7 @@
         private System.Windows.Forms.PictureBox pictureBoxQR;
         private System.Windows.Forms.ComboBox comboBoxCamera;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

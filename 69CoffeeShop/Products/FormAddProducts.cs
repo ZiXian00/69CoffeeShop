@@ -116,10 +116,10 @@ namespace _69CoffeeShop.Products
                     MySqlCommand newProdCmd = new MySqlCommand(newProdQry, connection.conn);
                     connection.conn.Open();
 
-                    newProdCmd.Parameters.AddWithValue("@productID", productID);
-                    newProdCmd.Parameters.AddWithValue("@productName", textBoxProdName.Text.ToString());
-                    newProdCmd.Parameters.AddWithValue("@unitPrice", textBoxProdPrice.Text.ToString());
-                    newProdCmd.Parameters.AddWithValue("@unitCost", textBoxProdCost.Text.ToString());
+                    newProdCmd.Parameters.AddWithValue("@productID", Class.Utilities.encryption(productID));
+                    newProdCmd.Parameters.AddWithValue("@productName", Class.Utilities.encryption(textBoxProdName.Text.ToString()));
+                    newProdCmd.Parameters.AddWithValue("@unitPrice", Class.Utilities.encryption(textBoxProdPrice.Text.ToString()));
+                    newProdCmd.Parameters.AddWithValue("@unitCost", Class.Utilities.encryption(textBoxProdCost.Text.ToString()));
                     newProdCmd.Parameters.AddWithValue("@img", img);
 
                     newProdCmd.ExecuteNonQuery();
@@ -137,11 +137,11 @@ namespace _69CoffeeShop.Products
                     MySqlCommand updateProdCmd = new MySqlCommand(updateProdQry, connection.conn);
                     connection.conn.Open();
 
-                    updateProdCmd.Parameters.AddWithValue("@prodName", textBoxProdName.Text);
-                    updateProdCmd.Parameters.AddWithValue("@unitPrice", textBoxProdPrice.Text);
-                    updateProdCmd.Parameters.AddWithValue("@unitCost", textBoxProdCost.Text);
+                    updateProdCmd.Parameters.AddWithValue("@prodName", Class.Utilities.encryption(textBoxProdName.Text));
+                    updateProdCmd.Parameters.AddWithValue("@unitPrice", Class.Utilities.encryption(Class.Utilities.encryption(textBoxProdPrice.Text)));
+                    updateProdCmd.Parameters.AddWithValue("@unitCost", Class.Utilities.encryption(textBoxProdCost.Text));
                     updateProdCmd.Parameters.AddWithValue("@img", img);
-                    updateProdCmd.Parameters.AddWithValue("@id", Products.productList[rowIndex].productID);
+                    updateProdCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(Products.productList[rowIndex].productID));
                     updateProdCmd.ExecuteNonQuery();
                 }
 
@@ -181,7 +181,7 @@ namespace _69CoffeeShop.Products
 
             if (productIDRdr.Read())
             {
-                string lastID = productIDRdr.GetString(0);
+                string lastID = Class.Utilities.decryption(productIDRdr.GetString(0));
                 lastID = lastID.Substring(1);
                 int idIncrement = int.Parse(lastID);
                 idIncrement++;
@@ -191,6 +191,9 @@ namespace _69CoffeeShop.Products
             else {
                 productID = "C0001";
             }
+
+            MessageBox.Show(productID);
+
             productIDRdr.Close();
             connection.conn.Close();
             return productID;

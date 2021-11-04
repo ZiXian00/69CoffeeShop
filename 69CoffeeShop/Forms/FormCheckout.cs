@@ -24,6 +24,9 @@ namespace _69CoffeeShop.Forms
         private string orderID;
         private string salesID;
 
+        public string empID { get; set; }
+        public string empName { get; set; }
+
         public FormCheckout(List<Class.Product> orderList, DataGridView dgv)
         {
             InitializeComponent();
@@ -34,14 +37,19 @@ namespace _69CoffeeShop.Forms
                 dataGridViewOrder.Rows.Add(dgv.Rows[i].Cells[0].Value.ToString(), dgv.Rows[i].Cells[1].Value.ToString(), dgv.Rows[i].Cells[2].Value.ToString(), dgv.Rows[i].Cells[3].Value.ToString(), dgv.Rows[i].Cells[4].Value.ToString());
             }
             labelDate.Text = DateTime.Now.ToString("dd-MM-yyyy");
-            labelTime.Text = DateTime.Now.ToString("hh:mm");
-            labelEmpID.Text = emp.employeeID;
-            labelEmpName.Text = emp.employeeName;
+            labelTime.Text = DateTime.Now.ToString("HH:mm");
+            labelEmpID.Text = Class.Cashier.cashierID;
+            labelEmpName.Text = Class.Cashier.cashierName;
             calculatePriceDetails();
+        }
+
+        public FormCheckout()
+        {
         }
 
         private void FormCheckout_Load(object sender, EventArgs e)
         {
+
         }
 
         private void iconButtonBack_Click(object sender, EventArgs e)
@@ -204,6 +212,7 @@ namespace _69CoffeeShop.Forms
             if (changes < 0)
             {
                 MessageBox.Show("Paid amount should more than Grand-Total.", "Insufficient Amount", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxChanges.Text = "";
             }
             else
             {
@@ -223,7 +232,7 @@ namespace _69CoffeeShop.Forms
 
         private void createSalesID()
         {
-            string salesIDQry = "select salesID from sales order by salesID DESC LIMIT 1";
+            string salesIDQry = "select salesID from sales order by salesCount DESC LIMIT 1";
             connection.conn.Open();
             MySqlCommand salesIDCmd = new MySqlCommand(salesIDQry, connection.conn);
             MySqlDataReader salesIDRdr = salesIDCmd.ExecuteReader();
@@ -232,9 +241,9 @@ namespace _69CoffeeShop.Forms
 
             if (salesIDRdr.Read())
             {
-                string checkDate = salesIDRdr.GetString(0);
+                string checkDate = Class.Utilities.decryption(salesIDRdr.GetString(0));
                 checkDate = checkDate.Substring(0, 8);
-                previousID = salesIDRdr.GetString(0);
+                previousID = Class.Utilities.decryption(salesIDRdr.GetString(0));
 
                 if (checkDate == DateTime.Now.ToString("ddMMyyyy"))
                 {
@@ -245,20 +254,21 @@ namespace _69CoffeeShop.Forms
             salesIDRdr.Close();
             connection.conn.Close();
             salesID = idIncrement.ToString(DateTime.Now.ToString("ddMMyyyy") + ":" + orderID + "::0000");
+            MessageBox.Show(salesID);
         }
 
         private void createOrderID()
         {
             int idIncrement = 1;
             connection.conn.Open();
-            string orderIDQuery = "select orderID from orders ORDER BY orderID DESC LIMIT 1";
+            string orderIDQuery = "select orderID from orders ORDER BY orderCount DESC LIMIT 1";
             MySqlCommand orderIDCmd = new MySqlCommand(orderIDQuery, connection.conn);
             MySqlDataReader orderIDRdr = orderIDCmd.ExecuteReader();
 
             if (orderIDRdr.Read())
             {
-                string lastID = orderIDRdr.GetString(0);
-                string checkDate = orderIDRdr.GetString(0);
+                string lastID = Class.Utilities.decryption(orderIDRdr.GetString(0));
+                string checkDate = Class.Utilities.decryption(orderIDRdr.GetString(0));
                 checkDate = checkDate.Substring(1, 8);
 
                 if (checkDate == DateTime.Now.ToString("ddMMyyyy"))
@@ -270,6 +280,7 @@ namespace _69CoffeeShop.Forms
             orderIDRdr.Close();
             connection.conn.Close();
             orderID = idIncrement.ToString("O" + DateTime.Now.ToString("ddMMyyyy") + "0000");
+            MessageBox.Show(orderID);
         }
 
         //insert into sales, order and product_order table
@@ -286,39 +297,36 @@ namespace _69CoffeeShop.Forms
                 custPaid = custPaid.Substring(3);
             }
 
-            Class.Employee emp = new Class.Employee();
-            emp.employeeID = "E1001";
-
             try
             {
-                string insertOrderQry = "insert into orders value (@id, @mID, @eID)";
+                string insertOrderQry = "insert into orders (orderID, memberID, employeeID) value (@id, @mID, @eID)";
                 MySqlCommand insertOrderCmd = new MySqlCommand(insertOrderQry, connection.conn);
                 connection.conn.Open();
-                insertOrderCmd.Parameters.AddWithValue("@id", orderID);
-                insertOrderCmd.Parameters.AddWithValue("@mID", "M0001");
-                insertOrderCmd.Parameters.AddWithValue("@eID", emp.employeeID);
+                insertOrderCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(orderID));
+                insertOrderCmd.Parameters.AddWithValue("@mID", Class.Utilities.encryption("M0001"));
+                insertOrderCmd.Parameters.AddWithValue("@eID", Class.Cashier.cashierID);
                 insertOrderCmd.ExecuteNonQuery();
 
                 for (int i = 0; i < orderList.Count; i++)
                 {
                     string orderProdQry = "insert into product_order value (@oID, @pID, @qty)";
                     MySqlCommand orderProdCmd = new MySqlCommand(orderProdQry, connection.conn);
-                    orderProdCmd.Parameters.AddWithValue("@oid", orderID);
-                    orderProdCmd.Parameters.AddWithValue("@pid", orderList[i].productID);
-                    orderProdCmd.Parameters.AddWithValue("@qty", dataGridViewOrder.Rows[i].Cells["Qty"].Value);
+                    orderProdCmd.Parameters.AddWithValue("@oid", Class.Utilities.encryption(orderID));
+                    orderProdCmd.Parameters.AddWithValue("@pid", Class.Utilities.encryption(orderList[i].productID));
+                    orderProdCmd.Parameters.AddWithValue("@qty", Class.Utilities.encryption(dataGridViewOrder.Rows[i].Cells["Qty"].Value.ToString()));
                     orderProdCmd.ExecuteNonQuery();
                 }
 
-                string salesTableQry = "insert into sales values(@sID, @amount, @method, @orderID, @date, @custPaid)";
+                string salesTableQry = "insert into sales (salesID, salesAmount, paymentMethod, orderID, date, custPaid) values(@sID, @amount, @method, @orderID, @date, @custPaid)";
                 MySqlCommand salesTableCmd = new MySqlCommand(salesTableQry, connection.conn);
-                salesTableCmd.Parameters.AddWithValue("@sID", salesID);
-                salesTableCmd.Parameters.AddWithValue("@amount", labelGrandTotal.Text.ToString().Substring(3));
-                salesTableCmd.Parameters.AddWithValue("@method", method);
-                salesTableCmd.Parameters.AddWithValue("@orderID", orderID);
-                salesTableCmd.Parameters.AddWithValue("@date", DateTime.Now.ToString("yyyy-MM-dd"));
-                salesTableCmd.Parameters.AddWithValue("@custPaid", custPaid);
+                salesTableCmd.Parameters.AddWithValue("@sID", Class.Utilities.encryption(salesID));
+                salesTableCmd.Parameters.AddWithValue("@amount", Class.Utilities.encryption(labelGrandTotal.Text.ToString().Substring(3)));
+                salesTableCmd.Parameters.AddWithValue("@method", Class.Utilities.encryption(method));
+                salesTableCmd.Parameters.AddWithValue("@orderID", Class.Utilities.encryption(orderID));
+                salesTableCmd.Parameters.AddWithValue("@date", Class.Utilities.encryption(DateTime.Now.ToString("yyyy-MM-dd")));
+                salesTableCmd.Parameters.AddWithValue("@custPaid", Class.Utilities.encryption(custPaid));
                 salesTableCmd.ExecuteNonQuery();
-
+           
                 DialogResult ds = MessageBox.Show("Payment success. Proceed to product menu", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 if(ds == DialogResult.OK)
@@ -332,14 +340,14 @@ namespace _69CoffeeShop.Forms
                     sales.Show();
                     this.Close();
                 }
-            }
+        }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
             finally
             {
-                connection.conn.Close();
+                 connection.conn.Close();
             }
         }
 
@@ -388,7 +396,7 @@ namespace _69CoffeeShop.Forms
 
                 if (result != null)
                 {
-                    textBox1.Text = "Payment " + labelGrandTotal.Text.ToString() + " has received";
+                    textBox1.Text = "Payment amount : " + labelGrandTotal.Text.ToString() + " has received";
                     createOrderID();
                     createSalesID();
 

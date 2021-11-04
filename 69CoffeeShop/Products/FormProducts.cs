@@ -23,12 +23,6 @@ namespace _69CoffeeShop.Products
             InitializeComponent();
         }
 
-        private void buttonAddProd_Click(object sender, EventArgs e)
-        {
-            FormAddProducts frmAdd = new FormAddProducts(this, -1);
-            frmAdd.ShowDialog();
-        }
-
         private void FormProducts_Load(object sender, EventArgs e)
         {
             refreshProductList();
@@ -48,7 +42,7 @@ namespace _69CoffeeShop.Products
             {
                 byte[] prodImg = (byte[])displayProdRdr["productImage"];
 
-                product = new Class.Product(displayProdRdr.GetString(0), displayProdRdr.GetString(1), displayProdRdr.GetString(2), displayProdRdr.GetString(3), prodImg);
+                product = new Class.Product(Class.Utilities.decryption(displayProdRdr.GetString(0)), Class.Utilities.decryption(displayProdRdr.GetString(1)), Class.Utilities.decryption(displayProdRdr.GetString(2)), Class.Utilities.decryption(displayProdRdr.GetString(3)), prodImg);
                 productList.Add(product);
 
                 using (MemoryStream ms = new MemoryStream(prodImg, 0, prodImg.Length))
@@ -71,14 +65,17 @@ namespace _69CoffeeShop.Products
 
                 MemoryStream risizedImage = new MemoryStream(prodImg);
 
-                string prodCost = String.Format("{0:0.00}", displayProdRdr.GetDouble(3));
-                string prodPrice = String.Format("{0:0.00}", displayProdRdr.GetDouble(2));
+                //string prodCost = String.Format("{0:0.00}", displayProdRdr.GetDouble(3));
+                //string prodPrice = String.Format("{0:0.00}", displayProdRdr.GetDouble(2));
 
-                this.dataGridViewProduct.Rows.Add(Image.FromStream(risizedImage), displayProdRdr["productName"].ToString(), prodCost, prodPrice, "View Details");
+                string prodCost = Class.Utilities.decryption(displayProdRdr.GetString(3));
+                string prodPrice = Class.Utilities.decryption(displayProdRdr.GetString(2));
+
+                this.dataGridViewProduct.Rows.Add(Image.FromStream(risizedImage), Class.Utilities.decryption(displayProdRdr["productName"].ToString()), prodCost, prodPrice, "View Details");
             }
             displayProdRdr.Close();
             connection.conn.Close();
-            dataGridViewProduct.Rows[0].Cells[0].Selected = false;
+           // dataGridViewProduct.Rows[0].Cells[0].Selected = false;
         }
 
         private void dataGridViewProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -94,7 +91,7 @@ namespace _69CoffeeShop.Products
             return dataGridViewProduct;
         }
 
-        private void buttonDelProd_Click(object sender, EventArgs e)
+        private void iconButtonDelete_Click(object sender, EventArgs e)
         {
             if (dataGridViewProduct.SelectedRows.Count == 0 && dataGridViewProduct.SelectedCells.Count == 0)
             {
@@ -112,7 +109,7 @@ namespace _69CoffeeShop.Products
 
                     MySqlCommand deleteProdCmd = new MySqlCommand(deleteProdQry, connection.conn);
 
-                    deleteProdCmd.Parameters.AddWithValue("@id", productList[rowIndex].productID);
+                    deleteProdCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(productList[rowIndex].productID));
 
                     connection.conn.Open();
 
@@ -129,6 +126,17 @@ namespace _69CoffeeShop.Products
                     refreshProductList();
                 }
             }
+        }
+
+        private void iconButtonAdd_Click(object sender, EventArgs e)
+        {
+            FormAddProducts frmAdd = new FormAddProducts(this, -1);
+            frmAdd.ShowDialog();
+        }
+
+        private void dataGridViewProduct_SelectionChanged(object sender, EventArgs e)
+        {
+            iconButtonDelete.Enabled = true;
         }
     }
 }

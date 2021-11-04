@@ -46,29 +46,32 @@ namespace _69CoffeeShop.Products
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(47, 367);
+            this.label3.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(72, 454);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(148, 18);
+            this.label3.Size = new System.Drawing.Size(164, 18);
             this.label3.TabIndex = 9;
             this.label3.Text = "Product Price (RM) : ";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(49, 316);
+            this.label2.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(74, 391);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(146, 18);
+            this.label2.Size = new System.Drawing.Size(164, 18);
             this.label2.TabIndex = 8;
             this.label2.Text = "Product Cost (RM) : ";
             // 
             // buttonBrowse
             // 
-            this.buttonBrowse.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBrowse.Location = new System.Drawing.Point(252, 225);
+            this.buttonBrowse.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBrowse.Location = new System.Drawing.Point(336, 277);
+            this.buttonBrowse.Margin = new System.Windows.Forms.Padding(4);
             this.buttonBrowse.Name = "buttonBrowse";
-            this.buttonBrowse.Size = new System.Drawing.Size(75, 23);
+            this.buttonBrowse.Size = new System.Drawing.Size(100, 28);
             this.buttonBrowse.TabIndex = 7;
             this.buttonBrowse.Text = "Browse";
             this.buttonBrowse.UseVisualStyleBackColor = true;
@@ -76,19 +79,21 @@ namespace _69CoffeeShop.Products
             // 
             // pictureBoxProdImg
             // 
-            this.pictureBoxProdImg.Location = new System.Drawing.Point(201, 68);
+            this.pictureBoxProdImg.Location = new System.Drawing.Point(268, 84);
+            this.pictureBoxProdImg.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxProdImg.Name = "pictureBoxProdImg";
-            this.pictureBoxProdImg.Size = new System.Drawing.Size(168, 151);
+            this.pictureBoxProdImg.Size = new System.Drawing.Size(224, 186);
             this.pictureBoxProdImg.TabIndex = 6;
             this.pictureBoxProdImg.TabStop = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(79, 116);
+            this.label1.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(105, 143);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 18);
+            this.label1.Size = new System.Drawing.Size(134, 18);
             this.label1.TabIndex = 5;
             this.label1.Text = "Product Image : ";
             // 
@@ -99,19 +104,21 @@ namespace _69CoffeeShop.Products
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(75, 263);
+            this.label4.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(100, 326);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(120, 18);
+            this.label4.Size = new System.Drawing.Size(136, 18);
             this.label4.TabIndex = 10;
             this.label4.Text = "Product Name  : ";
             // 
             // buttonSave
             // 
-            this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSave.Location = new System.Drawing.Point(419, 417);
+            this.buttonSave.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSave.Location = new System.Drawing.Point(505, 502);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(87, 31);
+            this.buttonSave.Size = new System.Drawing.Size(116, 38);
             this.buttonSave.TabIndex = 11;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -119,31 +126,37 @@ namespace _69CoffeeShop.Products
             // 
             // textBoxProdName
             // 
-            this.textBoxProdName.Location = new System.Drawing.Point(201, 264);
+            this.textBoxProdName.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProdName.Location = new System.Drawing.Point(268, 325);
+            this.textBoxProdName.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxProdName.Name = "textBoxProdName";
-            this.textBoxProdName.Size = new System.Drawing.Size(168, 20);
+            this.textBoxProdName.Size = new System.Drawing.Size(223, 26);
             this.textBoxProdName.TabIndex = 12;
             // 
             // textBoxProdCost
             // 
-            this.textBoxProdCost.Location = new System.Drawing.Point(201, 317);
+            this.textBoxProdCost.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProdCost.Location = new System.Drawing.Point(268, 390);
+            this.textBoxProdCost.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxProdCost.Name = "textBoxProdCost";
-            this.textBoxProdCost.Size = new System.Drawing.Size(168, 20);
+            this.textBoxProdCost.Size = new System.Drawing.Size(223, 26);
             this.textBoxProdCost.TabIndex = 13;
             // 
             // textBoxProdPrice
             // 
-            this.textBoxProdPrice.Location = new System.Drawing.Point(201, 368);
+            this.textBoxProdPrice.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProdPrice.Location = new System.Drawing.Point(268, 453);
+            this.textBoxProdPrice.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxProdPrice.Name = "textBoxProdPrice";
-            this.textBoxProdPrice.Size = new System.Drawing.Size(168, 20);
+            this.textBoxProdPrice.Size = new System.Drawing.Size(223, 26);
             this.textBoxProdPrice.TabIndex = 14;
             // 
             // FormAddProducts
             // 
             this.AcceptButton = this.buttonSave;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(530, 460);
+            this.ClientSize = new System.Drawing.Size(668, 566);
             this.Controls.Add(this.textBoxProdPrice);
             this.Controls.Add(this.textBoxProdCost);
             this.Controls.Add(this.textBoxProdName);
@@ -154,10 +167,11 @@ namespace _69CoffeeShop.Products
             this.Controls.Add(this.buttonBrowse);
             this.Controls.Add(this.pictureBoxProdImg);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(546, 499);
-            this.MinimumSize = new System.Drawing.Size(546, 499);
+            this.MaximumSize = new System.Drawing.Size(684, 605);
+            this.MinimumSize = new System.Drawing.Size(684, 605);
             this.Name = "FormAddProducts";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Product Details";

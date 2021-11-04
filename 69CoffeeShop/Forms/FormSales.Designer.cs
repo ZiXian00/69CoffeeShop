@@ -29,19 +29,19 @@ namespace _69CoffeeShop.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewOrder = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.labelSPrice = new System.Windows.Forms.Label();
-            this.iconButtonCheckout = new FontAwesome.Sharp.IconButton();
-            this.tableLayoutPanelMenu = new System.Windows.Forms.TableLayoutPanel();
             this.product = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAdd = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnMinus = new System.Windows.Forms.DataGridViewButtonColumn();
             this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.labelSPrice = new System.Windows.Forms.Label();
+            this.iconButtonCheckout = new FontAwesome.Sharp.IconButton();
+            this.tableLayoutPanelMenu = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrder)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,14 +56,14 @@ namespace _69CoffeeShop.Forms
             this.dataGridViewOrder.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewOrder.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewOrder.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewOrder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewOrder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.product,
@@ -71,27 +71,28 @@ namespace _69CoffeeShop.Forms
             this.btnAdd,
             this.btnMinus,
             this.price});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewOrder.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewOrder.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewOrder.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridViewOrder.Location = new System.Drawing.Point(739, 0);
             this.dataGridViewOrder.MultiSelect = false;
             this.dataGridViewOrder.Name = "dataGridViewOrder";
+            this.dataGridViewOrder.ReadOnly = true;
             this.dataGridViewOrder.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewOrder.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewOrder.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewOrder.RowHeadersVisible = false;
             this.dataGridViewOrder.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridViewOrder.RowTemplate.Height = 30;
@@ -102,6 +103,49 @@ namespace _69CoffeeShop.Forms
             this.dataGridViewOrder.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewOrder_CellValueChanged);
             this.dataGridViewOrder.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridViewOrder_RowsAdded);
             this.dataGridViewOrder.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dataGridViewOrder_RowsRemoved);
+            // 
+            // product
+            // 
+            this.product.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.product.HeaderText = "Product";
+            this.product.Name = "product";
+            this.product.ReadOnly = true;
+            this.product.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.product.Width = 240;
+            // 
+            // qty
+            // 
+            this.qty.HeaderText = "Qty";
+            this.qty.Name = "qty";
+            this.qty.ReadOnly = true;
+            this.qty.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.qty.Width = 80;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.HeaderText = "";
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.ReadOnly = true;
+            this.btnAdd.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.btnAdd.Text = "+";
+            this.btnAdd.Width = 20;
+            // 
+            // btnMinus
+            // 
+            this.btnMinus.HeaderText = "";
+            this.btnMinus.Name = "btnMinus";
+            this.btnMinus.ReadOnly = true;
+            this.btnMinus.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.btnMinus.Text = "-";
+            this.btnMinus.Width = 20;
+            // 
+            // price
+            // 
+            this.price.DividerWidth = 3;
+            this.price.HeaderText = "Price";
+            this.price.Name = "price";
+            this.price.ReadOnly = true;
+            this.price.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // label1
             // 
@@ -161,47 +205,6 @@ namespace _69CoffeeShop.Forms
             this.tableLayoutPanelMenu.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanelMenu.Size = new System.Drawing.Size(651, 719);
             this.tableLayoutPanelMenu.TabIndex = 36;
-            // 
-            // product
-            // 
-            this.product.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.product.HeaderText = "Product";
-            this.product.Name = "product";
-            this.product.ReadOnly = true;
-            this.product.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.product.Width = 240;
-            // 
-            // qty
-            // 
-            this.qty.HeaderText = "Qty";
-            this.qty.Name = "qty";
-            this.qty.ReadOnly = true;
-            this.qty.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.qty.Width = 80;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.HeaderText = "";
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.btnAdd.Text = "+";
-            this.btnAdd.Width = 20;
-            // 
-            // btnMinus
-            // 
-            this.btnMinus.HeaderText = "";
-            this.btnMinus.Name = "btnMinus";
-            this.btnMinus.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.btnMinus.Text = "-";
-            this.btnMinus.Width = 20;
-            // 
-            // price
-            // 
-            this.price.DividerWidth = 3;
-            this.price.HeaderText = "Price";
-            this.price.Name = "price";
-            this.price.ReadOnly = true;
-            this.price.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // FormSales
             // 
