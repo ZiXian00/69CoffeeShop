@@ -93,7 +93,7 @@ namespace _69CoffeeShop.Class
             string updateBackupRecordQry = "insert into backup_record (backup_datetime) values (@backup)";
             MySqlCommand updateBackupRecordCmd = new MySqlCommand(updateBackupRecordQry, connection.conn);
             connection.conn.Open();
-            updateBackupRecordCmd.Parameters.AddWithValue("@backup", encryption(backupDateTime.ToString()));
+            updateBackupRecordCmd.Parameters.AddWithValue("@backup", encryption(backupDateTime.ToString("dd MMM yyyy HH:mm")));
             updateBackupRecordCmd.ExecuteNonQuery();
             connection.conn.Close();
 
@@ -115,6 +115,41 @@ namespace _69CoffeeShop.Class
 
             label.Text = "Last Backup : " + backupDateTime.ToString("dd MMM yyyy HH:mm");
             MessageBox.Show("Backup complete.", "Data and Information Backup", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        public static void backup()
+        {
+            string backupDirectory = @"C:\ProgramData\69coffeeshopBackup";
+
+            if (!Directory.Exists(backupDirectory))
+            {
+                Directory.CreateDirectory(backupDirectory);
+            }
+
+            DateTime backupDateTime = DateTime.Now;
+
+            string updateBackupRecordQry = "insert into backup_record (backup_datetime) values (@backup)";
+            MySqlCommand updateBackupRecordCmd = new MySqlCommand(updateBackupRecordQry, connection.conn);
+            connection.conn.Open();
+            updateBackupRecordCmd.Parameters.AddWithValue("@backup", encryption(backupDateTime.ToString("dd MMM yyyy HH:mm")));
+            updateBackupRecordCmd.ExecuteNonQuery();
+            connection.conn.Close();
+
+            string backupPath = backupDirectory + "\\69coffeeshop.sql";
+
+            using (MySqlConnection conn = new MySqlConnection(Connection.connStr))
+            {
+                using (MySqlCommand cmd = new MySqlCommand())
+                {
+                    using (MySqlBackup mb = new MySqlBackup(cmd))
+                    {
+                        cmd.Connection = conn;
+                        conn.Open();
+                        mb.ExportToFile(backupPath);
+                        conn.Close();
+                    }
+                }
+            }
         }
 
         public static void restore()

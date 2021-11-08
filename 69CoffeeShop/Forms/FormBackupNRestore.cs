@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.IO;
+using System.Globalization;
 
 namespace _69CoffeeShop.Forms
 {
@@ -45,9 +46,9 @@ namespace _69CoffeeShop.Forms
 
             if (getLastBackupRdr.Read())
             {
-                string backupString = getLastBackupRdr.GetString(0);
+                string backupString = Class.Utilities.decryption(getLastBackupRdr.GetString(0));
 
-                DateTime lastBackup = DateTime.Parse(backupString);
+                DateTime lastBackup = DateTime.ParseExact(backupString, "dd MMM yyyy HH:mm", CultureInfo.InvariantCulture);
 
                 string _lastBackup = lastBackup.ToString("dd MMM yyyy HH:mm");
 

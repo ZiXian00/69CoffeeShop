@@ -16,7 +16,6 @@ namespace _69CoffeeShop.Products
     {
         Class.Connection connection = new Class.Connection();
         private FormProducts Products;
-        //private string prodName;
         private int rowIndex;
 
         public FormAddProducts(FormProducts formProducts, int rowIndex)
@@ -98,7 +97,6 @@ namespace _69CoffeeShop.Products
             {
                 Products.refreshProductList();
             }
-
         }
 
         private void updateTable() 
@@ -153,7 +151,6 @@ namespace _69CoffeeShop.Products
             {
                 connection.conn.Close();
             }
-           
         }
 
         private bool priceValidation()
@@ -191,8 +188,6 @@ namespace _69CoffeeShop.Products
             else {
                 productID = "C0001";
             }
-
-            MessageBox.Show(productID);
 
             productIDRdr.Close();
             connection.conn.Close();

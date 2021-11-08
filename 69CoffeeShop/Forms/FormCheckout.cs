@@ -254,7 +254,6 @@ namespace _69CoffeeShop.Forms
             salesIDRdr.Close();
             connection.conn.Close();
             salesID = idIncrement.ToString(DateTime.Now.ToString("ddMMyyyy") + ":" + orderID + "::0000");
-            MessageBox.Show(salesID);
         }
 
         private void createOrderID()
@@ -280,7 +279,6 @@ namespace _69CoffeeShop.Forms
             orderIDRdr.Close();
             connection.conn.Close();
             orderID = idIncrement.ToString("O" + DateTime.Now.ToString("ddMMyyyy") + "0000");
-            MessageBox.Show(orderID);
         }
 
         //insert into sales, order and product_order table

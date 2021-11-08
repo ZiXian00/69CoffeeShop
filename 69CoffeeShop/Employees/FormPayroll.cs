@@ -129,6 +129,10 @@ namespace _69CoffeeShop.Employees
 
                                 textBoxOtherDD.Text = "Short of working hour(s)";
                             }
+                            else
+                            {
+                                textBoxHours.ForeColor = Color.Black;
+                            }
 
                             calculateGrossPay();
                         }
