@@ -31,7 +31,7 @@ namespace _69CoffeeShop.Employees
         {
             dataGridViewEmployeeList.Rows.Clear();
 
-            string loadEmployeeQry = "select * from employees";
+            string loadEmployeeQry = "select * from employees ORDER BY employeeCount";
 
             MySqlCommand loadEmployeeCmd = new MySqlCommand(loadEmployeeQry, connection.conn);
             connection.conn.Open();
@@ -39,7 +39,7 @@ namespace _69CoffeeShop.Employees
 
             while (loadEmployeeReader.Read())
             {
-                dataGridViewEmployeeList.Rows.Add(Class.Utilities.decryption(loadEmployeeReader["employeeName"].ToString()), loadEmployeeReader["employeeID"], Class.Utilities.decryption(loadEmployeeReader["position"].ToString()), Class.Utilities.decryption(loadEmployeeReader["lastCheckedIn"].ToString()), Class.Utilities.decryption(loadEmployeeReader["lastCheckedOut"].ToString()));
+                dataGridViewEmployeeList.Rows.Add(Class.Utilities.decryption(loadEmployeeReader["employeeName"].ToString()), Class.Utilities.decryption(loadEmployeeReader["employeeID"].ToString()), Class.Utilities.decryption(loadEmployeeReader["position"].ToString()), Class.Utilities.decryption(loadEmployeeReader["lastCheckedIn"].ToString()), Class.Utilities.decryption(loadEmployeeReader["lastCheckedOut"].ToString()));
             }
 
             loadEmployeeReader.Close();

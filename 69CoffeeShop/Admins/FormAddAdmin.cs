@@ -95,7 +95,7 @@ namespace _69CoffeeShop.Admins
                     MySqlCommand newAdminCmd = new MySqlCommand(newAdminQry, connection.conn);
                     connection.conn.Open();
 
-                    newAdminCmd.Parameters.AddWithValue("@id", textBoxID.Text);
+                    newAdminCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(textBoxID.Text));
                     newAdminCmd.Parameters.AddWithValue("@secQues1", Class.Utilities.encryption(dropdownFQ.SelectedItem.ToString()));
                     newAdminCmd.Parameters.AddWithValue("@secQues2", Class.Utilities.encryption(dropdownSQ.SelectedItem.ToString()));
                     newAdminCmd.Parameters.AddWithValue("@secAns1", Class.Utilities.encryption(textBoxFirstAns.Text));
@@ -119,7 +119,7 @@ namespace _69CoffeeShop.Admins
         {
             string checkAdminQry = "select * from admin where employeeID = @id";
             MySqlCommand checkAdminCmd = new MySqlCommand(checkAdminQry, connection.conn);
-            checkAdminCmd.Parameters.AddWithValue("@id",textBoxID.Text);
+            checkAdminCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(textBoxID.Text));
             connection.conn.Open();
             MySqlDataReader checkAdminRdr = checkAdminCmd.ExecuteReader();
 
@@ -149,7 +149,7 @@ namespace _69CoffeeShop.Admins
                 {
                     string searchEmployeeQry = "select * from employees where employeeID = @id";
                     MySqlCommand searchEmployeeCmd = new MySqlCommand(searchEmployeeQry, connection.conn);
-                    searchEmployeeCmd.Parameters.AddWithValue("@id", textBoxID.Text);
+                    searchEmployeeCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(textBoxID.Text));
                     connection.conn.Open();
                     MySqlDataReader searchEmployeeRdr = searchEmployeeCmd.ExecuteReader();
 
@@ -218,6 +218,14 @@ namespace _69CoffeeShop.Admins
         private void FormAddAdmin_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBoxID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

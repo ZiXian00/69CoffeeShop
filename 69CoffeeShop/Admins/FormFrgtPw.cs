@@ -37,7 +37,7 @@ namespace _69CoffeeShop.Admins
                 string adminForgotPwQry = "select * from admin where employeeID = @id";
                 MySqlCommand adminForgotPwCmd = new MySqlCommand(adminForgotPwQry, connection.conn);
                 connection.conn.Open();
-                adminForgotPwCmd.Parameters.AddWithValue("@id", textBoxID.Text);
+                adminForgotPwCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(textBoxID.Text));
                 MySqlDataReader adminForgotPwRdr = adminForgotPwCmd.ExecuteReader();
 
                 if (adminForgotPwRdr.Read())
@@ -90,7 +90,7 @@ namespace _69CoffeeShop.Admins
                 string adminUpdatePwQry = "update admin set password = @password where employeeID = @id";
                 MySqlCommand adminUpdatePwCmd = new MySqlCommand(adminUpdatePwQry, connection.conn);
                 adminUpdatePwCmd.Parameters.AddWithValue("@password", Class.Utilities.encryption(textBoxConfirm.Text));
-                adminUpdatePwCmd.Parameters.AddWithValue("@id", textBoxID.Text);
+                adminUpdatePwCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(textBoxID.Text));
                 connection.conn.Open();
                 adminUpdatePwCmd.ExecuteNonQuery();
                 connection.conn.Close();
@@ -119,24 +119,12 @@ namespace _69CoffeeShop.Admins
             dropdownSQ.Items.RemoveAt(dropdownFQ.SelectedIndex);
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void textBoxID_KeyPress(object sender, KeyPressEventArgs e)
         {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

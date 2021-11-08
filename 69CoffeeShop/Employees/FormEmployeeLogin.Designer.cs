@@ -57,9 +57,11 @@ namespace _69CoffeeShop.Employees
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxID.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxID.Location = new System.Drawing.Point(147, 41);
+            this.textBoxID.MaxLength = 4;
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.Size = new System.Drawing.Size(159, 23);
             this.textBoxID.TabIndex = 1;
+            this.textBoxID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxID_KeyPress);
             // 
             // labelName
             // 

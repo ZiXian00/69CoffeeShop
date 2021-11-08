@@ -62,7 +62,7 @@ namespace _69CoffeeShop.Admins
             {
                 string deleteAdmQry = "delete from admin where employeeID = @id";
                 MySqlCommand deleteAdmCmd = new MySqlCommand(deleteAdmQry, connection.conn);
-                deleteAdmCmd.Parameters.AddWithValue("@id", dataGridViewAdminList.Rows[rowIndex].Cells["employeeID"].Value);
+                deleteAdmCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(dataGridViewAdminList.Rows[rowIndex].Cells["employeeID"].Value.ToString()));
                 connection.conn.Open();
                 deleteAdmCmd.ExecuteNonQuery();
 
@@ -76,7 +76,7 @@ namespace _69CoffeeShop.Admins
         {
             dataGridViewAdminList.Rows.Clear();
 
-            string loadAdminQry = "select * from admin a INNER JOIN employees e ON a.employeeID = e.employeeID";
+            string loadAdminQry = "select * from admin a INNER JOIN employees e ON a.employeeID = e.employeeID Order By e.employeeCount";
 
             MySqlCommand loadAdminCmd = new MySqlCommand(loadAdminQry, connection.conn);
             connection.conn.Open();
@@ -85,7 +85,7 @@ namespace _69CoffeeShop.Admins
             
             while (loadAdminReader.Read())
             {
-                dataGridViewAdminList.Rows.Add(Class.Utilities.decryption(loadAdminReader["employeeName"].ToString()), loadAdminReader["employeeID"], Class.Utilities.decryption(loadAdminReader["position"].ToString()), Class.Utilities.decryption(loadAdminReader["lastCheckedIn"].ToString()), Class.Utilities.decryption(loadAdminReader["lastCheckedOut"].ToString()));
+                dataGridViewAdminList.Rows.Add(Class.Utilities.decryption(loadAdminReader["employeeName"].ToString()), Class.Utilities.decryption(loadAdminReader["employeeID"].ToString()), Class.Utilities.decryption(loadAdminReader["position"].ToString()), Class.Utilities.decryption(loadAdminReader["lastCheckedIn"].ToString()), Class.Utilities.decryption(loadAdminReader["lastCheckedOut"].ToString()));
             }
             
 

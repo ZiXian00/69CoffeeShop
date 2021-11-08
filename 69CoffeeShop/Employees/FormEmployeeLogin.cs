@@ -27,7 +27,7 @@ namespace _69CoffeeShop.Employees
 
             string empLoginQry = "select * from employees where employeeID = @id";
             MySqlCommand empLoginCmd = new MySqlCommand(empLoginQry, connection.conn);
-            empLoginCmd.Parameters.AddWithValue("@id", textBoxID.Text);
+            empLoginCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(textBoxID.Text));
             connection.conn.Open();
             MySqlDataReader empLoginReader = empLoginCmd.ExecuteReader();
 
@@ -35,11 +35,11 @@ namespace _69CoffeeShop.Employees
             {
                 if (empLoginReader.Read())
                 {
-                    Class.Cashier.cashierID = empLoginReader.GetString(0);
+                    Class.Cashier.cashierID = Class.Utilities.decryption(empLoginReader.GetString(0));
                     Class.Cashier.cashierName = Class.Utilities.decryption(empLoginReader.GetString(1));
                     Class.Cashier.cashierLogin = true;
                     checkin = true;
-                    emp_position = empLoginReader.GetString(3);
+                    emp_position = Class.Utilities.decryption(empLoginReader.GetString(3));
 
                     labelName.Text = "Welcome, " + Class.Utilities.decryption(empLoginReader.GetString(1));
                     buttonLogin.Enabled = false;
@@ -74,7 +74,7 @@ namespace _69CoffeeShop.Employees
                     string checkInQry = "update employees set lastCheckedIn = @checkIn where employeeID = @id";
                     MySqlCommand checkInCmd = new MySqlCommand(checkInQry, connection.conn);
                     checkInCmd.Parameters.AddWithValue("@checkIn", Class.Utilities.encryption(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")));
-                    checkInCmd.Parameters.AddWithValue("@id", Class.Cashier.cashierID);
+                    checkInCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(Class.Cashier.cashierID));
                     connection.conn.Open();
                     checkInCmd.ExecuteNonQuery();
                 }
@@ -100,6 +100,14 @@ namespace _69CoffeeShop.Employees
 
             this.Close();
             timer1.Stop();
+        }
+
+        private void textBoxID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

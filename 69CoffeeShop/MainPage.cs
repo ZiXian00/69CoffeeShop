@@ -193,7 +193,7 @@ namespace _69CoffeeShop
                     string checkDutyRecordQry = "select * from employees where employeeID = @id";
                     DateTime checkInDT = new DateTime();
                     MySqlCommand checkDutyRecordCmd = new MySqlCommand(checkDutyRecordQry, connection.conn);
-                    checkDutyRecordCmd.Parameters.AddWithValue("@id", Class.Cashier.cashierID);
+                    checkDutyRecordCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(Class.Cashier.cashierID));
                     connection.conn.Open();
                     MySqlDataReader checkDutyRecordRdr = checkDutyRecordCmd.ExecuteReader();
                     try
@@ -299,7 +299,7 @@ namespace _69CoffeeShop
                     string checkDutyRecordQry = "select * from employees where employeeID = @id";
                     DateTime checkInDT = new DateTime();
                     MySqlCommand checkDutyRecordCmd = new MySqlCommand(checkDutyRecordQry, connection.conn);
-                    checkDutyRecordCmd.Parameters.AddWithValue("@id", Class.Cashier.cashierID);
+                    checkDutyRecordCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(Class.Cashier.cashierID));
                     connection.conn.Open();
                     MySqlDataReader checkDutyRecordRdr = checkDutyRecordCmd.ExecuteReader();
                     try 
@@ -348,7 +348,7 @@ namespace _69CoffeeShop
                 string checkOutQry = "update employees set lastCheckedOut = @checkOut where employeeID = @id";
                 MySqlCommand checkOutCmd = new MySqlCommand(checkOutQry, connection.conn);
                 checkOutCmd.Parameters.AddWithValue("@checkOut", Class.Utilities.encryption(checkOut.ToString("yyyy-MM-dd HH:mm:ss")));
-                checkOutCmd.Parameters.AddWithValue("@id", id);
+                checkOutCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(id));
                 connection.conn.Open();
                 checkOutCmd.ExecuteNonQuery();
 
@@ -356,7 +356,7 @@ namespace _69CoffeeShop
                 MySqlCommand updateDutyRecordCmd = new MySqlCommand(updateDutyRecordQry, connection.conn);
                 updateDutyRecordCmd.Parameters.AddWithValue("@month", Class.Utilities.encryption(DateTime.Now.ToString("MMM")));
                 updateDutyRecordCmd.Parameters.AddWithValue("@year", Class.Utilities.encryption(DateTime.Now.ToString("yyyy")));                
-                updateDutyRecordCmd.Parameters.AddWithValue("@id", id);
+                updateDutyRecordCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(id));
                 updateDutyRecordCmd.Parameters.AddWithValue("@hours", Class.Utilities.encryption(workingHours.ToString("0")));
                 updateDutyRecordCmd.ExecuteNonQuery(); 
                 

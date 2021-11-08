@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
@@ -19,13 +20,15 @@ namespace _69CoffeeShop.Employees
         DateTime dt = DateTime.Now;
         int lastMonth;
         string wagesType;
+        double requiredHours;
 
         public FormPayroll()
         {
             InitializeComponent();
             lastMonth = dt.AddMonths(-1).Month;
+            requiredHours = (8 * DateTime.DaysInMonth(DateTime.Now.Year, lastMonth));
             labelInfo.Text = "There is " + DateTime.DaysInMonth(DateTime.Now.Year, lastMonth) + " days in previous month. " + Environment.NewLine +
-                "Total of " + (8 * DateTime.DaysInMonth(DateTime.Now.Year, lastMonth)).ToString("0") + " hours is required for full time employee." + Environment.NewLine +
+                "Total of " + requiredHours.ToString("0") + " hours is required for full time employee." + Environment.NewLine +
                 "Exceeded time on employee record will be calculated as OT";
         }
 
@@ -45,7 +48,7 @@ namespace _69CoffeeShop.Employees
                 string checkEmpQry = "select * from employees where employeeID = @id";
                 MySqlCommand checkEmpCmd = new MySqlCommand(checkEmpQry, connection.conn);
                 connection.conn.Open();
-                checkEmpCmd.Parameters.AddWithValue("@id", textBoxID.Text);
+                checkEmpCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(textBoxID.Text));
                 MySqlDataReader checkEmpRdr = checkEmpCmd.ExecuteReader();
 
                 if (checkEmpRdr.Read())
@@ -100,7 +103,7 @@ namespace _69CoffeeShop.Employees
                     hours = 0;
                     string getWorkingHoursQry = "select workingHours from employee_duty_record where employeeID = @id AND month = @month AND year = @year";
                     MySqlCommand getWorkingHoursCmd = new MySqlCommand(getWorkingHoursQry, connection.conn);
-                    getWorkingHoursCmd.Parameters.AddWithValue("@id", textBoxID.Text);
+                    getWorkingHoursCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(textBoxID.Text));
                     getWorkingHoursCmd.Parameters.AddWithValue("@month", Class.Utilities.encryption(DateTime.Now.AddMonths(-1).ToString("MMM")));
                     getWorkingHoursCmd.Parameters.AddWithValue("@year", Class.Utilities.encryption(DateTime.Now.ToString("yyyy")));
                     connection.conn.Open();
@@ -119,6 +122,14 @@ namespace _69CoffeeShop.Employees
                                 iconButtonAdd.Visible = true;
                                 domainUpDownEPF.SelectedIndex = 4;
                             }
+
+                            if (hours - requiredHours < 0)
+                            {
+                                textBoxHours.ForeColor = Color.Red;
+
+                                textBoxOtherDD.Text = "Short of working hour(s)";
+                            }
+
                             calculateGrossPay();
                         }
                         catch
@@ -144,7 +155,7 @@ namespace _69CoffeeShop.Employees
         {
             string payrollExistQry = "select * from payroll_record where employeeID = @id";
             MySqlCommand payrollExistCmd = new MySqlCommand(payrollExistQry, connection.conn);
-            payrollExistCmd.Parameters.AddWithValue("@id", textBoxID.Text);
+            payrollExistCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(textBoxID.Text));
             connection.conn.Open();
             MySqlDataReader payrollExistRdr = payrollExistCmd.ExecuteReader();
 
@@ -185,8 +196,6 @@ namespace _69CoffeeShop.Employees
                 days = DateTime.DaysInMonth(DateTime.Now.Year, lastMonth);
             }
 
-            double requiredHours = (8 * DateTime.DaysInMonth(DateTime.Now.Year, lastMonth));
-
             double overtime = hours - requiredHours;
 
             if (overtime < 1)
@@ -198,7 +207,6 @@ namespace _69CoffeeShop.Employees
 
             textBoxDays.Text = days.ToString("0");
 
-
             if (textBoxSalary.Text != "-")
             {
                 salary_rate = Double.Parse(textBoxSalary.Text);
@@ -208,6 +216,24 @@ namespace _69CoffeeShop.Employees
             {
                 salary_rate = Double.Parse(textBoxRate.Text);
                 grossPay = (salary_rate * hours);
+            }
+
+            if (textBoxOtherInc.Text != "")
+            {
+                double otherIncome = double.Parse(textBoxOtherInc.Text);
+                grossPay += otherIncome;
+            }
+
+            if (textBoxOtherInc1.Text != "")
+            {
+                double otherIncome = double.Parse(textBoxOtherInc1.Text);
+                grossPay += otherIncome;
+            }
+
+            if (textBoxOtherInc2.Text != "")
+            {
+                double otherIncome = double.Parse(textBoxOtherInc2.Text);
+                grossPay += otherIncome;
             }
 
             textBoxGrossSalary.Text = grossPay.ToString("RM 0.00");
@@ -223,6 +249,25 @@ namespace _69CoffeeShop.Employees
             double epfDeduction = (grossPay * (epf_rate / 100));
             double socsoDeduction = grossPay * (0.005);
             double totalDeduction = epfDeduction + socsoDeduction;
+
+            if (textBoxOtherDeduct.Text != "")
+            {
+                double otherDeduction = double.Parse(textBoxOtherDeduct.Text);
+                totalDeduction += otherDeduction;
+            }
+
+            if (textBoxOtherDeduct1.Text != "")
+            {
+                double otherDeduction = double.Parse(textBoxOtherDeduct1.Text);
+                totalDeduction += otherDeduction;
+            }
+
+            if (textBoxOtherDeduct1.Text != "")
+            {
+                double otherDeduction = double.Parse(textBoxOtherDeduct1.Text);
+                totalDeduction += otherDeduction;
+            }
+
             double netSalary = grossPay - totalDeduction;
 
             textBoxEPF.Text = epfDeduction.ToString("0.00");
@@ -240,39 +285,42 @@ namespace _69CoffeeShop.Employees
         {
             if (checkRecordExist() == false)
             {
-                string payrollQry = "insert into payroll_record (employeeID, totalWorkingHours, overtime, EPF_rate, EPF_deduction, grossPay, totalDeduction, " +
-                "netPay, date, overtimeRate, socso, wagesType, totalWorkingDays, status) values" +
-                " (@id, @hours, @ot, @epfRate, @epfDeduction, @grossPay, @totalDeduction, @netPay, @date, @otRate, @socso, @wagesType, @days, @status)";
-                MySqlCommand payrollCmd = new MySqlCommand(payrollQry, connection.conn);
-                connection.conn.Open();
-                payrollCmd.Parameters.AddWithValue("@id", textBoxID.Text);
-                payrollCmd.Parameters.AddWithValue("@hours", Class.Utilities.encryption(textBoxHours.Text));
-                payrollCmd.Parameters.AddWithValue("@ot", Class.Utilities.encryption(textBoxOT.Text));
-                payrollCmd.Parameters.AddWithValue("@epfRate", Class.Utilities.encryption(domainUpDownEPF.SelectedItem.ToString()));
-                payrollCmd.Parameters.AddWithValue("@epfDeduction", Class.Utilities.encryption(textBoxEPF.Text));
-                payrollCmd.Parameters.AddWithValue("@grossPay", Class.Utilities.encryption(textBoxGrossSalary.Text.Substring(2)));
-                payrollCmd.Parameters.AddWithValue("@totalDeduction", Class.Utilities.encryption(textBoxTotalDeduction.Text.Substring(2)));
-                payrollCmd.Parameters.AddWithValue("@netPay", Class.Utilities.encryption(textBoxNetSalary.Text.Substring(2)));
-                payrollCmd.Parameters.AddWithValue("@date", Class.Utilities.encryption(DateTime.Now.ToString("yyyy-MM-dd")));
-                payrollCmd.Parameters.AddWithValue("@otRate", Class.Utilities.encryption(textBoxOTRate.Text));
-                payrollCmd.Parameters.AddWithValue("@socso", Class.Utilities.encryption(textBoxSocso.Text));
-                payrollCmd.Parameters.AddWithValue("@wagesType", Class.Utilities.encryption(wagesType));
-                payrollCmd.Parameters.AddWithValue("@days", Class.Utilities.encryption(textBoxDays.Text));
-                payrollCmd.Parameters.AddWithValue("@status", Class.Utilities.encryption("Pending"));
-                payrollCmd.ExecuteNonQuery();
-               
-                connection.conn.Close();
+                if (validation() == true)
+                {
+                    string payrollQry = "insert into payroll_record (employeeID, totalWorkingHours, overtime, EPF_rate, EPF_deduction, grossPay, totalDeduction, " +
+               "netPay, date, overtimeRate, socso, wagesType, totalWorkingDays, status) values" +
+               " (@id, @hours, @ot, @epfRate, @epfDeduction, @grossPay, @totalDeduction, @netPay, @date, @otRate, @socso, @wagesType, @days, @status)";
+                    MySqlCommand payrollCmd = new MySqlCommand(payrollQry, connection.conn);
+                    connection.conn.Open();
+                    payrollCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(textBoxID.Text));
+                    payrollCmd.Parameters.AddWithValue("@hours", Class.Utilities.encryption(textBoxHours.Text));
+                    payrollCmd.Parameters.AddWithValue("@ot", Class.Utilities.encryption(textBoxOT.Text));
+                    payrollCmd.Parameters.AddWithValue("@epfRate", Class.Utilities.encryption(domainUpDownEPF.SelectedItem.ToString()));
+                    payrollCmd.Parameters.AddWithValue("@epfDeduction", Class.Utilities.encryption(textBoxEPF.Text));
+                    payrollCmd.Parameters.AddWithValue("@grossPay", Class.Utilities.encryption(textBoxGrossSalary.Text.Substring(2)));
+                    payrollCmd.Parameters.AddWithValue("@totalDeduction", Class.Utilities.encryption(textBoxTotalDeduction.Text.Substring(2)));
+                    payrollCmd.Parameters.AddWithValue("@netPay", Class.Utilities.encryption(textBoxNetSalary.Text.Substring(2)));
+                    payrollCmd.Parameters.AddWithValue("@date", Class.Utilities.encryption(DateTime.Now.ToString("yyyy-MM-dd")));
+                    payrollCmd.Parameters.AddWithValue("@otRate", Class.Utilities.encryption(textBoxOTRate.Text));
+                    payrollCmd.Parameters.AddWithValue("@socso", Class.Utilities.encryption(textBoxSocso.Text));
+                    payrollCmd.Parameters.AddWithValue("@wagesType", Class.Utilities.encryption(wagesType));
+                    payrollCmd.Parameters.AddWithValue("@days", Class.Utilities.encryption(textBoxDays.Text));
+                    payrollCmd.Parameters.AddWithValue("@status", Class.Utilities.encryption("Pending"));
+                    payrollCmd.ExecuteNonQuery();
 
-                MessageBox.Show("1 record has been added." + Environment.NewLine + Environment.NewLine + "Status : Pending", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    connection.conn.Close();
 
-                groupBox1.Visible = false;
-                textBoxBankAcc.Text = "";
-                textBoxBankName.Text = "";
-                textBoxID.Text = "";
-                textBoxName.Text = "";
-                textBoxPosition.Text = "";
-                textBoxStatus.Text = "";
-                iconButtonAdd.Visible = false;
+                    MessageBox.Show("1 record has been added." + Environment.NewLine + Environment.NewLine + "Status : Pending", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    groupBox1.Visible = false;
+                    textBoxBankAcc.Text = "";
+                    textBoxBankName.Text = "";
+                    textBoxID.Text = "";
+                    textBoxName.Text = "";
+                    textBoxPosition.Text = "";
+                    textBoxStatus.Text = "";
+                    iconButtonAdd.Visible = false;
+                }
             }
         }
 
@@ -281,9 +329,96 @@ namespace _69CoffeeShop.Employees
             calculateDeduction();
         }
 
+        private Boolean validation()
+        {
+            error.Clear();
+            if (textBoxOtherIncD.Text != "")
+            {
+                if (textBoxOtherInc.Text == "")
+                {
+                    error.SetError(textBoxOtherInc, "This field must not be empty.");
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+
+            if (textBoxOtherIncD1.Text != "")
+            {
+                if (textBoxOtherInc1.Text == "")
+                {
+                    error.SetError(textBoxOtherInc1, "This field must not be empty.");
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+
+            if (textBoxOtherIncD2.Text != "")
+            {
+                if (textBoxOtherInc2.Text == "")
+                {
+                    error.SetError(textBoxOtherInc2, "This field must not be empty.");
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+
+            if (textBoxOtherDD.Text != "")
+            {
+                if (textBoxOtherDeduct.Text == "")
+                {
+                    error.SetError(textBoxOtherDeduct, "This field must not be empty.");
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+
+            if (textBoxOtherDD1.Text != "")
+            {
+                if (textBoxOtherDeduct.Text == "")
+                {
+                    error.SetError(textBoxOtherDeduct, "This field must not be empty.");
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+
+            if (textBoxOtherDD2.Text != "")
+            {
+                if (textBoxOtherDeduct1.Text == "")
+                {
+                    error.SetError(textBoxOtherDeduct1, "This field must not be empty.");
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+
+            return true;
+        }
+
         private void buttonCalculate_Click(object sender, EventArgs e)
         {
-            calculateGrossPay();
+            if (validation() == true)
+            {
+                calculateGrossPay();
+            }
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -314,7 +449,7 @@ namespace _69CoffeeShop.Employees
                 //Double getNet = (Double);
                 string _net = Class.Utilities.decryption(payrollRecordRdr["netPay"].ToString());
 
-                dataGridViewPayroll.Rows.Add(Class.Utilities.decryption(payrollRecordRdr["employeeName"].ToString()), payrollRecordRdr["employeeID"], Class.Utilities.decryption(payrollRecordRdr["position"].ToString()), _date,
+                dataGridViewPayroll.Rows.Add(Class.Utilities.decryption(payrollRecordRdr["employeeName"].ToString()), Class.Utilities.decryption(payrollRecordRdr["employeeID"].ToString()), Class.Utilities.decryption(payrollRecordRdr["position"].ToString()), _date,
                     Class.Utilities.decryption(payrollRecordRdr["wagesType"].ToString()), Class.Utilities.decryption(payrollRecordRdr["totalWorkingDays"].ToString()), Class.Utilities.decryption(payrollRecordRdr["totalWorkingHours"].ToString()), _gross,
                     _net, Class.Utilities.decryption(payrollRecordRdr["status"].ToString()));
             }
@@ -336,11 +471,11 @@ namespace _69CoffeeShop.Employees
 
             if (ds == DialogResult.Yes)
             {
-                if(dataGridViewPayroll.Rows[rowIndex].Cells["status"].Value.ToString() != "Complete")
+                if (dataGridViewPayroll.Rows[rowIndex].Cells["status"].Value.ToString() != "Complete")
                 {
                     string deletePayrollRecordQry = "delete from payroll_record where employeeID = @id AND date = @date";
                     MySqlCommand deletePayrollRecordCmd = new MySqlCommand(deletePayrollRecordQry, connection.conn);
-                    deletePayrollRecordCmd.Parameters.AddWithValue("@id", dataGridViewPayroll.Rows[rowIndex].Cells["id"].Value);
+                    deletePayrollRecordCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(dataGridViewPayroll.Rows[rowIndex].Cells["id"].Value.ToString()));
                     deletePayrollRecordCmd.Parameters.AddWithValue("@date", Class.Utilities.encryption(dataGridViewPayroll.Rows[rowIndex].Cells["date"].Value.ToString()));
                     connection.conn.Open();
                     deletePayrollRecordCmd.ExecuteNonQuery();
@@ -353,6 +488,46 @@ namespace _69CoffeeShop.Employees
                 {
                     MessageBox.Show("You can't delete a completed transaction.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+            }
+        }
+
+        private void textBoxRate_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            string str = textBox.Text;
+
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            if (Regex.IsMatch(str, @"\.\d\d") && e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxHours_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            string str = textBox.Text;
+
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            if (Regex.IsMatch(str, @"\.\d\d") && e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
             }
         }
     }

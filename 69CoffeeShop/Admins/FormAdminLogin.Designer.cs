@@ -76,9 +76,11 @@ namespace _69CoffeeShop.Forms
             // 
             this.textBoxID.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxID.Location = new System.Drawing.Point(150, 63);
+            this.textBoxID.MaxLength = 4;
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.Size = new System.Drawing.Size(136, 26);
             this.textBoxID.TabIndex = 3;
+            this.textBoxID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxID_KeyPress);
             // 
             // labelID
             // 

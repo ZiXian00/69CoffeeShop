@@ -103,7 +103,6 @@ namespace _69CoffeeShop.Admins
             this.label3.Size = new System.Drawing.Size(86, 18);
             this.label3.TabIndex = 21;
             this.label3.Text = "Answer : ";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -157,7 +156,6 @@ namespace _69CoffeeShop.Admins
             this.label2.Size = new System.Drawing.Size(86, 18);
             this.label2.TabIndex = 17;
             this.label2.Text = "Answer : ";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -204,7 +202,6 @@ namespace _69CoffeeShop.Admins
             this.label8.Size = new System.Drawing.Size(145, 18);
             this.label8.TabIndex = 23;
             this.label8.Text = "New Password : ";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label5
             // 
@@ -215,7 +212,6 @@ namespace _69CoffeeShop.Admins
             this.label5.Size = new System.Drawing.Size(173, 18);
             this.label5.TabIndex = 25;
             this.label5.Text = "Confirm Password : ";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // groupBoxPassword
             // 
@@ -247,10 +243,12 @@ namespace _69CoffeeShop.Admins
             // 
             this.textBoxID.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxID.Location = new System.Drawing.Point(223, 15);
+            this.textBoxID.MaxLength = 4;
             this.textBoxID.Multiline = true;
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.Size = new System.Drawing.Size(100, 23);
             this.textBoxID.TabIndex = 30;
+            this.textBoxID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxID_KeyPress);
             // 
             // buttonProceed
             // 

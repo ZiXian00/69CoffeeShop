@@ -34,14 +34,21 @@ namespace _69CoffeeShop.Employees
             int age = DateTime.Now.Year - dateTimePickerDateOfBirth.Value.Year;
             labelAge.Text = age.ToString();
 
-            string nextEmpIDQry = "select MAX(employeeID)+1 from employees";
+            string nextEmpIDQry = "select employeeID from employees ORDER BY employeeCount DESC LIMIT 1";
             MySqlCommand nextEmpIDCmd = new MySqlCommand(nextEmpIDQry, connection.conn);
             connection.conn.Open();
             MySqlDataReader nextEmpIDRdr = nextEmpIDCmd.ExecuteReader();
 
             if (nextEmpIDRdr.Read())
             {
-                txtEmployeeID.Text = nextEmpIDRdr.GetString(0);
+                string previousID = Class.Utilities.decryption(nextEmpIDRdr.GetString(0));
+
+                int _previousID = int.Parse(previousID);
+
+                _previousID++;
+
+                txtEmployeeID.Text = _previousID.ToString();
+
                 txtName.Select();
             }
 
@@ -66,7 +73,7 @@ namespace _69CoffeeShop.Employees
 
                 string loadEmpProfileQry = "select * from employees where employeeID = @id";
                 MySqlCommand loadEmpProfileCmd = new MySqlCommand(loadEmpProfileQry, connection.conn);
-                loadEmpProfileCmd.Parameters.AddWithValue("@id", id);
+                loadEmpProfileCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(id));
                 connection.conn.Open();
                 MySqlDataReader loadEmpProfileRdr = loadEmpProfileCmd.ExecuteReader();
 
@@ -76,7 +83,7 @@ namespace _69CoffeeShop.Employees
                     {
                         txtAddress.Text = Class.Utilities.decryption(loadEmpProfileRdr.GetString(9));
                         txtEmail.Text = Class.Utilities.decryption(loadEmpProfileRdr.GetString(5));
-                        txtEmployeeID.Text = loadEmpProfileRdr.GetString(0);
+                        txtEmployeeID.Text = Class.Utilities.decryption(loadEmpProfileRdr.GetString(0));
                         txtName.Text = Class.Utilities.decryption(loadEmpProfileRdr.GetString(1));
                         textBoxBankAcc.Text = Class.Utilities.decryption(loadEmpProfileRdr.GetString(8));
                         textBoxContact.Text = Class.Utilities.decryption(loadEmpProfileRdr.GetString(4));
@@ -184,14 +191,15 @@ namespace _69CoffeeShop.Employees
             {
                 if(checkEmployeeExist() == true)
                 {
-                    string newEmpQry = "insert into employees (employeeName, dateOfBirth, position, contactNo, email, employmentStatus, bankName, bankAccountNo, " +
+                    string newEmpQry = "insert into employees (employeeID, employeeName, dateOfBirth, position, contactNo, email, employmentStatus, bankName, bankAccountNo, " +
                    "address, age, emergencyContact, identityNo, gender, dateHired, maritalStatus, salary_rate) " +
-                   "values (@name, @dob, @position, @contact, @email, @status, @bankName, @bankAcc, @address, @age, @emergencyContact, @ic, @gender, @dateHired, @maritalStatus, @salary)";
+                   "values (@id, @name, @dob, @position, @contact, @email, @status, @bankName, @bankAcc, @address, @age, @emergencyContact, @ic, @gender, @dateHired, @maritalStatus, @salary)";
                     MySqlCommand newEmpCmd = new MySqlCommand(newEmpQry, connection.conn);
                     connection.conn.Open();
 
                     try
                     {
+                        newEmpCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(txtEmployeeID.Text));
                         newEmpCmd.Parameters.AddWithValue("@name", Class.Utilities.encryption(txtName.Text));
                         newEmpCmd.Parameters.AddWithValue("@dob", Class.Utilities.encryption(dateTimePickerDateOfBirth.Value.ToString("yyyy-MM-dd")));
                         newEmpCmd.Parameters.AddWithValue("@position", Class.Utilities.encryption(dropdownPosition.SelectedItem.ToString()));
@@ -230,7 +238,7 @@ namespace _69CoffeeShop.Employees
                         newEmpCmd.Parameters.AddWithValue("@salary", Class.Utilities.encryption(_salary_rate));
                         newEmpCmd.ExecuteNonQuery();
 
-                        MessageBox.Show(txtName.Text + " has been added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(txtName.Text + " has been added." + Environment.NewLine + "ID : " + txtEmployeeID.Text, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Class.Utilities.resetControl(this);
                         previous.refreshGridView();
                     }
@@ -505,7 +513,7 @@ namespace _69CoffeeShop.Employees
                     string _salary_rate = salary_rate.ToString("0.00");
 
                     updateEmpProfileCmd.Parameters.AddWithValue("@salary", Class.Utilities.encryption(_salary_rate));                    
-                    updateEmpProfileCmd.Parameters.AddWithValue("@id", txtEmployeeID.Text);
+                    updateEmpProfileCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(txtEmployeeID.Text));
 
                     updateEmpProfileCmd.ExecuteNonQuery();
                 
@@ -534,7 +542,7 @@ namespace _69CoffeeShop.Employees
             {
                 string deleteEmpQry = "delete from employees where employeeID = @id";
                 MySqlCommand deleteEmpCmd = new MySqlCommand(deleteEmpQry, connection.conn);
-                deleteEmpCmd.Parameters.AddWithValue("@id", txtEmployeeID.Text);
+                deleteEmpCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(txtEmployeeID.Text));
                 connection.conn.Open();
                 try
                 {
@@ -546,7 +554,7 @@ namespace _69CoffeeShop.Employees
                     {
                         string checkIfAdmQry = "select * from admin where employeeID = @id";
                         MySqlCommand checkIfAdmCmd = new MySqlCommand(checkIfAdmQry, connection.conn);
-                        checkIfAdmCmd.Parameters.AddWithValue("id", txtEmployeeID.Text);
+                        checkIfAdmCmd.Parameters.AddWithValue("id", Class.Utilities.encryption(txtEmployeeID.Text));
                         MySqlDataReader checkIfAdmRdr = checkIfAdmCmd.ExecuteReader();
 
                         if (checkIfAdmRdr.Read())
@@ -561,7 +569,7 @@ namespace _69CoffeeShop.Employees
                         {
                             string deleteAdmQry = "delete from admin where employeeID = @id";
                             MySqlCommand deleteAdmCmd = new MySqlCommand(deleteAdmQry, connection.conn);
-                            deleteAdmCmd.Parameters.AddWithValue("@id", txtEmployeeID.Text);
+                            deleteAdmCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(txtEmployeeID.Text));
                             deleteAdmCmd.ExecuteNonQuery();
                         }
                     }

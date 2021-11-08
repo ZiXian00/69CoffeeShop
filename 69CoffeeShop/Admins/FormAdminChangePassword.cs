@@ -65,7 +65,7 @@ namespace _69CoffeeShop.Admins
 
             string getAdmPassQry = "select password from admin where employeeID = @id";
             MySqlCommand getAdmPassCmd = new MySqlCommand(getAdmPassQry, connection.conn);
-            getAdmPassCmd.Parameters.AddWithValue("@id", Class.Admin.adminID);
+            getAdmPassCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(Class.Admin.adminID));
             connection.conn.Open();
             MySqlDataReader getAdmPassRdr = getAdmPassCmd.ExecuteReader();
 
@@ -95,7 +95,7 @@ namespace _69CoffeeShop.Admins
                 connection.conn.Open();
 
                 admChangePwCmd.Parameters.AddWithValue("@pass", Class.Utilities.encryption(textBoxConfirm.Text));
-                admChangePwCmd.Parameters.AddWithValue("@id", Class.Admin.adminID);
+                admChangePwCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(Class.Admin.adminID));
 
                 admChangePwCmd.ExecuteNonQuery();
 

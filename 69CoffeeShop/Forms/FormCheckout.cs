@@ -304,7 +304,7 @@ namespace _69CoffeeShop.Forms
                 connection.conn.Open();
                 insertOrderCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(orderID));
                 insertOrderCmd.Parameters.AddWithValue("@mID", Class.Utilities.encryption("M0001"));
-                insertOrderCmd.Parameters.AddWithValue("@eID", Class.Cashier.cashierID);
+                insertOrderCmd.Parameters.AddWithValue("@eID", Class.Utilities.encryption(Class.Cashier.cashierID));
                 insertOrderCmd.ExecuteNonQuery();
 
                 for (int i = 0; i < orderList.Count; i++)

@@ -61,6 +61,7 @@
             // 
             this.textBoxConfirm.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxConfirm.Location = new System.Drawing.Point(216, 182);
+            this.textBoxConfirm.MaxLength = 15;
             this.textBoxConfirm.Name = "textBoxConfirm";
             this.textBoxConfirm.Size = new System.Drawing.Size(288, 27);
             this.textBoxConfirm.TabIndex = 30;
@@ -82,6 +83,7 @@
             // 
             this.textBoxPassword.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPassword.Location = new System.Drawing.Point(216, 147);
+            this.textBoxPassword.MaxLength = 15;
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(288, 27);
             this.textBoxPassword.TabIndex = 26;
@@ -302,9 +304,11 @@
             // textBoxID
             // 
             this.textBoxID.Location = new System.Drawing.Point(187, 32);
+            this.textBoxID.MaxLength = 4;
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.Size = new System.Drawing.Size(100, 27);
             this.textBoxID.TabIndex = 3;
+            this.textBoxID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxID_KeyPress);
             // 
             // label6
             // 
