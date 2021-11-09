@@ -10,12 +10,12 @@ using System.Security.AccessControl;
 using System.Security.Cryptography;
 
 namespace _69CoffeeShop.Class
-{   
+{
     public class Utilities
     {
         static Connection connection = new Connection();
 
-        public static string encryption (string plainText)
+        public static string encryption(string plainText)
         {
             string shannieKey = "28a18a5bc96caeeb414ab393542111e3";
 
@@ -46,7 +46,7 @@ namespace _69CoffeeShop.Class
             return Convert.ToBase64String(array);
         }
 
-        public static string decryption (string cipherText)
+        public static string decryption(string cipherText)
         {
             string shannieKey = "28a18a5bc96caeeb414ab393542111e3";
 
@@ -80,7 +80,7 @@ namespace _69CoffeeShop.Class
         }
 
         public static void backup(Label label)
-        {            
+        {
             string backupDirectory = @"C:\ProgramData\69coffeeshopBackup";
 
             if (!Directory.Exists(backupDirectory))
@@ -93,11 +93,11 @@ namespace _69CoffeeShop.Class
             string updateBackupRecordQry = "insert into backup_record (backup_datetime) values (@backup)";
             MySqlCommand updateBackupRecordCmd = new MySqlCommand(updateBackupRecordQry, connection.conn);
             connection.conn.Open();
-            updateBackupRecordCmd.Parameters.AddWithValue("@backup", encryption(backupDateTime.ToString()));
+            updateBackupRecordCmd.Parameters.AddWithValue("@backup", encryption(backupDateTime.ToString("dd MMM yyyy HH:mm")));
             updateBackupRecordCmd.ExecuteNonQuery();
             connection.conn.Close();
 
-            string backupPath = backupDirectory+ "\\69coffeeshop.sql";
+            string backupPath = backupDirectory + "\\69coffeeshop.sql";
 
             using (MySqlConnection conn = new MySqlConnection(Connection.connStr))
             {
@@ -117,12 +117,47 @@ namespace _69CoffeeShop.Class
             MessageBox.Show("Backup complete.", "Data and Information Backup", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        public static void backup()
+        {
+            string backupDirectory = @"C:\ProgramData\69coffeeshopBackup";
+
+            if (!Directory.Exists(backupDirectory))
+            {
+                Directory.CreateDirectory(backupDirectory);
+            }
+
+            DateTime backupDateTime = DateTime.Now;
+
+            string updateBackupRecordQry = "insert into backup_record (backup_datetime) values (@backup)";
+            MySqlCommand updateBackupRecordCmd = new MySqlCommand(updateBackupRecordQry, connection.conn);
+            connection.conn.Open();
+            updateBackupRecordCmd.Parameters.AddWithValue("@backup", encryption(backupDateTime.ToString("dd MMM yyyy HH:mm")));
+            updateBackupRecordCmd.ExecuteNonQuery();
+            connection.conn.Close();
+
+            string backupPath = backupDirectory + "\\69coffeeshop.sql";
+
+            using (MySqlConnection conn = new MySqlConnection(Connection.connStr))
+            {
+                using (MySqlCommand cmd = new MySqlCommand())
+                {
+                    using (MySqlBackup mb = new MySqlBackup(cmd))
+                    {
+                        cmd.Connection = conn;
+                        conn.Open();
+                        mb.ExportToFile(backupPath);
+                        conn.Close();
+                    }
+                }
+            }
+        }
+
         public static void restore()
         {
             string backupDirectory = @"C:\ProgramData\69coffeeshopBackup";
 
             string backupPath = backupDirectory + "\\69coffeeshop.sql";
-           
+
             using (MySqlConnection conn = new MySqlConnection(Connection.connStr))
             {
                 using (MySqlCommand cmd = new MySqlCommand())
@@ -138,7 +173,7 @@ namespace _69CoffeeShop.Class
             }
 
             DateTime restoreDateTime = DateTime.Now;
-            
+
             string updateBackupRecordQry = "update backup_record set restore_datetime = @restore ORDER BY backup_id DESC LIMIT 1";
             MySqlCommand updateBackupRecordCmd = new MySqlCommand(updateBackupRecordQry, connection.conn);
             connection.conn.Open();
@@ -178,28 +213,28 @@ namespace _69CoffeeShop.Class
                     listBox.ClearSelected();
                 }
 
-                if(ctrl is RadioButton)
+                if (ctrl is RadioButton)
                 {
                     RadioButton radioButton = (RadioButton)ctrl;
                     radioButton.Checked = false;
                 }
 
-                if(ctrl is RichTextBox)
+                if (ctrl is RichTextBox)
                 {
                     RichTextBox richTextBox = (RichTextBox)ctrl;
                     richTextBox.Text = null;
                 }
 
-                if(ctrl is MaskedTextBox)
+                if (ctrl is MaskedTextBox)
                 {
                     MaskedTextBox maskedTextBox = (MaskedTextBox)ctrl;
                     maskedTextBox.Text = "";
                 }
 
-                if(ctrl is GroupBox)
+                if (ctrl is GroupBox)
                 {
                     GroupBox groupBox = (GroupBox)ctrl;
-                    foreach(Control ctrls in groupBox.Controls)
+                    foreach (Control ctrls in groupBox.Controls)
                     {
                         if (ctrls is TextBox)
                         {

@@ -227,6 +227,7 @@ namespace _69CoffeeShop
                         Class.Cashier.cashierName = null;
                         Class.Cashier.cashierLogin = false;
 
+                        Class.Utilities.backup();
                         iconButtonClockInOut.Text = "Check In";
 
                         Application.Exit();
