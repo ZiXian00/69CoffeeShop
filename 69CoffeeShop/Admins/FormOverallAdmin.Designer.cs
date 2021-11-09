@@ -88,6 +88,16 @@ namespace _69CoffeeShop.Admins
             this.dataGridViewAdminList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewAdminList.Size = new System.Drawing.Size(1149, 547);
             this.dataGridViewAdminList.TabIndex = 10;
+            this.dataGridViewAdminList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAdminList_CellContentClick);
+            // 
+            // employeeName
+            // 
+            this.employeeName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.employeeName.HeaderText = "Name";
+            this.employeeName.Name = "employeeName";
+            this.employeeName.ReadOnly = true;
+            // 
+            // employeeID
             // 
             // employeeName
             // 
