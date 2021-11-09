@@ -236,6 +236,7 @@ namespace _69CoffeeShop
             }
             else
             {
+                Class.Utilities.backup();
                 Application.Exit();
             }
         }
