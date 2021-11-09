@@ -65,6 +65,26 @@ namespace _69CoffeeShop.Employees
             viewEmp.ShowDialog();
         }
 
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxSearch.Text != string.Empty)
+            {
+                foreach (DataGridViewRow row in dataGridViewEmployeeList.Rows)
+                {
+                    if (row.Cells["employeeName"].Value.ToString().ToUpper().Contains(textBoxSearch.Text.ToUpper()))
+                    {
+                        row.Visible = true;
+                    }
+                    else
+                        row.Visible = false;
+                }
+            }
+            else
+            {
+                refreshGridView();
+            }
+        }
+
         //string loadEmployeeQry = "select * from employee_duty_record r1 " +
         //                   "JOIN (select MAX(checkIn) AS checkIn, employeeID from employee_duty_record GROUP BY employeeID) r2 " +
         //                   "ON r1.employeeID = r2.employeeID AND r1.checkIn = r2.checkIn ";

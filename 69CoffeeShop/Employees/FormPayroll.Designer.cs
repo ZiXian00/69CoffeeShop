@@ -29,8 +29,8 @@ namespace _69CoffeeShop.Employees
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.payroll = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -120,6 +120,8 @@ namespace _69CoffeeShop.Employees
             this.netSalary = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iconButtonDelete = new FontAwesome.Sharp.IconButton();
+            this.labelSearch = new System.Windows.Forms.Label();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.payroll.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -983,6 +985,8 @@ namespace _69CoffeeShop.Employees
             // 
             // payrollList
             // 
+            this.payrollList.Controls.Add(this.labelSearch);
+            this.payrollList.Controls.Add(this.textBoxSearch);
             this.payrollList.Controls.Add(this.dataGridViewPayroll);
             this.payrollList.Controls.Add(this.iconButtonDelete);
             this.payrollList.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1002,18 +1006,18 @@ namespace _69CoffeeShop.Employees
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewPayroll.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridViewPayroll.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewPayroll.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridViewPayroll.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewPayroll.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewPayroll.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewPayroll.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewPayroll.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewPayroll.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.name,
@@ -1026,13 +1030,13 @@ namespace _69CoffeeShop.Employees
             this.grossSalary,
             this.netSalary,
             this.status});
-            this.dataGridViewPayroll.Location = new System.Drawing.Point(3, 3);
+            this.dataGridViewPayroll.Location = new System.Drawing.Point(3, 37);
             this.dataGridViewPayroll.Name = "dataGridViewPayroll";
             this.dataGridViewPayroll.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            this.dataGridViewPayroll.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
+            this.dataGridViewPayroll.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewPayroll.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewPayroll.Size = new System.Drawing.Size(1458, 931);
+            this.dataGridViewPayroll.Size = new System.Drawing.Size(1458, 897);
             this.dataGridViewPayroll.TabIndex = 123;
             // 
             // name
@@ -1109,6 +1113,28 @@ namespace _69CoffeeShop.Employees
             this.iconButtonDelete.UseVisualStyleBackColor = true;
             this.iconButtonDelete.Click += new System.EventHandler(this.iconButtonDelete_Click);
             // 
+            // labelSearch
+            // 
+            this.labelSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelSearch.AutoSize = true;
+            this.labelSearch.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSearch.Location = new System.Drawing.Point(1113, 9);
+            this.labelSearch.Name = "labelSearch";
+            this.labelSearch.Size = new System.Drawing.Size(151, 18);
+            this.labelSearch.TabIndex = 125;
+            this.labelSearch.Text = "Search by name :  ";
+            // 
+            // textBoxSearch
+            // 
+            this.textBoxSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxSearch.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSearch.Location = new System.Drawing.Point(1270, 6);
+            this.textBoxSearch.Multiline = true;
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(188, 25);
+            this.textBoxSearch.TabIndex = 124;
+            this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
+            // 
             // FormPayroll
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1137,6 +1163,7 @@ namespace _69CoffeeShop.Employees
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.payrollList.ResumeLayout(false);
+            this.payrollList.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPayroll)).EndInit();
             this.ResumeLayout(false);
 
@@ -1233,5 +1260,7 @@ namespace _69CoffeeShop.Employees
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelSearch;
+        private System.Windows.Forms.TextBox textBoxSearch;
     }
 }

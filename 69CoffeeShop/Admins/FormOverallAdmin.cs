@@ -56,9 +56,9 @@ namespace _69CoffeeShop.Admins
 
             int rowIndex = dataGridViewAdminList.SelectedCells[0].RowIndex;
 
-            DialogResult ds = MessageBox.Show("Remove " + dataGridViewAdminList.Rows[rowIndex].Cells["employeeName"].Value + "?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question); 
+            DialogResult ds = MessageBox.Show("Remove " + dataGridViewAdminList.Rows[rowIndex].Cells["employeeName"].Value + "?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if(ds == DialogResult.Yes)
+            if (ds == DialogResult.Yes)
             {
                 string deleteAdmQry = "delete from admin where employeeID = @id";
                 MySqlCommand deleteAdmCmd = new MySqlCommand(deleteAdmQry, connection.conn);
@@ -82,15 +82,35 @@ namespace _69CoffeeShop.Admins
             connection.conn.Open();
             MySqlDataReader loadAdminReader = loadAdminCmd.ExecuteReader();
 
-            
+
             while (loadAdminReader.Read())
             {
                 dataGridViewAdminList.Rows.Add(Class.Utilities.decryption(loadAdminReader["employeeName"].ToString()), Class.Utilities.decryption(loadAdminReader["employeeID"].ToString()), Class.Utilities.decryption(loadAdminReader["position"].ToString()), Class.Utilities.decryption(loadAdminReader["lastCheckedIn"].ToString()), Class.Utilities.decryption(loadAdminReader["lastCheckedOut"].ToString()));
             }
-            
+
 
             loadAdminReader.Close();
             connection.conn.Close();
+        }
+
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxSearch.Text != string.Empty)
+            {
+                foreach (DataGridViewRow row in dataGridViewAdminList.Rows)
+                {
+                    if (row.Cells["employeeName"].Value.ToString().ToUpper().Contains(textBoxSearch.Text.ToUpper()))
+                    {
+                        row.Visible = true;
+                    }
+                    else
+                        row.Visible = false;
+                }
+            }
+            else
+            {
+                refreshGridView();
+            }
         }
     }
 }

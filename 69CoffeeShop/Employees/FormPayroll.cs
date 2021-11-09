@@ -530,5 +530,25 @@ namespace _69CoffeeShop.Employees
                 e.Handled = true;
             }
         }
+
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxSearch.Text != string.Empty)
+            {
+                foreach (DataGridViewRow row in dataGridViewPayroll.Rows)
+                {
+                    if (row.Cells["name"].Value.ToString().ToUpper().Contains(textBoxSearch.Text.ToUpper()))
+                    {
+                        row.Visible = true;
+                    }
+                    else
+                        row.Visible = false;
+                }
+            }
+            else
+            {
+                refreshGridView();
+            }
+        }
     }
 }

@@ -39,6 +39,8 @@ namespace _69CoffeeShop.Employees
             this.lastCheckOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iconButtonAdd = new FontAwesome.Sharp.IconButton();
             this.iconButtonProfile = new FontAwesome.Sharp.IconButton();
+            this.labelSearch = new System.Windows.Forms.Label();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployeeList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,11 +82,11 @@ namespace _69CoffeeShop.Employees
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewEmployeeList.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewEmployeeList.Location = new System.Drawing.Point(12, 30);
+            this.dataGridViewEmployeeList.Location = new System.Drawing.Point(12, 43);
             this.dataGridViewEmployeeList.Name = "dataGridViewEmployeeList";
             this.dataGridViewEmployeeList.ReadOnly = true;
             this.dataGridViewEmployeeList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridViewEmployeeList.Size = new System.Drawing.Size(1119, 553);
+            this.dataGridViewEmployeeList.Size = new System.Drawing.Size(1119, 540);
             this.dataGridViewEmployeeList.TabIndex = 8;
             // 
             // employeeName
@@ -158,11 +160,35 @@ namespace _69CoffeeShop.Employees
             this.iconButtonProfile.UseVisualStyleBackColor = true;
             this.iconButtonProfile.Click += new System.EventHandler(this.iconButtonProfile_Click);
             // 
+            // labelSearch
+            // 
+            this.labelSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelSearch.AutoSize = true;
+            this.labelSearch.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSearch.Location = new System.Drawing.Point(786, 15);
+            this.labelSearch.Name = "labelSearch";
+            this.labelSearch.Size = new System.Drawing.Size(151, 18);
+            this.labelSearch.TabIndex = 17;
+            this.labelSearch.Text = "Search by name :  ";
+            // 
+            // textBoxSearch
+            // 
+            this.textBoxSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxSearch.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSearch.Location = new System.Drawing.Point(943, 12);
+            this.textBoxSearch.Multiline = true;
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(188, 25);
+            this.textBoxSearch.TabIndex = 16;
+            this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
+            // 
             // FormOverallEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1143, 637);
+            this.Controls.Add(this.labelSearch);
+            this.Controls.Add(this.textBoxSearch);
             this.Controls.Add(this.iconButtonProfile);
             this.Controls.Add(this.iconButtonAdd);
             this.Controls.Add(this.dataGridViewEmployeeList);
@@ -172,6 +198,7 @@ namespace _69CoffeeShop.Employees
             this.Load += new System.EventHandler(this.FormOverallEmployee_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployeeList)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -184,5 +211,7 @@ namespace _69CoffeeShop.Employees
         private System.Windows.Forms.DataGridViewTextBoxColumn lastCheckOut;
         private FontAwesome.Sharp.IconButton iconButtonAdd;
         private FontAwesome.Sharp.IconButton iconButtonProfile;
+        private System.Windows.Forms.Label labelSearch;
+        private System.Windows.Forms.TextBox textBoxSearch;
     }
 }

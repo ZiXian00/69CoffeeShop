@@ -40,6 +40,8 @@ namespace _69CoffeeShop.Admins
             this.iconButtonChangePw = new FontAwesome.Sharp.IconButton();
             this.iconButtonRemove = new FontAwesome.Sharp.IconButton();
             this.iconButtonAdd = new FontAwesome.Sharp.IconButton();
+            this.labelSearch = new System.Windows.Forms.Label();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAdminList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,23 +83,13 @@ namespace _69CoffeeShop.Admins
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewAdminList.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewAdminList.Location = new System.Drawing.Point(12, 32);
+            this.dataGridViewAdminList.Location = new System.Drawing.Point(12, 43);
             this.dataGridViewAdminList.Name = "dataGridViewAdminList";
             this.dataGridViewAdminList.ReadOnly = true;
             this.dataGridViewAdminList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridViewAdminList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewAdminList.Size = new System.Drawing.Size(1149, 547);
+            this.dataGridViewAdminList.Size = new System.Drawing.Size(1149, 536);
             this.dataGridViewAdminList.TabIndex = 10;
-            this.dataGridViewAdminList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAdminList_CellContentClick);
-            // 
-            // employeeName
-            // 
-            this.employeeName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.employeeName.HeaderText = "Name";
-            this.employeeName.Name = "employeeName";
-            this.employeeName.ReadOnly = true;
-            // 
-            // employeeID
             // 
             // employeeName
             // 
@@ -185,11 +177,35 @@ namespace _69CoffeeShop.Admins
             this.iconButtonAdd.UseVisualStyleBackColor = true;
             this.iconButtonAdd.Click += new System.EventHandler(this.iconButtonAdd_Click);
             // 
+            // labelSearch
+            // 
+            this.labelSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelSearch.AutoSize = true;
+            this.labelSearch.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSearch.Location = new System.Drawing.Point(816, 15);
+            this.labelSearch.Name = "labelSearch";
+            this.labelSearch.Size = new System.Drawing.Size(151, 18);
+            this.labelSearch.TabIndex = 15;
+            this.labelSearch.Text = "Search by name :  ";
+            // 
+            // textBoxSearch
+            // 
+            this.textBoxSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxSearch.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSearch.Location = new System.Drawing.Point(973, 12);
+            this.textBoxSearch.Multiline = true;
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(188, 25);
+            this.textBoxSearch.TabIndex = 14;
+            this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
+            // 
             // FormOverallAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1173, 642);
+            this.Controls.Add(this.labelSearch);
+            this.Controls.Add(this.textBoxSearch);
             this.Controls.Add(this.iconButtonChangePw);
             this.Controls.Add(this.dataGridViewAdminList);
             this.Controls.Add(this.iconButtonRemove);
@@ -200,6 +216,7 @@ namespace _69CoffeeShop.Admins
             this.Load += new System.EventHandler(this.FormOverallAdmin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAdminList)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -214,5 +231,7 @@ namespace _69CoffeeShop.Admins
         private System.Windows.Forms.DataGridViewTextBoxColumn lastCheckIn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastCheckOut;
         private FontAwesome.Sharp.IconButton iconButtonChangePw;
+        private System.Windows.Forms.Label labelSearch;
+        private System.Windows.Forms.TextBox textBoxSearch;
     }
 }

@@ -138,5 +138,25 @@ namespace _69CoffeeShop.Products
         {
             iconButtonDelete.Enabled = true;
         }
+
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxSearch.Text != string.Empty)
+            {
+                foreach (DataGridViewRow row in dataGridViewProduct.Rows)
+                {
+                    if (row.Cells["prodName"].Value.ToString().ToUpper().Contains(textBoxSearch.Text.ToUpper()))
+                    {
+                        row.Visible = true;
+                    }
+                    else
+                        row.Visible = false;
+                }
+            }
+            else
+            {
+                refreshProductList();
+            }
+        }
     }
 }
