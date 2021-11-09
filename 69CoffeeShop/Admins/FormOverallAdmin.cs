@@ -77,20 +77,37 @@ namespace _69CoffeeShop.Admins
             dataGridViewAdminList.Rows.Clear();
 
             string loadAdminQry = "select * from admin a INNER JOIN employees e ON a.employeeID = e.employeeID Order By e.employeeCount";
-
             MySqlCommand loadAdminCmd = new MySqlCommand(loadAdminQry, connection.conn);
-            connection.conn.Open();
+            connection.conn.Open();            
             MySqlDataReader loadAdminReader = loadAdminCmd.ExecuteReader();
 
-            
             while (loadAdminReader.Read())
             {
                 dataGridViewAdminList.Rows.Add(Class.Utilities.decryption(loadAdminReader["employeeName"].ToString()), Class.Utilities.decryption(loadAdminReader["employeeID"].ToString()), Class.Utilities.decryption(loadAdminReader["position"].ToString()), Class.Utilities.decryption(loadAdminReader["lastCheckedIn"].ToString()), Class.Utilities.decryption(loadAdminReader["lastCheckedOut"].ToString()));
             }
-            
 
             loadAdminReader.Close();
             connection.conn.Close();
+        }
+
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxSearch.Text != string.Empty)
+            {
+                foreach (DataGridViewRow row in dataGridViewAdminList.Rows)
+                {
+                    if (row.Cells["employeeName"].Value.ToString().ToUpper().Contains(textBoxSearch.Text.ToUpper()))
+                    {
+                        row.Visible = true;
+                    }
+                    else
+                        row.Visible = false;
+                }
+            }
+            else
+            {
+                refreshGridView();
+            }
         }
     }
 }

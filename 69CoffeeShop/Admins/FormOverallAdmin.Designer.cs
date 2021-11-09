@@ -29,17 +29,19 @@ namespace _69CoffeeShop.Admins
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewAdminList = new System.Windows.Forms.DataGridView();
-            this.employeeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeePosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastCheckIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastCheckOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iconButtonChangePw = new FontAwesome.Sharp.IconButton();
             this.iconButtonRemove = new FontAwesome.Sharp.IconButton();
             this.iconButtonAdd = new FontAwesome.Sharp.IconButton();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
+            this.labelSearch = new System.Windows.Forms.Label();
+            this.lastCheckOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastCheckIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeePosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAdminList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,14 +58,14 @@ namespace _69CoffeeShop.Admins
             this.dataGridViewAdminList.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridViewAdminList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewAdminList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewAdminList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAdminList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewAdminList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewAdminList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.employeeName,
@@ -72,57 +74,22 @@ namespace _69CoffeeShop.Admins
             this.lastCheckIn,
             this.lastCheckOut});
             this.dataGridViewAdminList.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewAdminList.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewAdminList.Location = new System.Drawing.Point(12, 32);
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewAdminList.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridViewAdminList.Location = new System.Drawing.Point(12, 48);
             this.dataGridViewAdminList.Name = "dataGridViewAdminList";
             this.dataGridViewAdminList.ReadOnly = true;
             this.dataGridViewAdminList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridViewAdminList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewAdminList.Size = new System.Drawing.Size(1149, 547);
+            this.dataGridViewAdminList.Size = new System.Drawing.Size(1149, 531);
             this.dataGridViewAdminList.TabIndex = 10;
-            // 
-            // employeeName
-            // 
-            this.employeeName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.employeeName.HeaderText = "Name";
-            this.employeeName.Name = "employeeName";
-            this.employeeName.ReadOnly = true;
-            // 
-            // employeeID
-            // 
-            this.employeeID.HeaderText = "ID";
-            this.employeeID.Name = "employeeID";
-            this.employeeID.ReadOnly = true;
-            this.employeeID.Width = 150;
-            // 
-            // employeePosition
-            // 
-            this.employeePosition.HeaderText = "Position";
-            this.employeePosition.Name = "employeePosition";
-            this.employeePosition.ReadOnly = true;
-            this.employeePosition.Width = 150;
-            // 
-            // lastCheckIn
-            // 
-            this.lastCheckIn.HeaderText = "Last Checked In";
-            this.lastCheckIn.Name = "lastCheckIn";
-            this.lastCheckIn.ReadOnly = true;
-            this.lastCheckIn.Width = 200;
-            // 
-            // lastCheckOut
-            // 
-            this.lastCheckOut.HeaderText = "Last Checked Out";
-            this.lastCheckOut.Name = "lastCheckOut";
-            this.lastCheckOut.ReadOnly = true;
-            this.lastCheckOut.Width = 200;
             // 
             // iconButtonChangePw
             // 
@@ -175,11 +142,70 @@ namespace _69CoffeeShop.Admins
             this.iconButtonAdd.UseVisualStyleBackColor = true;
             this.iconButtonAdd.Click += new System.EventHandler(this.iconButtonAdd_Click);
             // 
+            // textBoxSearch
+            // 
+            this.textBoxSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxSearch.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSearch.Location = new System.Drawing.Point(958, 12);
+            this.textBoxSearch.Multiline = true;
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(188, 25);
+            this.textBoxSearch.TabIndex = 12;
+            this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
+            // 
+            // labelSearch
+            // 
+            this.labelSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelSearch.AutoSize = true;
+            this.labelSearch.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSearch.Location = new System.Drawing.Point(801, 15);
+            this.labelSearch.Name = "labelSearch";
+            this.labelSearch.Size = new System.Drawing.Size(151, 18);
+            this.labelSearch.TabIndex = 13;
+            this.labelSearch.Text = "Search by name :  ";
+            // 
+            // lastCheckOut
+            // 
+            this.lastCheckOut.HeaderText = "Last Checked Out";
+            this.lastCheckOut.Name = "lastCheckOut";
+            this.lastCheckOut.ReadOnly = true;
+            this.lastCheckOut.Width = 200;
+            // 
+            // lastCheckIn
+            // 
+            this.lastCheckIn.HeaderText = "Last Checked In";
+            this.lastCheckIn.Name = "lastCheckIn";
+            this.lastCheckIn.ReadOnly = true;
+            this.lastCheckIn.Width = 200;
+            // 
+            // employeePosition
+            // 
+            this.employeePosition.HeaderText = "Position";
+            this.employeePosition.Name = "employeePosition";
+            this.employeePosition.ReadOnly = true;
+            this.employeePosition.Width = 150;
+            // 
+            // employeeID
+            // 
+            this.employeeID.HeaderText = "ID";
+            this.employeeID.Name = "employeeID";
+            this.employeeID.ReadOnly = true;
+            this.employeeID.Width = 150;
+            // 
+            // employeeName
+            // 
+            this.employeeName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.employeeName.HeaderText = "Name";
+            this.employeeName.Name = "employeeName";
+            this.employeeName.ReadOnly = true;
+            // 
             // FormOverallAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1173, 642);
+            this.Controls.Add(this.labelSearch);
+            this.Controls.Add(this.textBoxSearch);
             this.Controls.Add(this.iconButtonChangePw);
             this.Controls.Add(this.dataGridViewAdminList);
             this.Controls.Add(this.iconButtonRemove);
@@ -190,6 +216,7 @@ namespace _69CoffeeShop.Admins
             this.Load += new System.EventHandler(this.FormOverallAdmin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAdminList)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -198,11 +225,13 @@ namespace _69CoffeeShop.Admins
         private FontAwesome.Sharp.IconButton iconButtonRemove;
         private FontAwesome.Sharp.IconButton iconButtonAdd;
         private System.Windows.Forms.DataGridView dataGridViewAdminList;
+        private FontAwesome.Sharp.IconButton iconButtonChangePw;
+        private System.Windows.Forms.TextBox textBoxSearch;
+        private System.Windows.Forms.Label labelSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn employeeName;
         private System.Windows.Forms.DataGridViewTextBoxColumn employeeID;
         private System.Windows.Forms.DataGridViewTextBoxColumn employeePosition;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastCheckIn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastCheckOut;
-        private FontAwesome.Sharp.IconButton iconButtonChangePw;
     }
 }

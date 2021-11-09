@@ -132,6 +132,8 @@ namespace _69CoffeeShop.Employees
                             else
                             {
                                 textBoxHours.ForeColor = Color.Black;
+                                textBoxOtherDD.Text = "";
+                                textBoxOtherDeduct.Text = "";
                             }
 
                             calculateGrossPay();
@@ -532,6 +534,26 @@ namespace _69CoffeeShop.Employees
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxSearch.Text != string.Empty)
+            {
+                foreach (DataGridViewRow row in dataGridViewPayroll.Rows)
+                {
+                    if (row.Cells["name"].Value.ToString().ToUpper().Contains(textBoxSearch.Text.ToUpper()))
+                    {
+                        row.Visible = true;
+                    }
+                    else
+                        row.Visible = false;
+                }
+            }
+            else
+            {
+                refreshGridView();
             }
         }
     }

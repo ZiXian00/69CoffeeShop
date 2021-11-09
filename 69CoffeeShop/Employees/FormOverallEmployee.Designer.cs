@@ -29,8 +29,8 @@ namespace _69CoffeeShop.Employees
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewEmployeeList = new System.Windows.Forms.DataGridView();
             this.employeeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,6 +39,8 @@ namespace _69CoffeeShop.Employees
             this.lastCheckOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iconButtonAdd = new FontAwesome.Sharp.IconButton();
             this.iconButtonProfile = new FontAwesome.Sharp.IconButton();
+            this.labelSearch = new System.Windows.Forms.Label();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployeeList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,14 +57,14 @@ namespace _69CoffeeShop.Employees
             this.dataGridViewEmployeeList.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridViewEmployeeList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewEmployeeList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewEmployeeList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewEmployeeList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewEmployeeList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewEmployeeList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.employeeName,
@@ -71,20 +73,20 @@ namespace _69CoffeeShop.Employees
             this.lastCheckIn,
             this.lastCheckOut});
             this.dataGridViewEmployeeList.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewEmployeeList.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewEmployeeList.Location = new System.Drawing.Point(12, 30);
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewEmployeeList.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridViewEmployeeList.Location = new System.Drawing.Point(12, 43);
             this.dataGridViewEmployeeList.Name = "dataGridViewEmployeeList";
             this.dataGridViewEmployeeList.ReadOnly = true;
             this.dataGridViewEmployeeList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridViewEmployeeList.Size = new System.Drawing.Size(1119, 553);
+            this.dataGridViewEmployeeList.Size = new System.Drawing.Size(1119, 540);
             this.dataGridViewEmployeeList.TabIndex = 8;
             // 
             // employeeName
@@ -158,11 +160,35 @@ namespace _69CoffeeShop.Employees
             this.iconButtonProfile.UseVisualStyleBackColor = true;
             this.iconButtonProfile.Click += new System.EventHandler(this.iconButtonProfile_Click);
             // 
+            // labelSearch
+            // 
+            this.labelSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelSearch.AutoSize = true;
+            this.labelSearch.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSearch.Location = new System.Drawing.Point(796, 15);
+            this.labelSearch.Name = "labelSearch";
+            this.labelSearch.Size = new System.Drawing.Size(141, 18);
+            this.labelSearch.TabIndex = 15;
+            this.labelSearch.Text = "Search by name: ";
+            // 
+            // textBoxSearch
+            // 
+            this.textBoxSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxSearch.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSearch.Location = new System.Drawing.Point(943, 12);
+            this.textBoxSearch.Multiline = true;
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(188, 25);
+            this.textBoxSearch.TabIndex = 14;
+            this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
+            // 
             // FormOverallEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1143, 637);
+            this.Controls.Add(this.labelSearch);
+            this.Controls.Add(this.textBoxSearch);
             this.Controls.Add(this.iconButtonProfile);
             this.Controls.Add(this.iconButtonAdd);
             this.Controls.Add(this.dataGridViewEmployeeList);
@@ -172,6 +198,7 @@ namespace _69CoffeeShop.Employees
             this.Load += new System.EventHandler(this.FormOverallEmployee_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployeeList)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -184,5 +211,7 @@ namespace _69CoffeeShop.Employees
         private System.Windows.Forms.DataGridViewTextBoxColumn lastCheckOut;
         private FontAwesome.Sharp.IconButton iconButtonAdd;
         private FontAwesome.Sharp.IconButton iconButtonProfile;
+        private System.Windows.Forms.Label labelSearch;
+        private System.Windows.Forms.TextBox textBoxSearch;
     }
 }
