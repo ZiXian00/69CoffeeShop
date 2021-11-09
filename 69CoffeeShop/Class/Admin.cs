@@ -9,5 +9,6 @@ namespace _69CoffeeShop.Class
     public static class Admin
     {
         public static string adminID { get; set; }
+        public static string adminName { get; set; }
     }
 }

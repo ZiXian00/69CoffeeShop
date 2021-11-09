@@ -30,17 +30,15 @@ namespace _69CoffeeShop.Forms
         private void InitializeComponent()
         {
             this.panelDesktop = new System.Windows.Forms.Panel();
-            this.lblAdminName = new System.Windows.Forms.Label();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnBackup = new FontAwesome.Sharp.IconButton();
+            this.btnReport = new FontAwesome.Sharp.IconButton();
+            this.btnEmployee = new FontAwesome.Sharp.IconButton();
+            this.btnSupplier = new FontAwesome.Sharp.IconButton();
             this.iconButtonUser = new FontAwesome.Sharp.IconButton();
             this.btnProduct = new FontAwesome.Sharp.IconButton();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.btnHome = new System.Windows.Forms.PictureBox();
-            this.btnSupplier = new FontAwesome.Sharp.IconButton();
-            this.btnEmployee = new FontAwesome.Sharp.IconButton();
-            this.btnReport = new FontAwesome.Sharp.IconButton();
-            this.btnBackup = new FontAwesome.Sharp.IconButton();
-            this.panelDesktop.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).BeginInit();
@@ -49,26 +47,12 @@ namespace _69CoffeeShop.Forms
             // panelDesktop
             // 
             this.panelDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(240)))), ((int)(((byte)(210)))));
-            this.panelDesktop.Controls.Add(this.lblAdminName);
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(165, 0);
             this.panelDesktop.Margin = new System.Windows.Forms.Padding(2);
             this.panelDesktop.Name = "panelDesktop";
             this.panelDesktop.Size = new System.Drawing.Size(547, 529);
             this.panelDesktop.TabIndex = 5;
-            // 
-            // lblAdminName
-            // 
-            this.lblAdminName.AutoSize = true;
-            this.lblAdminName.Font = new System.Drawing.Font("Verdana", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdminName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(115)))), ((int)(((byte)(87)))));
-            this.lblAdminName.Location = new System.Drawing.Point(307, 25);
-            this.lblAdminName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblAdminName.Name = "lblAdminName";
-            this.lblAdminName.Size = new System.Drawing.Size(240, 28);
-            this.lblAdminName.TabIndex = 0;
-            this.lblAdminName.Text = "Hi, Sam Chun Hang";
-            this.lblAdminName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panelMenu
             // 
@@ -86,6 +70,102 @@ namespace _69CoffeeShop.Forms
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(165, 529);
             this.panelMenu.TabIndex = 3;
+            // 
+            // btnBackup
+            // 
+            this.btnBackup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(240)))), ((int)(((byte)(210)))));
+            this.btnBackup.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnBackup.FlatAppearance.BorderSize = 0;
+            this.btnBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBackup.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBackup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(115)))), ((int)(((byte)(87)))));
+            this.btnBackup.IconChar = FontAwesome.Sharp.IconChar.Folder;
+            this.btnBackup.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(115)))), ((int)(((byte)(87)))));
+            this.btnBackup.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnBackup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBackup.Location = new System.Drawing.Point(0, 310);
+            this.btnBackup.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBackup.Name = "btnBackup";
+            this.btnBackup.Padding = new System.Windows.Forms.Padding(8, 0, 15, 0);
+            this.btnBackup.Size = new System.Drawing.Size(165, 49);
+            this.btnBackup.TabIndex = 14;
+            this.btnBackup.Text = "Backup / Restore";
+            this.btnBackup.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBackup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBackup.UseVisualStyleBackColor = false;
+            this.btnBackup.Click += new System.EventHandler(this.iconButton2_Click);
+            // 
+            // btnReport
+            // 
+            this.btnReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(240)))), ((int)(((byte)(210)))));
+            this.btnReport.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReport.FlatAppearance.BorderSize = 0;
+            this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReport.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(115)))), ((int)(((byte)(87)))));
+            this.btnReport.IconChar = FontAwesome.Sharp.IconChar.Receipt;
+            this.btnReport.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(115)))), ((int)(((byte)(87)))));
+            this.btnReport.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReport.Location = new System.Drawing.Point(0, 261);
+            this.btnReport.Margin = new System.Windows.Forms.Padding(2);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Padding = new System.Windows.Forms.Padding(8, 0, 15, 0);
+            this.btnReport.Size = new System.Drawing.Size(165, 49);
+            this.btnReport.TabIndex = 13;
+            this.btnReport.Text = "Report";
+            this.btnReport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReport.UseVisualStyleBackColor = false;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click_1);
+            // 
+            // btnEmployee
+            // 
+            this.btnEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(240)))), ((int)(((byte)(210)))));
+            this.btnEmployee.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnEmployee.FlatAppearance.BorderSize = 0;
+            this.btnEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEmployee.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmployee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(115)))), ((int)(((byte)(87)))));
+            this.btnEmployee.IconChar = FontAwesome.Sharp.IconChar.UserLock;
+            this.btnEmployee.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(115)))), ((int)(((byte)(87)))));
+            this.btnEmployee.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnEmployee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEmployee.Location = new System.Drawing.Point(0, 212);
+            this.btnEmployee.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEmployee.Name = "btnEmployee";
+            this.btnEmployee.Padding = new System.Windows.Forms.Padding(8, 0, 15, 0);
+            this.btnEmployee.Size = new System.Drawing.Size(165, 49);
+            this.btnEmployee.TabIndex = 12;
+            this.btnEmployee.Text = "Employees";
+            this.btnEmployee.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEmployee.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEmployee.UseVisualStyleBackColor = false;
+            this.btnEmployee.Click += new System.EventHandler(this.btnEmployees_Click_1);
+            // 
+            // btnSupplier
+            // 
+            this.btnSupplier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(240)))), ((int)(((byte)(210)))));
+            this.btnSupplier.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSupplier.FlatAppearance.BorderSize = 0;
+            this.btnSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSupplier.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSupplier.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(115)))), ((int)(((byte)(87)))));
+            this.btnSupplier.IconChar = FontAwesome.Sharp.IconChar.TruckMoving;
+            this.btnSupplier.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(115)))), ((int)(((byte)(87)))));
+            this.btnSupplier.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSupplier.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSupplier.Location = new System.Drawing.Point(0, 163);
+            this.btnSupplier.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSupplier.Name = "btnSupplier";
+            this.btnSupplier.Padding = new System.Windows.Forms.Padding(8, 0, 15, 0);
+            this.btnSupplier.Size = new System.Drawing.Size(165, 49);
+            this.btnSupplier.TabIndex = 11;
+            this.btnSupplier.Text = "Suppliers";
+            this.btnSupplier.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSupplier.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSupplier.UseVisualStyleBackColor = false;
+            this.btnSupplier.Click += new System.EventHandler(this.btnSuppliers_Click_1);
             // 
             // iconButtonUser
             // 
@@ -159,102 +239,6 @@ namespace _69CoffeeShop.Forms
             this.btnHome.TabStop = false;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
-            // btnSupplier
-            // 
-            this.btnSupplier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(240)))), ((int)(((byte)(210)))));
-            this.btnSupplier.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSupplier.FlatAppearance.BorderSize = 0;
-            this.btnSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSupplier.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSupplier.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(115)))), ((int)(((byte)(87)))));
-            this.btnSupplier.IconChar = FontAwesome.Sharp.IconChar.TruckMoving;
-            this.btnSupplier.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(115)))), ((int)(((byte)(87)))));
-            this.btnSupplier.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSupplier.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSupplier.Location = new System.Drawing.Point(0, 163);
-            this.btnSupplier.Margin = new System.Windows.Forms.Padding(2);
-            this.btnSupplier.Name = "btnSupplier";
-            this.btnSupplier.Padding = new System.Windows.Forms.Padding(8, 0, 15, 0);
-            this.btnSupplier.Size = new System.Drawing.Size(165, 49);
-            this.btnSupplier.TabIndex = 11;
-            this.btnSupplier.Text = "Suppliers";
-            this.btnSupplier.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSupplier.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSupplier.UseVisualStyleBackColor = false;
-            this.btnSupplier.Click += new System.EventHandler(this.btnSuppliers_Click_1);
-            // 
-            // btnEmployee
-            // 
-            this.btnEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(240)))), ((int)(((byte)(210)))));
-            this.btnEmployee.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnEmployee.FlatAppearance.BorderSize = 0;
-            this.btnEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEmployee.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEmployee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(115)))), ((int)(((byte)(87)))));
-            this.btnEmployee.IconChar = FontAwesome.Sharp.IconChar.UserLock;
-            this.btnEmployee.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(115)))), ((int)(((byte)(87)))));
-            this.btnEmployee.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEmployee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEmployee.Location = new System.Drawing.Point(0, 212);
-            this.btnEmployee.Margin = new System.Windows.Forms.Padding(2);
-            this.btnEmployee.Name = "btnEmployee";
-            this.btnEmployee.Padding = new System.Windows.Forms.Padding(8, 0, 15, 0);
-            this.btnEmployee.Size = new System.Drawing.Size(165, 49);
-            this.btnEmployee.TabIndex = 12;
-            this.btnEmployee.Text = "Employees";
-            this.btnEmployee.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEmployee.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEmployee.UseVisualStyleBackColor = false;
-            this.btnEmployee.Click += new System.EventHandler(this.btnEmployees_Click_1);
-            // 
-            // btnReport
-            // 
-            this.btnReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(240)))), ((int)(((byte)(210)))));
-            this.btnReport.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnReport.FlatAppearance.BorderSize = 0;
-            this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReport.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(115)))), ((int)(((byte)(87)))));
-            this.btnReport.IconChar = FontAwesome.Sharp.IconChar.Receipt;
-            this.btnReport.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(115)))), ((int)(((byte)(87)))));
-            this.btnReport.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReport.Location = new System.Drawing.Point(0, 261);
-            this.btnReport.Margin = new System.Windows.Forms.Padding(2);
-            this.btnReport.Name = "btnReport";
-            this.btnReport.Padding = new System.Windows.Forms.Padding(8, 0, 15, 0);
-            this.btnReport.Size = new System.Drawing.Size(165, 49);
-            this.btnReport.TabIndex = 13;
-            this.btnReport.Text = "Report";
-            this.btnReport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnReport.UseVisualStyleBackColor = false;
-            this.btnReport.Click += new System.EventHandler(this.btnReport_Click_1);
-            // 
-            // btnBackup
-            // 
-            this.btnBackup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(240)))), ((int)(((byte)(210)))));
-            this.btnBackup.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnBackup.FlatAppearance.BorderSize = 0;
-            this.btnBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBackup.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBackup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(115)))), ((int)(((byte)(87)))));
-            this.btnBackup.IconChar = FontAwesome.Sharp.IconChar.Folder;
-            this.btnBackup.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(115)))), ((int)(((byte)(87)))));
-            this.btnBackup.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnBackup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBackup.Location = new System.Drawing.Point(0, 310);
-            this.btnBackup.Margin = new System.Windows.Forms.Padding(2);
-            this.btnBackup.Name = "btnBackup";
-            this.btnBackup.Padding = new System.Windows.Forms.Padding(8, 0, 15, 0);
-            this.btnBackup.Size = new System.Drawing.Size(165, 49);
-            this.btnBackup.TabIndex = 14;
-            this.btnBackup.Text = "Backup / Restore";
-            this.btnBackup.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBackup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnBackup.UseVisualStyleBackColor = false;
-            this.btnBackup.Click += new System.EventHandler(this.iconButton2_Click);
-            // 
             // FormAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -265,8 +249,6 @@ namespace _69CoffeeShop.Forms
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormAdmin";
             this.Text = "Admin";
-            this.panelDesktop.ResumeLayout(false);
-            this.panelDesktop.PerformLayout();
             this.panelMenu.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).EndInit();
@@ -280,7 +262,6 @@ namespace _69CoffeeShop.Forms
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.PictureBox btnHome;
-        private System.Windows.Forms.Label lblAdminName;
         private FontAwesome.Sharp.IconButton iconButtonUser;
         private FontAwesome.Sharp.IconButton btnProduct;
         private FontAwesome.Sharp.IconButton btnBackup;
