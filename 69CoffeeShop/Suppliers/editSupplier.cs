@@ -1,4 +1,4 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Devart.Data.MySql;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,31 +11,18 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace _69CoffeeShop.Members
+namespace _69CoffeeShop.Suppliers
 {
-    public partial class editMember : Form
+    public partial class editSupplier : Form
     {
-        public editMember()
-        {
-            InitializeComponent();
-        }
-
-        public string memID, memberName, contactNo, dob, email, point;
+        public string supID, companyName, contactNo, address, contactName, email;
 
         private void txtEmail_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.KeyChar = Char.ToLower(e.KeyChar);
         }
 
-        private void txtContact_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void txtCustName_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtContactName_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space || e.KeyChar == ((char)39)))
             {
@@ -59,11 +46,11 @@ namespace _69CoffeeShop.Members
         private void btnSave_Click(object sender, EventArgs e)
         {
 
-            if (txtCustName.Text == "" || txtContact.Text == "" || txtEmail.Text == "")
+            if (txtAddress.Text == "" || txtCompanyName.Text == "" || txtContactName.Text == "" || txtContactNo.Text == "" || txtEmail.Text == "")
             {
                 MessageBox.Show("Please make sure all details is filled.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (Regex.Match(txtContact.Text, "^(01)[0-46-9]*[0-9]{7,8}$").Success == false)
+            else if (Regex.Match(txtContactNo.Text, "^(01)[0-46-9]*[0-9]{7,8}$").Success == false)
             {
                 MessageBox.Show("Please enter a valid contact number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -79,15 +66,16 @@ namespace _69CoffeeShop.Members
             {
 
                 string connStr = ConfigurationManager.ConnectionStrings["connStr"].ConnectionString;
-                string sql = "UPDATE member SET memberName = @memberName, contactNo = @contactNo, dateOfBirth= @dateOfBirth, email = @email WHERE memberID = @memberID";
+                string sql = "UPDATE supplier SET companyName = @CompanyName, contactNo = @ContactNumber, address = @Address, contactName = @ContactName, email = @email WHERE supplierID = @SupplierID";
                 MySqlConnection conn = new MySqlConnection(connStr);
                 conn.Open();
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@memberID", Class.Utilities.encryption(lblMemID.Text));
-                cmd.Parameters.AddWithValue("@memberName", Class.Utilities.encryption(txtCustName.Text));
-                cmd.Parameters.AddWithValue("@ContactNo", Class.Utilities.encryption(txtContact.Text));
-                cmd.Parameters.AddWithValue("@dateOfBirth", Class.Utilities.encryption(dtpDOB.Text));
-                cmd.Parameters.AddWithValue("@email", Class.Utilities.encryption(txtEmail.Text));
+                cmd.Parameters.AddWithValue("@SupplierID", lblSupplierID.Text.Trim());
+                cmd.Parameters.AddWithValue("@CompanyName", txtCompanyName.Text.Trim());
+                cmd.Parameters.AddWithValue("@Address", txtAddress.Text.Trim());
+                cmd.Parameters.AddWithValue("@ContactName", txtContactName.Text.Trim());
+                cmd.Parameters.AddWithValue("@ContactNumber", txtContactNo.Text.Trim());
+                cmd.Parameters.AddWithValue("@email", txtEmail.Text.Trim());
                 try
                 {
                     cmd.ExecuteNonQuery();
@@ -101,26 +89,28 @@ namespace _69CoffeeShop.Members
                 }
                 catch (MySqlException ex)
                 {
-                    MessageBox.Show("Member not update. \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Supplier not update. \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 conn.Close();
 
             }
         }
 
-        
-
-        public void UpdateMember()
+        public editSupplier()
         {
+            InitializeComponent();
 
-            lblMemID.Text = memID;
-            txtCustName.Text = memberName;
-            txtContact.Text = contactNo;
-            dtpDOB.Text = dob;
-            txtEmail.Text = email;
-            lblPoint.Text = point;
         }
 
-
+        public void UpdateSupplier()
+        {
+            lblSupplierID.Text = supID;
+            txtCompanyName.Text = companyName;
+            txtContactNo.Text = contactNo;
+            txtContactName.Text = contactName;
+            txtAddress.Text = address;
+            txtEmail.Text = email;
+        }
     }
 }
+

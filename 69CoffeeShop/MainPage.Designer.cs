@@ -42,6 +42,7 @@ namespace _69CoffeeShop
             this.iconCurrentChildForm = new FontAwesome.Sharp.IconPictureBox();
             this.panelDesktop = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).BeginInit();
@@ -49,11 +50,12 @@ namespace _69CoffeeShop
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).BeginInit();
             this.panelDesktop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMenu
             // 
-            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(31)))), ((int)(((byte)(75)))));
+            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(240)))), ((int)(((byte)(210)))));
             this.panelMenu.Controls.Add(this.iconButtonClockInOut);
             this.panelMenu.Controls.Add(this.btnAdmin);
             this.panelMenu.Controls.Add(this.btnMembership);
@@ -71,10 +73,10 @@ namespace _69CoffeeShop
             this.iconButtonClockInOut.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.iconButtonClockInOut.FlatAppearance.BorderSize = 0;
             this.iconButtonClockInOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButtonClockInOut.Font = new System.Drawing.Font("Perpetua Titling MT", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButtonClockInOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(223)))), ((int)(((byte)(255)))));
+            this.iconButtonClockInOut.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButtonClockInOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(115)))), ((int)(((byte)(87)))));
             this.iconButtonClockInOut.IconChar = FontAwesome.Sharp.IconChar.UserClock;
-            this.iconButtonClockInOut.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(223)))), ((int)(((byte)(255)))));
+            this.iconButtonClockInOut.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(115)))), ((int)(((byte)(87)))));
             this.iconButtonClockInOut.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButtonClockInOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButtonClockInOut.Location = new System.Drawing.Point(0, 459);
@@ -94,10 +96,10 @@ namespace _69CoffeeShop
             this.btnAdmin.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAdmin.FlatAppearance.BorderSize = 0;
             this.btnAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdmin.Font = new System.Drawing.Font("Perpetua Titling MT", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdmin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(223)))), ((int)(((byte)(255)))));
+            this.btnAdmin.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdmin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(115)))), ((int)(((byte)(87)))));
             this.btnAdmin.IconChar = FontAwesome.Sharp.IconChar.UserCog;
-            this.btnAdmin.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(223)))), ((int)(((byte)(255)))));
+            this.btnAdmin.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(115)))), ((int)(((byte)(87)))));
             this.btnAdmin.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAdmin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAdmin.Location = new System.Drawing.Point(0, 212);
@@ -117,10 +119,10 @@ namespace _69CoffeeShop
             this.btnMembership.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnMembership.FlatAppearance.BorderSize = 0;
             this.btnMembership.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMembership.Font = new System.Drawing.Font("Perpetua Titling MT", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMembership.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(223)))), ((int)(((byte)(255)))));
+            this.btnMembership.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMembership.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(115)))), ((int)(((byte)(87)))));
             this.btnMembership.IconChar = FontAwesome.Sharp.IconChar.User;
-            this.btnMembership.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(223)))), ((int)(((byte)(255)))));
+            this.btnMembership.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(115)))), ((int)(((byte)(87)))));
             this.btnMembership.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMembership.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMembership.Location = new System.Drawing.Point(0, 163);
@@ -140,10 +142,10 @@ namespace _69CoffeeShop
             this.btnSales.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnSales.FlatAppearance.BorderSize = 0;
             this.btnSales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSales.Font = new System.Drawing.Font("Perpetua Titling MT", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSales.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(223)))), ((int)(((byte)(255)))));
+            this.btnSales.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSales.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(115)))), ((int)(((byte)(87)))));
             this.btnSales.IconChar = FontAwesome.Sharp.IconChar.ShoppingCart;
-            this.btnSales.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(223)))), ((int)(((byte)(255)))));
+            this.btnSales.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(115)))), ((int)(((byte)(87)))));
             this.btnSales.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSales.Location = new System.Drawing.Point(0, 114);
@@ -170,7 +172,7 @@ namespace _69CoffeeShop
             // 
             // btnHome
             // 
-            this.btnHome.Image = global::_69CoffeeShop.Properties.Resources._69_Coffee_Shop_removebg_preview;
+            this.btnHome.Image = global::_69CoffeeShop.Properties.Resources._69_Coffee_Shop_tpbg;
             this.btnHome.Location = new System.Drawing.Point(0, 0);
             this.btnHome.Margin = new System.Windows.Forms.Padding(2);
             this.btnHome.Name = "btnHome";
@@ -182,7 +184,7 @@ namespace _69CoffeeShop
             // 
             // panelTitleBar
             // 
-            this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(31)))), ((int)(((byte)(75)))));
+            this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(240)))), ((int)(((byte)(210)))));
             this.panelTitleBar.Controls.Add(this.btnExit);
             this.panelTitleBar.Controls.Add(this.lblTitleChildForm);
             this.panelTitleBar.Controls.Add(this.iconCurrentChildForm);
@@ -199,7 +201,7 @@ namespace _69CoffeeShop
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(223)))), ((int)(((byte)(175)))));
             this.btnExit.BackgroundImage = global::_69CoffeeShop.Properties.Resources.btnClose;
-            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnExit.FlatAppearance.BorderSize = 0;
             this.btnExit.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnExit.IconColor = System.Drawing.Color.Black;
@@ -215,21 +217,21 @@ namespace _69CoffeeShop
             // lblTitleChildForm
             // 
             this.lblTitleChildForm.AutoSize = true;
-            this.lblTitleChildForm.Font = new System.Drawing.Font("Perpetua Titling MT", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitleChildForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(223)))), ((int)(((byte)(255)))));
+            this.lblTitleChildForm.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitleChildForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(115)))), ((int)(((byte)(87)))));
             this.lblTitleChildForm.Location = new System.Drawing.Point(50, 29);
             this.lblTitleChildForm.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitleChildForm.Name = "lblTitleChildForm";
-            this.lblTitleChildForm.Size = new System.Drawing.Size(41, 13);
+            this.lblTitleChildForm.Size = new System.Drawing.Size(44, 13);
             this.lblTitleChildForm.TabIndex = 1;
             this.lblTitleChildForm.Text = "Home";
             // 
             // iconCurrentChildForm
             // 
-            this.iconCurrentChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(31)))), ((int)(((byte)(75)))));
-            this.iconCurrentChildForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(223)))), ((int)(((byte)(255)))));
+            this.iconCurrentChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(240)))), ((int)(((byte)(210)))));
+            this.iconCurrentChildForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(115)))), ((int)(((byte)(87)))));
             this.iconCurrentChildForm.IconChar = FontAwesome.Sharp.IconChar.Home;
-            this.iconCurrentChildForm.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(223)))), ((int)(((byte)(255)))));
+            this.iconCurrentChildForm.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(115)))), ((int)(((byte)(87)))));
             this.iconCurrentChildForm.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconCurrentChildForm.IconSize = 30;
             this.iconCurrentChildForm.Location = new System.Drawing.Point(16, 20);
@@ -241,7 +243,7 @@ namespace _69CoffeeShop
             // 
             // panelDesktop
             // 
-            this.panelDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(31)))), ((int)(((byte)(75)))));
+            this.panelDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(240)))), ((int)(((byte)(210)))));
             this.panelDesktop.Controls.Add(this.pictureBox1);
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(165, 65);
@@ -253,7 +255,7 @@ namespace _69CoffeeShop
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.Image = global::_69CoffeeShop.Properties.Resources._69_Coffee_Shop_removebg_preview;
+            this.pictureBox1.Image = global::_69CoffeeShop.Properties.Resources._69_Coffee_Shop_tpbg;
             this.pictureBox1.Location = new System.Drawing.Point(102, 70);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
@@ -261,6 +263,11 @@ namespace _69CoffeeShop
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // fileSystemWatcher1
+            // 
+            this.fileSystemWatcher1.EnableRaisingEvents = true;
+            this.fileSystemWatcher1.SynchronizingObject = this;
             // 
             // MainPage
             // 
@@ -283,6 +290,7 @@ namespace _69CoffeeShop
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).EndInit();
             this.panelDesktop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -302,6 +310,7 @@ namespace _69CoffeeShop
         private FontAwesome.Sharp.IconButton btnExit;
         private FontAwesome.Sharp.IconButton iconButtonClockInOut;
         private FontAwesome.Sharp.IconButton btnAdmin;
+        private System.IO.FileSystemWatcher fileSystemWatcher1;
     }
 }
 

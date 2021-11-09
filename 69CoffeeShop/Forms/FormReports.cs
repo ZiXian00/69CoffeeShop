@@ -16,9 +16,13 @@ namespace _69CoffeeShop.Forms
     {
         private IconButton currentBtn;
         private Form currentChildForm;
+        private Panel leftBorderBtn;
         public FormReports()
         {
             InitializeComponent();
+            leftBorderBtn = new Panel();
+            leftBorderBtn.Size = new Size(7, 49);
+            panelMenu.Controls.Add(leftBorderBtn);
         }
 
         private void DisableButton()
@@ -26,10 +30,10 @@ namespace _69CoffeeShop.Forms
             if (currentBtn != null)
             {
 
-                currentBtn.BackColor = Color.FromArgb(3, 31, 75);
-                currentBtn.ForeColor = Color.FromArgb(208, 223, 255);
+                currentBtn.BackColor = Color.FromArgb(250, 240, 210);
+                currentBtn.ForeColor = Color.FromArgb(169, 103, 78);
                 currentBtn.TextAlign = ContentAlignment.MiddleLeft;
-                currentBtn.IconColor = Color.FromArgb(208, 223, 255);
+                currentBtn.IconColor = Color.FromArgb(169, 103, 78);
                 currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
                 currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
 
@@ -38,7 +42,7 @@ namespace _69CoffeeShop.Forms
 
         private struct RGBColors
         {
-            public static Color color1 = Color.FromArgb(213, 183, 65);
+            public static Color color1 = Color.FromArgb(169, 103, 78);
 
         }
 
@@ -49,17 +53,17 @@ namespace _69CoffeeShop.Forms
                 DisableButton();
                 //Button
                 currentBtn = (IconButton)senderBtn;
-                currentBtn.BackColor = Color.FromArgb(193, 212, 252);
-                currentBtn.ForeColor = Color.FromArgb(0, 0, 0);
+                currentBtn.BackColor = Color.FromArgb(169, 103, 78);
+                currentBtn.ForeColor = Color.FromArgb(250, 240, 210);
                 currentBtn.TextAlign = ContentAlignment.MiddleCenter;
-                currentBtn.IconColor = Color.FromArgb(0, 0, 0);
+                currentBtn.IconColor = Color.FromArgb(250, 240, 210);
                 currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
                 currentBtn.ImageAlign = ContentAlignment.MiddleRight;
                 //Left border button
-                //leftBorderBtn.BackColor = Color.FromArgb(0, 0, 0);
-                //leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
-                //leftBorderBtn.Visible = true;
-                //leftBorderBtn.BringToFront();
+                leftBorderBtn.BackColor = Color.FromArgb(0, 0, 0);
+                leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
+                leftBorderBtn.Visible = true;
+                leftBorderBtn.BringToFront();
 
 
             }

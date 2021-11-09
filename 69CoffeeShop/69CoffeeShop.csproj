@@ -308,12 +308,6 @@
     <Compile Include="Inventories\checkInventories.Designer.cs">
       <DependentUpon>checkInventories.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inventories\deleteInventories.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Inventories\deleteInventories.Designer.cs">
-      <DependentUpon>deleteInventories.cs</DependentUpon>
-    </Compile>
     <Compile Include="Inventories\editInventories.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -325,12 +319,6 @@
     </Compile>
     <Compile Include="MainPage.Designer.cs">
       <DependentUpon>MainPage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Members\deleteMember.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Members\deleteMember.Designer.cs">
-      <DependentUpon>deleteMember.cs</DependentUpon>
     </Compile>
     <Compile Include="Members\editMember.cs">
       <SubType>Form</SubType>
@@ -388,11 +376,11 @@
     <Compile Include="Reports\viewReport.Designer.cs">
       <DependentUpon>viewReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="Suppliers\compareSupplier.cs">
+    <Compile Include="Suppliers\editSupplier.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Suppliers\compareSupplier.Designer.cs">
-      <DependentUpon>compareSupplier.cs</DependentUpon>
+    <Compile Include="Suppliers\editSupplier.Designer.cs">
+      <DependentUpon>editSupplier.cs</DependentUpon>
     </Compile>
     <Compile Include="Suppliers\newSupplier.cs">
       <SubType>Form</SubType>
@@ -400,11 +388,16 @@
     <Compile Include="Suppliers\newSupplier.Designer.cs">
       <DependentUpon>newSupplier.cs</DependentUpon>
     </Compile>
-    <Compile Include="temp.cs">
+    <Compile Include="Suppliers\viewSupplier.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="temp.Designer.cs">
-      <DependentUpon>temp.cs</DependentUpon>
+    <Compile Include="Suppliers\viewSupplier.Designer.cs">
+      <DependentUpon>viewSupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_69coffeeshopDataSetSupplier.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_69coffeeshopDataSetSupplier.xsd</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Admins\FormAddAdmin.resx">
       <DependentUpon>FormAddAdmin.cs</DependentUpon>
@@ -466,9 +459,6 @@
     <EmbeddedResource Include="Inventories\checkInventories.resx">
       <DependentUpon>checkInventories.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inventories\deleteInventories.resx">
-      <DependentUpon>deleteInventories.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Inventories\editInventories.resx">
       <DependentUpon>editInventories.cs</DependentUpon>
     </EmbeddedResource>
@@ -480,6 +470,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Members\newMember.resx">
       <DependentUpon>newMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Members\viewMember.resx">
+      <DependentUpon>viewMember.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Products\FormAddProducts.resx">
       <DependentUpon>FormAddProducts.cs</DependentUpon>
@@ -500,13 +493,19 @@
     <EmbeddedResource Include="Reports\createReport.resx">
       <DependentUpon>createReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Suppliers\editSupplier.resx">
+      <DependentUpon>editSupplier.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Suppliers\newSupplier.resx">
       <DependentUpon>newSupplier.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="temp.resx">
-      <DependentUpon>temp.cs</DependentUpon>
+    <EmbeddedResource Include="Suppliers\viewSupplier.resx">
+      <DependentUpon>viewSupplier.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\_69CoffeeShop.Suppliers.editSupplier.datasource" />
+    <None Include="Properties\DataSources\_69CoffeeShop.Suppliers.newSupplier.datasource" />
+    <None Include="Properties\DataSources\_69CoffeeShop.Suppliers.viewSupplier.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -516,6 +515,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="_69coffeeshopDataSetSupplier.xsc">
+      <DependentUpon>_69coffeeshopDataSetSupplier.xsd</DependentUpon>
+    </None>
+    <None Include="_69coffeeshopDataSetSupplier.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_69coffeeshopDataSetSupplier.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_69coffeeshopDataSetSupplier.xss">
+      <DependentUpon>_69coffeeshopDataSetSupplier.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -534,6 +544,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo.ico" />
+    <None Include="Resources\admin1.png" />
     <Content Include="Resources\cappuccino %281%29.jpg" />
     <Content Include="Resources\caramel-frappuccino.jpg" />
     <Content Include="Resources\caramel-hotchocolate.jpg" />
