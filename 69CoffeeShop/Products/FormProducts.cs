@@ -71,7 +71,7 @@ namespace _69CoffeeShop.Products
                 string prodCost = Class.Utilities.decryption(displayProdRdr.GetString(3));
                 string prodPrice = Class.Utilities.decryption(displayProdRdr.GetString(2));
 
-                this.dataGridViewProduct.Rows.Add(Image.FromStream(risizedImage), Class.Utilities.decryption(displayProdRdr["productName"].ToString()), prodCost, prodPrice, "View Details");
+                this.dataGridViewProduct.Rows.Add(Image.FromStream(risizedImage), Class.Utilities.decryption(displayProdRdr["productName"].ToString()), prodCost, prodPrice, "Edit Details");
             }
             displayProdRdr.Close();
             connection.conn.Close();
