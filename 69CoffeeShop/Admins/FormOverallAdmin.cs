@@ -69,6 +69,7 @@ namespace _69CoffeeShop.Admins
                 connection.conn.Close();
 
                 refreshGridView();
+                textBoxSearch.Text = "";
             }
         }
 

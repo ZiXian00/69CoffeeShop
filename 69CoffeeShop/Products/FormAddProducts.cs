@@ -51,9 +51,10 @@ namespace _69CoffeeShop.Products
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
-                InitialDirectory = @"C:\",
+                InitialDirectory = @"C:\",                
                 Filter = "Images (*.BMP;*.JPG;*.GIF,*.PNG,*.TIFF)|*.BMP;*.JPG;*.GIF;*.PNG;*.TIFF|" + "All files (*.*)|*.*",
-                Title = "Select Image"
+                Title = "Select Image",
+                RestoreDirectory = true
             };
 
             DialogResult dialogResult = openFileDialog.ShowDialog();
@@ -65,6 +66,7 @@ namespace _69CoffeeShop.Products
                 {
                     pictureBoxProdImg.Image = Image.FromFile(fileName);
                     pictureBoxProdImg.SizeMode = PictureBoxSizeMode.StretchImage;
+                    textBoxProdName.Select();
                 }
                 catch (Exception ex) {
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -78,7 +80,7 @@ namespace _69CoffeeShop.Products
             {
                 if (!(priceValidation()))
                 {
-                    DialogResult ds = MessageBox.Show("Input cost is greater than price, proceed to continue? ", "Price Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    DialogResult ds = MessageBox.Show("Input price is not more than cost, proceed to continue? ", "Price Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
                     if (ds == DialogResult.OK)
                     {
@@ -112,7 +114,7 @@ namespace _69CoffeeShop.Products
             {
                 if(buttonSave.Text == "Save")
                 {
-                    string newProdQry = "insert into products values (@productID, @productName, @unitPrice, @unitCost, @img)";
+                    string newProdQry = "insert into products (productID, productName, unitPrice, unitCost, productImage) values (@productID, @productName, @unitPrice, @unitCost, @img)";
                     MySqlCommand newProdCmd = new MySqlCommand(newProdQry, connection.conn);
                     connection.conn.Open();
 
@@ -175,7 +177,7 @@ namespace _69CoffeeShop.Products
         {
             string productID = "";
             connection.conn.Open();
-            string productIDQuery = "select productID from products ORDER BY productID DESC LIMIT 1";
+            string productIDQuery = "select productID from products ORDER BY productCount DESC LIMIT 1";
             MySqlCommand productIDCmd = new MySqlCommand(productIDQuery, connection.conn);
             MySqlDataReader productIDRdr = productIDCmd.ExecuteReader();
 
@@ -192,11 +194,24 @@ namespace _69CoffeeShop.Products
                 productID = "C0001";
             }
 
-            MessageBox.Show(productID);
-
             productIDRdr.Close();
             connection.conn.Close();
             return productID;
+        }
+
+        private void textBoxProdCost_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxProdCost_Leave(object sender, EventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            double _text = double.Parse(textBox.Text);
+            textBox.Text = _text.ToString("0.00");
         }
     }
 }
