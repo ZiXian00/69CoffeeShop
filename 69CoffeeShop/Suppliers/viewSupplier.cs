@@ -36,7 +36,7 @@ namespace _69CoffeeShop.Suppliers
         {
             dataGridViewSupplier.Rows.Clear();
 
-            string memQuery = "SELECT * FROM supplier ORDER BY supplierID";
+            string memQuery = "SELECT * FROM supplier ORDER BY supCount";
             MySqlConnection conn = new MySqlConnection(connStr);
             MySqlCommand cmd = new MySqlCommand(memQuery, conn);
             conn.Open();
@@ -45,8 +45,8 @@ namespace _69CoffeeShop.Suppliers
 
             while (dr.Read())
             {
-                //dataGridViewSupplier.Rows.Add(Class.Utilities.decryption(dr["memberID"].ToString()), Class.Utilities.decryption(dr["memberName"].ToString()), Class.Utilities.decryption(dr["contactNo"].ToString()), Class.Utilities.decryption(dr["dateOfBirth"].ToString()), Class.Utilities.decryption(dr["email"].ToString()), Class.Utilities.decryption(dr["rewardsPoint"].ToString()));
-                dataGridViewSupplier.Rows.Add(dr["supplierID"].ToString(), dr["companyName"].ToString(), dr["contactNo"].ToString(), dr["address"].ToString(), dr["contactName"].ToString(), dr["email"].ToString());
+                dataGridViewSupplier.Rows.Add(Class.Utilities.decryption(dr["supplierID"].ToString()), Class.Utilities.decryption(dr["companyName"].ToString()), Class.Utilities.decryption(dr["contactNo"].ToString()), Class.Utilities.decryption(dr["address"].ToString()), Class.Utilities.decryption(dr["contactName"].ToString()), Class.Utilities.decryption(dr["email"].ToString()));
+                //dataGridViewSupplier.Rows.Add(dr["supplierID"].ToString(), dr["companyName"].ToString(), dr["contactNo"].ToString(), dr["address"].ToString(), dr["contactName"].ToString(), dr["email"].ToString());
             }
 
 
@@ -91,7 +91,7 @@ namespace _69CoffeeShop.Suppliers
             conn.Open();
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.CommandType = CommandType.Text;
-            cmd.Parameters.Add("@SupplierID", MySqlDbType.VarChar).Value = id;
+            cmd.Parameters.Add("@SupplierID", MySqlDbType.VarChar).Value = Class.Utilities.encryption(id);
             try
             {
                 cmd.ExecuteNonQuery();
@@ -107,30 +107,43 @@ namespace _69CoffeeShop.Suppliers
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            DisplaySearch("SELECT supplierID, companyName, contactName, contactNo, address, email FROM supplier WHERE supplierID LIKE '%" + txtSearch.Text + "%' OR contactNo LIKE '%" + txtSearch.Text + "%' OR companyName LIKE '%" + txtSearch.Text + "%' OR contactName LIKE '%" + txtSearch.Text + "%' OR address LIKE '%" + txtSearch.Text + "%'");
-        }
-
-        private void DisplaySearch(String query)
-        {
-            dataGridViewSupplier.Rows.Clear();
-
-            string memQuery = query;
-            MySqlConnection conn = new MySqlConnection(connStr);
-            MySqlCommand cmd = new MySqlCommand(memQuery, conn);
-            conn.Open();
-            MySqlDataReader dr = cmd.ExecuteReader();
-
-
-            while (dr.Read())
+            if (txtSearch.Text != string.Empty)
             {
-               dataGridViewSupplier.Rows.Add(dr["supplierID"].ToString(), dr["companyName"].ToString(), dr["contactNo"].ToString(), dr["address"].ToString(), dr["contactName"].ToString(), dr["email"].ToString());
+                foreach (DataGridViewRow row in dataGridViewSupplier.Rows)
+                {
+                    if (row.Cells["supplierID"].Value.ToString().ToUpper().Contains(txtSearch.Text.ToUpper()))
+                    {
+                        row.Visible = true;
+                    }
+                    else if (row.Cells["companyName"].Value.ToString().ToUpper().Contains(txtSearch.Text.ToUpper()))
+                    {
+                        row.Visible = true;
+                    }
+                    else if (row.Cells["contactName"].Value.ToString().ToUpper().Contains(txtSearch.Text.ToUpper()))
+                    {
+                        row.Visible = true;
+                    }
+                    else if (row.Cells["contactNo"].Value.ToString().ToUpper().Contains(txtSearch.Text.ToUpper()))
+                    {
+                        row.Visible = true;
+                    }
+                    else if (row.Cells["email"].Value.ToString().ToUpper().Contains(txtSearch.Text.ToUpper()))
+                    {
+                        row.Visible = true;
+                    }
+                    else
+                    {
+                        row.Visible = false;
+                    }
+                }
             }
-
-
-
-            conn.Close();
+            else
+            {
+                PrintGridView();
+            }
         }
 
+        
         
 
     }

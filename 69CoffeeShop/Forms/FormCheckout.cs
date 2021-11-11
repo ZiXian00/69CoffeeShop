@@ -12,15 +12,21 @@ using MySql.Data.MySqlClient;
 using AForge.Video;
 using AForge.Video.DirectShow;
 using ZXing;
+using System.Configuration;
 
 namespace _69CoffeeShop.Forms
 {
     public partial class FormCheckout : Form
     {
+
+        string connStr = ConfigurationManager.ConnectionStrings["connStr"].ConnectionString;
+
         List<Class.Product> orderList;
         Class.Employee emp = new Class.Employee();
         Class.Connection connection = new Class.Connection();
 
+
+        public string memID, memName, point = "";
         private string orderID;
         private string salesID;
 
@@ -30,6 +36,7 @@ namespace _69CoffeeShop.Forms
         public FormCheckout(List<Class.Product> orderList, DataGridView dgv)
         {
             InitializeComponent();
+
             this.orderList = orderList;
 
             for (int i = 0; i < orderList.Count; i++)
@@ -124,6 +131,7 @@ namespace _69CoffeeShop.Forms
         private void calculatePriceDetails()
         {
             double subPrice = 0;
+            string[] discount = lblDiscount.Text.Split(' ');
             foreach (DataGridViewRow rows in dataGridViewOrder.Rows)
             {
                 if (rows.Cells["Price"].Value != null)
@@ -131,11 +139,13 @@ namespace _69CoffeeShop.Forms
                     subPrice += double.Parse(rows.Cells["Price"].Value.ToString());
                 }
             }
-
-            labelSubTotal.Text = subPrice.ToString("RM 0.00");
-            double tax = subPrice * 0.06;
-            labelTax.Text = tax.ToString("RM 0.00");
-            labelGrandTotal.Text = (subPrice + tax).ToString("RM 0.00");
+            
+                labelSubTotal.Text = subPrice.ToString("RM 0.00");
+                double subtotal = subPrice - Convert.ToDouble(discount[1]);
+                double tax = subtotal * 0.06;
+                labelTax.Text = tax.ToString("RM 0.00");
+                labelGrandTotal.Text = (subtotal + tax).ToString("RM 0.00");
+            
         }
 
         private void keyPad(string str)
@@ -326,6 +336,8 @@ namespace _69CoffeeShop.Forms
                 salesTableCmd.Parameters.AddWithValue("@date", Class.Utilities.encryption(DateTime.Now.ToString("yyyy-MM-dd")));
                 salesTableCmd.Parameters.AddWithValue("@custPaid", Class.Utilities.encryption(custPaid));
                 salesTableCmd.ExecuteNonQuery();
+
+
            
                 DialogResult ds = MessageBox.Show("Payment success. Proceed to product menu", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -387,6 +399,107 @@ namespace _69CoffeeShop.Forms
             pictureBoxQR.Image = (Bitmap)eventArgs.Frame.Clone();
         }
 
+        private void cbRedeem_CheckedChanged(object sender, EventArgs e)
+        {
+            string[] subt = labelSubTotal.Text.Split(' ');
+            if(cbRedeem.Checked == true)
+            {
+                if(Convert.ToInt32(lblTotalPoint.Text) >= 100)
+                {
+                    int dis = Convert.ToInt32(lblTotalPoint.Text) / 100;
+                    MessageBox.Show(Convert.ToDouble(dis).ToString());
+                    if (Convert.ToDouble(subt[1]) >= Convert.ToDouble(dis))
+                    {
+                        lblDiscount.Text = dis.ToString("RM 0.00");
+                        calculatePriceDetails();
+                        //exist - discount * 100
+                    }
+                    else
+                    {
+                        lblDiscount.Text = labelSubTotal.Text;
+                        calculatePriceDetails();
+                    }
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Point is not enough to redeem..", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    lblDiscount.Text = "RM 0.00";
+                    cbRedeem.Checked = false;
+                }
+            }
+            else
+            {
+                lblDiscount.Text = "RM 0.00";
+                calculatePriceDetails();
+            }
+        }
+
+        private void btnTest_Click(object sender, EventArgs e)
+        {
+            int existPoint = Convert.ToInt32(lblTotalPoint.Text);
+            string[] discount = lblDiscount.Text.Split(' ');
+            string[] discount1 = discount[1].Split('.');
+            int dis = Convert.ToInt32(discount1[0])*100;
+
+            string[] gTotal = labelGrandTotal.Text.Split(' ');
+            string[] gTotal1 = gTotal[1].Split('.');
+            int addPoint = Convert.ToInt32(gTotal1[0]);
+            int finalPoint = existPoint - dis + addPoint;
+
+            string sql = "UPDATE member SET rewardsPoint = @rewardsPoint WHERE memberID = @memberID";
+            MySqlConnection conn = new MySqlConnection(connStr);
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@memberID", Class.Utilities.encryption(lblMemID.Text));
+            try
+            {
+                cmd.ExecuteNonQuery();
+                if (MessageBox.Show("Update Successfully.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                {
+                    this.Close();
+
+
+                }
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            conn.Close();
+        }
+
+        private void btnSearchMember_Click(object sender, EventArgs e)
+        {
+            string memQuery = "SELECT memberID, memberName, rewardsPoint FROM member WHERE memberID = @memberID OR memberName = @memberName";
+            MySqlConnection conn = new MySqlConnection(connStr);
+            MySqlCommand cmd = new MySqlCommand(memQuery, conn);
+            cmd.Parameters.AddWithValue("@memberID", Class.Utilities.encryption(txtMemID.Text));
+            cmd.Parameters.AddWithValue("@memberName", Class.Utilities.encryption(txtMemID.Text));
+            conn.Open();
+            MySqlDataReader dr = cmd.ExecuteReader();
+
+            if(dr.Read())
+            {
+                lblMemID.Text = Class.Utilities.decryption(dr["memberID"].ToString());
+                lblMemName.Text = Class.Utilities.decryption(dr["memberName"].ToString());
+                lblTotalPoint.Text = Class.Utilities.decryption(dr["rewardsPoint"].ToString());
+            }
+            else
+            {
+                if(MessageBox.Show("No member found.", "Information",MessageBoxButtons.OK,MessageBoxIcon.Information) == DialogResult.OK)
+                {
+                    txtMemID.Text = "";
+                    lblMemID.Text = "-";
+                    lblMemName.Text = "-";
+                    lblTotalPoint.Text = "-";
+                }
+            }
+        }
+
+        
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (pictureBoxQR.Image != null)
@@ -412,11 +525,6 @@ namespace _69CoffeeShop.Forms
             }
         }
 
-        private void textBoxCustPaid_Leave(object sender, EventArgs e)
-        {
-            TextBox textBox = (TextBox)sender;
-            double text = double.Parse(textBox.Text);
-            textBox.Text = text.ToString("0.00");
-        }
+
     }
 }

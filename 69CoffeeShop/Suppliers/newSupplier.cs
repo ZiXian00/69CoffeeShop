@@ -54,12 +54,12 @@ namespace _69CoffeeShop.Suppliers
                 conn.Open();
                 string query = "Insert into supplier (supplierID, companyName, contactNo, address, contactName, email, supCount) values (@supplierID, @companyName, @contactNo, @address, @contactName, @email, @supCount)";
                 MySqlCommand insertCmd = new MySqlCommand(query, conn);
-                insertCmd.Parameters.AddWithValue("@supplierId", lblSupplierID.Text.Trim());
-                insertCmd.Parameters.AddWithValue("@companyName", txtCompanyName.Text.Trim());
-                insertCmd.Parameters.AddWithValue("@contactNo", txtContactNo.Text.Trim());
-                insertCmd.Parameters.AddWithValue("@address", txtAddress.Text.Trim());
-                insertCmd.Parameters.AddWithValue("@contactName", txtContactName.Text.Trim());
-                insertCmd.Parameters.AddWithValue("@email", txtEmail.Text.Trim());
+                insertCmd.Parameters.AddWithValue("@supplierId", Class.Utilities.encryption(lblSupplierID.Text));
+                insertCmd.Parameters.AddWithValue("@companyName", Class.Utilities.encryption(txtCompanyName.Text));
+                insertCmd.Parameters.AddWithValue("@contactNo", Class.Utilities.encryption(txtContactNo.Text));
+                insertCmd.Parameters.AddWithValue("@address", Class.Utilities.encryption(txtAddress.Text));
+                insertCmd.Parameters.AddWithValue("@contactName", Class.Utilities.encryption(txtContactName.Text));
+                insertCmd.Parameters.AddWithValue("@email", Class.Utilities.encryption(txtEmail.Text));
                 insertCmd.Parameters.AddWithValue("@supCount", lblCount.Text.Trim());
                 try
                 {
@@ -119,7 +119,9 @@ namespace _69CoffeeShop.Suppliers
             }
             else
             {
-                MessageBox.Show("Error");
+                
+                lblSupplierID.Text = "SP001";
+                lblCount.Text = "1";
             }
             conn.Close();
 

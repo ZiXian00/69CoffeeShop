@@ -39,6 +39,17 @@
             this.btnMinus = new System.Windows.Forms.DataGridViewButtonColumn();
             this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelRight = new System.Windows.Forms.Panel();
+            this.groupBoxMember = new System.Windows.Forms.GroupBox();
+            this.btnTest = new System.Windows.Forms.Button();
+            this.txtMemID = new System.Windows.Forms.TextBox();
+            this.btnSearchMember = new System.Windows.Forms.Button();
+            this.lblMemName = new System.Windows.Forms.Label();
+            this.lblMemID = new System.Windows.Forms.Label();
+            this.cbRedeem = new System.Windows.Forms.CheckBox();
+            this.lblTotalPoint = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBoxInfo = new System.Windows.Forms.GroupBox();
             this.labelTime = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -49,6 +60,8 @@
             this.labelEmpID = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBoxPayment = new System.Windows.Forms.GroupBox();
+            this.lblDiscount = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.labelGrandTotal = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.labelTax = new System.Windows.Forms.Label();
@@ -88,6 +101,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrder)).BeginInit();
             this.panelRight.SuspendLayout();
+            this.groupBoxMember.SuspendLayout();
             this.groupBoxInfo.SuspendLayout();
             this.groupBoxPayment.SuspendLayout();
             this.tabControlPayment.SuspendLayout();
@@ -202,6 +216,7 @@
             // 
             // panelRight
             // 
+            this.panelRight.Controls.Add(this.groupBoxMember);
             this.panelRight.Controls.Add(this.groupBoxInfo);
             this.panelRight.Controls.Add(this.groupBoxPayment);
             this.panelRight.Controls.Add(this.iconButtonBack);
@@ -211,6 +226,127 @@
             this.panelRight.Name = "panelRight";
             this.panelRight.Size = new System.Drawing.Size(705, 753);
             this.panelRight.TabIndex = 35;
+            // 
+            // groupBoxMember
+            // 
+            this.groupBoxMember.Controls.Add(this.btnTest);
+            this.groupBoxMember.Controls.Add(this.txtMemID);
+            this.groupBoxMember.Controls.Add(this.btnSearchMember);
+            this.groupBoxMember.Controls.Add(this.lblMemName);
+            this.groupBoxMember.Controls.Add(this.lblMemID);
+            this.groupBoxMember.Controls.Add(this.cbRedeem);
+            this.groupBoxMember.Controls.Add(this.lblTotalPoint);
+            this.groupBoxMember.Controls.Add(this.label13);
+            this.groupBoxMember.Controls.Add(this.label12);
+            this.groupBoxMember.Controls.Add(this.label11);
+            this.groupBoxMember.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBoxMember.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxMember.Location = new System.Drawing.Point(0, -106);
+            this.groupBoxMember.Name = "groupBoxMember";
+            this.groupBoxMember.Size = new System.Drawing.Size(705, 176);
+            this.groupBoxMember.TabIndex = 37;
+            this.groupBoxMember.TabStop = false;
+            this.groupBoxMember.Text = "Member Info";
+            // 
+            // btnTest
+            // 
+            this.btnTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTest.Location = new System.Drawing.Point(507, 89);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(116, 23);
+            this.btnTest.TabIndex = 16;
+            this.btnTest.Text = "testRedeem";
+            this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            // 
+            // txtMemID
+            // 
+            this.txtMemID.Location = new System.Drawing.Point(155, 25);
+            this.txtMemID.Name = "txtMemID";
+            this.txtMemID.Size = new System.Drawing.Size(190, 26);
+            this.txtMemID.TabIndex = 15;
+            // 
+            // btnSearchMember
+            // 
+            this.btnSearchMember.Location = new System.Drawing.Point(367, 25);
+            this.btnSearchMember.Name = "btnSearchMember";
+            this.btnSearchMember.Size = new System.Drawing.Size(134, 23);
+            this.btnSearchMember.TabIndex = 14;
+            this.btnSearchMember.Text = "Search Member";
+            this.btnSearchMember.UseVisualStyleBackColor = true;
+            this.btnSearchMember.Click += new System.EventHandler(this.btnSearchMember_Click);
+            // 
+            // lblMemName
+            // 
+            this.lblMemName.AutoSize = true;
+            this.lblMemName.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMemName.Location = new System.Drawing.Point(160, 92);
+            this.lblMemName.Name = "lblMemName";
+            this.lblMemName.Size = new System.Drawing.Size(15, 16);
+            this.lblMemName.TabIndex = 13;
+            this.lblMemName.Text = "-";
+            // 
+            // lblMemID
+            // 
+            this.lblMemID.AutoSize = true;
+            this.lblMemID.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMemID.Location = new System.Drawing.Point(160, 71);
+            this.lblMemID.Name = "lblMemID";
+            this.lblMemID.Size = new System.Drawing.Size(15, 16);
+            this.lblMemID.TabIndex = 12;
+            this.lblMemID.Text = "-";
+            // 
+            // cbRedeem
+            // 
+            this.cbRedeem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbRedeem.AutoSize = true;
+            this.cbRedeem.Location = new System.Drawing.Point(535, 135);
+            this.cbRedeem.Name = "cbRedeem";
+            this.cbRedeem.Size = new System.Drawing.Size(88, 22);
+            this.cbRedeem.TabIndex = 11;
+            this.cbRedeem.Text = "Redeem";
+            this.cbRedeem.UseVisualStyleBackColor = true;
+            this.cbRedeem.CheckedChanged += new System.EventHandler(this.cbRedeem_CheckedChanged);
+            // 
+            // lblTotalPoint
+            // 
+            this.lblTotalPoint.AutoSize = true;
+            this.lblTotalPoint.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalPoint.Location = new System.Drawing.Point(160, 114);
+            this.lblTotalPoint.Name = "lblTotalPoint";
+            this.lblTotalPoint.Size = new System.Drawing.Size(15, 16);
+            this.lblTotalPoint.TabIndex = 10;
+            this.lblTotalPoint.Text = "-";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(30, 112);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(124, 18);
+            this.label13.TabIndex = 5;
+            this.label13.Text = "Total Point(s) : ";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(20, 90);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(133, 18);
+            this.label12.TabIndex = 4;
+            this.label12.Text = "Member name : ";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(47, 69);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(107, 18);
+            this.label11.TabIndex = 3;
+            this.label11.Text = "Member ID : ";
             // 
             // groupBoxInfo
             // 
@@ -225,7 +361,7 @@
             this.groupBoxInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBoxInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBoxInfo.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxInfo.Location = new System.Drawing.Point(0, 98);
+            this.groupBoxInfo.Location = new System.Drawing.Point(0, 70);
             this.groupBoxInfo.Name = "groupBoxInfo";
             this.groupBoxInfo.Size = new System.Drawing.Size(705, 165);
             this.groupBoxInfo.TabIndex = 36;
@@ -314,6 +450,8 @@
             // 
             // groupBoxPayment
             // 
+            this.groupBoxPayment.Controls.Add(this.lblDiscount);
+            this.groupBoxPayment.Controls.Add(this.label14);
             this.groupBoxPayment.Controls.Add(this.labelGrandTotal);
             this.groupBoxPayment.Controls.Add(this.label5);
             this.groupBoxPayment.Controls.Add(this.labelTax);
@@ -322,18 +460,38 @@
             this.groupBoxPayment.Controls.Add(this.label7);
             this.groupBoxPayment.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBoxPayment.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxPayment.Location = new System.Drawing.Point(0, 263);
+            this.groupBoxPayment.Location = new System.Drawing.Point(0, 235);
             this.groupBoxPayment.Name = "groupBoxPayment";
-            this.groupBoxPayment.Size = new System.Drawing.Size(705, 133);
+            this.groupBoxPayment.Size = new System.Drawing.Size(705, 161);
             this.groupBoxPayment.TabIndex = 3;
             this.groupBoxPayment.TabStop = false;
             this.groupBoxPayment.Text = "Payment";
+            // 
+            // lblDiscount
+            // 
+            this.lblDiscount.AutoSize = true;
+            this.lblDiscount.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDiscount.Location = new System.Drawing.Point(167, 63);
+            this.lblDiscount.Name = "lblDiscount";
+            this.lblDiscount.Size = new System.Drawing.Size(65, 16);
+            this.lblDiscount.TabIndex = 15;
+            this.lblDiscount.Text = "RM 0.00";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(72, 61);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(89, 18);
+            this.label14.TabIndex = 14;
+            this.label14.Text = "Discount : ";
             // 
             // labelGrandTotal
             // 
             this.labelGrandTotal.AutoSize = true;
             this.labelGrandTotal.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGrandTotal.Location = new System.Drawing.Point(167, 96);
+            this.labelGrandTotal.Location = new System.Drawing.Point(167, 111);
             this.labelGrandTotal.Name = "labelGrandTotal";
             this.labelGrandTotal.Size = new System.Drawing.Size(52, 16);
             this.labelGrandTotal.TabIndex = 13;
@@ -343,7 +501,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(60, 96);
+            this.label5.Location = new System.Drawing.Point(60, 111);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(101, 16);
             this.label5.TabIndex = 12;
@@ -353,7 +511,7 @@
             // 
             this.labelTax.AutoSize = true;
             this.labelTax.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTax.Location = new System.Drawing.Point(167, 68);
+            this.labelTax.Location = new System.Drawing.Point(167, 87);
             this.labelTax.Name = "labelTax";
             this.labelTax.Size = new System.Drawing.Size(69, 16);
             this.labelTax.TabIndex = 11;
@@ -363,7 +521,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(57, 68);
+            this.label9.Location = new System.Drawing.Point(57, 87);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(104, 16);
             this.label9.TabIndex = 10;
@@ -748,6 +906,8 @@
             this.Load += new System.EventHandler(this.FormCheckout_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrder)).EndInit();
             this.panelRight.ResumeLayout(false);
+            this.groupBoxMember.ResumeLayout(false);
+            this.groupBoxMember.PerformLayout();
             this.groupBoxInfo.ResumeLayout(false);
             this.groupBoxInfo.PerformLayout();
             this.groupBoxPayment.ResumeLayout(false);
@@ -820,5 +980,18 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.GroupBox groupBoxMember;
+        private System.Windows.Forms.CheckBox cbRedeem;
+        private System.Windows.Forms.Label lblTotalPoint;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblDiscount;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lblMemName;
+        private System.Windows.Forms.Label lblMemID;
+        private System.Windows.Forms.Button btnSearchMember;
+        private System.Windows.Forms.TextBox txtMemID;
+        private System.Windows.Forms.Button btnTest;
     }
 }
