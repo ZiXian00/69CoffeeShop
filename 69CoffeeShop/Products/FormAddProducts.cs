@@ -140,7 +140,7 @@ namespace _69CoffeeShop.Products
                     connection.conn.Open();
 
                     updateProdCmd.Parameters.AddWithValue("@prodName", Class.Utilities.encryption(textBoxProdName.Text));
-                    updateProdCmd.Parameters.AddWithValue("@unitPrice", Class.Utilities.encryption(Class.Utilities.encryption(textBoxProdPrice.Text)));
+                    updateProdCmd.Parameters.AddWithValue("@unitPrice", Class.Utilities.encryption(textBoxProdPrice.Text));
                     updateProdCmd.Parameters.AddWithValue("@unitCost", Class.Utilities.encryption(textBoxProdCost.Text));
                     updateProdCmd.Parameters.AddWithValue("@img", img);
                     updateProdCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(Products.productList[rowIndex].productID));

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewOrder = new System.Windows.Forms.DataGridView();
             this.product = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,7 +43,6 @@
             this.txtMemID = new System.Windows.Forms.TextBox();
             this.btnSearchMember = new System.Windows.Forms.Button();
             this.lblMemName = new System.Windows.Forms.Label();
-            this.lblMemID = new System.Windows.Forms.Label();
             this.cbRedeem = new System.Windows.Forms.CheckBox();
             this.lblTotalPoint = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -98,6 +97,7 @@
             this.comboBoxCamera = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.labelMemID = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrder)).BeginInit();
             this.panelRight.SuspendLayout();
             this.groupBoxMember.SuspendLayout();
@@ -121,14 +121,14 @@
             this.dataGridViewOrder.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewOrder.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewOrder.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewOrder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewOrder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.product,
@@ -136,14 +136,14 @@
             this.btnAdd,
             this.btnMinus,
             this.price});
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewOrder.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewOrder.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewOrder.Dock = System.Windows.Forms.DockStyle.Left;
             this.dataGridViewOrder.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridViewOrder.Location = new System.Drawing.Point(0, 0);
@@ -151,14 +151,14 @@
             this.dataGridViewOrder.Name = "dataGridViewOrder";
             this.dataGridViewOrder.ReadOnly = true;
             this.dataGridViewOrder.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewOrder.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewOrder.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewOrder.RowHeadersVisible = false;
             this.dataGridViewOrder.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridViewOrder.RowTemplate.Height = 30;
@@ -228,18 +228,18 @@
             // 
             // groupBoxMember
             // 
+            this.groupBoxMember.Controls.Add(this.labelMemID);
             this.groupBoxMember.Controls.Add(this.txtMemID);
             this.groupBoxMember.Controls.Add(this.btnSearchMember);
             this.groupBoxMember.Controls.Add(this.lblMemName);
-            this.groupBoxMember.Controls.Add(this.lblMemID);
             this.groupBoxMember.Controls.Add(this.cbRedeem);
             this.groupBoxMember.Controls.Add(this.lblTotalPoint);
             this.groupBoxMember.Controls.Add(this.label13);
             this.groupBoxMember.Controls.Add(this.label12);
             this.groupBoxMember.Controls.Add(this.label11);
-            this.groupBoxMember.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBoxMember.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBoxMember.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxMember.Location = new System.Drawing.Point(0, -106);
+            this.groupBoxMember.Location = new System.Drawing.Point(0, 0);
             this.groupBoxMember.Name = "groupBoxMember";
             this.groupBoxMember.Size = new System.Drawing.Size(705, 176);
             this.groupBoxMember.TabIndex = 37;
@@ -249,14 +249,14 @@
             // txtMemID
             // 
             this.txtMemID.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtMemID.Location = new System.Drawing.Point(155, 25);
+            this.txtMemID.Location = new System.Drawing.Point(155, 30);
             this.txtMemID.Name = "txtMemID";
             this.txtMemID.Size = new System.Drawing.Size(190, 26);
             this.txtMemID.TabIndex = 15;
             // 
             // btnSearchMember
             // 
-            this.btnSearchMember.Location = new System.Drawing.Point(367, 25);
+            this.btnSearchMember.Location = new System.Drawing.Point(351, 31);
             this.btnSearchMember.Name = "btnSearchMember";
             this.btnSearchMember.Size = new System.Drawing.Size(134, 23);
             this.btnSearchMember.TabIndex = 14;
@@ -268,27 +268,17 @@
             // 
             this.lblMemName.AutoSize = true;
             this.lblMemName.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMemName.Location = new System.Drawing.Point(160, 92);
+            this.lblMemName.Location = new System.Drawing.Point(161, 92);
             this.lblMemName.Name = "lblMemName";
             this.lblMemName.Size = new System.Drawing.Size(15, 16);
             this.lblMemName.TabIndex = 13;
             this.lblMemName.Text = "-";
             // 
-            // lblMemID
-            // 
-            this.lblMemID.AutoSize = true;
-            this.lblMemID.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMemID.Location = new System.Drawing.Point(160, 71);
-            this.lblMemID.Name = "lblMemID";
-            this.lblMemID.Size = new System.Drawing.Size(15, 16);
-            this.lblMemID.TabIndex = 12;
-            this.lblMemID.Text = "-";
-            // 
             // cbRedeem
             // 
             this.cbRedeem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbRedeem.AutoSize = true;
-            this.cbRedeem.Location = new System.Drawing.Point(535, 135);
+            this.cbRedeem.Location = new System.Drawing.Point(155, 133);
             this.cbRedeem.Name = "cbRedeem";
             this.cbRedeem.Size = new System.Drawing.Size(88, 22);
             this.cbRedeem.TabIndex = 11;
@@ -300,7 +290,7 @@
             // 
             this.lblTotalPoint.AutoSize = true;
             this.lblTotalPoint.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalPoint.Location = new System.Drawing.Point(160, 114);
+            this.lblTotalPoint.Location = new System.Drawing.Point(161, 114);
             this.lblTotalPoint.Name = "lblTotalPoint";
             this.lblTotalPoint.Size = new System.Drawing.Size(15, 16);
             this.lblTotalPoint.TabIndex = 10;
@@ -310,7 +300,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(30, 112);
+            this.label13.Location = new System.Drawing.Point(29, 112);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(124, 18);
             this.label13.TabIndex = 5;
@@ -330,7 +320,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(47, 69);
+            this.label11.Location = new System.Drawing.Point(46, 70);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(107, 18);
             this.label11.TabIndex = 3;
@@ -469,11 +459,11 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(72, 61);
+            this.label14.Location = new System.Drawing.Point(62, 61);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(89, 18);
+            this.label14.Size = new System.Drawing.Size(99, 18);
             this.label14.TabIndex = 14;
-            this.label14.Text = "Discount : ";
+            this.label14.Text = "Discount   : ";
             // 
             // labelGrandTotal
             // 
@@ -489,11 +479,11 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(60, 111);
+            this.label5.Location = new System.Drawing.Point(55, 111);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(101, 16);
+            this.label5.Size = new System.Drawing.Size(106, 16);
             this.label5.TabIndex = 12;
-            this.label5.Text = "Grand-Total : ";
+            this.label5.Text = "Grand-Total  : ";
             // 
             // labelTax
             // 
@@ -882,6 +872,15 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // labelMemID
+            // 
+            this.labelMemID.AutoSize = true;
+            this.labelMemID.Location = new System.Drawing.Point(161, 70);
+            this.labelMemID.Name = "labelMemID";
+            this.labelMemID.Size = new System.Drawing.Size(15, 18);
+            this.labelMemID.TabIndex = 16;
+            this.labelMemID.Text = "-";
+            // 
             // FormCheckout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -977,8 +976,8 @@
         private System.Windows.Forms.Label lblDiscount;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label lblMemName;
-        private System.Windows.Forms.Label lblMemID;
         private System.Windows.Forms.Button btnSearchMember;
         private System.Windows.Forms.TextBox txtMemID;
+        private System.Windows.Forms.Label labelMemID;
     }
 }

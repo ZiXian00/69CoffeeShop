@@ -43,7 +43,7 @@ namespace _69CoffeeShop.Forms
             this.iconButtonRestore.IconChar = FontAwesome.Sharp.IconChar.FileDownload;
             this.iconButtonRestore.IconColor = System.Drawing.Color.Black;
             this.iconButtonRestore.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButtonRestore.Location = new System.Drawing.Point(379, 369);
+            this.iconButtonRestore.Location = new System.Drawing.Point(409, 369);
             this.iconButtonRestore.Name = "iconButtonRestore";
             this.iconButtonRestore.Size = new System.Drawing.Size(168, 49);
             this.iconButtonRestore.TabIndex = 7;

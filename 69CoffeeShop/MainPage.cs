@@ -103,7 +103,7 @@ namespace _69CoffeeShop
             if(Class.Cashier.cashierLogin == true)
             {
                 ActivateButton(sender, RGBColors.color1);
-                OpenChildForm(new Forms.FormSales());
+                OpenChildForm(new Forms.FormSales(this));
             }
             else
             {

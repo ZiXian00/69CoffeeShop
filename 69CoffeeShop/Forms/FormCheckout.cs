@@ -24,7 +24,7 @@ namespace _69CoffeeShop.Forms
         List<Class.Product> orderList;
         Class.Employee emp = new Class.Employee();
         Class.Connection connection = new Class.Connection();
-
+        MainPage mainPage;
 
         public string memID, memName, point = "";
         private string orderID;
@@ -33,10 +33,10 @@ namespace _69CoffeeShop.Forms
         public string empID { get; set; }
         public string empName { get; set; }
 
-        public FormCheckout(List<Class.Product> orderList, DataGridView dgv)
+        public FormCheckout(List<Class.Product> orderList, DataGridView dgv, MainPage mainPage)
         {
             InitializeComponent();
-
+            this.mainPage = mainPage;
             this.orderList = orderList;
 
             for (int i = 0; i < orderList.Count; i++)
@@ -307,13 +307,26 @@ namespace _69CoffeeShop.Forms
 
             try
             {
-                string insertOrderQry = "insert into orders (orderID, memberID, employeeID) value (@id, @mID, @eID)";
-                MySqlCommand insertOrderCmd = new MySqlCommand(insertOrderQry, connection.conn);
-                connection.conn.Open();
-                insertOrderCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(orderID));
-                insertOrderCmd.Parameters.AddWithValue("@mID", Class.Utilities.encryption(lblMemID.Text));
-                insertOrderCmd.Parameters.AddWithValue("@eID", Class.Utilities.encryption(Class.Cashier.cashierID));
-                insertOrderCmd.ExecuteNonQuery();
+                if (member == true)
+                {
+                    string insertOrderQry = "insert into orders (orderID, memberID, employeeID) value (@id, @mID, @eID)";
+                    MySqlCommand insertOrderCmd = new MySqlCommand(insertOrderQry, connection.conn);
+                    connection.conn.Open();
+                    insertOrderCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(orderID));
+                    insertOrderCmd.Parameters.AddWithValue("@mID", Class.Utilities.encryption(labelMemID.Text));
+                    insertOrderCmd.Parameters.AddWithValue("@eID", Class.Utilities.encryption(Class.Cashier.cashierID));
+                    insertOrderCmd.ExecuteNonQuery();
+                }
+                else
+                {
+                    string insertOrderQry = "insert into orders (orderID, employeeID) value (@id, @eID)";
+                    MySqlCommand insertOrderCmd = new MySqlCommand(insertOrderQry, connection.conn);
+                    connection.conn.Open();
+                    insertOrderCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(orderID));
+                    insertOrderCmd.Parameters.AddWithValue("@eID", Class.Utilities.encryption(Class.Cashier.cashierID));
+                    insertOrderCmd.ExecuteNonQuery();
+                }
+                
 
                 for (int i = 0; i < orderList.Count; i++)
                 {
@@ -334,20 +347,13 @@ namespace _69CoffeeShop.Forms
                 salesTableCmd.Parameters.AddWithValue("@date", Class.Utilities.encryption(DateTime.Now.ToString("yyyy-MM-dd")));
                 salesTableCmd.Parameters.AddWithValue("@custPaid", Class.Utilities.encryption(custPaid));
                 salesTableCmd.ExecuteNonQuery();
-
-
            
                 DialogResult ds = MessageBox.Show("Payment success. Proceed to product menu", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 if(ds == DialogResult.OK)
                 {
-                    FormSales sales = new FormSales();
-                    sales.TopLevel = false;
-                    sales.Parent = this.Parent;
-                    sales.FormBorderStyle = FormBorderStyle.None;
-                    sales.Dock = DockStyle.Fill;
-                    sales.BringToFront();
-                    sales.Show();
+                    FormSales sales = new FormSales(mainPage);
+                    mainPage.OpenChildForm(sales);
                     this.Close();
                 }
         }
@@ -452,7 +458,7 @@ namespace _69CoffeeShop.Forms
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
             MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@memberID", Class.Utilities.encryption(lblMemID.Text));
+            cmd.Parameters.AddWithValue("@memberID", Class.Utilities.encryption(labelMemID.Text));
             try
             {
                 cmd.ExecuteNonQuery();
@@ -480,6 +486,8 @@ namespace _69CoffeeShop.Forms
             }
         }
 
+        Boolean member;
+
         private void btnSearchMember_Click(object sender, EventArgs e)
         {
             string memQuery = "SELECT memberID, memberName, rewardsPoint FROM member WHERE memberID = @memberID OR memberName = @memberName";
@@ -492,23 +500,25 @@ namespace _69CoffeeShop.Forms
 
             if(dr.Read())
             {
-                lblMemID.Text = Class.Utilities.decryption(dr["memberID"].ToString());
+                txtMemID.Text = Class.Utilities.decryption(dr["memberID"].ToString());
                 lblMemName.Text = Class.Utilities.decryption(dr["memberName"].ToString());
                 lblTotalPoint.Text = Class.Utilities.decryption(dr["rewardsPoint"].ToString());
+                labelMemID.Text = Class.Utilities.decryption(dr["memberID"].ToString());
+                member = true;
             }
             else
             {
                 if(MessageBox.Show("No member found.", "Information",MessageBoxButtons.OK,MessageBoxIcon.Information) == DialogResult.OK)
                 {
                     txtMemID.Text = "";
-                    lblMemID.Text = "-";
+                    txtMemID.Text = "-";
                     lblMemName.Text = "-";
                     lblTotalPoint.Text = "-";
+                    labelMemID.Text = "-";
+                    member = false;
                 }
             }
         }
-
-        
 
         private void timer1_Tick(object sender, EventArgs e)
         {
