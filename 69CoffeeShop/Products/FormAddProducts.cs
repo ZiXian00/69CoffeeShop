@@ -210,8 +210,12 @@ namespace _69CoffeeShop.Products
         private void textBoxProdCost_Leave(object sender, EventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            double _text = double.Parse(textBox.Text);
-            textBox.Text = _text.ToString("0.00");
+
+            if (textBox.Text != "")
+            {
+                double _text = double.Parse(textBox.Text);
+                textBox.Text = _text.ToString("0.00");
+            }
         }
     }
 }
