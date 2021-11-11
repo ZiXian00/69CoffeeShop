@@ -31,12 +31,12 @@ namespace _69CoffeeShop.Forms
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.btnEmail = new FontAwesome.Sharp.IconButton();
+            this.panelDesktop = new System.Windows.Forms.Panel();
             this.btnCheck = new FontAwesome.Sharp.IconButton();
             this.btnAdd = new FontAwesome.Sharp.IconButton();
-            this.panelDesktop = new System.Windows.Forms.Panel();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.SuspendLayout();
@@ -65,29 +65,10 @@ namespace _69CoffeeShop.Forms
             this.label1.TabIndex = 1;
             this.label1.Text = "Membership";
             // 
-            // iconButton1
-            // 
-            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(240)))), ((int)(((byte)(210)))));
-            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(103)))), ((int)(((byte)(78)))));
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.User;
-            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(103)))), ((int)(((byte)(78)))));
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.Location = new System.Drawing.Point(0, 0);
-            this.iconButton1.Margin = new System.Windows.Forms.Padding(2);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(56, 55);
-            this.iconButton1.TabIndex = 0;
-            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton1.UseVisualStyleBackColor = false;
-            // 
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(240)))), ((int)(((byte)(210)))));
-            this.panelMenu.Controls.Add(this.btnEmail);
+            this.panelMenu.Controls.Add(this.iconButton2);
             this.panelMenu.Controls.Add(this.btnCheck);
             this.panelMenu.Controls.Add(this.btnAdd);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
@@ -99,28 +80,16 @@ namespace _69CoffeeShop.Forms
             this.panelMenu.Size = new System.Drawing.Size(155, 480);
             this.panelMenu.TabIndex = 2;
             // 
-            // btnEmail
+            // panelDesktop
             // 
-            this.btnEmail.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnEmail.FlatAppearance.BorderSize = 0;
-            this.btnEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEmail.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(103)))), ((int)(((byte)(78)))));
-            this.btnEmail.IconChar = FontAwesome.Sharp.IconChar.EnvelopeSquare;
-            this.btnEmail.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(103)))), ((int)(((byte)(78)))));
-            this.btnEmail.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEmail.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEmail.Location = new System.Drawing.Point(0, 98);
-            this.btnEmail.Margin = new System.Windows.Forms.Padding(2);
-            this.btnEmail.Name = "btnEmail";
-            this.btnEmail.Padding = new System.Windows.Forms.Padding(8, 0, 15, 0);
-            this.btnEmail.Size = new System.Drawing.Size(155, 49);
-            this.btnEmail.TabIndex = 11;
-            this.btnEmail.Text = "Email Marketing";
-            this.btnEmail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEmail.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEmail.UseVisualStyleBackColor = true;
-            this.btnEmail.Click += new System.EventHandler(this.btnEmail_Click);
+            this.panelDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(240)))), ((int)(((byte)(210)))));
+            this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelDesktop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(103)))), ((int)(((byte)(78)))));
+            this.panelDesktop.Location = new System.Drawing.Point(155, 55);
+            this.panelDesktop.Margin = new System.Windows.Forms.Padding(2);
+            this.panelDesktop.Name = "panelDesktop";
+            this.panelDesktop.Size = new System.Drawing.Size(642, 480);
+            this.panelDesktop.TabIndex = 3;
             // 
             // btnCheck
             // 
@@ -168,16 +137,47 @@ namespace _69CoffeeShop.Forms
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // panelDesktop
+            // iconButton1
             // 
-            this.panelDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(240)))), ((int)(((byte)(210)))));
-            this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDesktop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(103)))), ((int)(((byte)(78)))));
-            this.panelDesktop.Location = new System.Drawing.Point(155, 55);
-            this.panelDesktop.Margin = new System.Windows.Forms.Padding(2);
-            this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Size = new System.Drawing.Size(642, 480);
-            this.panelDesktop.TabIndex = 3;
+            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(240)))), ((int)(((byte)(210)))));
+            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(103)))), ((int)(((byte)(78)))));
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.User;
+            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(103)))), ((int)(((byte)(78)))));
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.Location = new System.Drawing.Point(0, 0);
+            this.iconButton1.Margin = new System.Windows.Forms.Padding(2);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(56, 55);
+            this.iconButton1.TabIndex = 0;
+            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton1.UseVisualStyleBackColor = false;
+            // 
+            // iconButton2
+            // 
+            this.iconButton2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton2.FlatAppearance.BorderSize = 0;
+            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(103)))), ((int)(((byte)(78)))));
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Edit;
+            this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(103)))), ((int)(((byte)(78)))));
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton2.Location = new System.Drawing.Point(0, 98);
+            this.iconButton2.Margin = new System.Windows.Forms.Padding(2);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Padding = new System.Windows.Forms.Padding(8, 0, 15, 0);
+            this.iconButton2.Size = new System.Drawing.Size(155, 49);
+            this.iconButton2.TabIndex = 10;
+            this.iconButton2.Text = "Check Sent Email";
+            this.iconButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton2.UseVisualStyleBackColor = true;
+            this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
             // 
             // FormMembership
             // 
@@ -205,7 +205,7 @@ namespace _69CoffeeShop.Forms
         private System.Windows.Forms.Panel panelMenu;
         private FontAwesome.Sharp.IconButton btnAdd;
         private System.Windows.Forms.Panel panelDesktop;
-        private FontAwesome.Sharp.IconButton btnEmail;
         private FontAwesome.Sharp.IconButton btnCheck;
+        private FontAwesome.Sharp.IconButton iconButton2;
     }
 }

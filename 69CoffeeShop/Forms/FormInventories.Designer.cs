@@ -36,6 +36,7 @@ namespace _69CoffeeShop.Forms
             this.btnCheck = new FontAwesome.Sharp.IconButton();
             this.btnAdd = new FontAwesome.Sharp.IconButton();
             this.panelDesktop = new System.Windows.Forms.Panel();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.SuspendLayout();
@@ -85,13 +86,14 @@ namespace _69CoffeeShop.Forms
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(240)))), ((int)(((byte)(210)))));
+            this.panelMenu.Controls.Add(this.iconButton2);
             this.panelMenu.Controls.Add(this.btnCheck);
             this.panelMenu.Controls.Add(this.btnAdd);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 55);
             this.panelMenu.Margin = new System.Windows.Forms.Padding(2);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(169, 480);
+            this.panelMenu.Size = new System.Drawing.Size(185, 480);
             this.panelMenu.TabIndex = 1;
             // 
             // btnCheck
@@ -109,7 +111,7 @@ namespace _69CoffeeShop.Forms
             this.btnCheck.Margin = new System.Windows.Forms.Padding(2);
             this.btnCheck.Name = "btnCheck";
             this.btnCheck.Padding = new System.Windows.Forms.Padding(8, 0, 15, 0);
-            this.btnCheck.Size = new System.Drawing.Size(169, 49);
+            this.btnCheck.Size = new System.Drawing.Size(185, 49);
             this.btnCheck.TabIndex = 6;
             this.btnCheck.Text = "Check Availability";
             this.btnCheck.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -132,7 +134,7 @@ namespace _69CoffeeShop.Forms
             this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Padding = new System.Windows.Forms.Padding(8, 0, 15, 0);
-            this.btnAdd.Size = new System.Drawing.Size(169, 49);
+            this.btnAdd.Size = new System.Drawing.Size(185, 49);
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "Add New";
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -144,11 +146,34 @@ namespace _69CoffeeShop.Forms
             // 
             this.panelDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(240)))), ((int)(((byte)(210)))));
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDesktop.Location = new System.Drawing.Point(169, 55);
+            this.panelDesktop.Location = new System.Drawing.Point(185, 55);
             this.panelDesktop.Margin = new System.Windows.Forms.Padding(2);
             this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Size = new System.Drawing.Size(628, 480);
+            this.panelDesktop.Size = new System.Drawing.Size(612, 480);
             this.panelDesktop.TabIndex = 2;
+            // 
+            // iconButton2
+            // 
+            this.iconButton2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton2.FlatAppearance.BorderSize = 0;
+            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(103)))), ((int)(((byte)(78)))));
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Sitemap;
+            this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(103)))), ((int)(((byte)(78)))));
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton2.Location = new System.Drawing.Point(0, 98);
+            this.iconButton2.Margin = new System.Windows.Forms.Padding(2);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Padding = new System.Windows.Forms.Padding(8, 0, 15, 0);
+            this.iconButton2.Size = new System.Drawing.Size(185, 49);
+            this.iconButton2.TabIndex = 7;
+            this.iconButton2.Text = "Check Procurement";
+            this.iconButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton2.UseVisualStyleBackColor = true;
+            this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
             // 
             // FormInventories
             // 
@@ -178,5 +203,6 @@ namespace _69CoffeeShop.Forms
         private FontAwesome.Sharp.IconButton btnAdd;
         private System.Windows.Forms.Panel panelDesktop;
         private FontAwesome.Sharp.IconButton btnCheck;
+        private FontAwesome.Sharp.IconButton iconButton2;
     }
 }

@@ -17,11 +17,13 @@ namespace _69CoffeeShop.Members
 
         string connStr = ConfigurationManager.ConnectionStrings["connStr"].ConnectionString;
         editMember edtMem;
+        newEmailMarketing sEmail;
 
         public viewMember()
         {
             InitializeComponent();
             edtMem = new editMember();
+            sEmail = new newEmailMarketing();
         }
 
         public void PrintGridView()
@@ -114,7 +116,13 @@ namespace _69CoffeeShop.Members
             }
             if (e.ColumnIndex == 8)
             {
-
+                sEmail.memID = dataGridViewMember.Rows[e.RowIndex].Cells[0].Value.ToString();
+                sEmail.memName = dataGridViewMember.Rows[e.RowIndex].Cells[1].Value.ToString();
+                sEmail.dob = dataGridViewMember.Rows[e.RowIndex].Cells[3].Value.ToString();
+                sEmail.email = dataGridViewMember.Rows[e.RowIndex].Cells[4].Value.ToString();
+                sEmail.InputDetails();
+                sEmail.ShowDialog();
+                return;
             }
         }
 

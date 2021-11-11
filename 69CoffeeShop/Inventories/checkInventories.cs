@@ -16,10 +16,12 @@ namespace _69CoffeeShop.Inventories
     {
         string connStr = ConfigurationManager.ConnectionStrings["connStr"].ConnectionString;
         editInventories edtInven;
+        Procurement.newProcurement newPro;
         public checkInventories()
         {
             InitializeComponent();
             edtInven = new editInventories();
+            newPro = new Procurement.newProcurement();
         }
 
         public void PrintGridView()
@@ -128,7 +130,13 @@ namespace _69CoffeeShop.Inventories
 
             if (e.ColumnIndex == 8)
             {
-
+                newPro.InvenID = dataGridViewInventory.Rows[e.RowIndex].Cells[0].Value.ToString();
+                newPro.InvenName = dataGridViewInventory.Rows[e.RowIndex].Cells[1].Value.ToString();
+                newPro.Description = dataGridViewInventory.Rows[e.RowIndex].Cells[2].Value.ToString();
+                newPro.unitPrice = dataGridViewInventory.Rows[e.RowIndex].Cells[3].Value.ToString();
+                newPro.SupID = dataGridViewInventory.Rows[e.RowIndex].Cells[5].Value.ToString();
+                newPro.ShowDialog();
+                return;
             }
 
         }

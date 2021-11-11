@@ -121,7 +121,6 @@ namespace _69CoffeeShop.Inventories
         {
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
-            //string query = "SELECT MAX(InvenCount) FROM inventory";
             string query = "select invenCount from inventory ORDER BY invenCount DESC LIMIT 1";
             MySqlCommand cmd = new MySqlCommand(query, conn);
             MySqlDataReader dr = cmd.ExecuteReader();

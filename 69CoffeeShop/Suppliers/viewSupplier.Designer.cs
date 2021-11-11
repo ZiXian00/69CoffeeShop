@@ -40,12 +40,6 @@ namespace _69CoffeeShop.Suppliers
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label14 = new System.Windows.Forms.Label();
             this.dataGridViewSupplier = new System.Windows.Forms.DataGridView();
-            this._69coffeeshopDataSetSupplier = new _69CoffeeShop._69coffeeshopDataSetSupplier();
-            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.supplierTableAdapter = new _69CoffeeShop._69coffeeshopDataSetSupplierTableAdapters.supplierTableAdapter();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.viewSupplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.supplierID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.companyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contactNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,6 +48,12 @@ namespace _69CoffeeShop.Suppliers
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this._69coffeeshopDataSetSupplier = new _69CoffeeShop._69coffeeshopDataSetSupplier();
+            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.supplierTableAdapter = new _69CoffeeShop._69coffeeshopDataSetSupplierTableAdapters.supplierTableAdapter();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.viewSupplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSupplier)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._69coffeeshopDataSetSupplier)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
@@ -98,46 +98,6 @@ namespace _69CoffeeShop.Suppliers
             this.dataGridViewSupplier.Size = new System.Drawing.Size(849, 418);
             this.dataGridViewSupplier.TabIndex = 67;
             this.dataGridViewSupplier.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSupplier_CellContentClick);
-            // 
-            // _69coffeeshopDataSetSupplier
-            // 
-            this._69coffeeshopDataSetSupplier.DataSetName = "_69coffeeshopDataSetSupplier";
-            this._69coffeeshopDataSetSupplier.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // supplierBindingSource
-            // 
-            this.supplierBindingSource.DataMember = "supplier";
-            this.supplierBindingSource.DataSource = this._69coffeeshopDataSetSupplier;
-            // 
-            // supplierTableAdapter
-            // 
-            this.supplierTableAdapter.ClearBeforeFill = true;
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearch.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(751, 86);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(162, 23);
-            this.txtSearch.TabIndex = 68;
-            this.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(676, 89);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 16);
-            this.label1.TabIndex = 69;
-            this.label1.Text = "Sort by : ";
-            // 
-            // viewSupplierBindingSource
-            // 
-            this.viewSupplierBindingSource.DataSource = typeof(_69CoffeeShop.Suppliers.viewSupplier);
             // 
             // supplierID
             // 
@@ -218,6 +178,46 @@ namespace _69CoffeeShop.Suppliers
             this.delete.ReadOnly = true;
             this.delete.Text = "Delete";
             this.delete.UseColumnTextForButtonValue = true;
+            // 
+            // _69coffeeshopDataSetSupplier
+            // 
+            this._69coffeeshopDataSetSupplier.DataSetName = "_69coffeeshopDataSetSupplier";
+            this._69coffeeshopDataSetSupplier.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // supplierBindingSource
+            // 
+            this.supplierBindingSource.DataMember = "supplier";
+            this.supplierBindingSource.DataSource = this._69coffeeshopDataSetSupplier;
+            // 
+            // supplierTableAdapter
+            // 
+            this.supplierTableAdapter.ClearBeforeFill = true;
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSearch.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Location = new System.Drawing.Point(751, 86);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(162, 23);
+            this.txtSearch.TabIndex = 68;
+            this.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(676, 89);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 16);
+            this.label1.TabIndex = 69;
+            this.label1.Text = "Search :";
+            // 
+            // viewSupplierBindingSource
+            // 
+            this.viewSupplierBindingSource.DataSource = typeof(_69CoffeeShop.Suppliers.viewSupplier);
             // 
             // viewSupplier
             // 

@@ -40,7 +40,6 @@
             this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelRight = new System.Windows.Forms.Panel();
             this.groupBoxMember = new System.Windows.Forms.GroupBox();
-            this.btnTest = new System.Windows.Forms.Button();
             this.txtMemID = new System.Windows.Forms.TextBox();
             this.btnSearchMember = new System.Windows.Forms.Button();
             this.lblMemName = new System.Windows.Forms.Label();
@@ -68,7 +67,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.labelSubTotal = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.iconButtonBack = new FontAwesome.Sharp.IconButton();
             this.tabControlPayment = new System.Windows.Forms.TabControl();
             this.tabPageCash = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -79,7 +77,6 @@
             this.textBoxCustPaid = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.iconButtonDelete = new FontAwesome.Sharp.IconButton();
             this.buttonDot = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
@@ -95,10 +92,12 @@
             this.tabPageQR = new System.Windows.Forms.TabPage();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.buttonOK = new System.Windows.Forms.Button();
-            this.pictureBoxQR = new System.Windows.Forms.PictureBox();
             this.comboBoxCamera = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.iconButtonBack = new FontAwesome.Sharp.IconButton();
+            this.iconButtonDelete = new FontAwesome.Sharp.IconButton();
+            this.pictureBoxQR = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrder)).BeginInit();
             this.panelRight.SuspendLayout();
             this.groupBoxMember.SuspendLayout();
@@ -229,7 +228,6 @@
             // 
             // groupBoxMember
             // 
-            this.groupBoxMember.Controls.Add(this.btnTest);
             this.groupBoxMember.Controls.Add(this.txtMemID);
             this.groupBoxMember.Controls.Add(this.btnSearchMember);
             this.groupBoxMember.Controls.Add(this.lblMemName);
@@ -247,17 +245,6 @@
             this.groupBoxMember.TabIndex = 37;
             this.groupBoxMember.TabStop = false;
             this.groupBoxMember.Text = "Member Info";
-            // 
-            // btnTest
-            // 
-            this.btnTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTest.Location = new System.Drawing.Point(507, 89);
-            this.btnTest.Name = "btnTest";
-            this.btnTest.Size = new System.Drawing.Size(116, 23);
-            this.btnTest.TabIndex = 16;
-            this.btnTest.Text = "testRedeem";
-            this.btnTest.UseVisualStyleBackColor = true;
-            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
             // txtMemID
             // 
@@ -547,22 +534,6 @@
             this.label7.TabIndex = 8;
             this.label7.Text = "Sub-Total    : ";
             // 
-            // iconButtonBack
-            // 
-            this.iconButtonBack.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButtonBack.IconChar = FontAwesome.Sharp.IconChar.AngleLeft;
-            this.iconButtonBack.IconColor = System.Drawing.Color.Black;
-            this.iconButtonBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButtonBack.IconSize = 25;
-            this.iconButtonBack.Location = new System.Drawing.Point(6, 12);
-            this.iconButtonBack.Name = "iconButtonBack";
-            this.iconButtonBack.Size = new System.Drawing.Size(127, 35);
-            this.iconButtonBack.TabIndex = 2;
-            this.iconButtonBack.Text = "Back";
-            this.iconButtonBack.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButtonBack.UseVisualStyleBackColor = true;
-            this.iconButtonBack.Click += new System.EventHandler(this.iconButtonBack_Click);
-            // 
             // tabControlPayment
             // 
             this.tabControlPayment.Controls.Add(this.tabPageCash);
@@ -689,18 +660,6 @@
             this.panel1.Size = new System.Drawing.Size(360, 319);
             this.panel1.TabIndex = 0;
             // 
-            // iconButtonDelete
-            // 
-            this.iconButtonDelete.IconChar = FontAwesome.Sharp.IconChar.LongArrowAltLeft;
-            this.iconButtonDelete.IconColor = System.Drawing.Color.Black;
-            this.iconButtonDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButtonDelete.Location = new System.Drawing.Point(263, 15);
-            this.iconButtonDelete.Name = "iconButtonDelete";
-            this.iconButtonDelete.Size = new System.Drawing.Size(70, 222);
-            this.iconButtonDelete.TabIndex = 13;
-            this.iconButtonDelete.UseVisualStyleBackColor = true;
-            this.iconButtonDelete.Click += new System.EventHandler(this.iconButtonDelete_Click);
-            // 
             // buttonDot
             // 
             this.buttonDot.Location = new System.Drawing.Point(263, 243);
@@ -825,9 +784,9 @@
             // 
             this.tabPageQR.Controls.Add(this.textBox1);
             this.tabPageQR.Controls.Add(this.buttonOK);
-            this.tabPageQR.Controls.Add(this.pictureBoxQR);
             this.tabPageQR.Controls.Add(this.comboBoxCamera);
             this.tabPageQR.Controls.Add(this.label10);
+            this.tabPageQR.Controls.Add(this.pictureBoxQR);
             this.tabPageQR.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPageQR.Location = new System.Drawing.Point(4, 28);
             this.tabPageQR.Name = "tabPageQR";
@@ -859,15 +818,6 @@
             this.buttonOK.UseVisualStyleBackColor = true;
             this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
-            // pictureBoxQR
-            // 
-            this.pictureBoxQR.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBoxQR.Location = new System.Drawing.Point(59, 89);
-            this.pictureBoxQR.Name = "pictureBoxQR";
-            this.pictureBoxQR.Size = new System.Drawing.Size(463, 217);
-            this.pictureBoxQR.TabIndex = 52;
-            this.pictureBoxQR.TabStop = false;
-            // 
             // comboBoxCamera
             // 
             this.comboBoxCamera.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -891,6 +841,43 @@
             // 
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // iconButtonBack
+            // 
+            this.iconButtonBack.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButtonBack.IconChar = FontAwesome.Sharp.IconChar.AngleLeft;
+            this.iconButtonBack.IconColor = System.Drawing.Color.Black;
+            this.iconButtonBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonBack.IconSize = 25;
+            this.iconButtonBack.Location = new System.Drawing.Point(6, 12);
+            this.iconButtonBack.Name = "iconButtonBack";
+            this.iconButtonBack.Size = new System.Drawing.Size(127, 35);
+            this.iconButtonBack.TabIndex = 2;
+            this.iconButtonBack.Text = "Back";
+            this.iconButtonBack.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButtonBack.UseVisualStyleBackColor = true;
+            this.iconButtonBack.Click += new System.EventHandler(this.iconButtonBack_Click);
+            // 
+            // iconButtonDelete
+            // 
+            this.iconButtonDelete.IconChar = FontAwesome.Sharp.IconChar.LongArrowAltLeft;
+            this.iconButtonDelete.IconColor = System.Drawing.Color.Black;
+            this.iconButtonDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonDelete.Location = new System.Drawing.Point(263, 15);
+            this.iconButtonDelete.Name = "iconButtonDelete";
+            this.iconButtonDelete.Size = new System.Drawing.Size(70, 222);
+            this.iconButtonDelete.TabIndex = 13;
+            this.iconButtonDelete.UseVisualStyleBackColor = true;
+            this.iconButtonDelete.Click += new System.EventHandler(this.iconButtonDelete_Click);
+            // 
+            // pictureBoxQR
+            // 
+            this.pictureBoxQR.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBoxQR.Location = new System.Drawing.Point(59, 89);
+            this.pictureBoxQR.Name = "pictureBoxQR";
+            this.pictureBoxQR.Size = new System.Drawing.Size(463, 217);
+            this.pictureBoxQR.TabIndex = 52;
+            this.pictureBoxQR.TabStop = false;
             // 
             // FormCheckout
             // 
@@ -990,6 +977,5 @@
         private System.Windows.Forms.Label lblMemID;
         private System.Windows.Forms.Button btnSearchMember;
         private System.Windows.Forms.TextBox txtMemID;
-        private System.Windows.Forms.Button btnTest;
     }
 }

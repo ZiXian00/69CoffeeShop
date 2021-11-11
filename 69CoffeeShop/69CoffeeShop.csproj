@@ -320,6 +320,12 @@
     <Compile Include="MainPage.Designer.cs">
       <DependentUpon>MainPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Members\checkEmail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Members\checkEmail.Designer.cs">
+      <DependentUpon>checkEmail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Members\editMember.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -343,6 +349,18 @@
     </Compile>
     <Compile Include="Members\viewMember.Designer.cs">
       <DependentUpon>viewMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Procurement\checkProcurement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Procurement\checkProcurement.Designer.cs">
+      <DependentUpon>checkProcurement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Procurement\newProcurement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Procurement\newProcurement.Designer.cs">
+      <DependentUpon>newProcurement.cs</DependentUpon>
     </Compile>
     <Compile Include="Products\FormAddProducts.cs">
       <SubType>Form</SubType>
@@ -465,14 +483,26 @@
     <EmbeddedResource Include="MainPage.resx">
       <DependentUpon>MainPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Members\checkEmail.resx">
+      <DependentUpon>checkEmail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Members\editMember.resx">
       <DependentUpon>editMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Members\newEmailMarketing.resx">
+      <DependentUpon>newEmailMarketing.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Members\newMember.resx">
       <DependentUpon>newMember.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Members\viewMember.resx">
       <DependentUpon>viewMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Procurement\checkProcurement.resx">
+      <DependentUpon>checkProcurement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Procurement\newProcurement.resx">
+      <DependentUpon>newProcurement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Products\FormAddProducts.resx">
       <DependentUpon>FormAddProducts.cs</DependentUpon>

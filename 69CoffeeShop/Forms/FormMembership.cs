@@ -115,10 +115,10 @@ namespace _69CoffeeShop.Forms
             OpenChildForm(new Members.viewMember());
         }
 
-        private void btnEmail_Click(object sender, EventArgs e)
+        private void iconButton2_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
-            OpenChildForm(new Members.newEmailMarketing());
+            OpenChildForm(new Members.checkEmail());
         }
     }
 

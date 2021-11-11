@@ -65,7 +65,7 @@ namespace _69CoffeeShop.Inventories
                 cmd.Parameters.AddWithValue("@inventoryID", Class.Utilities.encryption(lblInvenID.Text));
                 cmd.Parameters.AddWithValue("@inventoryName", Class.Utilities.encryption(txtInvenName.Text));
                 cmd.Parameters.AddWithValue("@description", Class.Utilities.encryption(txtDescription.Text));
-                cmd.Parameters.AddWithValue("@unitPrice", Class.Utilities.encryption(txtDescription.Text));
+                cmd.Parameters.AddWithValue("@unitPrice", Class.Utilities.encryption(txtUnitPrice.Text));
                 cmd.Parameters.AddWithValue("@quantity", Class.Utilities.encryption(txtQty.Text));
                 cmd.Parameters.AddWithValue("@supplierID", Class.Utilities.encryption(txtSupID.Text));
                 try

@@ -115,7 +115,11 @@ namespace _69CoffeeShop.Forms
             OpenChildForm(new Inventories.editInventories());
         }
 
-        
+        private void iconButton2_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new Procurement.checkProcurement());
+        }
     }
 
 }

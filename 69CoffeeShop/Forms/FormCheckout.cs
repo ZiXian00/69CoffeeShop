@@ -235,6 +235,7 @@ namespace _69CoffeeShop.Forms
         {
             createOrderID();
             createSalesID();
+            UpdateMemPoint();
 
             TabControl tab = tabControlPayment as TabControl;
             updateSqlTable(tab.TabPages["tabPageCash"].Tag.ToString()); 
@@ -435,7 +436,7 @@ namespace _69CoffeeShop.Forms
             }
         }
 
-        private void btnTest_Click(object sender, EventArgs e)
+        private void UpdateMemPoint()
         {
             int existPoint = Convert.ToInt32(lblTotalPoint.Text);
             string[] discount = lblDiscount.Text.Split(' ');
