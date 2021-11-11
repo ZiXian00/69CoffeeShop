@@ -50,39 +50,41 @@ namespace _69CoffeeShop.Members
             PrintGridView();
         }
         
-        private void DisplaySearch(String query)
-        {
-            dataGridViewMember.Rows.Clear();
-
-            string memQuery = query;
-            MySqlConnection conn = new MySqlConnection(connStr);
-            MySqlCommand cmd = new MySqlCommand(memQuery, conn);
-            conn.Open();
-            MySqlDataReader dr = cmd.ExecuteReader();
-
-
-            while (dr.Read())
-            {
-                dataGridViewMember.Rows.Add(Class.Utilities.decryption(dr["memberID"].ToString()), Class.Utilities.decryption(dr["memberName"].ToString()), Class.Utilities.decryption(dr["contactNo"].ToString()), Class.Utilities.decryption(dr["dateOfBirth"].ToString()), Class.Utilities.decryption(dr["email"].ToString()), Class.Utilities.decryption(dr["rewardsPoint"].ToString()));
-            }
-
-
-
-            conn.Close();
-        }
+        
 
         private void txtSearch_TextChanged_1(object sender, EventArgs e)
         {
-            if(txtSearch.Text == "")
+            if (txtSearch.Text != string.Empty)
             {
-                PrintGridView();
+                foreach (DataGridViewRow row in dataGridViewMember.Rows)
+                {
+                    if (row.Cells["memberID"].Value.ToString().ToUpper().Contains(txtSearch.Text.ToUpper()))
+                    {
+                        row.Visible = true;
+                    }
+                    else if (row.Cells["memberName"].Value.ToString().ToUpper().Contains(txtSearch.Text.ToUpper()))
+                    {
+                        row.Visible = true;
+                    }
+                    else if (row.Cells["contactNo"].Value.ToString().ToUpper().Contains(txtSearch.Text.ToUpper()))
+                    {
+                        row.Visible = true;
+                    }
+                    else if (row.Cells["email"].Value.ToString().ToUpper().Contains(txtSearch.Text.ToUpper()))
+                    {
+                        row.Visible = true;
+                    }
+                    else
+                    {
+                        row.Visible = false;
+                    }
+                }
             }
             else
             {
-                DisplaySearch("SELECT memberID, memberName, contactNo, dateOfBirth, email, rewardsPoint FROM member WHERE memberID LIKE '%" + Class.Utilities.encryption(txtSearch.Text) + "%' OR memberName LIKE '%" + Class.Utilities.encryption(txtSearch.Text) + "%' OR contactNo LIKE '%" + Class.Utilities.encryption(txtSearch.Text) + "%' OR dateOfBirth LIKE '%" + Class.Utilities.encryption(txtSearch.Text) + "%' OR email LIKE '%" + Class.Utilities.encryption(txtSearch.Text) + "%'");
-
+                PrintGridView();
             }
-            
+
         }
 
         private void dataGridViewMember_CellContentClick(object sender, DataGridViewCellEventArgs e)

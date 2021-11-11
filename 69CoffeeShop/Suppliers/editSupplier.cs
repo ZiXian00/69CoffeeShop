@@ -70,12 +70,12 @@ namespace _69CoffeeShop.Suppliers
                 MySqlConnection conn = new MySqlConnection(connStr);
                 conn.Open();
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@SupplierID", lblSupplierID.Text.Trim());
-                cmd.Parameters.AddWithValue("@CompanyName", txtCompanyName.Text.Trim());
-                cmd.Parameters.AddWithValue("@Address", txtAddress.Text.Trim());
-                cmd.Parameters.AddWithValue("@ContactName", txtContactName.Text.Trim());
-                cmd.Parameters.AddWithValue("@ContactNumber", txtContactNo.Text.Trim());
-                cmd.Parameters.AddWithValue("@email", txtEmail.Text.Trim());
+                cmd.Parameters.AddWithValue("@SupplierID", Class.Utilities.encryption(lblSupplierID.Text));
+                cmd.Parameters.AddWithValue("@CompanyName", Class.Utilities.encryption(txtCompanyName.Text));
+                cmd.Parameters.AddWithValue("@Address", Class.Utilities.encryption(txtAddress.Text));
+                cmd.Parameters.AddWithValue("@ContactName", Class.Utilities.encryption(txtContactName.Text));
+                cmd.Parameters.AddWithValue("@ContactNumber", Class.Utilities.encryption(txtContactNo.Text));
+                cmd.Parameters.AddWithValue("@email", Class.Utilities.encryption(txtEmail.Text));
                 try
                 {
                     cmd.ExecuteNonQuery();
