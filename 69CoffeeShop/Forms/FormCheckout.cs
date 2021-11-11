@@ -264,7 +264,6 @@ namespace _69CoffeeShop.Forms
             salesIDRdr.Close();
             connection.conn.Close();
             salesID = idIncrement.ToString(DateTime.Now.ToString("ddMMyyyy") + ":" + orderID + "::0000");
-            MessageBox.Show(salesID);
         }
 
         private void createOrderID()
@@ -290,7 +289,6 @@ namespace _69CoffeeShop.Forms
             orderIDRdr.Close();
             connection.conn.Close();
             orderID = idIncrement.ToString("O" + DateTime.Now.ToString("ddMMyyyy") + "0000");
-            MessageBox.Show(orderID);
         }
 
         //insert into sales, order and product_order table
@@ -313,7 +311,7 @@ namespace _69CoffeeShop.Forms
                 MySqlCommand insertOrderCmd = new MySqlCommand(insertOrderQry, connection.conn);
                 connection.conn.Open();
                 insertOrderCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(orderID));
-                insertOrderCmd.Parameters.AddWithValue("@mID", Class.Utilities.encryption("M0001"));
+                insertOrderCmd.Parameters.AddWithValue("@mID", Class.Utilities.encryption(lblMemID.Text));
                 insertOrderCmd.Parameters.AddWithValue("@eID", Class.Utilities.encryption(Class.Cashier.cashierID));
                 insertOrderCmd.ExecuteNonQuery();
 
@@ -379,9 +377,12 @@ namespace _69CoffeeShop.Forms
             }
             else
             {
-                if (captureDevice.IsRunning)
+                if (captureDevice != null)
                 {
-                    captureDevice.Stop();
+                    if (captureDevice.IsRunning)
+                    {
+                        captureDevice.Stop();
+                    }
                 }
             }
         }
@@ -458,8 +459,6 @@ namespace _69CoffeeShop.Forms
                 if (MessageBox.Show("Update Successfully.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                 {
                     this.Close();
-
-
                 }
 
             }
@@ -468,6 +467,17 @@ namespace _69CoffeeShop.Forms
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             conn.Close();
+        }
+
+        private void textBoxCustPaid_Leave(object sender, EventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+
+            if (textBox.Text != "")
+            {
+                double text = double.Parse(textBox.Text);
+                textBox.Text = text.ToString("0.00");
+            }
         }
 
         private void btnSearchMember_Click(object sender, EventArgs e)
