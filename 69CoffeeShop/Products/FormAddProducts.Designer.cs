@@ -72,7 +72,7 @@ namespace _69CoffeeShop.Products
             this.buttonBrowse.Margin = new System.Windows.Forms.Padding(4);
             this.buttonBrowse.Name = "buttonBrowse";
             this.buttonBrowse.Size = new System.Drawing.Size(100, 28);
-            this.buttonBrowse.TabIndex = 7;
+            this.buttonBrowse.TabIndex = 0;
             this.buttonBrowse.Text = "Browse";
             this.buttonBrowse.UseVisualStyleBackColor = true;
             this.buttonBrowse.Click += new System.EventHandler(this.buttonBrowse_Click);
@@ -100,6 +100,7 @@ namespace _69CoffeeShop.Products
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.RestoreDirectory = true;
             // 
             // label4
             // 
@@ -119,7 +120,7 @@ namespace _69CoffeeShop.Products
             this.buttonSave.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(116, 38);
-            this.buttonSave.TabIndex = 11;
+            this.buttonSave.TabIndex = 4;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
@@ -131,7 +132,7 @@ namespace _69CoffeeShop.Products
             this.textBoxProdName.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxProdName.Name = "textBoxProdName";
             this.textBoxProdName.Size = new System.Drawing.Size(223, 26);
-            this.textBoxProdName.TabIndex = 12;
+            this.textBoxProdName.TabIndex = 1;
             // 
             // textBoxProdCost
             // 
@@ -140,7 +141,9 @@ namespace _69CoffeeShop.Products
             this.textBoxProdCost.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxProdCost.Name = "textBoxProdCost";
             this.textBoxProdCost.Size = new System.Drawing.Size(223, 26);
-            this.textBoxProdCost.TabIndex = 13;
+            this.textBoxProdCost.TabIndex = 2;
+            this.textBoxProdCost.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxProdCost_KeyPress);
+            this.textBoxProdCost.Leave += new System.EventHandler(this.textBoxProdCost_Leave);
             // 
             // textBoxProdPrice
             // 
@@ -149,7 +152,9 @@ namespace _69CoffeeShop.Products
             this.textBoxProdPrice.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxProdPrice.Name = "textBoxProdPrice";
             this.textBoxProdPrice.Size = new System.Drawing.Size(223, 26);
-            this.textBoxProdPrice.TabIndex = 14;
+            this.textBoxProdPrice.TabIndex = 3;
+            this.textBoxProdPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxProdCost_KeyPress);
+            this.textBoxProdPrice.Leave += new System.EventHandler(this.textBoxProdCost_Leave);
             // 
             // FormAddProducts
             // 

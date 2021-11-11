@@ -44,6 +44,7 @@ namespace _69CoffeeShop.Employees
 
             loadEmployeeReader.Close();
             connection.conn.Close();
+            textBoxSearch.Text = "";
         }
 
         private void iconButtonAdd_Click(object sender, EventArgs e)

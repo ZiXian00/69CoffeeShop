@@ -68,14 +68,16 @@ namespace _69CoffeeShop.Products
                 //string prodCost = String.Format("{0:0.00}", displayProdRdr.GetDouble(3));
                 //string prodPrice = String.Format("{0:0.00}", displayProdRdr.GetDouble(2));
 
-                string prodCost = Class.Utilities.decryption(displayProdRdr.GetString(3));
-                string prodPrice = Class.Utilities.decryption(displayProdRdr.GetString(2));
+                double prodCost = double.Parse(Class.Utilities.decryption(displayProdRdr.GetString(3)));
+                double prodPrice = double.Parse(Class.Utilities.decryption(displayProdRdr.GetString(2)));
 
-                this.dataGridViewProduct.Rows.Add(Image.FromStream(risizedImage), Class.Utilities.decryption(displayProdRdr["productName"].ToString()), prodCost, prodPrice, "View Details");
+                this.dataGridViewProduct.Rows.Add(Image.FromStream(risizedImage), Class.Utilities.decryption(displayProdRdr["productName"].ToString()), prodCost.ToString("0.00"), prodPrice.ToString("0.00"), "Edit Details");
             }
             displayProdRdr.Close();
             connection.conn.Close();
-           // dataGridViewProduct.Rows[0].Cells[0].Selected = false;
+
+            textBoxSearch.Text = "";
+            // dataGridViewProduct.Rows[0].Cells[0].Selected = false;
         }
 
         private void dataGridViewProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
