@@ -411,5 +411,12 @@ namespace _69CoffeeShop.Forms
                 }
             }
         }
+
+        private void textBoxCustPaid_Leave(object sender, EventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            double text = double.Parse(textBox.Text);
+            textBox.Text = text.ToString("0.00");
+        }
     }
 }

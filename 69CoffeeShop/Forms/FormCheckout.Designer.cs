@@ -480,6 +480,7 @@
             this.textBoxChanges.ReadOnly = true;
             this.textBoxChanges.Size = new System.Drawing.Size(146, 23);
             this.textBoxChanges.TabIndex = 52;
+            this.textBoxChanges.Leave += new System.EventHandler(this.textBoxCustPaid_Leave);
             // 
             // label2
             // 
@@ -498,6 +499,7 @@
             this.textBoxCustPaid.Name = "textBoxCustPaid";
             this.textBoxCustPaid.Size = new System.Drawing.Size(146, 23);
             this.textBoxCustPaid.TabIndex = 50;
+            this.textBoxCustPaid.Leave += new System.EventHandler(this.textBoxCustPaid_Leave);
             // 
             // label8
             // 
