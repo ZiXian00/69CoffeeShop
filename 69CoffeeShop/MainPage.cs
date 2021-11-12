@@ -34,7 +34,6 @@ namespace _69CoffeeShop
             this.ControlBox = false;
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
-
         }
 
         //struct

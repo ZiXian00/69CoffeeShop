@@ -34,7 +34,7 @@ namespace _69CoffeeShop.Forms
         { 
             InitializeComponent();
             conn = new MySqlConnection(connStr);
-            
+            this.mainPage = mainPage;
        
             string prodName;
             double prodPrice;
