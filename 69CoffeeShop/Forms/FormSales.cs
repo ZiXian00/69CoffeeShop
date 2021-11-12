@@ -30,13 +30,12 @@ namespace _69CoffeeShop.Forms
         {
             InitializeComponent();
         }
-
-        public FormSales(MainPage mainPage)
-        {
+        public FormSales(MainPage mainPage) 
+        { 
             InitializeComponent();
-            this.mainPage = mainPage;
-
             conn = new MySqlConnection(connStr);
+            
+       
             string prodName;
             double prodPrice;
 
@@ -50,7 +49,6 @@ namespace _69CoffeeShop.Forms
                 MemoryStream ms = new MemoryStream(img);
 
                 prodName = Class.Utilities.decryption(loadReader["productName"].ToString());
-                // MessageBox.Show(Class.Utilities.decryption(loadReader["unitPrice"].ToString()));
                 prodPrice = double.Parse(Class.Utilities.decryption(loadReader["unitPrice"].ToString()));
                 btn = new Button { BackgroundImage = Image.FromStream(ms), Text = prodName, TextImageRelation = TextImageRelation.ImageAboveText, Height = 180, Width = 180, BackgroundImageLayout = ImageLayout.Stretch, TextAlign = ContentAlignment.BottomCenter, Margin = new Padding(12) };
                 btn.Font = new Font("Comic Sans MS", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);

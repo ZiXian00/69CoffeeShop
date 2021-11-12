@@ -111,16 +111,14 @@ namespace _69CoffeeShop.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string newEmpQry = "insert into employee_duty_record (month, year, employeeID, workingHours) values (@month, @year, @id, @hours)";
+            string newEmpQry = "update member set contactNo = @contact, rewardsPoint = @point";
             MySqlCommand newEmpCmd = new MySqlCommand(newEmpQry, connection.conn);
             connection.conn.Open();
 
             //try
             //{
-                newEmpCmd.Parameters.AddWithValue("@month", Class.Utilities.encryption("Oct"));
-                newEmpCmd.Parameters.AddWithValue("@year", Class.Utilities.encryption("2021"));
-                newEmpCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption("1002"));
-                newEmpCmd.Parameters.AddWithValue("@hours", Class.Utilities.encryption("260"));
+                newEmpCmd.Parameters.AddWithValue("@contact", Class.Utilities.encryption("0162892131"));
+                newEmpCmd.Parameters.AddWithValue("@point", Class.Utilities.encryption("200"));
                
                 newEmpCmd.ExecuteNonQuery();
 
