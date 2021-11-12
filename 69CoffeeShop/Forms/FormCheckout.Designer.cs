@@ -43,7 +43,6 @@
             this.txtMemID = new System.Windows.Forms.TextBox();
             this.btnSearchMember = new System.Windows.Forms.Button();
             this.lblMemName = new System.Windows.Forms.Label();
-            this.lblMemID = new System.Windows.Forms.Label();
             this.cbRedeem = new System.Windows.Forms.CheckBox();
             this.lblTotalPoint = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -95,9 +94,7 @@
             this.comboBoxCamera = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.iconButtonBack = new FontAwesome.Sharp.IconButton();
-            this.iconButtonDelete = new FontAwesome.Sharp.IconButton();
-            this.pictureBoxQR = new System.Windows.Forms.PictureBox();
+            this.labelMemID = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrder)).BeginInit();
             this.panelRight.SuspendLayout();
             this.groupBoxMember.SuspendLayout();
@@ -228,18 +225,18 @@
             // 
             // groupBoxMember
             // 
+            this.groupBoxMember.Controls.Add(this.labelMemID);
             this.groupBoxMember.Controls.Add(this.txtMemID);
             this.groupBoxMember.Controls.Add(this.btnSearchMember);
             this.groupBoxMember.Controls.Add(this.lblMemName);
-            this.groupBoxMember.Controls.Add(this.lblMemID);
             this.groupBoxMember.Controls.Add(this.cbRedeem);
             this.groupBoxMember.Controls.Add(this.lblTotalPoint);
             this.groupBoxMember.Controls.Add(this.label13);
             this.groupBoxMember.Controls.Add(this.label12);
             this.groupBoxMember.Controls.Add(this.label11);
-            this.groupBoxMember.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBoxMember.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBoxMember.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxMember.Location = new System.Drawing.Point(0, -106);
+            this.groupBoxMember.Location = new System.Drawing.Point(0, 0);
             this.groupBoxMember.Name = "groupBoxMember";
             this.groupBoxMember.Size = new System.Drawing.Size(705, 176);
             this.groupBoxMember.TabIndex = 37;
@@ -248,14 +245,15 @@
             // 
             // txtMemID
             // 
-            this.txtMemID.Location = new System.Drawing.Point(155, 25);
+            this.txtMemID.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtMemID.Location = new System.Drawing.Point(155, 30);
             this.txtMemID.Name = "txtMemID";
             this.txtMemID.Size = new System.Drawing.Size(190, 26);
             this.txtMemID.TabIndex = 15;
             // 
             // btnSearchMember
             // 
-            this.btnSearchMember.Location = new System.Drawing.Point(367, 25);
+            this.btnSearchMember.Location = new System.Drawing.Point(351, 31);
             this.btnSearchMember.Name = "btnSearchMember";
             this.btnSearchMember.Size = new System.Drawing.Size(134, 23);
             this.btnSearchMember.TabIndex = 14;
@@ -267,27 +265,17 @@
             // 
             this.lblMemName.AutoSize = true;
             this.lblMemName.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMemName.Location = new System.Drawing.Point(160, 92);
+            this.lblMemName.Location = new System.Drawing.Point(161, 92);
             this.lblMemName.Name = "lblMemName";
             this.lblMemName.Size = new System.Drawing.Size(15, 16);
             this.lblMemName.TabIndex = 13;
             this.lblMemName.Text = "-";
             // 
-            // lblMemID
-            // 
-            this.lblMemID.AutoSize = true;
-            this.lblMemID.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMemID.Location = new System.Drawing.Point(160, 71);
-            this.lblMemID.Name = "lblMemID";
-            this.lblMemID.Size = new System.Drawing.Size(15, 16);
-            this.lblMemID.TabIndex = 12;
-            this.lblMemID.Text = "-";
-            // 
             // cbRedeem
             // 
             this.cbRedeem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbRedeem.AutoSize = true;
-            this.cbRedeem.Location = new System.Drawing.Point(535, 135);
+            this.cbRedeem.Location = new System.Drawing.Point(155, 133);
             this.cbRedeem.Name = "cbRedeem";
             this.cbRedeem.Size = new System.Drawing.Size(88, 22);
             this.cbRedeem.TabIndex = 11;
@@ -299,7 +287,7 @@
             // 
             this.lblTotalPoint.AutoSize = true;
             this.lblTotalPoint.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalPoint.Location = new System.Drawing.Point(160, 114);
+            this.lblTotalPoint.Location = new System.Drawing.Point(161, 114);
             this.lblTotalPoint.Name = "lblTotalPoint";
             this.lblTotalPoint.Size = new System.Drawing.Size(15, 16);
             this.lblTotalPoint.TabIndex = 10;
@@ -309,7 +297,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(30, 112);
+            this.label13.Location = new System.Drawing.Point(29, 112);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(124, 18);
             this.label13.TabIndex = 5;
@@ -329,7 +317,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(47, 69);
+            this.label11.Location = new System.Drawing.Point(46, 70);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(107, 18);
             this.label11.TabIndex = 3;
@@ -468,11 +456,11 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(72, 61);
+            this.label14.Location = new System.Drawing.Point(62, 61);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(89, 18);
+            this.label14.Size = new System.Drawing.Size(99, 18);
             this.label14.TabIndex = 14;
-            this.label14.Text = "Discount : ";
+            this.label14.Text = "Discount   : ";
             // 
             // labelGrandTotal
             // 
@@ -488,11 +476,11 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(60, 111);
+            this.label5.Location = new System.Drawing.Point(55, 111);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(101, 16);
+            this.label5.Size = new System.Drawing.Size(106, 16);
             this.label5.TabIndex = 12;
-            this.label5.Text = "Grand-Total : ";
+            this.label5.Text = "Grand-Total  : ";
             // 
             // labelTax
             // 
@@ -609,6 +597,7 @@
             this.textBoxChanges.ReadOnly = true;
             this.textBoxChanges.Size = new System.Drawing.Size(146, 23);
             this.textBoxChanges.TabIndex = 52;
+            this.textBoxChanges.Leave += new System.EventHandler(this.textBoxCustPaid_Leave);
             // 
             // label2
             // 
@@ -627,6 +616,7 @@
             this.textBoxCustPaid.Name = "textBoxCustPaid";
             this.textBoxCustPaid.Size = new System.Drawing.Size(146, 23);
             this.textBoxCustPaid.TabIndex = 50;
+            this.textBoxCustPaid.Leave += new System.EventHandler(this.textBoxCustPaid_Leave);
             // 
             // label8
             // 
@@ -842,42 +832,14 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // iconButtonBack
+            // labelMemID
             // 
-            this.iconButtonBack.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButtonBack.IconChar = FontAwesome.Sharp.IconChar.AngleLeft;
-            this.iconButtonBack.IconColor = System.Drawing.Color.Black;
-            this.iconButtonBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButtonBack.IconSize = 25;
-            this.iconButtonBack.Location = new System.Drawing.Point(6, 12);
-            this.iconButtonBack.Name = "iconButtonBack";
-            this.iconButtonBack.Size = new System.Drawing.Size(127, 35);
-            this.iconButtonBack.TabIndex = 2;
-            this.iconButtonBack.Text = "Back";
-            this.iconButtonBack.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButtonBack.UseVisualStyleBackColor = true;
-            this.iconButtonBack.Click += new System.EventHandler(this.iconButtonBack_Click);
-            // 
-            // iconButtonDelete
-            // 
-            this.iconButtonDelete.IconChar = FontAwesome.Sharp.IconChar.LongArrowAltLeft;
-            this.iconButtonDelete.IconColor = System.Drawing.Color.Black;
-            this.iconButtonDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButtonDelete.Location = new System.Drawing.Point(263, 15);
-            this.iconButtonDelete.Name = "iconButtonDelete";
-            this.iconButtonDelete.Size = new System.Drawing.Size(70, 222);
-            this.iconButtonDelete.TabIndex = 13;
-            this.iconButtonDelete.UseVisualStyleBackColor = true;
-            this.iconButtonDelete.Click += new System.EventHandler(this.iconButtonDelete_Click);
-            // 
-            // pictureBoxQR
-            // 
-            this.pictureBoxQR.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBoxQR.Location = new System.Drawing.Point(59, 89);
-            this.pictureBoxQR.Name = "pictureBoxQR";
-            this.pictureBoxQR.Size = new System.Drawing.Size(463, 217);
-            this.pictureBoxQR.TabIndex = 52;
-            this.pictureBoxQR.TabStop = false;
+            this.labelMemID.AutoSize = true;
+            this.labelMemID.Location = new System.Drawing.Point(161, 70);
+            this.labelMemID.Name = "labelMemID";
+            this.labelMemID.Size = new System.Drawing.Size(15, 18);
+            this.labelMemID.TabIndex = 16;
+            this.labelMemID.Text = "-";
             // 
             // FormCheckout
             // 
@@ -974,8 +936,8 @@
         private System.Windows.Forms.Label lblDiscount;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label lblMemName;
-        private System.Windows.Forms.Label lblMemID;
         private System.Windows.Forms.Button btnSearchMember;
         private System.Windows.Forms.TextBox txtMemID;
+        private System.Windows.Forms.Label labelMemID;
     }
 }

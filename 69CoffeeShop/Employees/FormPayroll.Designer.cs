@@ -108,6 +108,8 @@ namespace _69CoffeeShop.Employees
             this.label7 = new System.Windows.Forms.Label();
             this.iconButtonAdd = new FontAwesome.Sharp.IconButton();
             this.payrollList = new System.Windows.Forms.TabPage();
+            this.labelSearch = new System.Windows.Forms.Label();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.dataGridViewPayroll = new System.Windows.Forms.DataGridView();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -120,8 +122,6 @@ namespace _69CoffeeShop.Employees
             this.netSalary = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iconButtonDelete = new FontAwesome.Sharp.IconButton();
-            this.labelSearch = new System.Windows.Forms.Label();
-            this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.payroll.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -195,7 +195,7 @@ namespace _69CoffeeShop.Employees
             this.groupBoxEmployeeDetails.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxEmployeeDetails.Location = new System.Drawing.Point(16, 28);
             this.groupBoxEmployeeDetails.Name = "groupBoxEmployeeDetails";
-            this.groupBoxEmployeeDetails.Size = new System.Drawing.Size(889, 143);
+            this.groupBoxEmployeeDetails.Size = new System.Drawing.Size(1213, 143);
             this.groupBoxEmployeeDetails.TabIndex = 5;
             this.groupBoxEmployeeDetails.TabStop = false;
             this.groupBoxEmployeeDetails.Text = "Employee Details";
@@ -217,7 +217,7 @@ namespace _69CoffeeShop.Employees
             this.textBoxBankName.Location = new System.Drawing.Point(687, 68);
             this.textBoxBankName.Multiline = true;
             this.textBoxBankName.Name = "textBoxBankName";
-            this.textBoxBankName.Size = new System.Drawing.Size(150, 23);
+            this.textBoxBankName.Size = new System.Drawing.Size(412, 23);
             this.textBoxBankName.TabIndex = 21;
             // 
             // textBoxPosition
@@ -998,6 +998,28 @@ namespace _69CoffeeShop.Employees
             this.payrollList.Text = "Payroll List";
             this.payrollList.UseVisualStyleBackColor = true;
             // 
+            // labelSearch
+            // 
+            this.labelSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelSearch.AutoSize = true;
+            this.labelSearch.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSearch.Location = new System.Drawing.Point(1113, 9);
+            this.labelSearch.Name = "labelSearch";
+            this.labelSearch.Size = new System.Drawing.Size(151, 18);
+            this.labelSearch.TabIndex = 125;
+            this.labelSearch.Text = "Search by name :  ";
+            // 
+            // textBoxSearch
+            // 
+            this.textBoxSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxSearch.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSearch.Location = new System.Drawing.Point(1270, 6);
+            this.textBoxSearch.Multiline = true;
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(188, 25);
+            this.textBoxSearch.TabIndex = 124;
+            this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
+            // 
             // dataGridViewPayroll
             // 
             this.dataGridViewPayroll.AllowUserToAddRows = false;
@@ -1112,28 +1134,6 @@ namespace _69CoffeeShop.Employees
             this.iconButtonDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButtonDelete.UseVisualStyleBackColor = true;
             this.iconButtonDelete.Click += new System.EventHandler(this.iconButtonDelete_Click);
-            // 
-            // labelSearch
-            // 
-            this.labelSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelSearch.AutoSize = true;
-            this.labelSearch.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSearch.Location = new System.Drawing.Point(1113, 9);
-            this.labelSearch.Name = "labelSearch";
-            this.labelSearch.Size = new System.Drawing.Size(151, 18);
-            this.labelSearch.TabIndex = 125;
-            this.labelSearch.Text = "Search by name :  ";
-            // 
-            // textBoxSearch
-            // 
-            this.textBoxSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxSearch.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSearch.Location = new System.Drawing.Point(1270, 6);
-            this.textBoxSearch.Multiline = true;
-            this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(188, 25);
-            this.textBoxSearch.TabIndex = 124;
-            this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
             // 
             // FormPayroll
             // 

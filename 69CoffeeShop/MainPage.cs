@@ -103,7 +103,7 @@ namespace _69CoffeeShop
             if(Class.Cashier.cashierLogin == true)
             {
                 ActivateButton(sender, RGBColors.color1);
-                OpenChildForm(new Forms.FormSales());
+                OpenChildForm(new Forms.FormSales(this));
             }
             else
             {
@@ -197,7 +197,7 @@ namespace _69CoffeeShop
 
                 if (ds == DialogResult.Yes)
                 {
-                    MessageBox.Show("Goodbye " + Class.Cashier.cashierName);
+                    MessageBox.Show("Goodbye, " + Class.Cashier.cashierName);
 
                     string checkDutyRecordQry = "select * from employees where employeeID = @id";
                     DateTime checkInDT = new DateTime();
@@ -305,7 +305,7 @@ namespace _69CoffeeShop
 
                 if (ds == DialogResult.Yes)
                 {
-                    MessageBox.Show("Goodbye " + Class.Cashier.cashierName);
+                    MessageBox.Show("Goodbye, " + Class.Cashier.cashierName);
 
                     string checkDutyRecordQry = "select * from employees where employeeID = @id";
                     DateTime checkInDT = new DateTime();

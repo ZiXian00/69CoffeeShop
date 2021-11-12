@@ -24,13 +24,21 @@ namespace _69CoffeeShop.Forms
         double subPrice = 0;
         List<Class.Product> orderList = new List<Class.Product>();
         Class.Product prod;
+        private MainPage mainPage;
+
         public FormSales()
         {
-            conn = new MySqlConnection(connStr);
             InitializeComponent();
+        }
 
+        public FormSales(MainPage mainPage)
+        {
+            InitializeComponent();
+            this.mainPage = mainPage;
+
+            conn = new MySqlConnection(connStr);
             string prodName;
-            double prodPrice;            
+            double prodPrice;
 
             conn.Open();
             string loadQuery = "select * from products ORDER BY productCount";
@@ -42,10 +50,11 @@ namespace _69CoffeeShop.Forms
                 MemoryStream ms = new MemoryStream(img);
 
                 prodName = Class.Utilities.decryption(loadReader["productName"].ToString());
+                // MessageBox.Show(Class.Utilities.decryption(loadReader["unitPrice"].ToString()));
                 prodPrice = double.Parse(Class.Utilities.decryption(loadReader["unitPrice"].ToString()));
-                btn = new Button { BackgroundImage = Image.FromStream(ms), Text = prodName, TextImageRelation = TextImageRelation.ImageAboveText, Height = 180, Width = 180, BackgroundImageLayout = ImageLayout.Stretch, TextAlign = ContentAlignment.BottomCenter, Margin = new Padding(12)};
+                btn = new Button { BackgroundImage = Image.FromStream(ms), Text = prodName, TextImageRelation = TextImageRelation.ImageAboveText, Height = 180, Width = 180, BackgroundImageLayout = ImageLayout.Stretch, TextAlign = ContentAlignment.BottomCenter, Margin = new Padding(12) };
                 btn.Font = new Font("Comic Sans MS", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-               
+
                 tableLayoutPanelMenu.Controls.Add(btn);
                 btn.Click += new EventHandler(btn_Click);
             }
@@ -184,13 +193,15 @@ namespace _69CoffeeShop.Forms
         //Qry = Query;
         private void buttonCheckout_Click(object sender, EventArgs e)
         {
-            FormCheckout checkout = new FormCheckout(orderList, dataGridViewOrder);
-            checkout.TopLevel = false;
-            checkout.Parent = this.Parent;
-            checkout.FormBorderStyle = FormBorderStyle.None;
-            checkout.Dock = DockStyle.Fill;
-            checkout.BringToFront();
-            checkout.Show();
+            FormCheckout checkout = new FormCheckout(orderList, dataGridViewOrder, mainPage);
+            mainPage.OpenChildForm(checkout);
+
+            //checkout.TopLevel = false;
+            //checkout.Parent = this.Parent;
+            //checkout.FormBorderStyle = FormBorderStyle.None;
+            //checkout.Dock = DockStyle.Fill;
+            //checkout.BringToFront();
+            //checkout.Show();
         }
 
         private void addOrderList(string prodName)

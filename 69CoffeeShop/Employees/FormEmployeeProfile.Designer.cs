@@ -150,7 +150,7 @@ namespace _69CoffeeShop.Employees
             this.dateTimePickerDateOfBirth.MaxDate = new System.DateTime(2021, 10, 26, 0, 0, 0, 0);
             this.dateTimePickerDateOfBirth.MinDate = new System.DateTime(1990, 1, 1, 0, 0, 0, 0);
             this.dateTimePickerDateOfBirth.Name = "dateTimePickerDateOfBirth";
-            this.dateTimePickerDateOfBirth.Size = new System.Drawing.Size(116, 23);
+            this.dateTimePickerDateOfBirth.Size = new System.Drawing.Size(126, 23);
             this.dateTimePickerDateOfBirth.TabIndex = 7;
             this.dateTimePickerDateOfBirth.Value = new System.DateTime(2010, 12, 31, 0, 0, 0, 0);
             this.dateTimePickerDateOfBirth.ValueChanged += new System.EventHandler(this.dtbDateOfBirth_ValueChanged);
