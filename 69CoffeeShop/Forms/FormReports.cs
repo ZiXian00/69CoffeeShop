@@ -1,7 +1,9 @@
 ﻿using FontAwesome.Sharp;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -14,105 +16,59 @@ namespace _69CoffeeShop.Forms
 {
     public partial class FormReports : Form
     {
-        private IconButton currentBtn;
-        private Form currentChildForm;
-        private Panel leftBorderBtn;
+        string connStr = ConfigurationManager.ConnectionStrings["connStr"].ConnectionString;
+        Reports.ReportViewer rptView = new Reports.ReportViewer();
         public FormReports()
         {
             InitializeComponent();
-            leftBorderBtn = new Panel();
-            leftBorderBtn.Size = new Size(7, 49);
-            panelMenu.Controls.Add(leftBorderBtn);
+
         }
 
-        private void DisableButton()
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            if (currentBtn != null)
+
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            
+            if(rbInvenReport.Checked == true)
             {
+                rptView.Show();
+                MySqlConnection conn = new MySqlConnection(connStr);
+                conn.Open();
 
-                currentBtn.BackColor = Color.FromArgb(250, 240, 210);
-                currentBtn.ForeColor = Color.FromArgb(169, 103, 78);
-                currentBtn.TextAlign = ContentAlignment.MiddleLeft;
-                currentBtn.IconColor = Color.FromArgb(169, 103, 78);
-                currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
-                currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
 
+                DataTable tableInven = new DataTable();
+                tableInven.Columns.Add(new DataColumn("inventoryID"));
+                tableInven.Columns.Add(new DataColumn("inventoryName"));
+                tableInven.Columns.Add(new DataColumn("description"));
+                tableInven.Columns.Add(new DataColumn("unitPrice"));
+                tableInven.Columns.Add(new DataColumn("quantity"));
+                tableInven.Columns.Add(new DataColumn("supplierID"));
+
+                string invenQuery = "Select* FROM inventory";
+                MySqlCommand cmdInventory = new MySqlCommand(invenQuery, conn);
+                MySqlDataReader dr = cmdInventory.ExecuteReader();
+
+
+                while (dr.Read())
+                {
+                    tableInven.Rows.Add(Class.Utilities.decryption(dr["inventoryID"].ToString()),
+                            Class.Utilities.decryption(dr["inventoryName"].ToString()),
+                            Class.Utilities.decryption(dr["description"].ToString()),
+                            Class.Utilities.decryption(dr["unitPrice"].ToString()),
+                            Class.Utilities.decryption(dr["quantity"].ToString()),
+                            Class.Utilities.decryption(dr["supplierID"].ToString()));
+                    
+                }
+                Reports.ReportInventory rptInven = new Reports.ReportInventory();
+                rptInven.SetDataSource(tableInven);
+                rptView.crystalReportViewer1.ReportSource = rptInven;
+                rptView.crystalReportViewer1.Refresh();
+                conn.Close();
             }
-        }
-
-        private struct RGBColors
-        {
-            public static Color color1 = Color.FromArgb(169, 103, 78);
-
-        }
-
-        private void ActivateButton(object senderBtn, Color color)
-        {
-            if (senderBtn != null)
-            {
-                DisableButton();
-                //Button
-                currentBtn = (IconButton)senderBtn;
-                currentBtn.BackColor = Color.FromArgb(169, 103, 78);
-                currentBtn.ForeColor = Color.FromArgb(250, 240, 210);
-                currentBtn.TextAlign = ContentAlignment.MiddleCenter;
-                currentBtn.IconColor = Color.FromArgb(250, 240, 210);
-                currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
-                currentBtn.ImageAlign = ContentAlignment.MiddleRight;
-                //Left border button
-                leftBorderBtn.BackColor = Color.FromArgb(0, 0, 0);
-                leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
-                leftBorderBtn.Visible = true;
-                leftBorderBtn.BringToFront();
-
-
-            }
-        }
-        private void OpenChildForm(Form childForm)
-        {
-            if (currentChildForm != null)
-            {
-                //open new close previous
-                currentChildForm.Close();
-            }
-            currentChildForm = childForm;
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            panelDesktop.Controls.Add(childForm);
-            panelDesktop.Tag = childForm;
-            childForm.BringToFront();
-            childForm.Show();
-
-        }
-
-        //for drag form
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-        private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color1);
-            OpenChildForm(new Reports.createReport());
-        }
-
-        private void btnView_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color1);
-            OpenChildForm(new Reports.viewReport());
-        }
-
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color1);
-            OpenChildForm(new Reports.updateReport());
         }
     }
 }

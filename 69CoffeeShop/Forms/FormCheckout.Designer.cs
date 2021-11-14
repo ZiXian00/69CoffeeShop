@@ -105,7 +105,7 @@
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabPageQR.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxQR)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxQR)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewOrder
@@ -215,7 +215,7 @@
             this.panelRight.Controls.Add(this.groupBoxMember);
             this.panelRight.Controls.Add(this.groupBoxInfo);
             this.panelRight.Controls.Add(this.groupBoxPayment);
-            this.panelRight.Controls.Add(this.iconButtonBack);
+            //this.panelRight.Controls.Add(this.iconButtonBack);
             this.panelRight.Controls.Add(this.tabControlPayment);
             this.panelRight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelRight.Location = new System.Drawing.Point(604, 0);
@@ -631,7 +631,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightGray;
-            this.panel1.Controls.Add(this.iconButtonDelete);
+           // this.panel1.Controls.Add(this.iconButtonDelete);
             this.panel1.Controls.Add(this.buttonDot);
             this.panel1.Controls.Add(this.button11);
             this.panel1.Controls.Add(this.button10);
@@ -776,7 +776,7 @@
             this.tabPageQR.Controls.Add(this.buttonOK);
             this.tabPageQR.Controls.Add(this.comboBoxCamera);
             this.tabPageQR.Controls.Add(this.label10);
-            this.tabPageQR.Controls.Add(this.pictureBoxQR);
+          //  this.tabPageQR.Controls.Add(this.pictureBoxQR);
             this.tabPageQR.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPageQR.Location = new System.Drawing.Point(4, 28);
             this.tabPageQR.Name = "tabPageQR";
@@ -866,7 +866,7 @@
             this.panel1.ResumeLayout(false);
             this.tabPageQR.ResumeLayout(false);
             this.tabPageQR.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxQR)).EndInit();
+           // ((System.ComponentModel.ISupportInitialize)(this.pictureBoxQR)).EndInit();
             this.ResumeLayout(false);
 
         }
