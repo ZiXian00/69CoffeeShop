@@ -45,6 +45,19 @@ namespace _69CoffeeShop.Employees
             }
             else
             {
+                textBoxOtherDD.Text = "";
+                textBoxOtherDD1.Text = "";
+                textBoxOtherDD2.Text = "";
+                textBoxOtherDeduct.Text = "";
+                textBoxOtherDeduct1.Text = "";
+                textBoxOtherDeduct2.Text = "";
+                textBoxOtherInc.Text = "";
+                textBoxOtherInc1.Text = "";
+                textBoxOtherInc2.Text = "";
+                textBoxOtherIncD.Text = "";
+                textBoxOtherIncD1.Text = "";
+                textBoxOtherIncD2.Text = "";
+
                 string checkEmpQry = "select * from employees where employeeID = @id";
                 MySqlCommand checkEmpCmd = new MySqlCommand(checkEmpQry, connection.conn);
                 connection.conn.Open();
@@ -413,14 +426,6 @@ namespace _69CoffeeShop.Employees
             return true;
         }
 
-        private void buttonCalculate_Click(object sender, EventArgs e)
-        {
-            if (validation() == true)
-            {
-                calculateGrossPay();
-            }
-        }
-
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tabControl1.SelectedTab == tabControl1.TabPages["payrollList"])
@@ -505,6 +510,11 @@ namespace _69CoffeeShop.Employees
             {
                 e.Handled = true;
             }
+
+            if ((e.KeyChar == '.') && (str.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
 
         private void textBoxHours_KeyPress(object sender, KeyPressEventArgs e)
@@ -521,11 +531,16 @@ namespace _69CoffeeShop.Employees
             {
                 e.Handled = true;
             }
+
+            if ((e.KeyChar == '.') && (str.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
 
         private void textBoxID_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }
@@ -548,6 +563,18 @@ namespace _69CoffeeShop.Employees
             else
             {
                 refreshGridView();
+            }
+        }
+
+        private void textBoxRate_Leave(object sender, EventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+
+            if(textBox.Text != "")
+            {
+                textBox.Text = (double.Parse(textBox.Text)).ToString("0.00");
+
+                calculateGrossPay();                
             }
         }
     }

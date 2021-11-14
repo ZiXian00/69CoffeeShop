@@ -68,10 +68,19 @@ namespace _69CoffeeShop.Forms
 
         private void iconButtonBack_Click(object sender, EventArgs e)
         {
+            FormSales sales = new FormSales(mainPage);
+
+            if (captureDevice != null)
+            {
+                if (captureDevice.IsRunning)
+                {
+                    captureDevice.Stop();
+                }
+            }
+            mainPage.OpenChildForm(sales);
             this.Close();
         }
 
-        FormSales sales = new FormSales();
         private void dataGridViewOrder_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if (dataGridViewOrder.RowCount > 0)
@@ -146,13 +155,12 @@ namespace _69CoffeeShop.Forms
                     subPrice += double.Parse(rows.Cells["Price"].Value.ToString());
                 }
             }
-            
-                labelSubTotal.Text = subPrice.ToString("RM 0.00");
-                double subtotal = subPrice - Convert.ToDouble(discount[1]);
-                double tax = subtotal * 0.06;
-                labelTax.Text = tax.ToString("RM 0.00");
-                labelGrandTotal.Text = (subtotal + tax).ToString("RM 0.00");
-            
+
+            labelSubTotal.Text = subPrice.ToString("RM 0.00");
+            double subtotal = subPrice - Convert.ToDouble(discount[1]);
+            double tax = subtotal * 0.06;
+            labelTax.Text = tax.ToString("RM 0.00");
+            labelGrandTotal.Text = (subtotal + tax).ToString("RM 0.00");
         }
 
         private void keyPad(string str)
@@ -186,6 +194,11 @@ namespace _69CoffeeShop.Forms
             }
 
             if (Regex.IsMatch(str, @"\.\d\d") && e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && (str.IndexOf('.') > -1))
             {
                 e.Handled = true;
             }
@@ -245,7 +258,7 @@ namespace _69CoffeeShop.Forms
             UpdateMemPoint();
 
             TabControl tab = tabControlPayment as TabControl;
-            updateSqlTable(tab.TabPages["tabPageCash"].Tag.ToString()); 
+            updateSqlTable(tab.TabPages["tabPageCash"].Tag.ToString());
         }
 
         private void createSalesID()
@@ -307,7 +320,7 @@ namespace _69CoffeeShop.Forms
             {
                 custPaid = textBoxCustPaid.Text.ToString();
             }
-            else if(method == "e-Wallet")
+            else if (method == "e-Wallet")
             {
                 custPaid = labelGrandTotal.Text.ToString();
                 custPaid = custPaid.Substring(3);
@@ -334,7 +347,7 @@ namespace _69CoffeeShop.Forms
                     insertOrderCmd.Parameters.AddWithValue("@eID", Class.Utilities.encryption(Class.Cashier.cashierID));
                     insertOrderCmd.ExecuteNonQuery();
                 }
-                
+
 
                 for (int i = 0; i < orderList.Count; i++)
                 {
@@ -355,23 +368,23 @@ namespace _69CoffeeShop.Forms
                 salesTableCmd.Parameters.AddWithValue("@date", Class.Utilities.encryption(DateTime.Now.ToString("yyyy-MM-dd")));
                 salesTableCmd.Parameters.AddWithValue("@custPaid", Class.Utilities.encryption(custPaid));
                 salesTableCmd.ExecuteNonQuery();
-           
+
                 DialogResult ds = MessageBox.Show("Payment success. Proceed to product menu", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                if(ds == DialogResult.OK)
+                if (ds == DialogResult.OK)
                 {
                     FormSales sales = new FormSales(mainPage);
                     mainPage.OpenChildForm(sales);
                     this.Close();
                 }
-        }
-            catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
             finally
             {
-                 connection.conn.Close();
+                connection.conn.Close();
             }
         }
 
@@ -380,10 +393,10 @@ namespace _69CoffeeShop.Forms
 
         private void tabControlPayment_Selected(object sender, TabControlEventArgs e)
         {
-            if(tabControlPayment.SelectedTab == tabControlPayment.TabPages["tabPageQR"])
+            if (tabControlPayment.SelectedTab == tabControlPayment.TabPages["tabPageQR"])
             {
                 filterIC = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-                foreach(FilterInfo filter in filterIC)
+                foreach (FilterInfo filter in filterIC)
                 {
                     comboBoxCamera.Items.Add(filter.Name);
                 }
@@ -417,9 +430,9 @@ namespace _69CoffeeShop.Forms
         private void cbRedeem_CheckedChanged(object sender, EventArgs e)
         {
             string[] subt = labelSubTotal.Text.Split(' ');
-            if(cbRedeem.Checked == true)
+            if (cbRedeem.Checked == true)
             {
-                if(Convert.ToInt32(lblTotalPoint.Text) >= 100)
+                if (Convert.ToInt32(lblTotalPoint.Text) >= 100)
                 {
                     int dis = Convert.ToInt32(lblTotalPoint.Text) / 100;
                     MessageBox.Show(Convert.ToDouble(dis).ToString());
@@ -434,7 +447,7 @@ namespace _69CoffeeShop.Forms
                         lblDiscount.Text = labelSubTotal.Text;
                         calculatePriceDetails();
                     }
-                    
+
                 }
                 else
                 {
@@ -452,35 +465,35 @@ namespace _69CoffeeShop.Forms
 
         private void UpdateMemPoint()
         {
-            int existPoint = Convert.ToInt32(lblTotalPoint.Text);
-            string[] discount = lblDiscount.Text.Split(' ');
-            string[] discount1 = discount[1].Split('.');
-            int dis = Convert.ToInt32(discount1[0])*100;
+            //int existPoint = Convert.ToInt32(lblTotalPoint.Text);
+            //string[] discount = lblDiscount.Text.Split(' ');
+            //string[] discount1 = discount[1].Split('.');
+            //int dis = Convert.ToInt32(discount1[0])*100;
 
-            string[] gTotal = labelGrandTotal.Text.Split(' ');
-            string[] gTotal1 = gTotal[1].Split('.');
-            int addPoint = Convert.ToInt32(gTotal1[0]);
-            int finalPoint = existPoint - dis + addPoint;
+            //string[] gTotal = labelGrandTotal.Text.Split(' ');
+            //string[] gTotal1 = gTotal[1].Split('.');
+            //int addPoint = Convert.ToInt32(gTotal1[0]);
+            //int finalPoint = existPoint - dis + addPoint;
 
-            string sql = "UPDATE member SET rewardsPoint = @rewardsPoint WHERE memberID = @memberID";
-            MySqlConnection conn = new MySqlConnection(connStr);
-            conn.Open();
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@memberID", Class.Utilities.encryption(labelMemID.Text));
-            try
-            {
-                cmd.ExecuteNonQuery();
-                if (MessageBox.Show("Update Successfully.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
-                {
-                    this.Close();
-                }
+            //string sql = "UPDATE member SET rewardsPoint = @rewardsPoint WHERE memberID = @memberID";
+            //MySqlConnection conn = new MySqlConnection(connStr);
+            //conn.Open();
+            //MySqlCommand cmd = new MySqlCommand(sql, conn);
+            //cmd.Parameters.AddWithValue("@memberID", Class.Utilities.encryption(labelMemID.Text));
+            //try
+            //{
+            //    cmd.ExecuteNonQuery();
+            //    if (MessageBox.Show("Update Successfully.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+            //    {
+            //        this.Close();
+            //    }
 
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            conn.Close();
+            //}
+            //catch (MySqlException ex)
+            //{
+            //    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+            //conn.Close();
         }
 
         private void textBoxCustPaid_Leave(object sender, EventArgs e)
@@ -496,6 +509,14 @@ namespace _69CoffeeShop.Forms
 
         Boolean member;
 
+        private void textBoxChanges_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
         private void btnSearchMember_Click(object sender, EventArgs e)
         {
             string memQuery = "SELECT memberID, memberName, rewardsPoint FROM member WHERE memberID = @memberID OR memberName = @memberName";
@@ -506,7 +527,7 @@ namespace _69CoffeeShop.Forms
             conn.Open();
             MySqlDataReader dr = cmd.ExecuteReader();
 
-            if(dr.Read())
+            if (dr.Read())
             {
                 txtMemID.Text = Class.Utilities.decryption(dr["memberID"].ToString());
                 lblMemName.Text = Class.Utilities.decryption(dr["memberName"].ToString());
@@ -516,7 +537,7 @@ namespace _69CoffeeShop.Forms
             }
             else
             {
-                if(MessageBox.Show("No member found.", "Information",MessageBoxButtons.OK,MessageBoxIcon.Information) == DialogResult.OK)
+                if (MessageBox.Show("No member found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                 {
                     txtMemID.Text = "";
                     txtMemID.Text = "-";

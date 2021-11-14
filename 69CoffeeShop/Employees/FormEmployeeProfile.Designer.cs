@@ -265,7 +265,7 @@ namespace _69CoffeeShop.Employees
             this.textBoxEContact.Name = "textBoxEContact";
             this.textBoxEContact.Size = new System.Drawing.Size(274, 23);
             this.textBoxEContact.TabIndex = 4;
-            this.textBoxEContact.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxEContact_KeyPress);
+            this.textBoxEContact.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxContact_KeyPress_1);
             // 
             // textBoxContact
             // 
@@ -275,7 +275,7 @@ namespace _69CoffeeShop.Employees
             this.textBoxContact.Name = "textBoxContact";
             this.textBoxContact.Size = new System.Drawing.Size(274, 23);
             this.textBoxContact.TabIndex = 2;
-            this.textBoxContact.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxContact_KeyPress);
+            this.textBoxContact.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxContact_KeyPress_1);
             // 
             // maskedTextBoxIC
             // 
@@ -414,6 +414,7 @@ namespace _69CoffeeShop.Employees
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(274, 23);
             this.txtName.TabIndex = 0;
+            this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtName_KeyPress);
             // 
             // lblName
             // 
@@ -493,6 +494,7 @@ namespace _69CoffeeShop.Employees
             this.textBoxSalary.Size = new System.Drawing.Size(127, 23);
             this.textBoxSalary.TabIndex = 33;
             this.textBoxSalary.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxSalary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSalary_KeyPress);
             // 
             // label9
             // 

@@ -142,6 +142,8 @@ namespace _69CoffeeShop.Products
             this.textBoxProdCost.Name = "textBoxProdCost";
             this.textBoxProdCost.Size = new System.Drawing.Size(223, 26);
             this.textBoxProdCost.TabIndex = 2;
+            this.textBoxProdCost.RegionChanged += new System.EventHandler(this.textBoxProdCost_RegionChanged);
+            this.textBoxProdCost.TextChanged += new System.EventHandler(this.textBoxProdCost_TextChanged);
             this.textBoxProdCost.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxProdCost_KeyPress);
             this.textBoxProdCost.Leave += new System.EventHandler(this.textBoxProdCost_Leave);
             // 
