@@ -36,9 +36,10 @@ namespace _69CoffeeShop.Forms
             this.rbSales = new System.Windows.Forms.RadioButton();
             this.rbSupplier = new System.Windows.Forms.RadioButton();
             this.rbProcurement = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.rbMember = new System.Windows.Forms.RadioButton();
+            this.rbPayroll = new System.Windows.Forms.RadioButton();
             this.btnPrint = new FontAwesome.Sharp.IconButton();
+            this.rbSalesProduct = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // label14
@@ -109,7 +110,7 @@ namespace _69CoffeeShop.Forms
             // 
             this.rbSupplier.AutoSize = true;
             this.rbSupplier.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbSupplier.Location = new System.Drawing.Point(385, 207);
+            this.rbSupplier.Location = new System.Drawing.Point(385, 237);
             this.rbSupplier.Name = "rbSupplier";
             this.rbSupplier.Size = new System.Drawing.Size(101, 22);
             this.rbSupplier.TabIndex = 74;
@@ -121,7 +122,7 @@ namespace _69CoffeeShop.Forms
             // 
             this.rbProcurement.AutoSize = true;
             this.rbProcurement.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbProcurement.Location = new System.Drawing.Point(385, 233);
+            this.rbProcurement.Location = new System.Drawing.Point(385, 265);
             this.rbProcurement.Name = "rbProcurement";
             this.rbProcurement.Size = new System.Drawing.Size(137, 22);
             this.rbProcurement.TabIndex = 75;
@@ -129,30 +130,30 @@ namespace _69CoffeeShop.Forms
             this.rbProcurement.Text = "Procurements";
             this.rbProcurement.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // rbMember
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(385, 259);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(99, 22);
-            this.radioButton1.TabIndex = 76;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Members";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbMember.AutoSize = true;
+            this.rbMember.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbMember.Location = new System.Drawing.Point(385, 291);
+            this.rbMember.Name = "rbMember";
+            this.rbMember.Size = new System.Drawing.Size(99, 22);
+            this.rbMember.TabIndex = 76;
+            this.rbMember.TabStop = true;
+            this.rbMember.Text = "Members";
+            this.rbMember.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rbPayroll
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(385, 285);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(104, 22);
-            this.radioButton2.TabIndex = 77;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Inventory";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            this.rbPayroll.AutoSize = true;
+            this.rbPayroll.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbPayroll.Location = new System.Drawing.Point(385, 317);
+            this.rbPayroll.Name = "rbPayroll";
+            this.rbPayroll.Size = new System.Drawing.Size(81, 22);
+            this.rbPayroll.TabIndex = 77;
+            this.rbPayroll.TabStop = true;
+            this.rbPayroll.Text = "Payroll";
+            this.rbPayroll.UseVisualStyleBackColor = true;
+            this.rbPayroll.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // btnPrint
             // 
@@ -173,6 +174,18 @@ namespace _69CoffeeShop.Forms
             this.btnPrint.UseVisualStyleBackColor = false;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
+            // rbSalesProduct
+            // 
+            this.rbSalesProduct.AutoSize = true;
+            this.rbSalesProduct.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbSalesProduct.Location = new System.Drawing.Point(385, 209);
+            this.rbSalesProduct.Name = "rbSalesProduct";
+            this.rbSalesProduct.Size = new System.Drawing.Size(137, 22);
+            this.rbSalesProduct.TabIndex = 80;
+            this.rbSalesProduct.TabStop = true;
+            this.rbSalesProduct.Text = "Sales Product";
+            this.rbSalesProduct.UseVisualStyleBackColor = true;
+            // 
             // FormReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -181,9 +194,10 @@ namespace _69CoffeeShop.Forms
             this.BackgroundImage = global::_69CoffeeShop.Properties.Resources._69_Coffee_Shop_tpbg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1441, 811);
+            this.Controls.Add(this.rbSalesProduct);
             this.Controls.Add(this.btnPrint);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.rbPayroll);
+            this.Controls.Add(this.rbMember);
             this.Controls.Add(this.rbProcurement);
             this.Controls.Add(this.rbSupplier);
             this.Controls.Add(this.rbSales);
@@ -191,6 +205,7 @@ namespace _69CoffeeShop.Forms
             this.Controls.Add(this.label2);
             this.Controls.Add(this.rbInvenReport);
             this.Controls.Add(this.label14);
+            this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormReports";
             this.Text = "Reports";
@@ -208,8 +223,9 @@ namespace _69CoffeeShop.Forms
         private System.Windows.Forms.RadioButton rbSales;
         private System.Windows.Forms.RadioButton rbSupplier;
         private System.Windows.Forms.RadioButton rbProcurement;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton rbMember;
+        private System.Windows.Forms.RadioButton rbPayroll;
         private FontAwesome.Sharp.IconButton btnPrint;
+        private System.Windows.Forms.RadioButton rbSalesProduct;
     }
 }

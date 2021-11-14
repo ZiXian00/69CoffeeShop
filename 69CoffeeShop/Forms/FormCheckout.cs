@@ -56,7 +56,14 @@ namespace _69CoffeeShop.Forms
 
         private void FormCheckout_Load(object sender, EventArgs e)
         {
-
+            if(lblMemName.Text == "" || labelMemID.Text == "" || lblTotalPoint.Text == "")
+            {
+                cbRedeem.Enabled = false;
+            }
+            else
+            {
+                cbRedeem.Enabled = true;
+            }
         }
 
         private void iconButtonBack_Click(object sender, EventArgs e)
