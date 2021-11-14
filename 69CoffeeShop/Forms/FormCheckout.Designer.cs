@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewOrder = new System.Windows.Forms.DataGridView();
             this.product = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,7 +67,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.labelSubTotal = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.iconButtonBack = new FontAwesome.Sharp.IconButton();
             this.tabControlPayment = new System.Windows.Forms.TabControl();
             this.tabPageCash = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -78,7 +77,6 @@
             this.textBoxCustPaid = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.iconButtonDelete = new FontAwesome.Sharp.IconButton();
             this.buttonDot = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
@@ -97,6 +95,8 @@
             this.pictureBoxQR = new System.Windows.Forms.PictureBox();
             this.comboBoxCamera = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.iconButtonBack = new FontAwesome.Sharp.IconButton();
+            this.iconButtonDelete = new FontAwesome.Sharp.IconButton();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrder)).BeginInit();
             this.panelRight.SuspendLayout();
@@ -108,7 +108,7 @@
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabPageQR.SuspendLayout();
-            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxQR)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxQR)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewOrder
@@ -121,14 +121,14 @@
             this.dataGridViewOrder.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewOrder.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewOrder.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewOrder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewOrder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.product,
@@ -136,14 +136,14 @@
             this.btnAdd,
             this.btnMinus,
             this.price});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewOrder.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewOrder.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewOrder.Dock = System.Windows.Forms.DockStyle.Left;
             this.dataGridViewOrder.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridViewOrder.Location = new System.Drawing.Point(0, 0);
@@ -151,14 +151,14 @@
             this.dataGridViewOrder.Name = "dataGridViewOrder";
             this.dataGridViewOrder.ReadOnly = true;
             this.dataGridViewOrder.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewOrder.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewOrder.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewOrder.RowHeadersVisible = false;
             this.dataGridViewOrder.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridViewOrder.RowTemplate.Height = 30;
@@ -218,7 +218,6 @@
             this.panelRight.Controls.Add(this.groupBoxMember);
             this.panelRight.Controls.Add(this.groupBoxInfo);
             this.panelRight.Controls.Add(this.groupBoxPayment);
-            //this.panelRight.Controls.Add(this.iconButtonBack);
             this.panelRight.Controls.Add(this.tabControlPayment);
             this.panelRight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelRight.Location = new System.Drawing.Point(604, 0);
@@ -254,6 +253,7 @@
             this.labelMemID.Size = new System.Drawing.Size(15, 18);
             this.labelMemID.TabIndex = 16;
             this.labelMemID.Text = "-";
+            this.labelMemID.TextChanged += new System.EventHandler(this.labelMemID_TextChanged);
             // 
             // txtMemID
             // 
@@ -292,6 +292,7 @@
             this.cbRedeem.TabIndex = 11;
             this.cbRedeem.Text = "Redeem";
             this.cbRedeem.UseVisualStyleBackColor = true;
+            this.cbRedeem.Visible = false;
             this.cbRedeem.CheckedChanged += new System.EventHandler(this.cbRedeem_CheckedChanged);
             // 
             // lblTotalPoint
@@ -533,22 +534,6 @@
             this.label7.TabIndex = 8;
             this.label7.Text = "Sub-Total    : ";
             // 
-            // iconButtonBack
-            // 
-            this.iconButtonBack.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButtonBack.IconChar = FontAwesome.Sharp.IconChar.AngleLeft;
-            this.iconButtonBack.IconColor = System.Drawing.Color.Black;
-            this.iconButtonBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButtonBack.IconSize = 25;
-            this.iconButtonBack.Location = new System.Drawing.Point(6, 12);
-            this.iconButtonBack.Name = "iconButtonBack";
-            this.iconButtonBack.Size = new System.Drawing.Size(127, 35);
-            this.iconButtonBack.TabIndex = 2;
-            this.iconButtonBack.Text = "Cancel";
-            this.iconButtonBack.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButtonBack.UseVisualStyleBackColor = true;
-            this.iconButtonBack.Click += new System.EventHandler(this.iconButtonBack_Click);
-            // 
             // tabControlPayment
             // 
             this.tabControlPayment.Controls.Add(this.tabPageCash);
@@ -661,7 +646,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightGray;
-           // this.panel1.Controls.Add(this.iconButtonDelete);
             this.panel1.Controls.Add(this.buttonDot);
             this.panel1.Controls.Add(this.button11);
             this.panel1.Controls.Add(this.button10);
@@ -679,18 +663,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(360, 319);
             this.panel1.TabIndex = 0;
-            // 
-            // iconButtonDelete
-            // 
-            this.iconButtonDelete.IconChar = FontAwesome.Sharp.IconChar.LongArrowAltLeft;
-            this.iconButtonDelete.IconColor = System.Drawing.Color.Black;
-            this.iconButtonDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButtonDelete.Location = new System.Drawing.Point(263, 15);
-            this.iconButtonDelete.Name = "iconButtonDelete";
-            this.iconButtonDelete.Size = new System.Drawing.Size(70, 222);
-            this.iconButtonDelete.TabIndex = 13;
-            this.iconButtonDelete.UseVisualStyleBackColor = true;
-            this.iconButtonDelete.Click += new System.EventHandler(this.iconButtonDelete_Click);
             // 
             // buttonDot
             // 
@@ -878,6 +850,34 @@
             this.label10.TabIndex = 50;
             this.label10.Text = "Camera : ";
             // 
+            // iconButtonBack
+            // 
+            this.iconButtonBack.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButtonBack.IconChar = FontAwesome.Sharp.IconChar.AngleLeft;
+            this.iconButtonBack.IconColor = System.Drawing.Color.Black;
+            this.iconButtonBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonBack.IconSize = 25;
+            this.iconButtonBack.Location = new System.Drawing.Point(6, 12);
+            this.iconButtonBack.Name = "iconButtonBack";
+            this.iconButtonBack.Size = new System.Drawing.Size(127, 35);
+            this.iconButtonBack.TabIndex = 2;
+            this.iconButtonBack.Text = "Cancel";
+            this.iconButtonBack.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButtonBack.UseVisualStyleBackColor = true;
+            this.iconButtonBack.Click += new System.EventHandler(this.iconButtonBack_Click);
+            // 
+            // iconButtonDelete
+            // 
+            this.iconButtonDelete.IconChar = FontAwesome.Sharp.IconChar.LongArrowAltLeft;
+            this.iconButtonDelete.IconColor = System.Drawing.Color.Black;
+            this.iconButtonDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonDelete.Location = new System.Drawing.Point(263, 15);
+            this.iconButtonDelete.Name = "iconButtonDelete";
+            this.iconButtonDelete.Size = new System.Drawing.Size(70, 222);
+            this.iconButtonDelete.TabIndex = 13;
+            this.iconButtonDelete.UseVisualStyleBackColor = true;
+            this.iconButtonDelete.Click += new System.EventHandler(this.iconButtonDelete_Click);
+            // 
             // timer1
             // 
             this.timer1.Interval = 1000;
@@ -908,7 +908,7 @@
             this.panel1.ResumeLayout(false);
             this.tabPageQR.ResumeLayout(false);
             this.tabPageQR.PerformLayout();
-           // ((System.ComponentModel.ISupportInitialize)(this.pictureBoxQR)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxQR)).EndInit();
             this.ResumeLayout(false);
 
         }
