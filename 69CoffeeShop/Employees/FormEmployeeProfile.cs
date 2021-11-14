@@ -7,6 +7,7 @@ using System.Globalization;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
@@ -407,18 +408,12 @@ namespace _69CoffeeShop.Employees
 
         private void textBoxContact_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+
         }
 
         private void textBoxEContact_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+
         }
 
         private void textBoxBankAcc_KeyPress(object sender, KeyPressEventArgs e)
@@ -583,6 +578,41 @@ namespace _69CoffeeShop.Employees
                     connection.conn.Close();
                     previous.refreshGridView();
                 }
+            }
+        }
+
+        private void textBoxSalary_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string str = textBoxSalary.Text;
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            if (Regex.IsMatch(str, @"\.\d\d") && e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && (str.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxContact_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

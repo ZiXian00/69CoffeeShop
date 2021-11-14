@@ -29,8 +29,8 @@ namespace _69CoffeeShop.Employees
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.payroll = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -51,7 +51,6 @@ namespace _69CoffeeShop.Employees
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBoxNetSalary = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.buttonCalculate = new System.Windows.Forms.Button();
             this.groupBoxDeduction = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label25 = new System.Windows.Forms.Label();
@@ -340,7 +339,6 @@ namespace _69CoffeeShop.Employees
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.textBoxNetSalary);
             this.groupBox1.Controls.Add(this.label21);
-            this.groupBox1.Controls.Add(this.buttonCalculate);
             this.groupBox1.Controls.Add(this.groupBoxDeduction);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -371,18 +369,6 @@ namespace _69CoffeeShop.Employees
             this.label21.Size = new System.Drawing.Size(115, 18);
             this.label21.TabIndex = 13;
             this.label21.Text = "Net Salary : ";
-            // 
-            // buttonCalculate
-            // 
-            this.buttonCalculate.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonCalculate.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCalculate.Location = new System.Drawing.Point(974, 513);
-            this.buttonCalculate.Name = "buttonCalculate";
-            this.buttonCalculate.Size = new System.Drawing.Size(103, 30);
-            this.buttonCalculate.TabIndex = 15;
-            this.buttonCalculate.Text = "Calculate";
-            this.buttonCalculate.UseVisualStyleBackColor = true;
-            this.buttonCalculate.Click += new System.EventHandler(this.buttonCalculate_Click);
             // 
             // groupBoxDeduction
             // 
@@ -461,6 +447,7 @@ namespace _69CoffeeShop.Employees
             this.textBoxOtherDeduct2.Size = new System.Drawing.Size(166, 26);
             this.textBoxOtherDeduct2.TabIndex = 16;
             this.textBoxOtherDeduct2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxRate_KeyPress);
+            this.textBoxOtherDeduct2.Leave += new System.EventHandler(this.textBoxRate_Leave);
             // 
             // textBoxOtherDeduct1
             // 
@@ -469,6 +456,7 @@ namespace _69CoffeeShop.Employees
             this.textBoxOtherDeduct1.Size = new System.Drawing.Size(166, 26);
             this.textBoxOtherDeduct1.TabIndex = 15;
             this.textBoxOtherDeduct1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxRate_KeyPress);
+            this.textBoxOtherDeduct1.Leave += new System.EventHandler(this.textBoxRate_Leave);
             // 
             // textBoxOtherDeduct
             // 
@@ -477,6 +465,7 @@ namespace _69CoffeeShop.Employees
             this.textBoxOtherDeduct.Size = new System.Drawing.Size(166, 26);
             this.textBoxOtherDeduct.TabIndex = 14;
             this.textBoxOtherDeduct.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxRate_KeyPress);
+            this.textBoxOtherDeduct.Leave += new System.EventHandler(this.textBoxRate_Leave);
             // 
             // textBoxOtherDD2
             // 
@@ -704,6 +693,7 @@ namespace _69CoffeeShop.Employees
             this.textBoxOtherInc2.Size = new System.Drawing.Size(166, 27);
             this.textBoxOtherInc2.TabIndex = 16;
             this.textBoxOtherInc2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxRate_KeyPress);
+            this.textBoxOtherInc2.Leave += new System.EventHandler(this.textBoxRate_Leave);
             // 
             // textBoxOtherInc1
             // 
@@ -712,6 +702,7 @@ namespace _69CoffeeShop.Employees
             this.textBoxOtherInc1.Size = new System.Drawing.Size(166, 27);
             this.textBoxOtherInc1.TabIndex = 15;
             this.textBoxOtherInc1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxRate_KeyPress);
+            this.textBoxOtherInc1.Leave += new System.EventHandler(this.textBoxRate_Leave);
             // 
             // textBoxOtherInc
             // 
@@ -720,6 +711,7 @@ namespace _69CoffeeShop.Employees
             this.textBoxOtherInc.Size = new System.Drawing.Size(166, 27);
             this.textBoxOtherInc.TabIndex = 14;
             this.textBoxOtherInc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxRate_KeyPress);
+            this.textBoxOtherInc.Leave += new System.EventHandler(this.textBoxRate_Leave);
             // 
             // textBoxOtherIncD2
             // 
@@ -820,9 +812,10 @@ namespace _69CoffeeShop.Employees
             this.textBoxOTRate.Name = "textBoxOTRate";
             this.textBoxOTRate.Size = new System.Drawing.Size(100, 27);
             this.textBoxOTRate.TabIndex = 10;
-            this.textBoxOTRate.Text = "8";
+            this.textBoxOTRate.Text = "8.00";
             this.textBoxOTRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBoxOTRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxHours_KeyPress);
+            this.textBoxOTRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxRate_KeyPress);
+            this.textBoxOTRate.Leave += new System.EventHandler(this.textBoxRate_Leave);
             // 
             // label12
             // 
@@ -836,9 +829,11 @@ namespace _69CoffeeShop.Employees
             // 
             // textBoxOT
             // 
+            this.textBoxOT.Enabled = false;
             this.textBoxOT.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxOT.Location = new System.Drawing.Point(218, 156);
             this.textBoxOT.Name = "textBoxOT";
+            this.textBoxOT.ReadOnly = true;
             this.textBoxOT.Size = new System.Drawing.Size(100, 27);
             this.textBoxOT.TabIndex = 8;
             this.textBoxOT.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -894,6 +889,7 @@ namespace _69CoffeeShop.Employees
             this.textBoxRate.Text = "-";
             this.textBoxRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxRate_KeyPress);
+            this.textBoxRate.Leave += new System.EventHandler(this.textBoxRate_Leave);
             // 
             // label5
             // 
@@ -913,7 +909,8 @@ namespace _69CoffeeShop.Employees
             this.textBoxSalary.Size = new System.Drawing.Size(101, 27);
             this.textBoxSalary.TabIndex = 7;
             this.textBoxSalary.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBoxSalary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxHours_KeyPress);
+            this.textBoxSalary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxRate_KeyPress);
+            this.textBoxSalary.Leave += new System.EventHandler(this.textBoxRate_Leave);
             // 
             // label10
             // 
@@ -927,9 +924,11 @@ namespace _69CoffeeShop.Employees
             // 
             // textBoxDays
             // 
+            this.textBoxDays.Enabled = false;
             this.textBoxDays.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxDays.Location = new System.Drawing.Point(574, 104);
             this.textBoxDays.Name = "textBoxDays";
+            this.textBoxDays.ReadOnly = true;
             this.textBoxDays.Size = new System.Drawing.Size(100, 27);
             this.textBoxDays.TabIndex = 5;
             this.textBoxDays.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -947,9 +946,11 @@ namespace _69CoffeeShop.Employees
             // 
             // textBoxHours
             // 
+            this.textBoxHours.Enabled = false;
             this.textBoxHours.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxHours.Location = new System.Drawing.Point(218, 104);
             this.textBoxHours.Name = "textBoxHours";
+            this.textBoxHours.ReadOnly = true;
             this.textBoxHours.Size = new System.Drawing.Size(100, 27);
             this.textBoxHours.TabIndex = 3;
             this.textBoxHours.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -1031,15 +1032,15 @@ namespace _69CoffeeShop.Employees
             this.dataGridViewPayroll.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridViewPayroll.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewPayroll.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewPayroll.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewPayroll.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewPayroll.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewPayroll.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.name,
@@ -1055,8 +1056,8 @@ namespace _69CoffeeShop.Employees
             this.dataGridViewPayroll.Location = new System.Drawing.Point(3, 37);
             this.dataGridViewPayroll.Name = "dataGridViewPayroll";
             this.dataGridViewPayroll.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            this.dataGridViewPayroll.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
+            this.dataGridViewPayroll.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewPayroll.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewPayroll.Size = new System.Drawing.Size(1458, 897);
             this.dataGridViewPayroll.TabIndex = 123;
@@ -1219,7 +1220,6 @@ namespace _69CoffeeShop.Employees
         private System.Windows.Forms.TextBox textBoxStatus;
         private System.Windows.Forms.Label labelInfo;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button buttonCalculate;
         private System.Windows.Forms.DataGridView dataGridViewPayroll;
         private System.Windows.Forms.TextBox textBoxNetSalary;
         private System.Windows.Forms.TextBox textBoxTotalDeduction;

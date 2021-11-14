@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -201,7 +202,20 @@ namespace _69CoffeeShop.Products
 
         private void textBoxProdCost_KeyPress(object sender, KeyPressEventArgs e)
         {
+            TextBox textBox = (TextBox)sender;
+            string str = textBox.Text;
+
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            if (Regex.IsMatch(str, @"\.\d\d") && e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && (str.IndexOf('.') > -1))
             {
                 e.Handled = true;
             }
@@ -216,6 +230,16 @@ namespace _69CoffeeShop.Products
                 double _text = double.Parse(textBox.Text);
                 textBox.Text = _text.ToString("0.00");
             }
+        }
+
+        private void textBoxProdCost_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxProdCost_RegionChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
