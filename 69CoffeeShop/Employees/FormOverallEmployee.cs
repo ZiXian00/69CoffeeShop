@@ -86,6 +86,12 @@ namespace _69CoffeeShop.Employees
             }
         }
 
+        private void dataGridViewEmployeeList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Form viewEmp = new FormEmployeeProfile("view", dataGridViewEmployeeList.Rows[e.RowIndex].Cells["employeeID"].Value.ToString(), this);
+            viewEmp.ShowDialog();
+        }
+
         //string loadEmployeeQry = "select * from employee_duty_record r1 " +
         //                   "JOIN (select MAX(checkIn) AS checkIn, employeeID from employee_duty_record GROUP BY employeeID) r2 " +
         //                   "ON r1.employeeID = r2.employeeID AND r1.checkIn = r2.checkIn ";
