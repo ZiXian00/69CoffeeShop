@@ -282,6 +282,7 @@ namespace _69CoffeeShop.Forms
             this.txtYear.Name = "txtYear";
             this.txtYear.Size = new System.Drawing.Size(160, 26);
             this.txtYear.TabIndex = 88;
+            this.txtYear.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtYear_KeyPress);
             // 
             // cbMonth
             // 

@@ -12,6 +12,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
 
 namespace _69CoffeeShop.Forms
 {
@@ -500,6 +502,7 @@ namespace _69CoffeeShop.Forms
             {
                 gbMonth.Visible = false;
                 gbYear.Visible = true;
+                txtYear.Focus();
             }
 
 
@@ -560,6 +563,14 @@ namespace _69CoffeeShop.Forms
                 gbDuration.Visible = true;
                 gbMonth.Visible = false;
                 gbYear.Visible = false;
+            }
+        }
+
+        private void txtYear_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }
