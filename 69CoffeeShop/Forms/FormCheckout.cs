@@ -56,7 +56,14 @@ namespace _69CoffeeShop.Forms
 
         private void FormCheckout_Load(object sender, EventArgs e)
         {
-
+            if(lblMemName.Text == "" || labelMemID.Text == "" || lblTotalPoint.Text == "")
+            {
+                cbRedeem.Visible = false;
+            }
+            else
+            {
+                cbRedeem.Visible = true;
+            }
         }
 
         private void iconButtonBack_Click(object sender, EventArgs e)
@@ -425,7 +432,14 @@ namespace _69CoffeeShop.Forms
             string[] subt = labelSubTotal.Text.Split(' ');
             if (cbRedeem.Checked == true)
             {
-                if (Convert.ToInt32(lblTotalPoint.Text) >= 100)
+                if (labelMemID.Text == "-" || labelMemID.Text == "")
+                {
+                    if(MessageBox.Show("Please enter a member to continue..", "Error", MessageBoxButtons.OK,MessageBoxIcon.Error) == DialogResult.OK)
+                    {
+                        cbRedeem.Checked = false;
+                    }
+                }
+                else if (Convert.ToInt32(lblTotalPoint.Text) >= 100)
                 {
                     int dis = Convert.ToInt32(lblTotalPoint.Text) / 100;
                     MessageBox.Show(Convert.ToDouble(dis).ToString());
@@ -507,6 +521,20 @@ namespace _69CoffeeShop.Forms
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void labelMemID_TextChanged(object sender, EventArgs e)
+        {
+            if(labelMemID.Text == "-" || labelMemID.Text == " ")
+            {
+                cbRedeem.Enabled = false;
+                cbRedeem.Visible = false;
+            }
+            else
+            {
+                cbRedeem.Enabled = true;
+                cbRedeem.Visible = true;
             }
         }
 

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace _69CoffeeShop.Reports
 {
-    public partial class viewReport : Form
+    public partial class ReportViewer : Form
     {
-        public viewReport()
+        public ReportViewer()
         {
             InitializeComponent();
         }

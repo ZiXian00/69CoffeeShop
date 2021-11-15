@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
@@ -21,6 +22,7 @@ namespace _69CoffeeShop
         private Panel leftBorderBtn;
         private Form currentChildForm;
         Class.Connection connection = new Class.Connection();
+        string connStr = ConfigurationManager.ConnectionStrings["connStr"].ConnectionString;
 
         //constructor
         public MainPage()

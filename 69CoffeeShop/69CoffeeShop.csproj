@@ -43,9 +43,14 @@
     <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
       <HintPath>..\packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
     </Reference>
+    <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Devart.Data, Version=5.0.2777.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL">
       <HintPath>..\packages\dotConnect.Express.for.MySQL.8.19.1985\lib\Devart.Data.dll</HintPath>
     </Reference>
@@ -107,7 +112,9 @@
       <HintPath>..\packages\ObjectListView.Official.2.9.1\lib\net20\ObjectListView.dll</HintPath>
     </Reference>
     <Reference Include="PresentationFramework" />
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -158,6 +165,8 @@
     </Reference>
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -376,23 +385,57 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reports\createReport.cs">
+    <Compile Include="Reports\DataSetInventory.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetInventory.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DataSetProduct_order.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetProduct_order.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportProcurement.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportProcurement.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportInventory.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportInventory.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportMember.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportMember.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportSales.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportSales.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportSalesProduct.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportSalesProduct.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportSupplier.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportSupplier.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportViewer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reports\createReport.Designer.cs">
-      <DependentUpon>createReport.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\updateReport.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reports\updateReport.Designer.cs">
-      <DependentUpon>updateReport.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\viewReport.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reports\viewReport.Designer.cs">
-      <DependentUpon>viewReport.cs</DependentUpon>
+    <Compile Include="Reports\ReportViewer.Designer.cs">
+      <DependentUpon>ReportViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="Suppliers\editSupplier.cs">
       <SubType>Form</SubType>
@@ -520,8 +563,32 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Reports\createReport.resx">
-      <DependentUpon>createReport.cs</DependentUpon>
+    <EmbeddedResource Include="Reports\ReportProcurement.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportProcurement.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportInventory.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportInventory.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportMember.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportMember.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportSales.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportSales.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportSalesProduct.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportSalesProduct.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportSupplier.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportSupplier.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportViewer.resx">
+      <DependentUpon>ReportViewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Suppliers\editSupplier.resx">
       <DependentUpon>editSupplier.cs</DependentUpon>
@@ -545,6 +612,28 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Reports\DataSetInventory.xsc">
+      <DependentUpon>DataSetInventory.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\DataSetInventory.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetInventory.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\DataSetInventory.xss">
+      <DependentUpon>DataSetInventory.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\DataSetProduct_order.xsc">
+      <DependentUpon>DataSetProduct_order.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\DataSetProduct_order.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetProduct_order.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\DataSetProduct_order.xss">
+      <DependentUpon>DataSetProduct_order.xsd</DependentUpon>
+    </None>
     <None Include="_69coffeeshopDataSetSupplier.xsc">
       <DependentUpon>_69coffeeshopDataSetSupplier.xsd</DependentUpon>
     </None>
@@ -587,6 +676,9 @@
     <Content Include="Resources\matcha-coldfoam-americano.jpg" />
     <Content Include="Resources\signature-hotchocolate.jpg" />
     <Content Include="Resources\vanilla-sweetcream-coldbrew.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
