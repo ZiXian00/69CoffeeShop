@@ -437,6 +437,7 @@ namespace _69CoffeeShop.Forms
                     if(MessageBox.Show("Please enter a member to continue..", "Error", MessageBoxButtons.OK,MessageBoxIcon.Error) == DialogResult.OK)
                     {
                         cbRedeem.Checked = false;
+                        txtMemID.Focus();
                     }
                 }
                 else if (Convert.ToInt32(lblTotalPoint.Text) >= 100)

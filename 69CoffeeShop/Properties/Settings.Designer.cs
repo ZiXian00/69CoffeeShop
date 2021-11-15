@@ -43,5 +43,15 @@ namespace _69CoffeeShop.Properties {
                 return ((string)(this["_69coffeeshopConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;persistsecurityinfo=True;database=newschema")]
+        public string newschemaConnectionString {
+            get {
+                return ((string)(this["newschemaConnectionString"]));
+            }
+        }
     }
 }

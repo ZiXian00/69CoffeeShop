@@ -390,10 +390,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetInventory.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Reports\DataSetProduct_order.Designer.cs">
+    <Compile Include="Reports\DataSetReport.cs">
+      <DependentUpon>DataSetReport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DataSetReport.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataSetProduct_order.xsd</DependentUpon>
+      <DependentUpon>DataSetReport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportPayroll.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportPayroll.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\ReportProcurement.cs">
       <AutoGen>True</AutoGen>
@@ -563,6 +572,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports\ReportPayroll.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportPayroll.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\ReportProcurement.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReportProcurement.cs</LastGenOutput>
@@ -623,16 +636,16 @@
     <None Include="Reports\DataSetInventory.xss">
       <DependentUpon>DataSetInventory.xsd</DependentUpon>
     </None>
-    <None Include="Reports\DataSetProduct_order.xsc">
-      <DependentUpon>DataSetProduct_order.xsd</DependentUpon>
+    <None Include="Reports\DataSetReport.xsc">
+      <DependentUpon>DataSetReport.xsd</DependentUpon>
     </None>
-    <None Include="Reports\DataSetProduct_order.xsd">
+    <None Include="Reports\DataSetReport.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSetProduct_order.Designer.cs</LastGenOutput>
+      <LastGenOutput>DataSetReport.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Reports\DataSetProduct_order.xss">
-      <DependentUpon>DataSetProduct_order.xsd</DependentUpon>
+    <None Include="Reports\DataSetReport.xss">
+      <DependentUpon>DataSetReport.xsd</DependentUpon>
     </None>
     <None Include="_69coffeeshopDataSetSupplier.xsc">
       <DependentUpon>_69coffeeshopDataSetSupplier.xsd</DependentUpon>

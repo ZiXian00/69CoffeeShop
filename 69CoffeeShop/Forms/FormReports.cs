@@ -1,6 +1,7 @@
 ﻿using FontAwesome.Sharp;
 using MySql.Data.MySqlClient;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -23,12 +24,27 @@ namespace _69CoffeeShop.Forms
             InitializeComponent();
 
         }
-
-
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        private void FormReports_Load(object sender, EventArgs e)
         {
+            int year = Convert.ToInt32(DateTime.Today.Year);
+            ArrayList month = new ArrayList();
+            month.Add(year + "-01-");
+            month.Add(year + "-02-");
+            month.Add(year + "-03-");
+            month.Add(year + "-04-");
+            month.Add(year + "-05-");
+            month.Add(year + "-06-");
+            month.Add(year + "-07-");
+            month.Add(year + "-08-");
+            month.Add(year + "-09-");
+            month.Add(year + "-10-");
+            month.Add(year + "-11-");
+            month.Add(year + "-12-");
+            cbMonth.DataSource = month;
+            cbMonth.SelectedIndex = 0;
 
         }
+
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
@@ -74,6 +90,8 @@ namespace _69CoffeeShop.Forms
                 conn.Close();
 
             }
+
+
             else if (rbSupplier.Checked == true)
             {
                 rptView.Show();
@@ -111,6 +129,8 @@ namespace _69CoffeeShop.Forms
                 this.Refresh();
                 conn.Close();
             }
+
+
             else if (rbSalesProduct.Checked == true)
             {
                 rptView.Show();
@@ -143,40 +163,108 @@ namespace _69CoffeeShop.Forms
                 this.Refresh();
                 conn.Close();
             }
+
+
             else if (rbSales.Checked == true)
             {
                 rptView.Show();
                 MySqlConnection conn = new MySqlConnection(connStr);
                 conn.Open();
 
-
-                DataTable tableSales = new DataTable();
-                tableSales.Columns.Add(new DataColumn("salesID"));
-                tableSales.Columns.Add(new DataColumn("orderID"));
-                tableSales.Columns.Add(new DataColumn("date"));
-                tableSales.Columns.Add(new DataColumn("salesAmount"));
-
-                string salesQuery = "Select salesID, orderID, date, salesAmount FROM sales";
-                MySqlCommand cmdSales = new MySqlCommand(salesQuery, conn);
-                MySqlDataReader dr = cmdSales.ExecuteReader();
-
-
-                while (dr.Read())
+                if (rbToday.Checked == false && rbMonthly.Checked == false && rbYearly.Checked == false)
                 {
-                    tableSales.Rows.Add(Class.Utilities.decryption(dr["salesID"].ToString()),
-                            Class.Utilities.decryption(dr["orderID"].ToString()), 
-                            Class.Utilities.decryption(dr["date"].ToString()),
-                            Class.Utilities.decryption(dr["salesAmount"].ToString()));
+                    MessageBox.Show("Please Choose a duration to continue..", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                }
+                else
+                {
+
+                    DataTable tableSales = new DataTable();
+                    Reports.ReportSales rptSales = new Reports.ReportSales();
+                    tableSales.Columns.Add(new DataColumn("salesID"));
+                    tableSales.Columns.Add(new DataColumn("orderID"));
+                    tableSales.Columns.Add(new DataColumn("date"));
+                    tableSales.Columns.Add(new DataColumn("salesAmount"));
+
+                    string salesQuery = "Select salesID, orderID, date, salesAmount FROM sales ORDER BY salesCount";
+                    MySqlCommand cmdSales = new MySqlCommand(salesQuery, conn);
+
+
+                    if (rbToday.Checked == true)
+                    {
+                        MySqlDataReader dr = cmdSales.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            if ((DateTime.Today.ToString("yyyy-MM-dd")) == Class.Utilities.decryption(dr["date"].ToString()))
+                            {
+                                tableSales.Rows.Add(Class.Utilities.decryption(dr["salesID"].ToString()),
+                                    Class.Utilities.decryption(dr["orderID"].ToString()),
+                                    Class.Utilities.decryption(dr["date"].ToString()),
+                                    Class.Utilities.decryption(dr["salesAmount"].ToString()));
+                            }
+                        }
+                        rptSales.SetDataSource(tableSales);
+                        rptView.crystalReportViewer1.ReportSource = rptSales;
+                        rptView.crystalReportViewer1.Refresh();
+                    }
+                    else if (rbMonthly.Checked == true)
+                    {
+                        MySqlDataReader dr = cmdSales.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            if (Class.Utilities.decryption(dr["date"].ToString()).Contains(cbMonth.Text.ToString()))
+                            {
+                                tableSales.Rows.Add(Class.Utilities.decryption(dr["salesID"].ToString()),
+                                    Class.Utilities.decryption(dr["orderID"].ToString()),
+                                    Class.Utilities.decryption(dr["date"].ToString()),
+                                    Class.Utilities.decryption(dr["salesAmount"].ToString()));
+                            }
+                        }
+                        rptSales.SetDataSource(tableSales);
+                        rptView.crystalReportViewer1.ReportSource = rptSales;
+                        rptView.crystalReportViewer1.Refresh();
+                    }
+                    else if (rbYearly.Checked == true)
+                    {
+                        if (txtYear.Text == "" || txtYear.Text == "0" || txtYear.Text == "00" || txtYear.Text == "000" || txtYear.Text == "0000")
+                        {
+                            MessageBox.Show("Please enter a valid year.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else if (txtYear.TextLength < 4)
+                        {
+                            MessageBox.Show("Please enter a valid year.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MySqlDataReader dr = cmdSales.ExecuteReader();
+                            while (dr.Read())
+                            {
+                                if (Class.Utilities.decryption(dr["date"].ToString()).Contains(txtYear.Text.ToString()))
+                                {
+                                    tableSales.Rows.Add(Class.Utilities.decryption(dr["salesID"].ToString()),
+                                        Class.Utilities.decryption(dr["orderID"].ToString()),
+                                        Class.Utilities.decryption(dr["date"].ToString()),
+                                        Class.Utilities.decryption(dr["salesAmount"].ToString()));
+                                }
+                            }
+                            rptSales.SetDataSource(tableSales);
+                            rptView.crystalReportViewer1.ReportSource = rptSales;
+                            rptView.crystalReportViewer1.Refresh();
+                        }
+
+                    }
+
+
+
+
                 }
 
-
-                Reports.ReportSales rptSales = new Reports.ReportSales();
-                rptSales.SetDataSource(tableSales);
-                rptView.crystalReportViewer1.ReportSource = rptSales;
-                rptView.crystalReportViewer1.Refresh();
                 this.Refresh();
                 conn.Close();
             }
+
+
             else if (rbMember.Checked == true)
             {
                 rptView.Show();
@@ -215,45 +303,264 @@ namespace _69CoffeeShop.Forms
                 this.Refresh();
                 conn.Close();
             }
+
+
             else if (rbProcurement.Checked == true)
+            {
+
+                MySqlConnection conn = new MySqlConnection(connStr);
+                Reports.ReportProcurement rptProcurement = new Reports.ReportProcurement();
+                conn.Open();
+                if (rbToday.Checked == false && rbMonthly.Checked == false && rbYearly.Checked == false)
+                {
+                    MessageBox.Show("Please Choose a duration to continue..", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                }
+                else
+                {
+                    rptView.Show();
+                    DataTable tableProcurement = new DataTable();
+
+                    tableProcurement.Columns.Add(new DataColumn("procurementID"));
+                    tableProcurement.Columns.Add(new DataColumn("orderedProduct"));
+                    tableProcurement.Columns.Add(new DataColumn("unitPrice"));
+                    tableProcurement.Columns.Add(new DataColumn("quantity"));
+                    tableProcurement.Columns.Add(new DataColumn("procurementDate"));
+                    tableProcurement.Columns.Add(new DataColumn("supplierID"));
+
+                    string procurementQuery = "Select * FROM procurement Order By proCount";
+                    MySqlCommand cmdProcure = new MySqlCommand(procurementQuery, conn);
+
+                    if (rbToday.Checked == true)
+                    {
+
+                        MySqlDataReader dr = cmdProcure.ExecuteReader();
+
+
+                        while (dr.Read())
+                        {
+                            if ((DateTime.Today.ToString("yyyy-MM-dd")) == Class.Utilities.decryption(dr["procurementDate"].ToString()))
+                            {
+                                tableProcurement.Rows.Add(Class.Utilities.decryption(dr["procurementID"].ToString()),
+                                    Class.Utilities.decryption(dr["orderedProduct"].ToString()),
+                                    Class.Utilities.decryption(dr["unitPrice"].ToString()),
+                                    Class.Utilities.decryption(dr["quantity"].ToString()),
+                                    Class.Utilities.decryption(dr["procurementDate"].ToString()),
+                                    Class.Utilities.decryption(dr["supplierID"].ToString()));
+                            }
+
+                        }
+                        rptProcurement.SetDataSource(tableProcurement);
+                        rptView.crystalReportViewer1.ReportSource = rptProcurement;
+                        rptView.crystalReportViewer1.Refresh();
+
+
+
+                    }
+                    else if (rbMonthly.Checked == true)
+                    {
+                        MySqlDataReader dr = cmdProcure.ExecuteReader();
+
+
+                        while (dr.Read())
+                        {
+                            if (Class.Utilities.decryption(dr["procurementDate"].ToString()).Contains(cbMonth.Text.ToString()))
+                            {
+                                tableProcurement.Rows.Add(Class.Utilities.decryption(dr["procurementID"].ToString()),
+                                    Class.Utilities.decryption(dr["orderedProduct"].ToString()),
+                                    Class.Utilities.decryption(dr["unitPrice"].ToString()),
+                                    Class.Utilities.decryption(dr["quantity"].ToString()),
+                                    Class.Utilities.decryption(dr["procurementDate"].ToString()),
+                                    Class.Utilities.decryption(dr["supplierID"].ToString()));
+                            }
+
+                        }
+                        rptProcurement.SetDataSource(tableProcurement);
+                        rptView.crystalReportViewer1.ReportSource = rptProcurement;
+                        rptView.crystalReportViewer1.Refresh();
+                    }
+                    else if (rbYearly.Checked == true)
+                    {
+
+                        if (txtYear.Text == "" || txtYear.Text == "0" || txtYear.Text == "00" || txtYear.Text == "000" || txtYear.Text == "0000")
+                        {
+                            MessageBox.Show("Please enter a valid year.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else if (txtYear.TextLength < 4)
+                        {
+                            MessageBox.Show("Please enter a valid year.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MySqlDataReader dr = cmdProcure.ExecuteReader();
+
+
+                            while (dr.Read())
+                            {
+                                if (Class.Utilities.decryption(dr["procurementDate"].ToString()).Contains(txtYear.Text.ToString()))
+                                {
+                                    tableProcurement.Rows.Add(Class.Utilities.decryption(dr["procurementID"].ToString()),
+                                        Class.Utilities.decryption(dr["orderedProduct"].ToString()),
+                                        Class.Utilities.decryption(dr["unitPrice"].ToString()),
+                                        Class.Utilities.decryption(dr["quantity"].ToString()),
+                                        Class.Utilities.decryption(dr["procurementDate"].ToString()),
+                                        Class.Utilities.decryption(dr["supplierID"].ToString()));
+                                }
+
+                            }
+                            rptProcurement.SetDataSource(tableProcurement);
+                            rptView.crystalReportViewer1.ReportSource = rptProcurement;
+                            rptView.crystalReportViewer1.Refresh();
+                        }
+                    }
+
+
+                }
+
+                this.Refresh();
+                conn.Close();
+            }
+
+
+            else if (rbPayroll.Checked == true)
             {
                 rptView.Show();
                 MySqlConnection conn = new MySqlConnection(connStr);
                 conn.Open();
 
 
-                DataTable tableProcurement = new DataTable();
-                tableProcurement.Columns.Add(new DataColumn("procurementID"));
-                tableProcurement.Columns.Add(new DataColumn("orderedProduct"));
-                tableProcurement.Columns.Add(new DataColumn("unitPrice"));
-                tableProcurement.Columns.Add(new DataColumn("quantity"));
-                tableProcurement.Columns.Add(new DataColumn("procurementDate"));
-                tableProcurement.Columns.Add(new DataColumn("supplierID"));
+                DataTable tablePay = new DataTable();
+                tablePay.Columns.Add(new DataColumn("employeeId"));
+                tablePay.Columns.Add(new DataColumn("totalWorkingHours"));
+                tablePay.Columns.Add(new DataColumn("totalWorkingDays"));
+                tablePay.Columns.Add(new DataColumn("netPay"));
 
-                string procurementQuery = "Select * FROM procurement Order By proCount";
-                MySqlCommand cmdProcure = new MySqlCommand(procurementQuery, conn);
-                MySqlDataReader dr = cmdProcure.ExecuteReader();
+                string payQuery = "Select employeeID, totalWorkingHours, totalWorkingDays, netPay FROM payroll_record";
+                MySqlCommand cmdPay = new MySqlCommand(payQuery, conn);
+                MySqlDataReader dr = cmdPay.ExecuteReader();
 
 
                 while (dr.Read())
                 {
-                    tableProcurement.Rows.Add(Class.Utilities.decryption(dr["procurementID"].ToString()),
-                            Class.Utilities.decryption(dr["orderedProduct"].ToString()),
-                            Class.Utilities.decryption(dr["unitPrice"].ToString()),
-                            Class.Utilities.decryption(dr["quantity"].ToString()),
-                            Class.Utilities.decryption(dr["procurementDate"].ToString()),
-                            Class.Utilities.decryption(dr["supplierID"].ToString()));
+                    tablePay.Rows.Add(Class.Utilities.decryption(dr["employeeID"].ToString()),
+                            Class.Utilities.decryption(dr["totalWorkingHours"].ToString()),
+                            Class.Utilities.decryption(dr["totalWorkingDays"].ToString()),
+                            Class.Utilities.decryption(dr["netPay"].ToString()));
                 }
 
 
-                Reports.ReportProcurement rptProcurement = new Reports.ReportProcurement();
-                rptProcurement.SetDataSource(tableProcurement);
-                rptView.crystalReportViewer1.ReportSource = rptProcurement;
+                Reports.ReportPayroll rptPay = new Reports.ReportPayroll();
+                rptPay.SetDataSource(tablePay);
+                rptView.crystalReportViewer1.ReportSource = rptPay;
                 rptView.crystalReportViewer1.Refresh();
                 this.Refresh();
                 conn.Close();
             }
         }
 
+        private void rbSales_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbSales.Checked == true)
+            {
+                gbDuration.Visible = true;
+                gbMonth.Visible = false;
+                gbYear.Visible = false;
+            }
+
+
+        }
+
+        private void rbProcurement_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbProcurement.Checked == true)
+            {
+                gbDuration.Visible = true;
+                gbMonth.Visible = false;
+                gbYear.Visible = false;
+            }
+
+
+        }
+
+        private void rbMonthly_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbMonthly.Checked == true)
+            {
+                gbMonth.Visible = true;
+                gbYear.Visible = false;
+            }
+
+
+        }
+
+        private void rbYearly_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbYearly.Checked == true)
+            {
+                gbMonth.Visible = false;
+                gbYear.Visible = true;
+            }
+
+
+        }
+        private void rbToday_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbToday.Checked == true)
+            {
+                gbMonth.Visible = false;
+                gbYear.Visible = false;
+            }
+        }
+
+        private void rbInvenReport_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbInvenReport.Checked == true)
+            {
+                gbDuration.Visible = false;
+                gbMonth.Visible = false;
+                gbYear.Visible = false;
+            }
+        }
+
+        private void rbSalesProduct_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbSalesProduct.Checked == true)
+            {
+                gbDuration.Visible = false;
+                gbMonth.Visible = false;
+                gbYear.Visible = false;
+            }
+        }
+
+        private void rbSupplier_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbSupplier.Checked == true)
+            {
+                gbDuration.Visible = false;
+                gbMonth.Visible = false;
+                gbYear.Visible = false;
+            }
+        }
+
+        private void rbMember_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbMember.Checked == true)
+            {
+                gbDuration.Visible = false;
+                gbMonth.Visible = false;
+                gbYear.Visible = false;
+            }
+        }
+
+        private void rbPayroll_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbPayroll.Checked == true)
+            {
+                gbDuration.Visible = true;
+                gbMonth.Visible = false;
+                gbYear.Visible = false;
+            }
+        }
     }
 }

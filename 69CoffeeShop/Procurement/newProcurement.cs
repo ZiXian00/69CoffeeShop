@@ -50,7 +50,7 @@ namespace _69CoffeeShop.Procurement
                     string from = "69coffeeshop.my@gmail.com";
                     string pw = "Coffeeshop@69.my";
 
-                    MailMessage msg = new MailMessage();
+                    /*MailMessage msg = new MailMessage();
                     msg.Subject = txtSubject.Text;
                     msg.From = new MailAddress(from);
                     msg.Body = txtMsg.Text;
@@ -64,7 +64,7 @@ namespace _69CoffeeShop.Procurement
 
                     NetworkCredential nc = new NetworkCredential(from, pw);
                     smtp.Credentials = nc;
-                    smtp.Send(msg);
+                    smtp.Send(msg);*/
 
                     if ((MessageBox.Show("Email sent.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK))
                     {
