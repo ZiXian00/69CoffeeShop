@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -291,6 +292,39 @@ namespace _69CoffeeShop
                     connection.conn.Close();
                 }
             }
+
+            /*  load existing Inventory  */
+            LoadExistingInventory();
+
+            
+        }
+
+        private void LoadExistingInventory()
+        {
+            MySqlConnection conn = new MySqlConnection(connStr);
+            conn.Open();
+            List<string> inventory = new List<string>();
+            string inventoryQuery = "Select * FROM inventory";
+            MySqlCommand cmdInventory = new MySqlCommand(inventoryQuery, conn);
+            MySqlDataReader dr = cmdInventory.ExecuteReader();
+
+
+            while (dr.Read())
+            {
+
+                if(Convert.ToInt32(Class.Utilities.decryption(dr["quantity"].ToString())) <= 10)
+                {
+                    inventory.Add(Class.Utilities.decryption(dr["inventoryID"].ToString()) + " left only " + Class.Utilities.decryption(dr["quantity"].ToString()));
+                }
+                
+            }
+
+            string toDisplay = string.Join("\n", inventory);
+            if(inventory.Count != 0)
+            {
+                MessageBox.Show(toDisplay, "Inventory Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
         }
 
         private void iconButtonClockInOut_Click(object sender, EventArgs e)
