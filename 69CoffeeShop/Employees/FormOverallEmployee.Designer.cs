@@ -86,8 +86,10 @@ namespace _69CoffeeShop.Employees
             this.dataGridViewEmployeeList.Name = "dataGridViewEmployeeList";
             this.dataGridViewEmployeeList.ReadOnly = true;
             this.dataGridViewEmployeeList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridViewEmployeeList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewEmployeeList.Size = new System.Drawing.Size(1119, 540);
             this.dataGridViewEmployeeList.TabIndex = 8;
+            this.dataGridViewEmployeeList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEmployeeList_CellDoubleClick);
             // 
             // employeeName
             // 

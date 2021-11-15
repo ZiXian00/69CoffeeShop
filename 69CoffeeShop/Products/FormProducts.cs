@@ -160,5 +160,11 @@ namespace _69CoffeeShop.Products
                 refreshProductList();
             }
         }
+
+        private void dataGridViewProduct_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            FormAddProducts formAddProducts = new FormAddProducts(this, e.RowIndex);
+            formAddProducts.ShowDialog();
+        }
     }
 }

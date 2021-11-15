@@ -91,6 +91,7 @@ namespace _69CoffeeShop.Products
             this.dataGridViewProduct.Size = new System.Drawing.Size(1006, 722);
             this.dataGridViewProduct.TabIndex = 38;
             this.dataGridViewProduct.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProduct_CellContentClick);
+            this.dataGridViewProduct.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProduct_CellDoubleClick);
             this.dataGridViewProduct.SelectionChanged += new System.EventHandler(this.dataGridViewProduct_SelectionChanged);
             // 
             // prodImage
