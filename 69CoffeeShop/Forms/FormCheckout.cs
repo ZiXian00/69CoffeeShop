@@ -122,26 +122,30 @@ namespace _69CoffeeShop.Forms
         private void dataGridViewOrder_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int cellIndex = e.RowIndex;
-            int qty = int.Parse(dataGridViewOrder.Rows[cellIndex].Cells["Qty"].Value.ToString());
-            if (e.ColumnIndex == 2)
-            {
-                qty++;
-                dataGridViewOrder.Rows[cellIndex].Cells["Qty"].Value = qty.ToString();
-            }
-            if (e.ColumnIndex == 3)
-            {
-                qty--;
 
-                if (qty < 1)
+            if (cellIndex >= 0)
+            {
+                int qty = int.Parse(dataGridViewOrder.Rows[cellIndex].Cells["Qty"].Value.ToString());
+                if (e.ColumnIndex == 2)
                 {
-                    dataGridViewOrder.Rows.RemoveAt(e.RowIndex);
-                }
-                else
-                {
+                    qty++;
                     dataGridViewOrder.Rows[cellIndex].Cells["Qty"].Value = qty.ToString();
                 }
+                if (e.ColumnIndex == 3)
+                {
+                    qty--;
+
+                    if (qty < 1)
+                    {
+                        dataGridViewOrder.Rows.RemoveAt(e.RowIndex);
+                    }
+                    else
+                    {
+                        dataGridViewOrder.Rows[cellIndex].Cells["Qty"].Value = qty.ToString();
+                    }
+                }
+                calculatePriceDetails();
             }
-            calculatePriceDetails();
         }
 
         private void calculatePriceDetails()
