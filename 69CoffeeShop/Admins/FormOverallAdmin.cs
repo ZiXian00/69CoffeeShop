@@ -60,9 +60,10 @@ namespace _69CoffeeShop.Admins
 
             if (ds == DialogResult.Yes)
             {
+                string id = dataGridViewAdminList.Rows[rowIndex].Cells["employeeID"].Value.ToString();
                 string deleteAdmQry = "delete from admin where employeeID = @id";
                 MySqlCommand deleteAdmCmd = new MySqlCommand(deleteAdmQry, connection.conn);
-                deleteAdmCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(dataGridViewAdminList.Rows[rowIndex].Cells["employeeID"].Value.ToString()));
+                deleteAdmCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(id));
                 connection.conn.Open();
                 deleteAdmCmd.ExecuteNonQuery();
 
@@ -70,6 +71,11 @@ namespace _69CoffeeShop.Admins
 
                 refreshGridView();
                 textBoxSearch.Text = "";
+
+                if(id == Class.Admin.adminID)
+                {
+                    formAdmin.Close();
+                }
             }
         }
 

@@ -161,7 +161,6 @@ namespace _69CoffeeShop.Admins
 
                         if (textBoxPosition.Text.ToUpper() != "MANAGER")
                         {
-                            MessageBox.Show("ONLY MANAGEMENT LEVEL is allowed to add as admin. ", "Job Position not match !", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             labelPw.Visible = false;
                             labelConfirm.Visible = false;
                             textBoxPassword.Visible = false;
@@ -169,6 +168,7 @@ namespace _69CoffeeShop.Admins
                             groupBoxSQ.Visible = false;
                             iconButtonConfirm.Visible = false;
                             iconButtonCancel.Visible = false;
+                            MessageBox.Show("ONLY MANAGEMENT LEVEL is allowed to add as admin. ", "Job Position not match !", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         else
                         {

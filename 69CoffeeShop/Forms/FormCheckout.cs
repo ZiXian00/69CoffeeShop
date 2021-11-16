@@ -345,6 +345,7 @@ namespace _69CoffeeShop.Forms
                     insertOrderCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(orderID));
                     insertOrderCmd.Parameters.AddWithValue("@mID", Class.Utilities.encryption(labelMemID.Text));
                     insertOrderCmd.Parameters.AddWithValue("@eID", Class.Utilities.encryption(Class.Cashier.cashierID));
+                MessageBox.Show(Class.Utilities.encryption(labelMemID.Text));
                     insertOrderCmd.ExecuteNonQuery();
                 }
                 else
@@ -386,14 +387,15 @@ namespace _69CoffeeShop.Forms
                     mainPage.OpenChildForm(sales);
                     this.Close();
                 }
-            }
+
+        }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
             finally
             {
-                connection.conn.Close();
+                
             }
         }
 
@@ -452,7 +454,6 @@ namespace _69CoffeeShop.Forms
                 else if (Convert.ToInt32(lblTotalPoint.Text) >= 100)
                 {
                     int dis = Convert.ToInt32(lblTotalPoint.Text) / 100;
-                    MessageBox.Show(Convert.ToDouble(dis).ToString());
                     if (Convert.ToDouble(subt[1]) >= Convert.ToDouble(dis))
                     {
                         lblDiscount.Text = dis.ToString("RM 0.00");
@@ -482,35 +483,31 @@ namespace _69CoffeeShop.Forms
 
         private void UpdateMemPoint()
         {
-            //int existPoint = Convert.ToInt32(lblTotalPoint.Text);
-            //string[] discount = lblDiscount.Text.Split(' ');
-            //string[] discount1 = discount[1].Split('.');
-            //int dis = Convert.ToInt32(discount1[0])*100;
+            int existPoint = Convert.ToInt32(lblTotalPoint.Text);
+            string[] discount = lblDiscount.Text.Split(' ');
+            string[] discount1 = discount[1].Split('.');
+            int dis = Convert.ToInt32(discount1[0]) * 100;
 
-            //string[] gTotal = labelGrandTotal.Text.Split(' ');
-            //string[] gTotal1 = gTotal[1].Split('.');
-            //int addPoint = Convert.ToInt32(gTotal1[0]);
-            //int finalPoint = existPoint - dis + addPoint;
+            string[] gTotal = labelGrandTotal.Text.Split(' ');
+            string[] gTotal1 = gTotal[1].Split('.');
+            int addPoint = Convert.ToInt32(gTotal1[0]);
+            int finalPoint = existPoint - dis + addPoint;
 
-            //string sql = "UPDATE member SET rewardsPoint = @rewardsPoint WHERE memberID = @memberID";
-            //MySqlConnection conn = new MySqlConnection(connStr);
-            //conn.Open();
-            //MySqlCommand cmd = new MySqlCommand(sql, conn);
-            //cmd.Parameters.AddWithValue("@memberID", Class.Utilities.encryption(labelMemID.Text));
-            //try
-            //{
-            //    cmd.ExecuteNonQuery();
-            //    if (MessageBox.Show("Update Successfully.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
-            //    {
-            //        this.Close();
-            //    }
-
-            //}
-            //catch (MySqlException ex)
-            //{
-            //    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-            //conn.Close();
+            string sql = "UPDATE member SET rewardsPoint = @rewardsPoint WHERE memberID = @memberID";
+            MySqlConnection conn = new MySqlConnection(connStr);
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@rewardsPoint", Class.Utilities.encryption(finalPoint.ToString()));
+            cmd.Parameters.AddWithValue("@memberID", Class.Utilities.encryption(labelMemID.Text));
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            conn.Close();
         }
 
         private void textBoxCustPaid_Leave(object sender, EventArgs e)
@@ -546,6 +543,11 @@ namespace _69CoffeeShop.Forms
                 cbRedeem.Enabled = true;
                 cbRedeem.Visible = true;
             }
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         private void btnSearchMember_Click(object sender, EventArgs e)
