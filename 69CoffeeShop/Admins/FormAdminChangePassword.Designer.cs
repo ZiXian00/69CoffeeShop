@@ -78,13 +78,15 @@ namespace _69CoffeeShop.Admins
             // 
             // buttonConfirm
             // 
+            this.buttonConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(209)))), ((int)(((byte)(68)))));
             this.buttonConfirm.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonConfirm.ForeColor = System.Drawing.Color.White;
             this.buttonConfirm.Location = new System.Drawing.Point(156, 177);
             this.buttonConfirm.Name = "buttonConfirm";
             this.buttonConfirm.Size = new System.Drawing.Size(104, 32);
             this.buttonConfirm.TabIndex = 3;
             this.buttonConfirm.Text = "Confirm";
-            this.buttonConfirm.UseVisualStyleBackColor = true;
+            this.buttonConfirm.UseVisualStyleBackColor = false;
             this.buttonConfirm.Click += new System.EventHandler(this.buttonConfirm_Click);
             // 
             // textBoxConfirm
@@ -111,6 +113,7 @@ namespace _69CoffeeShop.Admins
             this.AcceptButton = this.buttonConfirm;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(240)))), ((int)(((byte)(210)))));
             this.ClientSize = new System.Drawing.Size(390, 236);
             this.Controls.Add(this.textBoxConfirm);
             this.Controls.Add(this.label3);

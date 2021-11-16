@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -31,6 +32,10 @@ namespace _69CoffeeShop.Inventories
                 return;
             }
             if (!Char.IsDigit(ch) && ch != 8 && ch != 46)
+            {
+                e.Handled = true;
+            }
+            if (Regex.IsMatch(txtUnitPrice.Text, @"\.\d\d") && e.KeyChar != 8)
             {
                 e.Handled = true;
             }

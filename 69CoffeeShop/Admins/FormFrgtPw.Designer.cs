@@ -122,13 +122,15 @@ namespace _69CoffeeShop.Admins
             // 
             // buttonNext
             // 
+            this.buttonNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(209)))), ((int)(((byte)(68)))));
             this.buttonNext.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNext.ForeColor = System.Drawing.Color.White;
             this.buttonNext.Location = new System.Drawing.Point(418, 221);
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(107, 33);
             this.buttonNext.TabIndex = 28;
             this.buttonNext.Text = "Next";
-            this.buttonNext.UseVisualStyleBackColor = true;
+            this.buttonNext.UseVisualStyleBackColor = false;
             this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
             // 
             // dropdownFQ
@@ -168,13 +170,15 @@ namespace _69CoffeeShop.Admins
             // 
             // buttonReset
             // 
+            this.buttonReset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(209)))), ((int)(((byte)(68)))));
             this.buttonReset.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonReset.ForeColor = System.Drawing.Color.White;
             this.buttonReset.Location = new System.Drawing.Point(418, 118);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(107, 33);
             this.buttonReset.TabIndex = 25;
             this.buttonReset.Text = "Reset";
-            this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.UseVisualStyleBackColor = false;
             this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
             // 
             // textBoxNewPass
@@ -252,19 +256,22 @@ namespace _69CoffeeShop.Admins
             // 
             // buttonProceed
             // 
+            this.buttonProceed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(209)))), ((int)(((byte)(68)))));
             this.buttonProceed.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonProceed.ForeColor = System.Drawing.Color.White;
             this.buttonProceed.Location = new System.Drawing.Point(329, 15);
             this.buttonProceed.Name = "buttonProceed";
             this.buttonProceed.Size = new System.Drawing.Size(96, 25);
             this.buttonProceed.TabIndex = 31;
             this.buttonProceed.Text = "Proceed";
-            this.buttonProceed.UseVisualStyleBackColor = true;
+            this.buttonProceed.UseVisualStyleBackColor = false;
             this.buttonProceed.Click += new System.EventHandler(this.buttonProceed_Click);
             // 
             // FormFrgtPw
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(240)))), ((int)(((byte)(210)))));
             this.ClientSize = new System.Drawing.Size(583, 487);
             this.Controls.Add(this.buttonProceed);
             this.Controls.Add(this.textBoxID);

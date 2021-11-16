@@ -170,9 +170,11 @@ namespace _69CoffeeShop.Employees
             this.iconButtonDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconButtonDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.iconButtonDelete.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButtonDelete.ForeColor = System.Drawing.Color.White;
             this.iconButtonDelete.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
-            this.iconButtonDelete.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.iconButtonDelete.IconColor = System.Drawing.Color.White;
             this.iconButtonDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButtonDelete.IconSize = 30;
             this.iconButtonDelete.Location = new System.Drawing.Point(882, 14);
@@ -181,14 +183,16 @@ namespace _69CoffeeShop.Employees
             this.iconButtonDelete.TabIndex = 24;
             this.iconButtonDelete.Text = "Delete";
             this.iconButtonDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButtonDelete.UseVisualStyleBackColor = true;
+            this.iconButtonDelete.UseVisualStyleBackColor = false;
             this.iconButtonDelete.Click += new System.EventHandler(this.iconButtonDelete_Click);
             // 
             // iconButtonAdd
             // 
+            this.iconButtonAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(209)))), ((int)(((byte)(68)))));
             this.iconButtonAdd.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButtonAdd.ForeColor = System.Drawing.Color.White;
             this.iconButtonAdd.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
-            this.iconButtonAdd.IconColor = System.Drawing.Color.Black;
+            this.iconButtonAdd.IconColor = System.Drawing.Color.White;
             this.iconButtonAdd.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButtonAdd.Location = new System.Drawing.Point(861, 580);
             this.iconButtonAdd.Name = "iconButtonAdd";
@@ -196,7 +200,7 @@ namespace _69CoffeeShop.Employees
             this.iconButtonAdd.TabIndex = 0;
             this.iconButtonAdd.Text = "Add";
             this.iconButtonAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButtonAdd.UseVisualStyleBackColor = true;
+            this.iconButtonAdd.UseVisualStyleBackColor = false;
             this.iconButtonAdd.Click += new System.EventHandler(this.iconButtonAdd_Click);
             // 
             // gBoxPersonal
@@ -454,9 +458,11 @@ namespace _69CoffeeShop.Employees
             this.iconButtonEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconButtonEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(209)))), ((int)(((byte)(68)))));
             this.iconButtonEdit.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButtonEdit.ForeColor = System.Drawing.Color.White;
             this.iconButtonEdit.IconChar = FontAwesome.Sharp.IconChar.Edit;
-            this.iconButtonEdit.IconColor = System.Drawing.Color.DarkOliveGreen;
+            this.iconButtonEdit.IconColor = System.Drawing.Color.White;
             this.iconButtonEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButtonEdit.IconSize = 30;
             this.iconButtonEdit.Location = new System.Drawing.Point(770, 14);
@@ -465,7 +471,7 @@ namespace _69CoffeeShop.Employees
             this.iconButtonEdit.TabIndex = 23;
             this.iconButtonEdit.Text = "Update";
             this.iconButtonEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButtonEdit.UseVisualStyleBackColor = true;
+            this.iconButtonEdit.UseVisualStyleBackColor = false;
             this.iconButtonEdit.Click += new System.EventHandler(this.iconButtonEdit_Click);
             // 
             // groupBox1
@@ -594,6 +600,7 @@ namespace _69CoffeeShop.Employees
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(240)))), ((int)(((byte)(210)))));
             this.ClientSize = new System.Drawing.Size(1022, 639);
             this.Controls.Add(this.iconButtonDelete);
             this.Controls.Add(this.iconButtonAdd);

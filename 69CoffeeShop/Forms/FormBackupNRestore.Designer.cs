@@ -39,9 +39,11 @@ namespace _69CoffeeShop.Forms
             // iconButtonRestore
             // 
             this.iconButtonRestore.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.iconButtonRestore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(209)))), ((int)(((byte)(68)))));
             this.iconButtonRestore.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButtonRestore.ForeColor = System.Drawing.Color.White;
             this.iconButtonRestore.IconChar = FontAwesome.Sharp.IconChar.FileDownload;
-            this.iconButtonRestore.IconColor = System.Drawing.Color.Black;
+            this.iconButtonRestore.IconColor = System.Drawing.Color.White;
             this.iconButtonRestore.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButtonRestore.Location = new System.Drawing.Point(409, 369);
             this.iconButtonRestore.Name = "iconButtonRestore";
@@ -49,15 +51,17 @@ namespace _69CoffeeShop.Forms
             this.iconButtonRestore.TabIndex = 7;
             this.iconButtonRestore.Text = "Restore Backup";
             this.iconButtonRestore.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButtonRestore.UseVisualStyleBackColor = true;
+            this.iconButtonRestore.UseVisualStyleBackColor = false;
             this.iconButtonRestore.Click += new System.EventHandler(this.iconButtonRestore_Click);
             // 
             // iconButtonBackup
             // 
             this.iconButtonBackup.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.iconButtonBackup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(209)))), ((int)(((byte)(68)))));
             this.iconButtonBackup.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButtonBackup.ForeColor = System.Drawing.Color.White;
             this.iconButtonBackup.IconChar = FontAwesome.Sharp.IconChar.FileUpload;
-            this.iconButtonBackup.IconColor = System.Drawing.Color.Black;
+            this.iconButtonBackup.IconColor = System.Drawing.Color.White;
             this.iconButtonBackup.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButtonBackup.Location = new System.Drawing.Point(184, 369);
             this.iconButtonBackup.Name = "iconButtonBackup";
@@ -65,7 +69,7 @@ namespace _69CoffeeShop.Forms
             this.iconButtonBackup.TabIndex = 6;
             this.iconButtonBackup.Text = "Backup Now";
             this.iconButtonBackup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButtonBackup.UseVisualStyleBackColor = true;
+            this.iconButtonBackup.UseVisualStyleBackColor = false;
             this.iconButtonBackup.Click += new System.EventHandler(this.iconButtonBackup_Click);
             // 
             // labelLatestBackup
@@ -83,7 +87,7 @@ namespace _69CoffeeShop.Forms
             // iconPictureBox1
             // 
             this.iconPictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.iconPictureBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(240)))), ((int)(((byte)(210)))));
             this.iconPictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.iconPictureBox1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.CloudUploadAlt;
@@ -101,6 +105,7 @@ namespace _69CoffeeShop.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(240)))), ((int)(((byte)(210)))));
             this.ClientSize = new System.Drawing.Size(716, 479);
             this.Controls.Add(this.iconButtonRestore);
             this.Controls.Add(this.iconButtonBackup);

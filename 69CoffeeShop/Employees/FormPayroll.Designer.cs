@@ -29,8 +29,8 @@ namespace _69CoffeeShop.Employees
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.payroll = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -967,9 +967,11 @@ namespace _69CoffeeShop.Employees
             // iconButtonAdd
             // 
             this.iconButtonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconButtonAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(209)))), ((int)(((byte)(68)))));
             this.iconButtonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButtonAdd.ForeColor = System.Drawing.Color.White;
             this.iconButtonAdd.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
-            this.iconButtonAdd.IconColor = System.Drawing.Color.Black;
+            this.iconButtonAdd.IconColor = System.Drawing.Color.White;
             this.iconButtonAdd.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButtonAdd.IconSize = 40;
             this.iconButtonAdd.Location = new System.Drawing.Point(1329, 941);
@@ -978,7 +980,7 @@ namespace _69CoffeeShop.Employees
             this.iconButtonAdd.TabIndex = 15;
             this.iconButtonAdd.Text = "SAVE";
             this.iconButtonAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButtonAdd.UseVisualStyleBackColor = true;
+            this.iconButtonAdd.UseVisualStyleBackColor = false;
             this.iconButtonAdd.Visible = false;
             this.iconButtonAdd.Click += new System.EventHandler(this.iconButtonAdd_Click);
             // 
@@ -1030,15 +1032,15 @@ namespace _69CoffeeShop.Employees
             this.dataGridViewPayroll.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridViewPayroll.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewPayroll.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewPayroll.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewPayroll.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewPayroll.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewPayroll.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.name,
@@ -1054,8 +1056,8 @@ namespace _69CoffeeShop.Employees
             this.dataGridViewPayroll.Location = new System.Drawing.Point(3, 37);
             this.dataGridViewPayroll.Name = "dataGridViewPayroll";
             this.dataGridViewPayroll.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            this.dataGridViewPayroll.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
+            this.dataGridViewPayroll.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewPayroll.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewPayroll.Size = new System.Drawing.Size(1458, 897);
             this.dataGridViewPayroll.TabIndex = 123;
@@ -1120,9 +1122,11 @@ namespace _69CoffeeShop.Employees
             // iconButtonDelete
             // 
             this.iconButtonDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconButtonDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.iconButtonDelete.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButtonDelete.ForeColor = System.Drawing.Color.White;
             this.iconButtonDelete.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
-            this.iconButtonDelete.IconColor = System.Drawing.Color.Black;
+            this.iconButtonDelete.IconColor = System.Drawing.Color.White;
             this.iconButtonDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButtonDelete.IconSize = 40;
             this.iconButtonDelete.Location = new System.Drawing.Point(1321, 940);
@@ -1131,13 +1135,14 @@ namespace _69CoffeeShop.Employees
             this.iconButtonDelete.TabIndex = 121;
             this.iconButtonDelete.Text = "Delete";
             this.iconButtonDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButtonDelete.UseVisualStyleBackColor = true;
+            this.iconButtonDelete.UseVisualStyleBackColor = false;
             this.iconButtonDelete.Click += new System.EventHandler(this.iconButtonDelete_Click);
             // 
             // FormPayroll
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(240)))), ((int)(((byte)(210)))));
             this.ClientSize = new System.Drawing.Size(1504, 1061);
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(2);
