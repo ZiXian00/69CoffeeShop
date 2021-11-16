@@ -92,9 +92,11 @@
             // 
             // iconButtonCancel
             // 
+            this.iconButtonCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.iconButtonCancel.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButtonCancel.ForeColor = System.Drawing.Color.White;
             this.iconButtonCancel.IconChar = FontAwesome.Sharp.IconChar.Ban;
-            this.iconButtonCancel.IconColor = System.Drawing.Color.Red;
+            this.iconButtonCancel.IconColor = System.Drawing.Color.White;
             this.iconButtonCancel.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButtonCancel.IconSize = 40;
             this.iconButtonCancel.Location = new System.Drawing.Point(752, 304);
@@ -103,7 +105,7 @@
             this.iconButtonCancel.TabIndex = 28;
             this.iconButtonCancel.Text = "Cancel";
             this.iconButtonCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButtonCancel.UseVisualStyleBackColor = true;
+            this.iconButtonCancel.UseVisualStyleBackColor = false;
             this.iconButtonCancel.Visible = false;
             this.iconButtonCancel.Click += new System.EventHandler(this.iconButtonCancel_Click);
             // 
@@ -120,9 +122,11 @@
             // 
             // iconButtonConfirm
             // 
+            this.iconButtonConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(209)))), ((int)(((byte)(68)))));
             this.iconButtonConfirm.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButtonConfirm.ForeColor = System.Drawing.Color.White;
             this.iconButtonConfirm.IconChar = FontAwesome.Sharp.IconChar.Check;
-            this.iconButtonConfirm.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.iconButtonConfirm.IconColor = System.Drawing.Color.White;
             this.iconButtonConfirm.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButtonConfirm.IconSize = 40;
             this.iconButtonConfirm.Location = new System.Drawing.Point(592, 304);
@@ -131,7 +135,7 @@
             this.iconButtonConfirm.TabIndex = 27;
             this.iconButtonConfirm.Text = "Confirm";
             this.iconButtonConfirm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButtonConfirm.UseVisualStyleBackColor = true;
+            this.iconButtonConfirm.UseVisualStyleBackColor = false;
             this.iconButtonConfirm.Visible = false;
             this.iconButtonConfirm.Click += new System.EventHandler(this.iconButtonConfirm_Click);
             // 
@@ -356,6 +360,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(240)))), ((int)(((byte)(210)))));
             this.ClientSize = new System.Drawing.Size(921, 503);
             this.Controls.Add(this.textBoxConfirm);
             this.Controls.Add(this.labelConfirm);
