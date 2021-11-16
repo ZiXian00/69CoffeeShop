@@ -345,7 +345,6 @@ namespace _69CoffeeShop.Forms
                     insertOrderCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(orderID));
                     insertOrderCmd.Parameters.AddWithValue("@mID", Class.Utilities.encryption(labelMemID.Text));
                     insertOrderCmd.Parameters.AddWithValue("@eID", Class.Utilities.encryption(Class.Cashier.cashierID));
-                MessageBox.Show(Class.Utilities.encryption(labelMemID.Text));
                     insertOrderCmd.ExecuteNonQuery();
                 }
                 else
@@ -395,7 +394,7 @@ namespace _69CoffeeShop.Forms
             }
             finally
             {
-                
+                connection.conn.Close();
             }
         }
 
