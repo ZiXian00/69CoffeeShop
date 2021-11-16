@@ -158,30 +158,37 @@ namespace _69CoffeeShop.Class
 
             string backupPath = backupDirectory + "\\69coffeeshop.sql";
 
-            using (MySqlConnection conn = new MySqlConnection(Connection.connStr))
+            try
             {
-                using (MySqlCommand cmd = new MySqlCommand())
+                using (MySqlConnection conn = new MySqlConnection(Connection.connStr))
                 {
-                    using (MySqlBackup mb = new MySqlBackup(cmd))
+                    using (MySqlCommand cmd = new MySqlCommand())
                     {
-                        cmd.Connection = conn;
-                        conn.Open();
-                        mb.ImportFromFile(backupPath);
-                        conn.Close();
+                        using (MySqlBackup mb = new MySqlBackup(cmd))
+                        {
+                            cmd.Connection = conn;
+                            conn.Open();
+                            mb.ImportFromFile(backupPath);
+                            conn.Close();
+                        }
                     }
                 }
+
+                DateTime restoreDateTime = DateTime.Now;
+
+                string updateBackupRecordQry = "update backup_record set restore_datetime = @restore ORDER BY backup_id DESC LIMIT 1";
+                MySqlCommand updateBackupRecordCmd = new MySqlCommand(updateBackupRecordQry, connection.conn);
+                connection.conn.Open();
+                updateBackupRecordCmd.Parameters.AddWithValue("@restore", encryption(restoreDateTime.ToString()));
+                updateBackupRecordCmd.ExecuteNonQuery();
+                connection.conn.Close();
+
+                MessageBox.Show("Restored all data and information from latest backup", "Data and Information Restore", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-            DateTime restoreDateTime = DateTime.Now;
-
-            string updateBackupRecordQry = "update backup_record set restore_datetime = @restore ORDER BY backup_id DESC LIMIT 1";
-            MySqlCommand updateBackupRecordCmd = new MySqlCommand(updateBackupRecordQry, connection.conn);
-            connection.conn.Open();
-            updateBackupRecordCmd.Parameters.AddWithValue("@restore", encryption(restoreDateTime.ToString()));
-            updateBackupRecordCmd.ExecuteNonQuery();
-            connection.conn.Close();
-
-            MessageBox.Show("Restored all data and information from latest backup", "Data and Information Restore", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            catch
+            {
+                MessageBox.Show("No backup record found", "Data and Information Restore", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public static void resetControl(Control form)

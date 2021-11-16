@@ -111,20 +111,28 @@ namespace _69CoffeeShop.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string newEmpQry = "insert into employee_duty_record (month, year, employeeID, workingHours) values (@month, @year, @id, @hours)";
-            MySqlCommand newEmpCmd = new MySqlCommand(newEmpQry, connection.conn);
+            string payrollQry = "insert into payroll_record (employeeID, totalWorkingHours, overtime, EPF_rate, EPF_deduction, grossPay, totalDeduction, " +
+             "netPay, date, overtimeRate, socso, wagesType, totalWorkingDays, status) values" +
+             " (@id, @hours, @ot, @epfRate, @epfDeduction, @grossPay, @totalDeduction, @netPay, @date, @otRate, @socso, @wagesType, @days, @status)";
+            MySqlCommand payrollCmd = new MySqlCommand(payrollQry, connection.conn);
             connection.conn.Open();
+            payrollCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption("1008"));
+            payrollCmd.Parameters.AddWithValue("@hours", Class.Utilities.encryption("240"));
+            payrollCmd.Parameters.AddWithValue("@ot", Class.Utilities.encryption("0"));
+            payrollCmd.Parameters.AddWithValue("@epfRate", Class.Utilities.encryption("11%"));
+            payrollCmd.Parameters.AddWithValue("@epfDeduction", Class.Utilities.encryption("240.00"));
+            payrollCmd.Parameters.AddWithValue("@grossPay", Class.Utilities.encryption("2500.00"));
+            payrollCmd.Parameters.AddWithValue("@totalDeduction", Class.Utilities.encryption("300.00"));
+            payrollCmd.Parameters.AddWithValue("@netPay", Class.Utilities.encryption("2200.00"));
+            payrollCmd.Parameters.AddWithValue("@date", Class.Utilities.encryption("2021-11-10"));
+            payrollCmd.Parameters.AddWithValue("@otRate", Class.Utilities.encryption("8.00"));
+            payrollCmd.Parameters.AddWithValue("@socso", Class.Utilities.encryption("60.00"));
+            payrollCmd.Parameters.AddWithValue("@wagesType", Class.Utilities.encryption("Fixed Salary"));
+            payrollCmd.Parameters.AddWithValue("@days", Class.Utilities.encryption("30"));
+            payrollCmd.Parameters.AddWithValue("@status", Class.Utilities.encryption("Pending"));
+            payrollCmd.ExecuteNonQuery();
 
-            //try
-            //{
-                newEmpCmd.Parameters.AddWithValue("@month", Class.Utilities.encryption("Oct"));
-                newEmpCmd.Parameters.AddWithValue("@year", Class.Utilities.encryption("2021"));
-                newEmpCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption("1006"));
-                newEmpCmd.Parameters.AddWithValue("@hours", Class.Utilities.encryption("240"));
-
-            newEmpCmd.ExecuteNonQuery();
-
-                connection.conn.Close();
+            connection.conn.Close();
             //catch (Exception ex)
             //{
             //    MessageBox.Show("Unexpected error occured." + Environment.NewLine + "Please try again.", "Error Handling", MessageBoxButtons.OK, MessageBoxIcon.Error);

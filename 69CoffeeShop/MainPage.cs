@@ -251,10 +251,9 @@ namespace _69CoffeeShop
             MySqlDataReader getPayroll_IDRdr = getPayroll_IDCmd.ExecuteReader();
             List<string> payroll_id = new List<string>();
             List<string> payroll_date = new List<string>();
+
             if (getPayroll_IDRdr.HasRows)
             {
-               
-
                 while (getPayroll_IDRdr.Read())
                 {
                     payroll_id.Add(getPayroll_IDRdr.GetInt32(0).ToString());
@@ -285,7 +284,7 @@ namespace _69CoffeeShop
                     string updatePayrollStatusQry = "update payroll_record set status = @status where payroll_id = @id";
                     MySqlCommand updatePayrollStatusCmd = new MySqlCommand(updatePayrollStatusQry, connection.conn);
                     connection.conn.Open();
-                    updatePayrollStatusCmd.Parameters.AddWithValue("@status", Class.Utilities.encryption("Complete"));
+                    updatePayrollStatusCmd.Parameters.AddWithValue("@status", Class.Utilities.encryption("Completed"));
                     updatePayrollStatusCmd.Parameters.AddWithValue("@id", payroll_id[i]);
                     updatePayrollStatusCmd.ExecuteNonQuery();
                     connection.conn.Close();

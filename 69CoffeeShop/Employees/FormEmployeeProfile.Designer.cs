@@ -331,6 +331,7 @@ namespace _69CoffeeShop.Employees
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(273, 23);
             this.txtEmail.TabIndex = 3;
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // lblEmail
             // 

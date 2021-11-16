@@ -577,6 +577,7 @@ namespace _69CoffeeShop.Employees
                 {
                     connection.conn.Close();
                     previous.refreshGridView();
+                    this.Close();
                 }
             }
         }
@@ -613,6 +614,22 @@ namespace _69CoffeeShop.Employees
             if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+        private void txtEmail_Leave(object sender, EventArgs e)
+        {
+            err.Clear();
+
+            if (txtEmail.Text != "")
+            {
+                try
+                {
+                    MailAddress mailAddress = new MailAddress(txtEmail.Text);
+                }
+                catch
+                {
+                    err.SetError(txtEmail, "Invalid email format");
+                }
             }
         }
     }

@@ -124,6 +124,7 @@ namespace _69CoffeeShop.Admins
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(406, 275);
             this.Name = "FormAdminChangePassword";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Change Password";
             this.ResumeLayout(false);

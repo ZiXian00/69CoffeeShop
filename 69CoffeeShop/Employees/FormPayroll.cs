@@ -179,10 +179,10 @@ namespace _69CoffeeShop.Employees
 
                 if (recordDate.Month == DateTime.Now.Month && recordDate.Year == DateTime.Now.Year)
                 {
-                    MessageBox.Show("This employee already has payroll record created on current month." + Environment.NewLine + Environment.NewLine
-                        + "Please delete previous record before adding new record.", "Duplicate Record !", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     groupBox1.Visible = false;
                     iconButtonAdd.Visible = false;
+                    MessageBox.Show("This employee already has payroll record created on current month." + Environment.NewLine + Environment.NewLine
+                        + "Please delete previous record before adding new record.", "Duplicate Record !", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     payrollExistRdr.Close();
                     connection.conn.Close();
                     return true;
@@ -572,10 +572,9 @@ namespace _69CoffeeShop.Employees
 
             if(textBox.Text != "")
             {
-                textBox.Text = (double.Parse(textBox.Text)).ToString("0.00");
-
-                calculateGrossPay();                
+                textBox.Text = (double.Parse(textBox.Text)).ToString("0.00");                            
             }
+            calculateGrossPay();
         }
     }
 }

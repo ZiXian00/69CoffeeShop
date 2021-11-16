@@ -101,7 +101,7 @@ namespace _69CoffeeShop.Products
             }
 
             int rowIndex = dataGridViewProduct.SelectedCells[0].RowIndex;
-            DialogResult ds = MessageBox.Show("Delete " + dataGridViewProduct.Rows[rowIndex].Cells[1].Value, "Delete Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            DialogResult ds = MessageBox.Show("Delete " + dataGridViewProduct.Rows[rowIndex].Cells[1].Value + "?", "Delete Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
             if (ds == DialogResult.OK)
             {

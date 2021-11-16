@@ -68,17 +68,22 @@ namespace _69CoffeeShop.Forms
 
         private void iconButtonBack_Click(object sender, EventArgs e)
         {
-            FormSales sales = new FormSales(mainPage);
+            DialogResult ds = MessageBox.Show("Cancel order?", "Order Cancellation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if (captureDevice != null)
+            if(ds == DialogResult.Yes)
             {
-                if (captureDevice.IsRunning)
+                FormSales sales = new FormSales(mainPage);
+
+                if (captureDevice != null)
                 {
-                    captureDevice.Stop();
+                    if (captureDevice.IsRunning)
+                    {
+                        captureDevice.Stop();
+                    }
                 }
+                mainPage.OpenChildForm(sales);
+                this.Close();
             }
-            mainPage.OpenChildForm(sales);
-            this.Close();
         }
 
         private void dataGridViewOrder_CellValueChanged(object sender, DataGridViewCellEventArgs e)

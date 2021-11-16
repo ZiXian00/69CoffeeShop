@@ -946,11 +946,9 @@ namespace _69CoffeeShop.Employees
             // 
             // textBoxHours
             // 
-            this.textBoxHours.Enabled = false;
             this.textBoxHours.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxHours.Location = new System.Drawing.Point(218, 104);
             this.textBoxHours.Name = "textBoxHours";
-            this.textBoxHours.ReadOnly = true;
             this.textBoxHours.Size = new System.Drawing.Size(100, 27);
             this.textBoxHours.TabIndex = 3;
             this.textBoxHours.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;

@@ -29,6 +29,7 @@ namespace _69CoffeeShop
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainPage));
             this.panelMenu = new System.Windows.Forms.Panel();
             this.iconButtonClockInOut = new FontAwesome.Sharp.IconButton();
             this.btnAdmin = new FontAwesome.Sharp.IconButton();
@@ -277,6 +278,7 @@ namespace _69CoffeeShop
             this.Controls.Add(this.panelDesktop);
             this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.panelMenu);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainPage";
             this.Text = "Form1";

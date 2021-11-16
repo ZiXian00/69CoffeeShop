@@ -95,7 +95,7 @@ namespace _69CoffeeShop.Products
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Please input all required fields before continue !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
