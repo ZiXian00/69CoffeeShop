@@ -53,6 +53,7 @@ namespace _69CoffeeShop.Reports
             this.Name = "ReportViewer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ReportViewer";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ReportViewer_FormClosing);
             this.ResumeLayout(false);
 
         }

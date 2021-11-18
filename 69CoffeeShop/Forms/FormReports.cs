@@ -50,12 +50,12 @@ namespace _69CoffeeShop.Forms
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-
+           
 
             if (rbInvenReport.Checked == true)
             {
 
-                rptView.Show();
+                
 
                 MySqlConnection conn = new MySqlConnection(connStr);
                 conn.Open();
@@ -88,15 +88,18 @@ namespace _69CoffeeShop.Forms
                 rptInven.SetDataSource(tableInven);
                 rptView.crystalReportViewer1.ReportSource = rptInven;
                 rptView.crystalReportViewer1.Refresh();
-                this.Refresh();
+                rptView.ShowDialog();
+                dr.Close();
                 conn.Close();
+                
+                
 
             }
 
 
             else if (rbSupplier.Checked == true)
             {
-                rptView.Show();
+                
                 MySqlConnection conn = new MySqlConnection(connStr);
                 conn.Open();
 
@@ -128,14 +131,15 @@ namespace _69CoffeeShop.Forms
                 rptSup.SetDataSource(tableSup);
                 rptView.crystalReportViewer1.ReportSource = rptSup;
                 rptView.crystalReportViewer1.Refresh();
-                this.Refresh();
+                rptView.ShowDialog();
+                dr.Close();
                 conn.Close();
             }
 
 
             else if (rbSalesProduct.Checked == true)
             {
-                rptView.Show();
+               
                 MySqlConnection conn = new MySqlConnection(connStr);
                 conn.Open();
 
@@ -162,14 +166,15 @@ namespace _69CoffeeShop.Forms
                 rptSalesProduct.SetDataSource(tableSalesP);
                 rptView.crystalReportViewer1.ReportSource = rptSalesProduct;
                 rptView.crystalReportViewer1.Refresh();
-                this.Refresh();
+                rptView.ShowDialog();
+                dr.Close();
                 conn.Close();
             }
 
 
             else if (rbSales.Checked == true)
             {
-                rptView.Show();
+                
                 MySqlConnection conn = new MySqlConnection(connStr);
                 conn.Open();
 
@@ -209,6 +214,8 @@ namespace _69CoffeeShop.Forms
                         rptSales.SetDataSource(tableSales);
                         rptView.crystalReportViewer1.ReportSource = rptSales;
                         rptView.crystalReportViewer1.Refresh();
+                        rptView.ShowDialog();
+                        dr.Close();
                     }
                     else if (rbMonthly.Checked == true)
                     {
@@ -226,6 +233,8 @@ namespace _69CoffeeShop.Forms
                         rptSales.SetDataSource(tableSales);
                         rptView.crystalReportViewer1.ReportSource = rptSales;
                         rptView.crystalReportViewer1.Refresh();
+                        rptView.ShowDialog();
+                        dr.Close();
                     }
                     else if (rbYearly.Checked == true)
                     {
@@ -253,6 +262,8 @@ namespace _69CoffeeShop.Forms
                             rptSales.SetDataSource(tableSales);
                             rptView.crystalReportViewer1.ReportSource = rptSales;
                             rptView.crystalReportViewer1.Refresh();
+                            rptView.ShowDialog();
+                            dr.Close();
                         }
 
                     }
@@ -262,14 +273,14 @@ namespace _69CoffeeShop.Forms
 
                 }
 
-                this.Refresh();
+                
                 conn.Close();
             }
 
 
             else if (rbMember.Checked == true)
             {
-                rptView.Show();
+                
                 MySqlConnection conn = new MySqlConnection(connStr);
                 conn.Open();
 
@@ -302,7 +313,8 @@ namespace _69CoffeeShop.Forms
                 rptMem.SetDataSource(tabelMem);
                 rptView.crystalReportViewer1.ReportSource = rptMem;
                 rptView.crystalReportViewer1.Refresh();
-                this.Refresh();
+                rptView.ShowDialog();
+                dr.Close();
                 conn.Close();
             }
 
@@ -321,7 +333,7 @@ namespace _69CoffeeShop.Forms
                 }
                 else
                 {
-                    rptView.Show();
+                    
                     DataTable tableProcurement = new DataTable();
 
                     tableProcurement.Columns.Add(new DataColumn("procurementID"));
@@ -356,6 +368,7 @@ namespace _69CoffeeShop.Forms
                         rptProcurement.SetDataSource(tableProcurement);
                         rptView.crystalReportViewer1.ReportSource = rptProcurement;
                         rptView.crystalReportViewer1.Refresh();
+                        dr.Close();
 
 
 
@@ -381,6 +394,7 @@ namespace _69CoffeeShop.Forms
                         rptProcurement.SetDataSource(tableProcurement);
                         rptView.crystalReportViewer1.ReportSource = rptProcurement;
                         rptView.crystalReportViewer1.Refresh();
+                        dr.Close();
                     }
                     else if (rbYearly.Checked == true)
                     {
@@ -414,20 +428,21 @@ namespace _69CoffeeShop.Forms
                             rptProcurement.SetDataSource(tableProcurement);
                             rptView.crystalReportViewer1.ReportSource = rptProcurement;
                             rptView.crystalReportViewer1.Refresh();
+                            dr.Close();
                         }
                     }
 
 
                 }
 
-                this.Refresh();
+                rptView.ShowDialog();
                 conn.Close();
             }
 
 
             else if (rbPayroll.Checked == true)
             {
-                rptView.Show();
+                
                 MySqlConnection conn = new MySqlConnection(connStr);
                 conn.Open();
 
@@ -456,7 +471,8 @@ namespace _69CoffeeShop.Forms
                 rptPay.SetDataSource(tablePay);
                 rptView.crystalReportViewer1.ReportSource = rptPay;
                 rptView.crystalReportViewer1.Refresh();
-                this.Refresh();
+                rptView.ShowDialog();
+                dr.Close();
                 conn.Close();
             }
         }
@@ -468,6 +484,9 @@ namespace _69CoffeeShop.Forms
                 gbDuration.Visible = true;
                 gbMonth.Visible = false;
                 gbYear.Visible = false;
+                rbToday.Checked = false;
+                rbMonthly.Checked = false;
+                rbYearly.Checked = false;
             }
 
 
@@ -480,6 +499,9 @@ namespace _69CoffeeShop.Forms
                 gbDuration.Visible = true;
                 gbMonth.Visible = false;
                 gbYear.Visible = false;
+                rbToday.Checked = false;
+                rbMonthly.Checked = false;
+                rbYearly.Checked = false;
             }
 
 
@@ -502,6 +524,7 @@ namespace _69CoffeeShop.Forms
             {
                 gbMonth.Visible = false;
                 gbYear.Visible = true;
+                txtYear.Text = "";
                 txtYear.Focus();
             }
 

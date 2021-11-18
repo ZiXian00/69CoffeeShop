@@ -16,5 +16,10 @@ namespace _69CoffeeShop.Reports
         {
             InitializeComponent();
         }
+
+        private void ReportViewer_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
+        }
     }
 }
