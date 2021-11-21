@@ -30,9 +30,6 @@ namespace _69CoffeeShop.Forms
         private string orderID;
         private string salesID;
 
-        public string empID { get; set; }
-        public string empName { get; set; }
-
         public FormCheckout(List<Class.Product> orderList, DataGridView dgv, MainPage mainPage)
         {
             InitializeComponent();
