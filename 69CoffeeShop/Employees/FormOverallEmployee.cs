@@ -14,7 +14,6 @@ namespace _69CoffeeShop.Employees
     public partial class FormOverallEmployee : Form
     {
         Class.Connection connection = new Class.Connection();
-        //Class.Product product;
         public List<Class.Employee> employeeList { get; set; } = new List<Class.Employee>();
 
         public FormOverallEmployee()

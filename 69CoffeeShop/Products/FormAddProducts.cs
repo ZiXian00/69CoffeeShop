@@ -17,7 +17,6 @@ namespace _69CoffeeShop.Products
     {
         Class.Connection connection = new Class.Connection();
         private FormProducts Products;
-        //private string prodName;
         private int rowIndex;
 
         public FormAddProducts(FormProducts formProducts, int rowIndex)
@@ -232,12 +231,7 @@ namespace _69CoffeeShop.Products
             }
         }
 
-        private void textBoxProdCost_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxProdCost_RegionChanged(object sender, EventArgs e)
+        private void FormAddProducts_Load(object sender, EventArgs e)
         {
 
         }

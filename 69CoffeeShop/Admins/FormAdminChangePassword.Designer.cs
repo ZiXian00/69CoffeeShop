@@ -130,6 +130,7 @@ namespace _69CoffeeShop.Admins
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Change Password";
+            this.Load += new System.EventHandler(this.FormAdminChangePassword_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

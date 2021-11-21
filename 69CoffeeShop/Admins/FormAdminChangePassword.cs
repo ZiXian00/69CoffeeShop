@@ -110,5 +110,10 @@ namespace _69CoffeeShop.Admins
                 }
             }
         }
+
+        private void FormAdminChangePassword_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -137,6 +137,11 @@ namespace _69CoffeeShop.Forms
                 e.Handled = true;
             }
         }
+
+        private void FormAdminLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
     
 }

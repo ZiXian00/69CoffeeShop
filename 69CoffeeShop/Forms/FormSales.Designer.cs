@@ -219,6 +219,7 @@ namespace _69CoffeeShop.Forms
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormSales";
             this.Text = "Sales";
+            this.Load += new System.EventHandler(this.FormSales_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrder)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

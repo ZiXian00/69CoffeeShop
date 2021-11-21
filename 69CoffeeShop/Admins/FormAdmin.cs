@@ -164,6 +164,11 @@ namespace _69CoffeeShop.Forms
             ActivateButton(sender, RGBColors.color1);
             OpenChildForm(new Forms.FormInventories());
         }
+
+        private void FormAdmin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

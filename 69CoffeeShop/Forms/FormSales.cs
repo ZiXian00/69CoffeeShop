@@ -232,6 +232,11 @@ namespace _69CoffeeShop.Forms
             }
         }
 
+        private void FormSales_Load(object sender, EventArgs e)
+        {
+
+        }
+
 
         //BACKUP CODE
         //private string getUnitPrice(string name)
