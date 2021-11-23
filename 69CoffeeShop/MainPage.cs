@@ -313,7 +313,7 @@ namespace _69CoffeeShop
 
                 if(Convert.ToInt32(Class.Utilities.decryption(dr["quantity"].ToString())) <= 10)
                 {
-                    inventory.Add(Class.Utilities.decryption(dr["inventoryID"].ToString()) + " left only " + Class.Utilities.decryption(dr["quantity"].ToString()));
+                    inventory.Add("Please check that "+Class.Utilities.decryption(dr["inventoryID"].ToString()) + " left only " + Class.Utilities.decryption(dr["quantity"].ToString()) + " in system.");
                 }
                 
             }

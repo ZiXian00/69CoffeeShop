@@ -27,7 +27,7 @@ namespace _69CoffeeShop.Suppliers
         private void viewSupplier_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the '_69coffeeshopDataSetSupplier.supplier' table. You can move, or remove it, as needed.
-            this.supplierTableAdapter.Fill(this._69coffeeshopDataSetSupplier.supplier);
+            //this.supplierTableAdapter.Fill(this._69coffeeshopDataSetSupplier.supplier);
             PrintGridView();
 
         }
