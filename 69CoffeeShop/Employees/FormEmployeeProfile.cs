@@ -23,7 +23,7 @@ namespace _69CoffeeShop.Employees
 
         public FormEmployeeProfile()
         {
-            InitializeComponent();            
+            InitializeComponent();
         }
 
         private void updateEmpID()
@@ -62,7 +62,7 @@ namespace _69CoffeeShop.Employees
             InitializeComponent();
             this.previous = previous;
 
-            if(operation == "add")
+            if (operation == "add")
             {
                 updateEmpID();
             }
@@ -190,7 +190,7 @@ namespace _69CoffeeShop.Employees
         {
             if (validation() == true)
             {
-                if(checkEmployeeExist() == true)
+                if (checkEmployeeExist() == true)
                 {
                     string newEmpQry = "insert into employees (employeeID, employeeName, dateOfBirth, position, contactNo, email, employmentStatus, bankName, bankAccountNo, " +
                    "address, age, emergencyContact, identityNo, gender, dateHired, maritalStatus, salary_rate) " +
@@ -262,7 +262,7 @@ namespace _69CoffeeShop.Employees
             Control ctrl = null;
             err.Clear();
 
-            if(txtName.Text == "")
+            if (txtName.Text == "")
             {
                 error.Clear();
                 error.AppendLine("Invalid input. Please make sure to fill up all the required field with correct format");
@@ -270,7 +270,7 @@ namespace _69CoffeeShop.Employees
 
                 err.SetError(txtName, "Please enter employee's name");
             }
-            if(textBoxContact.Text == "")
+            if (textBoxContact.Text == "")
             {
                 error.Clear();
                 error.AppendLine("Invalid input. Please make sure to fill up all the required field with correct format");
@@ -281,13 +281,13 @@ namespace _69CoffeeShop.Employees
             if (txtAddress.Text == "")
             {
                 error.Clear();
-                error.AppendLine("Invalid input. Please make sure to fill up all the required field with correct format"); 
+                error.AppendLine("Invalid input. Please make sure to fill up all the required field with correct format");
                 if (ctrl == null) ctrl = txtAddress;
 
                 err.SetError(txtAddress, "Please enter employee's address");
             }
 
-            if(textBoxSalary.Text == "")
+            if (textBoxSalary.Text == "")
             {
                 error.Clear();
                 error.AppendLine("Invalid input. Please make sure to fill up all the required field with correct format");
@@ -394,7 +394,7 @@ namespace _69CoffeeShop.Employees
                 err.SetError(dropdownPosition, "Please select the employee's designation");
             }
 
-            if (error.Length > 0) 
+            if (error.Length > 0)
             {
                 MessageBox.Show(error.ToString(), "Error !", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 ctrl.Focus();
@@ -404,16 +404,6 @@ namespace _69CoffeeShop.Employees
             {
                 return true;
             }
-        }
-
-        private void textBoxContact_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
-
-        private void textBoxEContact_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
         }
 
         private void textBoxBankAcc_KeyPress(object sender, KeyPressEventArgs e)
@@ -447,7 +437,7 @@ namespace _69CoffeeShop.Employees
 
         private void iconButtonEdit_Click(object sender, EventArgs e)
         {
-            if(validation() == true)
+            if (validation() == true)
             {
                 string updateEmpProfilQry = "update employees set employeeName = @name, " +
                     "dateOfBirth = @dob, " +
@@ -507,14 +497,14 @@ namespace _69CoffeeShop.Employees
                     double salary_rate = double.Parse(textBoxSalary.Text);
                     string _salary_rate = salary_rate.ToString("0.00");
 
-                    updateEmpProfileCmd.Parameters.AddWithValue("@salary", Class.Utilities.encryption(_salary_rate));                    
+                    updateEmpProfileCmd.Parameters.AddWithValue("@salary", Class.Utilities.encryption(_salary_rate));
                     updateEmpProfileCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(txtEmployeeID.Text));
 
                     updateEmpProfileCmd.ExecuteNonQuery();
-                
+
                     MessageBox.Show("Profile updated.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                    catch (Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show("Unexpected error occured." + Environment.NewLine + "Please try again.", "Error Handling", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -524,8 +514,8 @@ namespace _69CoffeeShop.Employees
                     connection.conn.Close();
                     previous.refreshGridView();
                 }
+            }
         }
-    }
 
         private void iconButtonDelete_Click(object sender, EventArgs e)
         {
@@ -533,7 +523,7 @@ namespace _69CoffeeShop.Employees
 
             DialogResult ds = MessageBox.Show("Confirm delete " + txtName.Text + "'s profile?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if(ds == DialogResult.Yes)
+            if (ds == DialogResult.Yes)
             {
                 string deleteEmpQry = "delete from employees where employeeID = @id";
                 MySqlCommand deleteEmpCmd = new MySqlCommand(deleteEmpQry, connection.conn);

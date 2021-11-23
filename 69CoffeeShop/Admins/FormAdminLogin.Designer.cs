@@ -146,6 +146,7 @@ namespace _69CoffeeShop.Forms
             this.Name = "FormAdminLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin Login";
+            this.Load += new System.EventHandler(this.FormAdminLogin_Load);
             this.groupBoxEmployeeDetails.ResumeLayout(false);
             this.groupBoxEmployeeDetails.PerformLayout();
             this.ResumeLayout(false);

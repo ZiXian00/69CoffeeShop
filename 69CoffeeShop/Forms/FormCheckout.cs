@@ -31,9 +31,6 @@ namespace _69CoffeeShop.Forms
         private string salesID;
         public int currentCupQty, currentStrawQty;
 
-        public string empID { get; set; }
-        public string empName { get; set; }
-
         public FormCheckout(List<Class.Product> orderList, DataGridView dgv, MainPage mainPage)
         {
             InitializeComponent();
@@ -608,11 +605,6 @@ namespace _69CoffeeShop.Forms
             }
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btnSearchMember_Click(object sender, EventArgs e)
         {
             string memQuery = "SELECT memberID, memberName, rewardsPoint FROM member WHERE memberID = @memberID OR memberName = @memberName";
@@ -669,7 +661,6 @@ namespace _69CoffeeShop.Forms
                 }
             }
         }
-
 
     }
 }
