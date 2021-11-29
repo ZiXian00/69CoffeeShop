@@ -29,6 +29,7 @@ namespace _69CoffeeShop.Forms
         public string memID, memName, point = "";
         private string orderID;
         private string salesID;
+        public int currentCupQty, currentStrawQty;
 
         public FormCheckout(List<Class.Product> orderList, DataGridView dgv, MainPage mainPage)
         {
@@ -261,7 +262,12 @@ namespace _69CoffeeShop.Forms
         {
             createOrderID();
             createSalesID();
-            UpdateMemPoint();
+            if(lblTotalPoint.Text != "-")
+            {
+                UpdateMemPoint();
+
+            }
+            
 
             TabControl tab = tabControlPayment as TabControl;
             updateSqlTable(tab.TabPages["tabPageCash"].Tag.ToString());
@@ -352,6 +358,63 @@ namespace _69CoffeeShop.Forms
                     insertOrderCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(orderID));
                     insertOrderCmd.Parameters.AddWithValue("@eID", Class.Utilities.encryption(Class.Cashier.cashierID));
                     insertOrderCmd.ExecuteNonQuery();
+                }
+
+                //get quantity for inventory (straw and cup)
+                
+                string retrieveInvenQty = "SELECT quantity FROM inventory WHERE inventoryID = '" + Class.Utilities.encryption("I0003") + "'";
+                MySqlCommand retrieveInvenQtyCmd = new MySqlCommand(retrieveInvenQty, connection.conn);
+                
+                MySqlDataReader drCup = retrieveInvenQtyCmd.ExecuteReader();
+
+                if (drCup.Read())
+                {
+                    currentCupQty = Convert.ToInt32(Class.Utilities.decryption(drCup["quantity"].ToString()));
+
+                }
+                drCup.Close();
+
+                string retrieveInvenQty1 = "SELECT quantity FROM inventory WHERE inventoryID = '" + Class.Utilities.encryption("I0002") + "'";
+                MySqlCommand retrieveInvenQtyCmd1 = new MySqlCommand(retrieveInvenQty1, connection.conn);
+                MySqlDataReader drStraw = retrieveInvenQtyCmd1.ExecuteReader();
+
+                if (drStraw.Read())
+                {
+                    currentStrawQty = Convert.ToInt32(Class.Utilities.decryption(drStraw["quantity"].ToString()));
+
+                }
+                drStraw.Close();
+
+                int newCupQty = currentCupQty - orderList.Count;
+                int newStrawQty = currentStrawQty - orderList.Count;
+
+
+                string sqlNewStraw = "UPDATE inventory SET quantity = @quantity WHERE inventoryID  = '" + Class.Utilities.encryption("I0002") + "'";
+                MySqlCommand newStrawcmd = new MySqlCommand(sqlNewStraw, connection.conn);
+                newStrawcmd.Parameters.AddWithValue("@quantity", Class.Utilities.encryption(newStrawQty.ToString()));
+                try
+                {
+                    newStrawcmd.ExecuteNonQuery();
+                    
+
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("straw not update. \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                string sqlNewCup = "UPDATE inventory SET quantity = @quantity WHERE inventoryID  = '" + Class.Utilities.encryption("I0003") + "'";
+                MySqlCommand newCupcmd = new MySqlCommand(sqlNewCup, connection.conn);
+                newCupcmd.Parameters.AddWithValue("@quantity", Class.Utilities.encryption(newCupQty.ToString()));
+                try
+                {
+                    newCupcmd.ExecuteNonQuery();
+
+
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("cup not update. \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
 
@@ -479,6 +542,7 @@ namespace _69CoffeeShop.Forms
 
         private void UpdateMemPoint()
         {
+            
             int existPoint = Convert.ToInt32(lblTotalPoint.Text);
             string[] discount = lblDiscount.Text.Split(' ');
             string[] discount1 = discount[1].Split('.');

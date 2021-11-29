@@ -16,6 +16,7 @@ namespace _69CoffeeShop.Suppliers
     public partial class newSupplier : Form
     {
         string connStr = ConfigurationManager.ConnectionStrings["connStr"].ConnectionString;
+        public int currentCupQty, currentStrawQty;
 
         public newSupplier()
         {
@@ -25,6 +26,8 @@ namespace _69CoffeeShop.Suppliers
         private void newSupplier_Load(object sender, EventArgs e)
         {
             LoadID();
+            
+           
         }
 
     
@@ -134,6 +137,9 @@ namespace _69CoffeeShop.Suppliers
             txtCompanyName.Text = "";
             txtAddress.Text = "";
             txtEmail.Text = "";
+
+
+            
         }
 
         private void txtEmail_KeyPress(object sender, KeyPressEventArgs e)
