@@ -437,6 +437,8 @@ namespace _69CoffeeShop.Employees
 
         private void iconButtonEdit_Click(object sender, EventArgs e)
         {
+            Boolean isAdmin = false;
+
             string checkIfAdmQry = "select * from admin where employeeID = @id";
             MySqlCommand checkIfAdmCmd = new MySqlCommand(checkIfAdmQry, connection.conn);
             checkIfAdmCmd.Parameters.AddWithValue("id", Class.Utilities.encryption(txtEmployeeID.Text));
@@ -445,89 +447,100 @@ namespace _69CoffeeShop.Employees
 
             if (checkIfAdmRdr.Read() && dropdownPosition.SelectedItem.ToString() != "Manager")
             {
-                MessageBox.Show("This employee has added as admin." + Environment.NewLine + "Please delete admin record before demotion.", "Admin record found", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                connection.conn.Close();
+                isAdmin = true;
             }
-            else
+
+            checkIfAdmRdr.Close();
+            if(isAdmin == true)
             {
-                connection.conn.Close();
-                if (validation() == true)
+                DialogResult ds = MessageBox.Show("This employee has added as admin." + Environment.NewLine + "Admin record will together be deleted if proceed", "Admin record found", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+                if (ds == DialogResult.OK)
                 {
-                    string updateEmpProfilQry = "update employees set employeeName = @name, " +
-                        "dateOfBirth = @dob, " +
-                        "position = @position, " +
-                        "contactNo = @contact, " +
-                        "email = @email, " +
-                        "employmentStatus = @status, " +
-                        "bankName = @bankName, " +
-                        "bankAccountNo = @bankAcc, " +
-                        "address = @address, " +
-                        "age = @age, " +
-                        "emergencyContact = @emergencyContact, " +
-                        "identityNo = @ic, " +
-                        "gender = @gender, " +
-                        "dateHired = @dateHired, " +
-                        "maritalStatus = @maritalStatus, " +
-                        "salary_rate = @salary " +
-                        "where employeeID = @id";
+                    string deleteAdmQry = "delete from admin where employeeID = @id";
+                    MySqlCommand deleteAdmCmd = new MySqlCommand(deleteAdmQry, connection.conn);
+                    deleteAdmCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(txtEmployeeID.Text));
+                    deleteAdmCmd.ExecuteNonQuery();
+                }
+            }
 
-                    MySqlCommand updateEmpProfileCmd = new MySqlCommand(updateEmpProfilQry, connection.conn);
-                    connection.conn.Open();
+            connection.conn.Close();
+            if (validation() == true)
+            {
+                string updateEmpProfilQry = "update employees set employeeName = @name, " +
+                    "dateOfBirth = @dob, " +
+                    "position = @position, " +
+                    "contactNo = @contact, " +
+                    "email = @email, " +
+                    "employmentStatus = @status, " +
+                    "bankName = @bankName, " +
+                    "bankAccountNo = @bankAcc, " +
+                    "address = @address, " +
+                    "age = @age, " +
+                    "emergencyContact = @emergencyContact, " +
+                    "identityNo = @ic, " +
+                    "gender = @gender, " +
+                    "dateHired = @dateHired, " +
+                    "maritalStatus = @maritalStatus, " +
+                    "salary_rate = @salary " +
+                    "where employeeID = @id";
 
-                    try
+                MySqlCommand updateEmpProfileCmd = new MySqlCommand(updateEmpProfilQry, connection.conn);
+                connection.conn.Open();
+
+                try
+                {
+                    updateEmpProfileCmd.Parameters.AddWithValue("@name", Class.Utilities.encryption(txtName.Text));
+                    updateEmpProfileCmd.Parameters.AddWithValue("@dob", Class.Utilities.encryption(dateTimePickerDateOfBirth.Value.ToString("yyyy-MM-dd")));
+                    updateEmpProfileCmd.Parameters.AddWithValue("@position", Class.Utilities.encryption(dropdownPosition.SelectedItem.ToString()));
+                    updateEmpProfileCmd.Parameters.AddWithValue("@contact", Class.Utilities.encryption(textBoxContact.Text));
+                    updateEmpProfileCmd.Parameters.AddWithValue("@email", Class.Utilities.encryption(txtEmail.Text));
+
+                    if (radFullTime.Checked)
                     {
-                        updateEmpProfileCmd.Parameters.AddWithValue("@name", Class.Utilities.encryption(txtName.Text));
-                        updateEmpProfileCmd.Parameters.AddWithValue("@dob", Class.Utilities.encryption(dateTimePickerDateOfBirth.Value.ToString("yyyy-MM-dd")));
-                        updateEmpProfileCmd.Parameters.AddWithValue("@position", Class.Utilities.encryption(dropdownPosition.SelectedItem.ToString()));
-                        updateEmpProfileCmd.Parameters.AddWithValue("@contact", Class.Utilities.encryption(textBoxContact.Text));
-                        updateEmpProfileCmd.Parameters.AddWithValue("@email", Class.Utilities.encryption(txtEmail.Text));
-
-                        if (radFullTime.Checked)
-                        {
-                            updateEmpProfileCmd.Parameters.AddWithValue("@status", Class.Utilities.encryption("Full time"));
-                        }
-                        else if (radioPartTime.Checked)
-                        {
-                            updateEmpProfileCmd.Parameters.AddWithValue("@status", Class.Utilities.encryption("Part time"));
-                        }
-                        updateEmpProfileCmd.Parameters.AddWithValue("@bankName", Class.Utilities.encryption(dropdownBank.SelectedItem.ToString()));
-                        updateEmpProfileCmd.Parameters.AddWithValue("@bankAcc", Class.Utilities.encryption(textBoxBankAcc.Text));
-                        updateEmpProfileCmd.Parameters.AddWithValue("@address", Class.Utilities.encryption(txtAddress.Text));
-                        updateEmpProfileCmd.Parameters.AddWithValue("@age", Class.Utilities.encryption(labelAge.Text));
-                        updateEmpProfileCmd.Parameters.AddWithValue("@emergencyContact", Class.Utilities.encryption(textBoxEContact.Text));
-                        updateEmpProfileCmd.Parameters.AddWithValue("@ic", Class.Utilities.encryption(maskedTextBoxIC.Text));
-
-                        if (radMale.Checked)
-                        {
-                            updateEmpProfileCmd.Parameters.AddWithValue("@gender", Class.Utilities.encryption("Male"));
-                        }
-                        else
-                        {
-                            updateEmpProfileCmd.Parameters.AddWithValue("@gender", Class.Utilities.encryption("Female"));
-                        }
-                        updateEmpProfileCmd.Parameters.AddWithValue("@dateHired", Class.Utilities.encryption(dateTimePickerDateHired.Value.ToString("yyyy-MM-dd")));
-                        updateEmpProfileCmd.Parameters.AddWithValue("@maritalStatus", Class.Utilities.encryption(dropDownMarriage.SelectedItem.ToString()));
-
-                        double salary_rate = double.Parse(textBoxSalary.Text);
-                        string _salary_rate = salary_rate.ToString("0.00");
-
-                        updateEmpProfileCmd.Parameters.AddWithValue("@salary", Class.Utilities.encryption(_salary_rate));
-                        updateEmpProfileCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(txtEmployeeID.Text));
-
-                        updateEmpProfileCmd.ExecuteNonQuery();
-
-                        MessageBox.Show("Profile updated.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        updateEmpProfileCmd.Parameters.AddWithValue("@status", Class.Utilities.encryption("Full time"));
                     }
-                    catch (Exception ex)
+                    else if (radioPartTime.Checked)
                     {
-                        MessageBox.Show("Unexpected error occured." + Environment.NewLine + "Please try again.", "Error Handling", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        updateEmpProfileCmd.Parameters.AddWithValue("@status", Class.Utilities.encryption("Part time"));
+                    }
+                    updateEmpProfileCmd.Parameters.AddWithValue("@bankName", Class.Utilities.encryption(dropdownBank.SelectedItem.ToString()));
+                    updateEmpProfileCmd.Parameters.AddWithValue("@bankAcc", Class.Utilities.encryption(textBoxBankAcc.Text));
+                    updateEmpProfileCmd.Parameters.AddWithValue("@address", Class.Utilities.encryption(txtAddress.Text));
+                    updateEmpProfileCmd.Parameters.AddWithValue("@age", Class.Utilities.encryption(labelAge.Text));
+                    updateEmpProfileCmd.Parameters.AddWithValue("@emergencyContact", Class.Utilities.encryption(textBoxEContact.Text));
+                    updateEmpProfileCmd.Parameters.AddWithValue("@ic", Class.Utilities.encryption(maskedTextBoxIC.Text));
 
-                    }
-                    finally
+                    if (radMale.Checked)
                     {
-                        connection.conn.Close();
-                        previous.refreshGridView();
+                        updateEmpProfileCmd.Parameters.AddWithValue("@gender", Class.Utilities.encryption("Male"));
                     }
+                    else
+                    {
+                        updateEmpProfileCmd.Parameters.AddWithValue("@gender", Class.Utilities.encryption("Female"));
+                    }
+                    updateEmpProfileCmd.Parameters.AddWithValue("@dateHired", Class.Utilities.encryption(dateTimePickerDateHired.Value.ToString("yyyy-MM-dd")));
+                    updateEmpProfileCmd.Parameters.AddWithValue("@maritalStatus", Class.Utilities.encryption(dropDownMarriage.SelectedItem.ToString()));
+
+                    double salary_rate = double.Parse(textBoxSalary.Text);
+                    string _salary_rate = salary_rate.ToString("0.00");
+
+                    updateEmpProfileCmd.Parameters.AddWithValue("@salary", Class.Utilities.encryption(_salary_rate));
+                    updateEmpProfileCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(txtEmployeeID.Text));
+
+                    updateEmpProfileCmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Profile updated.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Unexpected error occured." + Environment.NewLine + "Please try again.", "Error Handling", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+                finally
+                {
+                    connection.conn.Close();
+                    previous.refreshGridView();
                 }
             }
         }
