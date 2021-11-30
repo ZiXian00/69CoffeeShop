@@ -43,6 +43,7 @@ namespace _69CoffeeShop.Employees
 
                     labelName.Text = "Welcome, " + Class.Utilities.decryption(empLoginReader.GetString(1));
                     buttonLogin.Enabled = false;
+                    textBoxID.Enabled = false;
                         
                     timer1.Interval = 2500;
                     timer1.Start();

@@ -502,6 +502,7 @@ namespace _69CoffeeShop.Employees
             this.textBoxSalary.TabIndex = 33;
             this.textBoxSalary.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBoxSalary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSalary_KeyPress);
+            this.textBoxSalary.Leave += new System.EventHandler(this.textBoxSalary_Leave);
             // 
             // label9
             // 

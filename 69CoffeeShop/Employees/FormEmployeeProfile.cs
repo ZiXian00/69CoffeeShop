@@ -451,11 +451,11 @@ namespace _69CoffeeShop.Employees
             }
 
             checkIfAdmRdr.Close();
-            if(isAdmin == true)
+            if (isAdmin == true)
             {
-                DialogResult ds = MessageBox.Show("This employee has added as admin." + Environment.NewLine + "Admin record will together be deleted if proceed", "Admin record found", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                DialogResult ds = MessageBox.Show("This employee has added as admin." + Environment.NewLine + "Admin record will together be deleted if proceed." + Environment.NewLine + "Do you wish to proceed?", "Admin record found", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
-                if (ds == DialogResult.OK)
+                if (ds == DialogResult.Yes)
                 {
                     string deleteAdmQry = "delete from admin where employeeID = @id";
                     MySqlCommand deleteAdmCmd = new MySqlCommand(deleteAdmQry, connection.conn);
@@ -553,21 +553,14 @@ namespace _69CoffeeShop.Employees
 
             if (ds == DialogResult.Yes)
             {
-                string deleteEmpQry = "delete from employees where employeeID = @id";
-                MySqlCommand deleteEmpCmd = new MySqlCommand(deleteEmpQry, connection.conn);
-                deleteEmpCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(txtEmployeeID.Text));
-                connection.conn.Open();
                 try
                 {
-                    deleteEmpCmd.ExecuteNonQuery();
-
-                    MessageBox.Show(txtName.Text + "'s profile has been deleted", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    if (dropdownPosition.SelectedItem.ToString().ToUpper() == "Manager")
+                    if (dropdownPosition.SelectedItem.ToString().ToUpper() == "MANAGER")
                     {
                         string checkIfAdmQry = "select * from admin where employeeID = @id";
                         MySqlCommand checkIfAdmCmd = new MySqlCommand(checkIfAdmQry, connection.conn);
                         checkIfAdmCmd.Parameters.AddWithValue("id", Class.Utilities.encryption(txtEmployeeID.Text));
+                        connection.conn.Open();
                         MySqlDataReader checkIfAdmRdr = checkIfAdmCmd.ExecuteReader();
 
                         if (checkIfAdmRdr.Read())
@@ -586,6 +579,17 @@ namespace _69CoffeeShop.Employees
                             deleteAdmCmd.ExecuteNonQuery();
                         }
                     }
+
+                    string deleteEmpQry = "delete from employees where employeeID = @id";
+                    MySqlCommand deleteEmpCmd = new MySqlCommand(deleteEmpQry, connection.conn);
+                    deleteEmpCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(txtEmployeeID.Text));
+
+                    deleteEmpCmd.ExecuteNonQuery();
+
+                    MessageBox.Show(txtName.Text + "'s profile has been deleted", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+
                 }
                 catch
                 {
@@ -648,6 +652,16 @@ namespace _69CoffeeShop.Employees
                 {
                     err.SetError(txtEmail, "Invalid email format");
                 }
+            }
+        }
+
+        private void textBoxSalary_Leave(object sender, EventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if(textBox.Text != "")
+            {
+                double salary = double.Parse(textBox.Text);
+                textBox.Text = salary.ToString("0.00");
             }
         }
     }

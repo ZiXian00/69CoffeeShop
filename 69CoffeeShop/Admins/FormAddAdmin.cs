@@ -111,6 +111,7 @@ namespace _69CoffeeShop.Admins
                     MessageBox.Show(textBoxName.Text + " (" + textBoxID.Text + ") has been added as new admin", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     Class.Utilities.resetControlWithoutDropdown(this);
+                    this.Close();
                 }
             }   
         }

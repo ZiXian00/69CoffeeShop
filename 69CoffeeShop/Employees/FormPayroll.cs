@@ -476,7 +476,7 @@ namespace _69CoffeeShop.Employees
 
             if (ds == DialogResult.Yes)
             {
-                if (dataGridViewPayroll.Rows[rowIndex].Cells["status"].Value.ToString() != "Complete")
+                if (dataGridViewPayroll.Rows[rowIndex].Cells["status"].Value.ToString() != "Completed")
                 {
                     string deletePayrollRecordQry = "delete from payroll_record where employeeID = @id AND date = @date";
                     MySqlCommand deletePayrollRecordCmd = new MySqlCommand(deletePayrollRecordQry, connection.conn);

@@ -145,6 +145,9 @@ namespace _69CoffeeShop.Products
                     updateProdCmd.Parameters.AddWithValue("@img", img);
                     updateProdCmd.Parameters.AddWithValue("@id", Class.Utilities.encryption(Products.productList[rowIndex].productID));
                     updateProdCmd.ExecuteNonQuery();
+
+                    MessageBox.Show(textBoxProdName.Text.ToString() + " has updated", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
                 }
 
             }
