@@ -587,9 +587,6 @@ namespace _69CoffeeShop.Employees
                     deleteEmpCmd.ExecuteNonQuery();
 
                     MessageBox.Show(txtName.Text + "'s profile has been deleted", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
-
                 }
                 catch
                 {
@@ -658,7 +655,7 @@ namespace _69CoffeeShop.Employees
         private void textBoxSalary_Leave(object sender, EventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            if(textBox.Text != "")
+            if (textBox.Text != "")
             {
                 double salary = double.Parse(textBox.Text);
                 textBox.Text = salary.ToString("0.00");

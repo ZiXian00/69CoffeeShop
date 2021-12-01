@@ -622,6 +622,7 @@ namespace _69CoffeeShop.Forms
                 lblTotalPoint.Text = Class.Utilities.decryption(dr["rewardsPoint"].ToString());
                 labelMemID.Text = Class.Utilities.decryption(dr["memberID"].ToString());
                 member = true;
+                cbRedeem.Checked = false;
             }
             else
             {

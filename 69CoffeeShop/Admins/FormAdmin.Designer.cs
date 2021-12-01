@@ -235,7 +235,7 @@ namespace _69CoffeeShop.Forms
             this.btnProduct.Padding = new System.Windows.Forms.Padding(8, 0, 15, 0);
             this.btnProduct.Size = new System.Drawing.Size(165, 49);
             this.btnProduct.TabIndex = 10;
-            this.btnProduct.Text = "Product";
+            this.btnProduct.Text = "Products";
             this.btnProduct.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnProduct.UseVisualStyleBackColor = false;

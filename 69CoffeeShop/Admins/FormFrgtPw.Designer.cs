@@ -280,9 +280,11 @@ namespace _69CoffeeShop.Admins
             this.Controls.Add(this.groupBoxPassword);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(599, 526);
+            this.MinimumSize = new System.Drawing.Size(599, 526);
             this.Name = "FormFrgtPw";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FormFrgtPw";
+            this.Text = "Admin Forgot Password";
             this.Load += new System.EventHandler(this.FormFrgtPw_Load);
             this.groupBoxSQ.ResumeLayout(false);
             this.groupBoxSQ.PerformLayout();

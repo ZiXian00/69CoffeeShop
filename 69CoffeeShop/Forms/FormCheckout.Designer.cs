@@ -254,9 +254,9 @@
             this.groupBoxMember.Controls.Add(this.label13);
             this.groupBoxMember.Controls.Add(this.label12);
             this.groupBoxMember.Controls.Add(this.label11);
-            this.groupBoxMember.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBoxMember.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBoxMember.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxMember.Location = new System.Drawing.Point(0, 0);
+            this.groupBoxMember.Location = new System.Drawing.Point(0, -106);
             this.groupBoxMember.Name = "groupBoxMember";
             this.groupBoxMember.Size = new System.Drawing.Size(705, 176);
             this.groupBoxMember.TabIndex = 37;
