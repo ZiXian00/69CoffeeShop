@@ -36,7 +36,6 @@ namespace _69CoffeeShop.Forms
             this.labelID = new System.Windows.Forms.Label();
             this.lblFrgtPw = new System.Windows.Forms.Label();
             this.buttonLogin = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBoxEmployeeDetails.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -117,16 +116,6 @@ namespace _69CoffeeShop.Forms
             this.buttonLogin.UseVisualStyleBackColor = false;
             this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(48, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // FormAdminLogin
             // 
             this.AcceptButton = this.buttonLogin;
@@ -134,7 +123,6 @@ namespace _69CoffeeShop.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(240)))), ((int)(((byte)(210)))));
             this.ClientSize = new System.Drawing.Size(456, 366);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBoxEmployeeDetails);
             this.Controls.Add(this.lblFrgtPw);
             this.Controls.Add(this.buttonLogin);
@@ -163,6 +151,5 @@ namespace _69CoffeeShop.Forms
         private System.Windows.Forms.Label labelID;
         private System.Windows.Forms.Label lblFrgtPw;
         private System.Windows.Forms.Button buttonLogin;
-        private System.Windows.Forms.Button button1;
     }
 }
